@@ -1,4 +1,4 @@
-package net.dionpowder.dionsbitsnbobs;
+package net.dionpowder.dions_bitsnbobs;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;

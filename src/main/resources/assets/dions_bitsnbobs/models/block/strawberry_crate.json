@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "dions_bitsnbobs:block/crate_bottom",
+    "up": "dions_bitsnbobs:block/strawberry_crate_top",
+    "north": "dions_bitsnbobs:block/strawberry_crate_side",
+    "east": "dions_bitsnbobs:block/strawberry_crate_side",
+    "south": "dions_bitsnbobs:block/strawberry_crate_side",
+    "west": "dions_bitsnbobs:block/strawberry_crate_side",
+    "particle": "dions_bitsnbobs:block/crate_bottom"
+  },
+  "render_type": "solid"
+}

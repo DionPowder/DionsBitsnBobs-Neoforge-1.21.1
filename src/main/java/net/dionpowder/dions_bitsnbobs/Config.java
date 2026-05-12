@@ -1,4 +1,4 @@
-package net.dionpowder.dionsbitsnbobs;
+package net.dionpowder.dions_bitsnbobs;
 
 import java.util.List;
 
