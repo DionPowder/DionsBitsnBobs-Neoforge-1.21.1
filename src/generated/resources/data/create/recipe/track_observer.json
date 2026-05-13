@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "dions_bitsnbobs:train_component"
+  },
+  "result": {
+    "count": 6,
+    "id": "create:track_observer"
+  }
+}

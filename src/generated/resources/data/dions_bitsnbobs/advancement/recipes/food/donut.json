@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dions_bitsnbobs:donut"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_uncooked_donut": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:uncooked_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_uncooked_donut"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dions_bitsnbobs:donut"
+    ]
+  }
+}

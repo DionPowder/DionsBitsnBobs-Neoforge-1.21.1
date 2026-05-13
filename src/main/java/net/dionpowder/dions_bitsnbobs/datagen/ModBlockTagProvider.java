@@ -1,6 +1,5 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
-import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllTags;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.block.ModBlocks;

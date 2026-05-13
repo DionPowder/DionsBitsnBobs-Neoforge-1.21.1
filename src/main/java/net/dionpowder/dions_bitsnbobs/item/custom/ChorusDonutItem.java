@@ -15,10 +15,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 
-import static net.dionpowder.dions_bitsnbobs.Config.CHORUS_JAM_DONUT_TELEPORT_CHANCE;
-
-public class ChorusJamDonutItem extends ChorusFruitItem {
-    public ChorusJamDonutItem(Item.Properties properties) {
+public class ChorusDonutItem extends ChorusFruitItem {
+    public ChorusDonutItem(Item.Properties properties) {
         super(properties);
     }
 

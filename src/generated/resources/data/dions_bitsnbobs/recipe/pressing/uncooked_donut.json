@@ -2,12 +2,12 @@
   "type": "create:pressing",
   "ingredients": [
     {
-      "item": "dions_bitsnbobs:chorus_jam_donut"
+      "item": "create:dough"
     }
   ],
   "results": [
     {
-      "id": "dions_bitsnbobs:strawberry"
+      "id": "dions_bitsnbobs:uncooked_donut"
     }
   ]
 }

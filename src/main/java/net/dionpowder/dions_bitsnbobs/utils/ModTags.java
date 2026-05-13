@@ -18,6 +18,13 @@ public class ModTags {
 
     public static class Items {
         public static final TagKey<Item> DONUTS = createTag("donuts");
+        public static final TagKey<Item> SIMPLE_DONUTS = createTag("simple_donuts");
+        public static final TagKey<Item> FROSTING_DONUTS = createTag("frosting_donuts");
+        public static final TagKey<Item> TOPPED_FROSTING_DONUTS = createTag("topped_frosting_donuts");
+        public static final TagKey<Item> CHOCOLATE_DONUTS = createTag("chocolate_donuts");
+        public static final TagKey<Item> TOPPED_CHOCOLATE_DONUTS = createTag("topped_chocolate_donuts");
+        public static final TagKey<Item> DOUBLE_GLAZED_DONUTS = createTag("double_glazed_donuts");
+        public static final TagKey<Item> SPRINKLES = createTag("sprinkles");
 
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));

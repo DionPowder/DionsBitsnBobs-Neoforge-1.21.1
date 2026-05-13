@@ -1,6 +1,5 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
-import com.mojang.serialization.DataResult;
 import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
 import net.dionpowder.dions_bitsnbobs.item.ModItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;

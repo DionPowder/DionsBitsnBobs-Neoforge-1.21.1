@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "dions_bitsnbobs:item/strawberry"
+    "layer0": "dions_bitsnbobs:block/strawberry_bush_4"
   }
 }

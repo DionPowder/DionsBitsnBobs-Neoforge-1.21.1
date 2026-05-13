@@ -1,0 +1,66 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:cobblestone"
+  },
+  "loops": 5,
+  "results": [
+    {
+      "chance": 95.0,
+      "id": "minecraft:magma_block"
+    },
+    {
+      "chance": 5.0,
+      "id": "minecraft:cobblestone"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "minecraft:cobblestone"
+        },
+        {
+          "type": "neoforge:single",
+          "amount": 500,
+          "fluid": "minecraft:lava"
+        }
+      ],
+      "results": [
+        {
+          "id": "minecraft:cobblestone"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "minecraft:cobblestone"
+        }
+      ],
+      "results": [
+        {
+          "id": "minecraft:cobblestone"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "minecraft:cobblestone"
+        }
+      ],
+      "results": [
+        {
+          "id": "minecraft:cobblestone"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "minecraft:cobblestone"
+  }
+}

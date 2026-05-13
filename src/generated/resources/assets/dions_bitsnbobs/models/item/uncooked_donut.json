@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "dions_bitsnbobs:item/chorus_jam_donut"
+    "layer0": "dions_bitsnbobs:item/uncooked_donut"
   }
 }
