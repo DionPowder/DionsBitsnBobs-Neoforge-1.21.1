@@ -37,6 +37,8 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.dions_bitsnbobs.blocks_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModBlocks.STRAWBERRY_CRATE);
+                        output.accept(ModBlocks.COPPER_COMPONENT);
+                        output.accept(ModBlocks.TRAIN_COMPONENT);
                     }).build());
 
     public static void register(IEventBus eventBus) {

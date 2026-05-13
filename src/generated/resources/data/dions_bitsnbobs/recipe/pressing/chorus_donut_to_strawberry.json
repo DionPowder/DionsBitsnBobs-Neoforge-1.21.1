@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "dions_bitsnbobs:chorus_jam_donut"
+    }
+  ],
+  "results": [
+    {
+      "id": "dions_bitsnbobs:strawberry"
+    }
+  ]
+}

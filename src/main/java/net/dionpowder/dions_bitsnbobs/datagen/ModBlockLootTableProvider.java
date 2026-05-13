@@ -34,6 +34,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 
         dropSelf(ModBlocks.STRAWBERRY_CRATE.get());
+        dropSelf(ModBlocks.COPPER_COMPONENT.get());
+        dropSelf(ModBlocks.TRAIN_COMPONENT.get());
 
         this.add(ModBlocks.WILD_STRAWBERRY_BUSH.get(), block -> this.applyExplosionDecay(
                 block,LootTable.lootTable().withPool(LootPool.lootPool(

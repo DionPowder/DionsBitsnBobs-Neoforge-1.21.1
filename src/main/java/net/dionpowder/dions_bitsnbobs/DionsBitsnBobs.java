@@ -1,9 +1,9 @@
 package net.dionpowder.dions_bitsnbobs;
 
+import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
 import net.dionpowder.dions_bitsnbobs.item.ModCreativeModeTabs;
 import net.dionpowder.dions_bitsnbobs.item.ModItems;
-import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -21,21 +21,19 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(DionsBitsnBobs.MOD_ID)
 public class DionsBitsnBobs {
-    // Define mod id in a common place for everything to reference
+    public static final String NAME = "Create: Dion's Bits n' Bobs!";
     public static final String MOD_ID = "dions_bitsnbobs";
-    // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    // The constructor for the mod class is the first code that is run when your mod is loaded.
-    // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public DionsBitsnBobs(IEventBus modEventBus, ModContainer modContainer) {
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
+    // create
+    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(DionsBitsnBobs.MOD_ID);
 
-        // Register ourselves for server and other game events we are interested in.
-        // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
-        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
+    public DionsBitsnBobs(IEventBus modEventBus, ModContainer modContainer) {
+        modEventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);
+
+        // create
+        REGISTRATE.registerEventListeners(modEventBus);
 
         ModCreativeModeTabs.register(modEventBus);
 
@@ -56,6 +54,10 @@ public class DionsBitsnBobs {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
 
+    }
+
+    public static CreateRegistrate registrate() {
+        return REGISTRATE;
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

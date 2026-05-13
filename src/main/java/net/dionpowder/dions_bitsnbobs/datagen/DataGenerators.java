@@ -1,6 +1,9 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.datagen.create.MixingRecipeProvider;
+import net.dionpowder.dions_bitsnbobs.datagen.create.PressingRecipeProvider;
+import net.dionpowder.dions_bitsnbobs.datagen.create.SequencedAssemblyRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -25,18 +28,26 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
+        // generates loot tables
         generator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
-        //generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
 
-        //BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
-        //generator.addProvider(event.includeServer(), blockTagsProvider);
-        //generator.addProvider(event.includeServer(), new ModItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
+        // generates recipes
+        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
+        // generate create recipes
+        generator.addProvider(event.includeServer(), new MixingRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new PressingRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new SequencedAssemblyRecipeProvider(packOutput, lookupProvider));
+
+        // generates tags
+        BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
+        generator.addProvider(event.includeServer(), blockTagsProvider);
+        generator.addProvider(event.includeServer(), new ModItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
 
         //generator.addProvider(event.includeServer(), new ModDataMapProvider(packOutput, lookupProvider));
 
-        //generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
-        //generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
 
         generator.addProvider(event.includeServer(), new ModDatapackProvider(packOutput, lookupProvider));
     }

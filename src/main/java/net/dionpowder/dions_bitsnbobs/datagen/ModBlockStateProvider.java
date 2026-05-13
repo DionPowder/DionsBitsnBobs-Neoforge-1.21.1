@@ -1,4 +1,61 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
-public class ModBlockStateProvider {
+import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.ModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
+
+public class ModBlockStateProvider extends BlockStateProvider {
+    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
+        super(output, DionsBitsnBobs.MOD_ID, exFileHelper);
+    }
+
+    private String blockName(Block block) {
+        return BuiltInRegistries.BLOCK.getKey(block).getPath();
+    }
+
+    public ResourceLocation resourceFDBlock(String path) {
+        return ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, ModelProvider.BLOCK_FOLDER + "/" + path);
+    }
+
+    @Override
+    protected void registerStatesAndModels() {
+        // generate mod blocks
+        crateBlock(ModBlocks.STRAWBERRY_CRATE.get(), "strawberry");
+        componentBlock(ModBlocks.COPPER_COMPONENT.get(), "copper");
+        componentBlock(ModBlocks.TRAIN_COMPONENT.get(), "train");
+        // generate mod block item models
+        blockItem(ModBlocks.STRAWBERRY_CRATE);
+        blockItem(ModBlocks.COPPER_COMPONENT);
+        blockItem(ModBlocks.TRAIN_COMPONENT);
+    }
+
+    public void componentBlock(Block block, String componentName) {
+        this.simpleBlock(block,
+                models().cubeBottomTop(blockName(block), resourceFDBlock(componentName + "_component_side"), resourceFDBlock(componentName + "_component_top"), resourceFDBlock(componentName + "_component_top")));
+    }
+
+    public void crateBlock(Block block, String cropName) {
+        this.simpleBlock(block,
+                models().cubeBottomTop(blockName(block), resourceFDBlock(cropName + "_crate_side"), resourceFDBlock("crate_bottom"), resourceFDBlock(cropName + "_crate_top")));
+    }
+
+    private void blockWithItem(DeferredBlock<?> deferredBlock) {
+        simpleBlockWithItem(deferredBlock.get(), cubeAll(deferredBlock.get()));
+    }
+
+    private void blockItem(DeferredBlock<?> deferredBlock) {
+        simpleBlockItem(deferredBlock.get(), new ModelFile.UncheckedModelFile("dions_bitsnbobs:block/" + deferredBlock.getId().getPath()));
+    }
+
+    private void blockItem(DeferredBlock<?> deferredBlock, String appendix) {
+        simpleBlockItem(deferredBlock.get(), new ModelFile.UncheckedModelFile("dions_bitsnbobs:block/" + deferredBlock.getId().getPath() + appendix));
+    }
 }

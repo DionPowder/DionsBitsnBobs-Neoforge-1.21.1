@@ -21,18 +21,21 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(DionsBitsnBobs.MOD_ID);
 
     public static final DeferredBlock<Block> STRAWBERRY_CRATE = registerBlock("strawberry_crate",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2.0f, 3.0f)
-                    .sound(SoundType.WOOD)
-                    .ignitedByLava()
-                    .instrument(NoteBlockInstrument.BASS)
-                    ));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    // components
+    public static final DeferredBlock<Block> COPPER_COMPONENT = registerBlock("copper_component",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
 
+    public static final DeferredBlock<Block> TRAIN_COMPONENT = registerBlock("train_component",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    // bushes
     public static final DeferredBlock<Block> WILD_STRAWBERRY_BUSH = registerBlock("wild_strawberry_bush",
             () -> new WildStrawberryBush(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)));
 
     public static final DeferredBlock<Block> STRAWBERRY_BUSH = BLOCKS.register("strawberry_bush",
             () -> new StrawberryBush(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)));
+    // frosting
+
 
     private static<T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
