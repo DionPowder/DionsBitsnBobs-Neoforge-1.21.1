@@ -1,12 +1,10 @@
-package net.dionpowder.dions_bitsnbobs.effect;
+package net.dionpowder.dions_bitsnbobs.effect.custom;
 
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 
 public class SugarRushEffect extends MobEffect {
 

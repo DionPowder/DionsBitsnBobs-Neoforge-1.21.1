@@ -8,15 +8,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.function.Supplier;
 
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, DionsBitsnBobs.MOD_ID);
 
-    public static final Supplier<CreativeModeTab> BITSNBOBS_ITEMS_TAB = CREATIVE_MODE_TAB.register("bitsnbobs_items_tab",
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BITSNBOBS_ITEMS_TAB = CREATIVE_MODE_TAB.register("bitsnbobs_items_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.STRAWBERRY.get()))
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "bitsnbobs_blocks_tab"))
                     .title(Component.translatable("creativetab.dions_bitsnbobs.items_tab"))
@@ -31,7 +30,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BOTTLED_GREEN_SPRINKLES);
                     }).build());
 
-    public static final Supplier<CreativeModeTab> BITSNBOBS_DONUTS_TAB = CREATIVE_MODE_TAB.register("bitsnbobs_donuts_tab",
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BITSNBOBS_DONUTS_TAB = CREATIVE_MODE_TAB.register("bitsnbobs_donuts_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CHORUS_DONUT.get()))
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "bitsnbobs_items_tab"))
                     .title(Component.translatable("creativetab.dions_bitsnbobs.donuts_tab"))
@@ -67,7 +66,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.WHITE_CHOCOLATE_RUBY_DONUT);
                     }).build());
 
-    public static final Supplier<CreativeModeTab> BITSNBOBS_BLOCKS_TAB = CREATIVE_MODE_TAB.register("bitsnbobs_blocks_tab",
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BITSNBOBS_BLOCKS_TAB = CREATIVE_MODE_TAB.register("bitsnbobs_blocks_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.STRAWBERRY_CRATE))
                     .title(Component.translatable("creativetab.dions_bitsnbobs.blocks_tab"))
                     .displayItems((itemDisplayParameters, output) -> {

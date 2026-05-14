@@ -1,6 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.effect;
 
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.effect.custom.SugarRushEffect;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.effect.MobEffect;

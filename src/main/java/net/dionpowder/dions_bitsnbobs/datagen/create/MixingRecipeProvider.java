@@ -3,6 +3,7 @@ package net.dionpowder.dions_bitsnbobs.datagen.create;
 
 import com.simibubi.create.AllItems;
 import com.simibubi.create.api.data.recipe.MixingRecipeGen;
+import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
 import com.simibubi.create.content.processing.recipe.HeatCondition;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.item.ModItems;
@@ -43,28 +44,28 @@ public class MixingRecipeProvider extends MixingRecipeGen {
             .output(0.5f, Items.FLINT, 2)),
 
     ASURINE = create("asurine", b -> b
-            .require(ModHelper.getItemFromOtherMod("create:asurine"))
+            .require(AllPaletteStoneTypes.ASURINE.getBaseBlock().get())
             .require(Items.BASALT)
             .requiresHeat(HeatCondition.HEATED)
-            .output(ModHelper.getItemFromOtherMod("create:asurine"), 2)),
+            .output(AllPaletteStoneTypes.ASURINE.getBaseBlock().get(), 2)),
 
     CRIMSITE = create("crimsite", b -> b
-            .require(ModHelper.getItemFromOtherMod("create:crimsite"))
+            .require(AllPaletteStoneTypes.CRIMSITE.getBaseBlock().get())
             .require(Items.BLACKSTONE)
             .requiresHeat(HeatCondition.HEATED)
-            .output(ModHelper.getItemFromOtherMod("create:crimsite"), 2)),
+            .output(AllPaletteStoneTypes.CRIMSITE.getBaseBlock().get(), 2)),
 
     OCHRUM = create("ochrum", b -> b
-            .require(ModHelper.getItemFromOtherMod("create:ochrum"))
+            .require(AllPaletteStoneTypes.OCHRUM.getBaseBlock().get())
             .require(Items.SANDSTONE)
             .requiresHeat(HeatCondition.HEATED)
-            .output(ModHelper.getItemFromOtherMod("create:ochrum"), 2)),
+            .output(AllPaletteStoneTypes.OCHRUM.getBaseBlock().get(), 2)),
 
     VERIDIUM = create("veridium", b -> b
-            .require(ModHelper.getItemFromOtherMod("create:veridium"))
+            .require(AllPaletteStoneTypes.VERIDIUM.getBaseBlock().get())
             .require(Items.MOSSY_COBBLESTONE)
             .requiresHeat(HeatCondition.HEATED)
-            .output(ModHelper.getItemFromOtherMod("create:veridium"), 2)),
+            .output(AllPaletteStoneTypes.VERIDIUM.getBaseBlock().get(), 2)),
 
     COARSE_DIRT = create("coarse_dirt", b -> b
             .require(Items.DIRT)
