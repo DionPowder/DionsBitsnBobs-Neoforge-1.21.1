@@ -1,6 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
@@ -52,6 +53,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BOTTLED_RAINBOW_SPRINKLES.get());
         basicItem(ModItems.BOTTLED_WHITE_SPRINKLES.get());
         basicItem(ModItems.BOTTLED_GREEN_SPRINKLES.get());
+
+        basicItem(ModFluids.STRAWBERRY_FROSTING_BUCKET.get());
 
     }
 }
