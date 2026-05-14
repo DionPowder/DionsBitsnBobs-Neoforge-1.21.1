@@ -10,9 +10,15 @@ import net.minecraft.world.level.block.Block;
 
 public class ModTags {
     public static class Blocks {
+        public static final TagKey<Block> STORAGE_BLOCKS = commonBlockTag("storage_blocks");
+        public static final TagKey<Block> STORAGE_BLOCKS_STRAWBERRY = commonBlockTag("storage_blocks/strawberry");
 
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));
+        }
+
+        private static TagKey<Block> commonBlockTag(String path) {
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", path));
         }
     }
 
@@ -26,8 +32,21 @@ public class ModTags {
         public static final TagKey<Item> DOUBLE_GLAZED_DONUTS = createTag("double_glazed_donuts");
         public static final TagKey<Item> SPRINKLES = createTag("sprinkles");
 
+        public static final TagKey<Item> CROPS = commonItemTag("crops");
+        public static final TagKey<Item> CROPS_STRAWBERRY = commonItemTag("crops/strawberry");
+        public static final TagKey<Item> FOODS = commonItemTag("foods");
+        public static final TagKey<Item> FOODS_STRAWBERRY = commonItemTag("foods/strawberry");
+        public static final TagKey<Item> FOODS_DONUTS = commonItemTag("foods/donuts");
+
+        public static final TagKey<Item> ROOTED_DIRT_MIXING = createTag("rooted_dirt_mixing");
+
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));
         }
+
+        private static TagKey<Item> commonItemTag(String path) {
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", path));
+        }
+
     }
 }

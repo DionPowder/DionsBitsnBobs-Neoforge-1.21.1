@@ -1,5 +1,6 @@
 package net.dionpowder.dions_bitsnbobs.item;
 
+import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
 import net.dionpowder.dions_bitsnbobs.item.custom.ChorusDonutItem;
@@ -16,7 +17,7 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> UNPROCESSED_NETHERITE_DUST = ITEMS.register("unprocessed_netherite_dust",
-            () -> new Item(new Item.Properties()));
+            () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
 
     public static final DeferredItem<Item> STRAWBERRY = ITEMS.register("strawberry",
             () -> new ItemNameBlockItem(ModBlocks.STRAWBERRY_BUSH.get(), new Item.Properties().food(ModFoodProperties.STRAWBERRY)));
@@ -104,13 +105,13 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> BOTTLED_RAINBOW_SPRINKLES = ITEMS.register("bottled_rainbow_sprinkles",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().food(ModFoodProperties.SPRINKLES)));
 
     public static final DeferredItem<Item> BOTTLED_WHITE_SPRINKLES = ITEMS.register("bottled_white_sprinkles",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().food(ModFoodProperties.SPRINKLES)));
 
     public static final DeferredItem<Item> BOTTLED_GREEN_SPRINKLES = ITEMS.register("bottled_green_sprinkles",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().food(ModFoodProperties.SPRINKLES)));
 
     public static void register(IEventBus eventBus) {
        ITEMS.register(eventBus);

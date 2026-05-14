@@ -10,6 +10,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
@@ -34,10 +35,46 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 //.save(recipeOutput, "dions_bitsnbobs:strawberry_crate");
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.COAL)
+                .pattern("CC")
+                .pattern("CC")
+                .define('C', Items.CHARCOAL)
+                .unlockedBy("has_charcoal", has(Items.CHARCOAL))
+                .save(recipeOutput);
+
         // shapeless crafting
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.STRAWBERRY.get(), 9)
                 .requires(ModBlocks.STRAWBERRY_CRATE)
                 .unlockedBy("has_strawberry_crate", has(ModBlocks.STRAWBERRY_CRATE))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.EMPTY_SPRINKLES_BOTTLE)
+                .requires(Items.GLASS_BOTTLE)
+                .requires(Items.IRON_NUGGET)
+                .unlockedBy("has_glass_bottle", has(Items.GLASS_BOTTLE))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BOTTLED_RAINBOW_SPRINKLES, 3)
+                .requires(ModItems.EMPTY_SPRINKLES_BOTTLE)
+                .requires(Items.SUGAR)
+                .requires(Items.RED_DYE)
+                .requires(Items.LIME_DYE)
+                .requires(Items.BLUE_DYE)
+                .unlockedBy("has_empty_spinkles_bottle", has(ModItems.EMPTY_SPRINKLES_BOTTLE))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BOTTLED_WHITE_SPRINKLES, 3)
+                .requires(ModItems.EMPTY_SPRINKLES_BOTTLE)
+                .requires(Items.SUGAR)
+                .requires(Items.WHITE_DYE)
+                .unlockedBy("has_empty_spinkles_bottle", has(ModItems.EMPTY_SPRINKLES_BOTTLE))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BOTTLED_GREEN_SPRINKLES, 3)
+                .requires(ModItems.EMPTY_SPRINKLES_BOTTLE)
+                .requires(Items.SUGAR)
+                .requires(Items.GREEN_DYE)
+                .unlockedBy("has_empty_spinkles_bottle", has(ModItems.EMPTY_SPRINKLES_BOTTLE))
                 .save(recipeOutput);
 
         // smoking

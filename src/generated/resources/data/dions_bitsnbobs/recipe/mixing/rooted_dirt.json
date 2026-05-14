@@ -1,0 +1,16 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "tag": "dions_bitsnbobs:rooted_dirt_mixing"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:rooted_dirt"
+    }
+  ]
+}

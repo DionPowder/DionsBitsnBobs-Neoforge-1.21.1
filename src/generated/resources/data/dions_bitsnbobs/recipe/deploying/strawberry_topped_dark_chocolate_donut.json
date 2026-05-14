@@ -1,0 +1,16 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "dions_bitsnbobs:dark_chocolate_donut"
+    },
+    {
+      "item": "dions_bitsnbobs:strawberry"
+    }
+  ],
+  "results": [
+    {
+      "id": "dions_bitsnbobs:strawberry_topped_dark_chocolate_donut"
+    }
+  ]
+}

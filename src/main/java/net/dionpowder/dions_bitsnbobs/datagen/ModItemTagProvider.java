@@ -6,6 +6,7 @@ import net.dionpowder.dions_bitsnbobs.utils.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -93,5 +94,17 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.BOTTLED_RAINBOW_SPRINKLES.get())
                 .add(ModItems.BOTTLED_WHITE_SPRINKLES.get())
                 .add(ModItems.BOTTLED_GREEN_SPRINKLES.get());
+
+        tag(ModTags.Items.CROPS).add(ModItems.STRAWBERRY.get());
+        tag(ModTags.Items.CROPS_STRAWBERRY).add(ModItems.STRAWBERRY.get());
+        tag(ModTags.Items.FOODS)
+                .add(ModItems.STRAWBERRY.get())
+                .addTag(ModTags.Items.DONUTS);
+        tag(ModTags.Items.FOODS_STRAWBERRY).add(ModItems.STRAWBERRY.get());
+        tag(ModTags.Items.FOODS_DONUTS).addTag(ModTags.Items.DONUTS);
+
+        tag(ModTags.Items.ROOTED_DIRT_MIXING)
+                .add(Items.HANGING_ROOTS)
+                .add(Items.DEAD_BUSH);
     }
 }

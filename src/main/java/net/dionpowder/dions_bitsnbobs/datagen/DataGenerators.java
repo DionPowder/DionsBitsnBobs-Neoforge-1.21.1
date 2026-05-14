@@ -1,10 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.datagen.create.DeployingRecipeProvider;
-import net.dionpowder.dions_bitsnbobs.datagen.create.MixingRecipeProvider;
-import net.dionpowder.dions_bitsnbobs.datagen.create.PressingRecipeProvider;
-import net.dionpowder.dions_bitsnbobs.datagen.create.SequencedAssemblyRecipeProvider;
+import net.dionpowder.dions_bitsnbobs.datagen.create.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -36,10 +33,13 @@ public class DataGenerators {
         // generates recipes
         generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
         // generate create recipes
+        generator.addProvider(event.includeServer(), new CompactingRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new CrushingRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new DeployingRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new MixingRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new PressingRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new SequencedAssemblyRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new WashingRecipeProvider(packOutput, lookupProvider));
 
         // generates tags
         BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper);

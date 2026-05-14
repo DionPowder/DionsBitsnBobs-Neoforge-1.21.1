@@ -2,6 +2,7 @@ package net.dionpowder.dions_bitsnbobs;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
+import net.dionpowder.dions_bitsnbobs.effect.ModEffects;
 import net.dionpowder.dions_bitsnbobs.item.ModCreativeModeTabs;
 import net.dionpowder.dions_bitsnbobs.item.ModItems;
 import org.slf4j.Logger;
@@ -39,6 +40,8 @@ public class DionsBitsnBobs {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModEffects.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

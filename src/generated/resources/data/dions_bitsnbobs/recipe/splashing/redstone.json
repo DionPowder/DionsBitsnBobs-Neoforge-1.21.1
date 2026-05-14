@@ -1,0 +1,14 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "create:cinder_flour"
+    }
+  ],
+  "results": [
+    {
+      "chance": 0.6,
+      "id": "minecraft:redstone"
+    }
+  ]
+}

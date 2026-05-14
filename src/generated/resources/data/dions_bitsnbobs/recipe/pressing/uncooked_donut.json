@@ -2,7 +2,7 @@
   "type": "create:pressing",
   "ingredients": [
     {
-      "item": "create:dough"
+      "tag": "c:foods/dough/wheat"
     }
   ],
   "results": [

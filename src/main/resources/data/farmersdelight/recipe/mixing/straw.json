@@ -1,0 +1,14 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "item": {"id": "farmersdelight:straw"}
+    }
+  ]
+}
