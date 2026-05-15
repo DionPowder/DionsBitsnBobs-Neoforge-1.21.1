@@ -1,10 +1,11 @@
 package net.dionpowder.dions_bitsnbobs;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import net.dionpowder.dions_bitsnbobs.config.CommonConfig;
+import net.dionpowder.dions_bitsnbobs.config.ServerConfig;
 import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.utils.ModHelper;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.DispenserBlock;
 import net.neoforged.fml.ModLoadingContext;
 import org.slf4j.Logger;
 
@@ -35,15 +36,16 @@ public class DionsBitsnBobs {
         NeoForge.EVENT_BUS.register(this);
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
 
+        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
+        modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SPEC);
+        modContainer.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC);
+
         // create registrate system
         REGISTRATE.registerEventListeners(modEventBus);
         ModSetup.register(modEventBus, modLoadingContext);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
-
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        modContainer.registerConfig(ModConfig.Type.SERVER, Config.SPEC);
     }
 
     public static ResourceLocation rl(String path) {

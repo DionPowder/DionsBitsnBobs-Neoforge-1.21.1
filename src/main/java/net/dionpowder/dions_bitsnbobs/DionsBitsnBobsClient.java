@@ -31,7 +31,7 @@ public class DionsBitsnBobsClient {
     static void onClientSetup(FMLClientSetupEvent event) {
        event.enqueueWork(() -> {
            //ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           //.setRenderLayer(ModFluids.FLOWING_STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           //ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
            //ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
            //ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
            //ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);

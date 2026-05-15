@@ -1,5 +1,6 @@
 package net.dionpowder.dions_bitsnbobs.item;
 
+import net.dionpowder.dions_bitsnbobs.effect.ModEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -20,7 +21,7 @@ public class ModFoodProperties {
     public static final FoodProperties DOUBLE_GLAZED_DONUTS = new FoodProperties.Builder().nutrition(3).saturationModifier(0.25f).alwaysEdible().build();
     public static final FoodProperties SPRINKLES = new FoodProperties.Builder().nutrition(2).saturationModifier(0.25f)
             .fast()
-            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 2), 1.0f)
+            .effect(() -> new MobEffectInstance(ModEffects.SUGAR_RUSH_EFFECT, 500, 0), 1.0f)
             .alwaysEdible()
             .build();
 }

@@ -21,19 +21,20 @@ public class ModCreativeModeTabs {
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "bitsnbobs_blocks_tab"))
                     .title(Component.translatable("creativetab.dions_bitsnbobs.items_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModItems.NETHERITE_DUST);
-
-                        output.accept(ModItems.STRAWBERRY);
+                        output.accept(ModFluids.STRAWBERRY_FROSTING_BUCKET);
+                        output.accept(ModFluids.ORANGE_FROSTING_BUCKET);
+                        output.accept(ModFluids.BLUEBERRY_FROSTING_BUCKET);
+                        output.accept(ModFluids.PEAR_FROSTING_BUCKET);
 
                         output.accept(ModItems.EMPTY_SPRINKLES_BOTTLE);
                         output.accept(ModItems.BOTTLED_RAINBOW_SPRINKLES);
                         output.accept(ModItems.BOTTLED_WHITE_SPRINKLES);
                         output.accept(ModItems.BOTTLED_GREEN_SPRINKLES);
 
-                        output.accept(ModFluids.STRAWBERRY_FROSTING_BUCKET);
-                        output.accept(ModFluids.ORANGE_FROSTING_BUCKET);
-                        output.accept(ModFluids.BLUEBERRY_FROSTING_BUCKET);
-                        output.accept(ModFluids.PEAR_FROSTING_BUCKET);
+                        output.accept(ModItems.STRAWBERRY);
+
+                        output.accept(ModItems.NETHERITE_DUST);
+
                     }).build());
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BITSNBOBS_DONUTS_TAB = CREATIVE_MODE_TAB.register("bitsnbobs_donuts_tab",

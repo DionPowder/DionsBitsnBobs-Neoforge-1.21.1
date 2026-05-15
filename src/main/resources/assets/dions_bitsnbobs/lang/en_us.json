@@ -63,6 +63,19 @@
 
   "effect.dions_bitsnbobs.sugar_rush": "Sugar Rush",
 
+  "entity.minecraft.villager.dions_bitsnbobs.baker": "Baker",
+  "entity.minecraft.villager.baker": "Baker",
+
+  "tag.dions_bitsnbobs.donuts": "Donuts",
+  "tag.dions_bitsnbobs.simple_donuts": "Simple Donuts",
+  "tag.dions_bitsnbobs.frosting_donuts": "Frosting Donuts",
+  "tag.dions_bitsnbobs.topped_frosting_donuts": "Topped Frosting Donuts",
+  "tag.dions_bitsnbobs.chocolate_donuts": "Chocolate Donuts",
+  "tag.dions_bitsnbobs.topped_chocolate_donuts": "Topped Chocolate Donuts",
+  "tag.dions_bitsnbobs.double_glazed_donuts": "Double Glazed Donuts",
+  "tag.dions_bitsnbobs.sprinkles": "Sprinkles",
+  "tag.dions_bitsnbobs.rooted_dirt_mixing": "Rooted Dirt Mixing",
+
   "creativetab.dions_bitsnbobs.blocks_tab": "Dion's Bits n' Bobs Blocks",
   "creativetab.dions_bitsnbobs.items_tab": "Dion's Bits n' Bobs Items",
   "creativetab.dions_bitsnbobs.donuts_tab": "Dion's Bits n' Bobs Donuts"
