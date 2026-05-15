@@ -1,0 +1,35 @@
+{
+  "type": "create:mixing",
+  "heat_requirement": "heated",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "fruitsdelight:pear"
+    },
+    {
+      "item": "fruitsdelight:pear"
+    },
+    {
+      "item": "fruitsdelight:pear"
+    },
+    {
+      "type": "neoforge:single",
+      "amount": 250,
+      "fluid": "minecraft:water"
+    }
+  ],
+  "results": [
+    {
+      "amount": 500,
+      "id": "dions_bitsnbobs:pear_frosting"
+    }
+  ]
+}

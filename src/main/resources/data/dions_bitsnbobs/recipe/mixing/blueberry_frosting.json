@@ -1,0 +1,35 @@
+{
+  "type": "create:mixing",
+  "heat_requirement": "heated",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "fruitsdelight:blueberry"
+    },
+    {
+      "item": "fruitsdelight:blueberry"
+    },
+    {
+      "item": "fruitsdelight:blueberry"
+    },
+    {
+      "type": "neoforge:single",
+      "amount": 250,
+      "fluid": "minecraft:water"
+    }
+  ],
+  "results": [
+    {
+      "amount": 500,
+      "id": "dions_bitsnbobs:blueberry_frosting"
+    }
+  ]
+}

@@ -55,6 +55,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BOTTLED_GREEN_SPRINKLES.get());
 
         basicItem(ModFluids.STRAWBERRY_FROSTING_BUCKET.get());
+        basicItem(ModFluids.ORANGE_FROSTING_BUCKET.get());
+        basicItem(ModFluids.BLUEBERRY_FROSTING_BUCKET.get());
+        basicItem(ModFluids.PEAR_FROSTING_BUCKET.get());
 
     }
 }

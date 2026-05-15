@@ -31,6 +31,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BOTTLED_GREEN_SPRINKLES);
 
                         output.accept(ModFluids.STRAWBERRY_FROSTING_BUCKET);
+                        output.accept(ModFluids.ORANGE_FROSTING_BUCKET);
+                        output.accept(ModFluids.BLUEBERRY_FROSTING_BUCKET);
+                        output.accept(ModFluids.PEAR_FROSTING_BUCKET);
                     }).build());
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BITSNBOBS_DONUTS_TAB = CREATIVE_MODE_TAB.register("bitsnbobs_donuts_tab",

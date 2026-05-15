@@ -30,8 +30,14 @@ public class DionsBitsnBobsClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
        event.enqueueWork(() -> {
-           ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           //ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           //.setRenderLayer(ModFluids.FLOWING_STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           //ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
+           //ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
+           //ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           //ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           //ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_PEAR_FROSTING.get(), RenderType.TRANSLUCENT);
+           //ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_PEAR_FROSTING.get(), RenderType.TRANSLUCENT);
        });
     }
 
@@ -39,5 +45,11 @@ public class DionsBitsnBobsClient {
     public static void onClientExtensions(RegisterClientExtensionsEvent event) {
         event.registerFluidType(((BaseFluidType) ModFluidTypes.STRAWBERRY_FROSTING_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
                 ModFluidTypes.STRAWBERRY_FROSTING_FLUID_TYPE.get());
+        event.registerFluidType(((BaseFluidType) ModFluidTypes.ORANGE_FROSTING_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
+                ModFluidTypes.ORANGE_FROSTING_FLUID_TYPE.get());
+        event.registerFluidType(((BaseFluidType) ModFluidTypes.BLUEBERRY_FROSTING_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
+                ModFluidTypes.BLUEBERRY_FROSTING_FLUID_TYPE.get());
+        event.registerFluidType(((BaseFluidType) ModFluidTypes.PEAR_FROSTING_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
+                ModFluidTypes.PEAR_FROSTING_FLUID_TYPE.get());
     }
 }

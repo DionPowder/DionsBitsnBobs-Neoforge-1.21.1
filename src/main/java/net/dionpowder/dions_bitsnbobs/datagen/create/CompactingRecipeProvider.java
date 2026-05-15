@@ -24,10 +24,6 @@ public class CompactingRecipeProvider extends CompactingRecipeGen {
             .require(Fluids.LAVA, 100)
             .output(Items.COBBLED_DEEPSLATE)),
 
-    //COMPACTED_STRAWBERRY_FROSTING = create("compacted_strawberry_frosting", b -> b
-    //        .require(ModFluids.STRAWBERRY_FROSTING.get(), 100)
-    //        .output(ModBlocks.STRAWBERRY_CRATE)),
-
     TUFF = create("tuff", b -> b
             .require(Items.ANDESITE)
             .require(Items.DIORITE)

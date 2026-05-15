@@ -1,0 +1,40 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": false,
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "createcasing:chorium_ingot"
+    },
+    "C": {
+      "item": "createcasing:creative_casing"
+    },
+    "P": {
+      "item": "create:precision_mechanism"
+    },
+    "O": {
+      "item": "create_sa:large_fueling_tank"
+    },
+    "K": {
+      "item": "create_sa:large_filling_tank"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    },
+    "L": {
+      "item": "minecraft:lava_bucket"
+    }
+  },
+  "pattern": [
+    " CIC ",
+    "CILIC",
+    "IOPKI",
+    "CIWIC",
+    " CIC "
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_sa:creative_filling_tank"
+  },
+  "show_notification": false
+}

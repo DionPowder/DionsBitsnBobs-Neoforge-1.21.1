@@ -3,13 +3,23 @@
   "block.dions_bitsnbobs.strawberry_frosting_block": "Strawberry Frosting",
   "fluid_type.dions_bitsnbobs.strawberry_frosting": "Strawberry Frosting",
 
+  "item.dions_bitsnbobs.orange_frosting_bucket": "Orange Frosting Bucket",
+  "block.dions_bitsnbobs.orange_frosting_block": "Orange Frosting",
+  "fluid_type.dions_bitsnbobs.orange_frosting": "Orange Frosting",
+
+  "item.dions_bitsnbobs.blueberry_frosting_bucket": "Blueberry Frosting Bucket",
+  "block.dions_bitsnbobs.blueberry_frosting_block": "Blueberry Frosting",
+  "fluid_type.dions_bitsnbobs.blueberry_frosting": "Blueberry Frosting",
+
+  "item.dions_bitsnbobs.pear_frosting_bucket": "Pear Frosting Bucket",
+  "block.dions_bitsnbobs.pear_frosting_block": "Pear Frosting",
+  "fluid_type.dions_bitsnbobs.pear_frosting": "Pear Frosting",
+
   "block.dions_bitsnbobs.strawberry_crate": "Strawberry Crate",
   "block.dions_bitsnbobs.copper_component": "Copper Component",
   "block.dions_bitsnbobs.train_component": "Train Component",
   "block.dions_bitsnbobs.strawberry_bush": "Strawberry Bush",
   "block.dions_bitsnbobs.wild_strawberry_bush": "Wild Strawberry Bush",
-
-
 
   "item.dions_bitsnbobs.netherite_dust": "Netherite Dust",
   "item.dions_bitsnbobs.unprocessed_netherite_dust": "Unprocessed Netherite Dust",

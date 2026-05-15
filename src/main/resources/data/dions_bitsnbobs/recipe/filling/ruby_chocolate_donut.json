@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "dions_bitsnbobs:donut"
+    },
+    {
+      "type": "neoforge:single",
+      "amount": 100,
+      "fluid": "create_confectionery:ruby_chocolate"
+    }
+  ],
+  "results": [
+    {
+      "id": "dions_bitsnbobs:ruby_chocolate_donut"
+    }
+  ]
+}

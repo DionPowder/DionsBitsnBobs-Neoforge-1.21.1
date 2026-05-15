@@ -20,6 +20,12 @@ public class ModFluidTagsProvider extends FluidTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         tag(FluidTags.WATER)
                 .add(ModFluids.SOURCE_STRAWBERRY_FROSTING.get())
-                .add(ModFluids.FLOWING_STRAWBERRY_FROSTING.get());
+                .add(ModFluids.FLOWING_STRAWBERRY_FROSTING.get())
+                .add(ModFluids.SOURCE_ORANGE_FROSTING.get())
+                .add(ModFluids.FLOWING_ORANGE_FROSTING.get())
+                .add(ModFluids.SOURCE_BLUEBERRY_FROSTING.get())
+                .add(ModFluids.FLOWING_BLUEBERRY_FROSTING.get())
+                .add(ModFluids.SOURCE_PEAR_FROSTING.get())
+                .add(ModFluids.FLOWING_PEAR_FROSTING.get());
     }
 }

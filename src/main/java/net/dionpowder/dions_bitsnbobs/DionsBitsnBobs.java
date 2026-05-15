@@ -1,7 +1,10 @@
 package net.dionpowder.dions_bitsnbobs;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
+import net.dionpowder.dions_bitsnbobs.utils.ModHelper;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.neoforged.fml.ModLoadingContext;
 import org.slf4j.Logger;
 
@@ -48,7 +51,10 @@ public class DionsBitsnBobs {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-
+        ModHelper.registerFluidDispenseBehavior(ModFluids.STRAWBERRY_FROSTING_BUCKET.get());
+        ModHelper.registerFluidDispenseBehavior(ModFluids.ORANGE_FROSTING_BUCKET.get());
+        ModHelper.registerFluidDispenseBehavior(ModFluids.BLUEBERRY_FROSTING_BUCKET.get());
+        ModHelper.registerFluidDispenseBehavior(ModFluids.PEAR_FROSTING_BUCKET.get());
     }
 
     // Add the example block item to the building blocks tab

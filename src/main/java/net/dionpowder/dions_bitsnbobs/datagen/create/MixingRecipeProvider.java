@@ -6,13 +6,14 @@ import com.simibubi.create.api.data.recipe.MixingRecipeGen;
 import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
 import com.simibubi.create.content.processing.recipe.HeatCondition;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.item.ModItems;
-import net.dionpowder.dions_bitsnbobs.utils.ModHelper;
 import net.dionpowder.dions_bitsnbobs.utils.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.material.Fluids;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -81,7 +82,18 @@ public class MixingRecipeProvider extends MixingRecipeGen {
     ROOTED_DIRT = create("rooted_dirt", b -> b
             .require(Items.DIRT)
             .require(Ingredient.of(ModTags.Items.ROOTED_DIRT_MIXING))
-            .output(Items.ROOTED_DIRT))
+            .output(Items.ROOTED_DIRT)),
+
+    STRAWBERRY_FROSTING = create("strawberry_frosting", b -> b
+            .require(Items.SUGAR)
+            .require(Items.SUGAR)
+            .require(Items.SUGAR)
+            .require(ModItems.STRAWBERRY)
+            .require(ModItems.STRAWBERRY)
+            .require(ModItems.STRAWBERRY)
+            .require(Fluids.WATER, 250)
+            .requiresHeat(HeatCondition.HEATED)
+            .output(ModFluids.SOURCE_STRAWBERRY_FROSTING.get(), 500))
 
     ;
 
