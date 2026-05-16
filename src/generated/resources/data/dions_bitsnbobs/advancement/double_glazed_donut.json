@@ -1,0 +1,35 @@
+{
+  "parent": "dions_bitsnbobs:glazed_donut",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#dions_bitsnbobs:double_glazed_donuts"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.dions_bitsnbobs.double_glazed_donut.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "dions_bitsnbobs:chocolate_strawberry_donut"
+    },
+    "title": {
+      "translate": "advancement.dions_bitsnbobs.double_glazed_donut"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

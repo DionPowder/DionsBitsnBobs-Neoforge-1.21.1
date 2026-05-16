@@ -8,6 +8,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -94,6 +95,14 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.BOTTLED_RAINBOW_SPRINKLES.get())
                 .add(ModItems.BOTTLED_WHITE_SPRINKLES.get())
                 .add(ModItems.BOTTLED_GREEN_SPRINKLES.get());
+
+        tag(ModTags.Items.ADVANCEMENT_GLAZED_DONUT)
+                .addTag(ModTags.Items.FROSTING_DONUTS)
+                .addTag(ModTags.Items.CHOCOLATE_DONUTS);
+
+        tag(ModTags.Items.ADVANCEMENT_TOPPED_DONUT)
+                .addTag(ModTags.Items.TOPPED_FROSTING_DONUTS)
+                .addTag(ModTags.Items.TOPPED_CHOCOLATE_DONUTS);
 
         tag(ModTags.Items.CROPS).add(ModItems.STRAWBERRY.get());
         tag(ModTags.Items.CROPS_STRAWBERRY).add(ModItems.STRAWBERRY.get());

@@ -1,0 +1,35 @@
+{
+  "parent": "dions_bitsnbobs:root",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:uncooked_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.dions_bitsnbobs.uncooked_donut.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "dions_bitsnbobs:uncooked_donut"
+    },
+    "title": {
+      "translate": "advancement.dions_bitsnbobs.uncooked_donut"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -66,6 +66,42 @@
   "entity.minecraft.villager.dions_bitsnbobs.baker": "Baker",
   "entity.minecraft.villager.baker": "Baker",
 
+  "advancement.dions_bitsnbobs.root": "Create: Dion's Bits n' Bobs",
+  "advancement.dions_bitsnbobs.root.desc": "Explore extra food and automation options!",
+
+  "advancement.dions_bitsnbobs.uncooked_donut": "It's a start",
+  "advancement.dions_bitsnbobs.uncooked_donut.desc": "Press your first donut",
+
+  "advancement.dions_bitsnbobs.donut": "We're getting somewhere",
+  "advancement.dions_bitsnbobs.donut.desc": "Cook your first donut",
+
+  "advancement.dions_bitsnbobs.glazed_donut": "Nearing perfection",
+  "advancement.dions_bitsnbobs.glazed_donut.desc": "Glaze your first donut",
+
+  "advancement.dions_bitsnbobs.chorus_donut": "What Just Happened",
+  "advancement.dions_bitsnbobs.chorus_donut.desc": "Teleport after eating a chorus donut",
+
+  "advancement.dions_bitsnbobs.topped_donut": "Top It Off",
+  "advancement.dions_bitsnbobs.topped_donut.desc": "Apply some toppings to your donut",
+
+  "advancement.dions_bitsnbobs.double_glazed_donut": "Perfection Achieved",
+  "advancement.dions_bitsnbobs.double_glazed_donut.desc": "Double glaze your first donut",
+
+  "advancement.dions_bitsnbobs.all_donuts": "A Donut Empire",
+  "advancement.dions_bitsnbobs.all_donuts.desc": "Collect all the different donuts",
+
+  "advancement.dions_bitsnbobs.netherite_dust": "Illegal Substances",
+  "advancement.dions_bitsnbobs.netherite_dust.desc": "Mix your first netherite dust",
+
+  "advancement.dions_bitsnbobs.strawberry": "Sweet Tooth",
+  "advancement.dions_bitsnbobs.strawberry.desc": "Collect your first strawberries",
+
+  "advancement.dions_bitsnbobs.strawberry_bush": "Ready To Farm",
+  "advancement.dions_bitsnbobs.strawberry_bush.desc": "Place your first strawberry bush",
+
+  "advancement.dions_bitsnbobs.strawberry_frosting": "More Sugar",
+  "advancement.dions_bitsnbobs.strawberry_frosting.desc": "Mix your first strawberry frosting",
+
   "tag.dions_bitsnbobs.donuts": "Donuts",
   "tag.dions_bitsnbobs.simple_donuts": "Simple Donuts",
   "tag.dions_bitsnbobs.frosting_donuts": "Frosting Donuts",
@@ -74,6 +110,8 @@
   "tag.dions_bitsnbobs.topped_chocolate_donuts": "Topped Chocolate Donuts",
   "tag.dions_bitsnbobs.double_glazed_donuts": "Double Glazed Donuts",
   "tag.dions_bitsnbobs.sprinkles": "Sprinkles",
+  "tag.dions_bitsnbobs.advancement_glazed_donut": "Advancement Glazed Donut",
+  "tag.dions_bitsnbobs.advancement_topped_donut": "Advancement Topped Donut",
   "tag.dions_bitsnbobs.rooted_dirt_mixing": "Rooted Dirt Mixing",
 
   "creativetab.dions_bitsnbobs.blocks_tab": "Dion's Bits n' Bobs Blocks",

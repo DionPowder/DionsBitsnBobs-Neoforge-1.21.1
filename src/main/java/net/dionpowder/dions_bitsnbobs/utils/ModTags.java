@@ -32,6 +32,9 @@ public class ModTags {
         public static final TagKey<Item> DOUBLE_GLAZED_DONUTS = createTag("double_glazed_donuts");
         public static final TagKey<Item> SPRINKLES = createTag("sprinkles");
 
+        public static final TagKey<Item> ADVANCEMENT_GLAZED_DONUT = createTag("advancement_glazed_donut");
+        public static final TagKey<Item> ADVANCEMENT_TOPPED_DONUT = createTag("advancement_topped_donut");
+
         public static final TagKey<Item> CROPS = commonItemTag("crops");
         public static final TagKey<Item> CROPS_STRAWBERRY = commonItemTag("crops/strawberry");
         public static final TagKey<Item> FOODS = commonItemTag("foods");

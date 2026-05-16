@@ -21,7 +21,7 @@ public class ModFoodProperties {
     public static final FoodProperties DOUBLE_GLAZED_DONUTS = new FoodProperties.Builder().nutrition(3).saturationModifier(0.25f).alwaysEdible().build();
     public static final FoodProperties SPRINKLES = new FoodProperties.Builder().nutrition(2).saturationModifier(0.25f)
             .fast()
-            .effect(() -> new MobEffectInstance(ModEffects.SUGAR_RUSH_EFFECT, 500, 0), 1.0f)
+            .effect(() -> new MobEffectInstance(ModEffects.SUGAR_RUSH_EFFECT, 300, 0), 1.0f)
             .alwaysEdible()
             .build();
 }

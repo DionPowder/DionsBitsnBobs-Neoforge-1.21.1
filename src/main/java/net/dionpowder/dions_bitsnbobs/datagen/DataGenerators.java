@@ -2,6 +2,7 @@ package net.dionpowder.dions_bitsnbobs.datagen;
 
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.datagen.create.*;
+import net.dionpowder.dions_bitsnbobs.foundation.advancement.AllAdvancements;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -41,6 +42,9 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new PressingRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new SequencedAssemblyRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new WashingRecipeProvider(packOutput, lookupProvider));
+
+        // advancements
+        generator.addProvider(event.includeServer(), new AllAdvancements(packOutput, lookupProvider));
 
         // generates tags
         BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
