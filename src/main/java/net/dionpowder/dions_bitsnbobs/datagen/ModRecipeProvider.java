@@ -82,7 +82,121 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_uncooked_donut", has(ModItems.UNCOOKED_DONUT))
                 .save(recipeOutput);
 
-        // stone cutting
+        // stone cutting (andesite component)
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.ADJUSTABLE_CHAIN_GEARSHIFT, 4)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.MECHANICAL_BEARING, 4)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.CHUTE, 16)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.CLUTCH, 8)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.GEARSHIFT, 8)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.DEPOT, 8)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.ENCASED_CHAIN_DRIVE, 8)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.ANDESITE_FUNNEL, 8)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.GEARBOX, 8)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.PORTABLE_STORAGE_INTERFACE, 4)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.SHAFT, 32)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.ANDESITE_TUNNEL, 4)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.ITEM_VAULT, 6)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.WEIGHTED_EJECTOR, 4)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.MECHANICAL_PRESS, 2)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.MECHANICAL_MIXER, 2)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.ENCASED_FAN, 2)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.DEPLOYER, 2)
+                .unlockedBy("has_andesite_component", has(ModBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput);
+
+        // stone cutting (brass component)
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.BRASS_COMPONENT), RecipeCategory.MISC, AllBlocks.MECHANICAL_ARM, 1)
+                .unlockedBy("has_brass_component", has(ModBlocks.BRASS_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.BRASS_COMPONENT), RecipeCategory.MISC, AllBlocks.CLOCKWORK_BEARING, 4)
+                .unlockedBy("has_brass_component", has(ModBlocks.BRASS_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.BRASS_COMPONENT), RecipeCategory.MISC, AllBlocks.SMART_OBSERVER, 2)
+                .unlockedBy("has_brass_component", has(ModBlocks.BRASS_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.BRASS_COMPONENT), RecipeCategory.MISC, AllBlocks.THRESHOLD_SWITCH, 2)
+                .unlockedBy("has_brass_component", has(ModBlocks.BRASS_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.BRASS_COMPONENT), RecipeCategory.MISC, AllBlocks.MECHANICAL_CRAFTER, 2)
+                .unlockedBy("has_brass_component", has(ModBlocks.BRASS_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.BRASS_COMPONENT), RecipeCategory.MISC, AllBlocks.BRASS_FUNNEL, 4)
+                .unlockedBy("has_brass_component", has(ModBlocks.BRASS_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.BRASS_COMPONENT), RecipeCategory.MISC, AllBlocks.BRASS_TUNNEL, 2)
+                .unlockedBy("has_brass_component", has(ModBlocks.BRASS_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.BRASS_COMPONENT), RecipeCategory.MISC, AllBlocks.ROTATION_SPEED_CONTROLLER, 1)
+                .unlockedBy("has_brass_component", has(ModBlocks.BRASS_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.BRASS_COMPONENT), RecipeCategory.MISC, AllBlocks.SEQUENCED_GEARSHIFT, 4)
+                .unlockedBy("has_brass_component", has(ModBlocks.BRASS_COMPONENT))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.BRASS_COMPONENT), RecipeCategory.MISC, AllBlocks.SMART_CHUTE, 4)
+                .unlockedBy("has_brass_component", has(ModBlocks.BRASS_COMPONENT))
+                .save(recipeOutput);
+
+        // stone cutting (copper component)
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.COPPER_COMPONENT), RecipeCategory.MISC, AllBlocks.FLUID_TANK, 6)
                 .unlockedBy("has_copper_component", has(ModBlocks.COPPER_COMPONENT))
                 .save(recipeOutput);
@@ -127,11 +241,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_copper_component", has(ModBlocks.COPPER_COMPONENT))
                 .save(recipeOutput);
 
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.TRAIN_COMPONENT), RecipeCategory.MISC, AllBlocks.TRAIN_CONTROLS, 4)
+        // stone cutting (train component)
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.TRAIN_COMPONENT), RecipeCategory.MISC, AllBlocks.TRAIN_CONTROLS, 2)
                 .unlockedBy("has_train_component", has(ModBlocks.TRAIN_COMPONENT))
                 .save(recipeOutput);
 
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.TRAIN_COMPONENT), RecipeCategory.MISC, AllItems.SCHEDULE, 10)
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.TRAIN_COMPONENT), RecipeCategory.MISC, AllItems.SCHEDULE, 8)
                 .unlockedBy("has_train_component", has(ModBlocks.TRAIN_COMPONENT))
                 .save(recipeOutput);
 

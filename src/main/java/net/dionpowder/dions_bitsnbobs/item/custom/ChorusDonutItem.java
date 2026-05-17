@@ -29,7 +29,7 @@ public class ChorusDonutItem extends ChorusFruitItem {
             return stack;
         }
 
-        double chance = ServerConfig.CHORUS_JAM_DONUT_TELEPORT_CHANCE.get();
+        double chance = ServerConfig.CHORUS_DONUT_TELEPORT_CHANCE.get();
 
         if (chance <= 0.0) {
             return stack;

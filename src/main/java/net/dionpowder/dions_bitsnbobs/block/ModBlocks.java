@@ -21,6 +21,12 @@ public class ModBlocks {
     public static final DeferredBlock<Block> STRAWBERRY_CRATE = registerBlock("strawberry_crate",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     // components
+    public static final DeferredBlock<Block> ANDESITE_COMPONENT = registerBlock("andesite_component",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+
+    public static final DeferredBlock<Block> BRASS_COMPONENT = registerBlock("brass_component",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+
     public static final DeferredBlock<Block> COPPER_COMPONENT = registerBlock("copper_component",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
 

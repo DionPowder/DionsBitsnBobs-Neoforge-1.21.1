@@ -33,6 +33,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 
         dropSelf(ModBlocks.STRAWBERRY_CRATE.get());
+        dropSelf(ModBlocks.ANDESITE_COMPONENT.get());
+        dropSelf(ModBlocks.BRASS_COMPONENT.get());
         dropSelf(ModBlocks.COPPER_COMPONENT.get());
         dropSelf(ModBlocks.TRAIN_COMPONENT.get());
 

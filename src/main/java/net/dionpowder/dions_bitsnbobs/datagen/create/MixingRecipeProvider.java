@@ -91,9 +91,9 @@ public class MixingRecipeProvider extends MixingRecipeGen {
             .require(ModItems.STRAWBERRY)
             .require(ModItems.STRAWBERRY)
             .require(ModItems.STRAWBERRY)
-            .require(Fluids.WATER, 250)
+            .require(Fluids.WATER, 150)
             .requiresHeat(HeatCondition.HEATED)
-            .output(ModFluids.SOURCE_STRAWBERRY_FROSTING.get(), 500))
+            .output(ModFluids.SOURCE_STRAWBERRY_FROSTING.get(), 300))
 
     ;
 

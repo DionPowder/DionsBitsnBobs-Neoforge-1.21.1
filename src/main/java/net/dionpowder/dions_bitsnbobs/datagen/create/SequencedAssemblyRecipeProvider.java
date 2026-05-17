@@ -6,6 +6,7 @@ import com.simibubi.create.content.fluids.transfer.FillingRecipe;
 import com.simibubi.create.api.data.recipe.SequencedAssemblyRecipeGen;
 import com.simibubi.create.content.kinetics.deployer.DeployerApplicationRecipe;
 import com.simibubi.create.content.kinetics.press.PressingRecipe;
+import com.simibubi.create.content.kinetics.saw.CuttingRecipe;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
 import net.dionpowder.dions_bitsnbobs.item.ModItems;
@@ -24,14 +25,40 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
 
     GeneratedRecipe
 
+    ANDESITE_COMPONENT = create("andesite_component", b -> b
+            .require(AllBlocks.ANDESITE_CASING)
+            .transitionTo(AllBlocks.ANDESITE_CASING)
+            .addOutput(ModBlocks.ANDESITE_COMPONENT, 1)
+            .loops(1)
+            .addStep(CuttingRecipe::new, rb -> rb)
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.ELECTRON_TUBE))
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(ModItems.NETHERITE_DUST))
+            .addStep(FillingRecipe::new, rb -> rb.require(Fluids.LAVA, 1000))
+            .addStep(PressingRecipe::new, rb -> rb)),
+
+    BRASS_COMPONENT = create("brass_component", b -> b
+            .require(AllBlocks.BRASS_CASING)
+            .transitionTo(AllBlocks.ANDESITE_CASING)
+            .addOutput(ModBlocks.BRASS_COMPONENT, 1)
+            .loops(1)
+            .addStep(CuttingRecipe::new, rb -> rb)
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.ELECTRON_TUBE))
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(ModItems.NETHERITE_DUST))
+            .addStep(FillingRecipe::new, rb -> rb.require(Fluids.LAVA, 1000))
+            .addStep(PressingRecipe::new, rb -> rb)),
+
     COPPER_COMPONENT = create("copper_component", b -> b
             .require(AllBlocks.COPPER_CASING)
             .transitionTo(AllBlocks.COPPER_CASING)
             .addOutput(ModBlocks.COPPER_COMPONENT, 1)
             .loops(1)
+            .addStep(CuttingRecipe::new, rb -> rb)
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
-            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
-            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.ELECTRON_TUBE))
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(ModItems.NETHERITE_DUST))
+            .addStep(FillingRecipe::new, rb -> rb.require(Fluids.LAVA, 1000))
             .addStep(PressingRecipe::new, rb -> rb)),
 
     TRAIN_COMPONENT = create("train_component", b -> b
@@ -39,9 +66,11 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
             .transitionTo(AllBlocks.RAILWAY_CASING)
             .addOutput(ModBlocks.TRAIN_COMPONENT, 1)
             .loops(1)
+            .addStep(CuttingRecipe::new, rb -> rb)
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
-            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
-            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.ELECTRON_TUBE))
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(ModItems.NETHERITE_DUST))
+            .addStep(FillingRecipe::new, rb -> rb.require(Fluids.LAVA, 1000))
             .addStep(PressingRecipe::new, rb -> rb)),
 
     NETHERITE_SCRAP = create("netherite_scrap", b -> b

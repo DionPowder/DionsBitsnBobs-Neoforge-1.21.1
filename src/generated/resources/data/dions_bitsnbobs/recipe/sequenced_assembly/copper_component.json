@@ -10,13 +10,10 @@
   ],
   "sequence": [
     {
-      "type": "create:deploying",
+      "type": "create:cutting",
       "ingredients": [
         {
           "item": "create:copper_casing"
-        },
-        {
-          "item": "create:precision_mechanism"
         }
       ],
       "results": [
@@ -48,7 +45,41 @@
           "item": "create:copper_casing"
         },
         {
-          "item": "create:precision_mechanism"
+          "item": "create:electron_tube"
+        }
+      ],
+      "results": [
+        {
+          "id": "create:copper_casing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create:copper_casing"
+        },
+        {
+          "item": "dions_bitsnbobs:netherite_dust"
+        }
+      ],
+      "results": [
+        {
+          "id": "create:copper_casing"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create:copper_casing"
+        },
+        {
+          "type": "neoforge:single",
+          "amount": 1000,
+          "fluid": "minecraft:lava"
         }
       ],
       "results": [

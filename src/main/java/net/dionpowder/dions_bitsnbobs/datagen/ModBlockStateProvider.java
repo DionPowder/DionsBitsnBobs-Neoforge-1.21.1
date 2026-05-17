@@ -29,10 +29,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         // generate mod blocks
         crateBlock(ModBlocks.STRAWBERRY_CRATE.get(), "strawberry");
+        componentBlock(ModBlocks.ANDESITE_COMPONENT.get(), "andesite");
+        componentBlock(ModBlocks.BRASS_COMPONENT.get(), "brass");
         componentBlock(ModBlocks.COPPER_COMPONENT.get(), "copper");
         componentBlock(ModBlocks.TRAIN_COMPONENT.get(), "train");
         // generate mod block item models
         blockItem(ModBlocks.STRAWBERRY_CRATE);
+        blockItem(ModBlocks.ANDESITE_COMPONENT);
+        blockItem(ModBlocks.BRASS_COMPONENT);
         blockItem(ModBlocks.COPPER_COMPONENT);
         blockItem(ModBlocks.TRAIN_COMPONENT);
     }

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "dions_bitsnbobs:brass_component"
+  },
+  "result": {
+    "count": 4,
+    "id": "create:clockwork_bearing"
+  }
+}

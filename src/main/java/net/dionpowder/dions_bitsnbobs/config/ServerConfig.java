@@ -9,8 +9,8 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public class ServerConfig {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
-    public static final ModConfigSpec.DoubleValue CHORUS_JAM_DONUT_TELEPORT_CHANCE = BUILDER
-            .comment("The chance for a chorus jam donut to teleport the player")
+    public static final ModConfigSpec.DoubleValue CHORUS_DONUT_TELEPORT_CHANCE = BUILDER
+            .comment("The chance for a chorus donut to teleport the player")
             .defineInRange("chorusDonutTeleportChance", 1.0, 0.0, 1.0);
 
     public static final ModConfigSpec SPEC = BUILDER.build();

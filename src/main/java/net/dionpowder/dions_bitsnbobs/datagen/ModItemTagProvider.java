@@ -91,7 +91,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.WHITE_CHOCOLATE_RUBY_DONUT.get());
 
         tag(ModTags.Items.SPRINKLES)
-                .add(ModItems.EMPTY_SPRINKLES_BOTTLE.get())
                 .add(ModItems.BOTTLED_RAINBOW_SPRINKLES.get())
                 .add(ModItems.BOTTLED_WHITE_SPRINKLES.get())
                 .add(ModItems.BOTTLED_GREEN_SPRINKLES.get());

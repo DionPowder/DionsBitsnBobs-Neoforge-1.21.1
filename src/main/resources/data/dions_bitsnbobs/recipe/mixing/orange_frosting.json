@@ -22,13 +22,13 @@
     },
     {
       "type": "neoforge:single",
-      "amount": 250,
+      "amount": 150,
       "fluid": "minecraft:water"
     }
   ],
   "results": [
     {
-      "amount": 500,
+      "amount": 300,
       "id": "dions_bitsnbobs:orange_frosting"
     }
   ]

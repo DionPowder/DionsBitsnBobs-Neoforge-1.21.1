@@ -24,6 +24,7 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.PackOutput.PathProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 
 import static net.dionpowder.dions_bitsnbobs.foundation.advancement.CreateAdvancement.TaskType.*;
 
@@ -32,13 +33,8 @@ public class AllAdvancements implements DataProvider {
     public static final List<CreateAdvancement> ENTRIES = new ArrayList<>();
     public static final CreateAdvancement START = null,
 
-    /*
-     * Some ids have trailing 0's to modify their vertical position on the tree
-     * (Advancement ordering seems to be deterministic but hash based)
-     */
-
     ROOT = create("root", b -> b.icon(ModItems.STRAWBERRY)
-            .title("Create: Dion's Bits n' Bobs")
+            .title("Create: Dion's Bits n' Bobs!")
             .description("Explore extra food and automation options!")
             .awardedForFree()
             .special(NORMAL)),
@@ -123,6 +119,16 @@ public class AllAdvancements implements DataProvider {
             .after(ROOT)
             .special(NOISY)),
 
+    ALL_COMPONENTS = create("all_components", b -> b.icon(ModBlocks.BRASS_COMPONENT)
+            .title("Component Mania")
+            .description("Create all the different components")
+            .whenItemCollected(ModBlocks.ANDESITE_COMPONENT)
+            .whenItemCollected(ModBlocks.BRASS_COMPONENT)
+            .whenItemCollected(ModBlocks.COPPER_COMPONENT)
+            .whenItemCollected(ModBlocks.TRAIN_COMPONENT)
+            .after(NETHERITE_DUST)
+            .special(CHALLENGE)),
+
     // Strawberry branch
     STRAWBERRY = create("strawberry", b -> b.icon(ModItems.STRAWBERRY)
             .title("Sweet Tooth")
@@ -143,8 +149,21 @@ public class AllAdvancements implements DataProvider {
             .description("Mix your first strawberry frosting bucket")
             .whenIconCollected()
             .after(STRAWBERRY)
-            .special(EXPERT));
+            .special(EXPERT)),
 
+    // Sprinkles branch
+    SPRINKLES = create("sprinkles", b -> b.icon(ModItems.BOTTLED_WHITE_SPRINKLES)
+            .title("Sprinkles")
+            .description("Craft your first sprinkles")
+            .whenItemCollected(ModTags.Items.SPRINKLES)
+            .after(ROOT)
+            .special(NORMAL)),
+
+    SUGAR_RUSH = create("sugar_rush", b -> b.icon(Items.SUGAR)
+            .title("Sugar Rush")
+            .description("Eat some sprinkles and see what happens")
+            .after(SPRINKLES)
+            .special(NOISY));
 
     private static CreateAdvancement create(String id, UnaryOperator<CreateAdvancement.Builder> b) {
         return new CreateAdvancement(id, b);

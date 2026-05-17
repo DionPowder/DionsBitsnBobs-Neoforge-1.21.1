@@ -21,19 +21,23 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_AXE)
-                .add(ModBlocks.STRAWBERRY_CRATE.get())
-                .add(ModBlocks.COPPER_COMPONENT.get())
-                .add(ModBlocks.TRAIN_COMPONENT.get());
+                .add(ModBlocks.STRAWBERRY_CRATE.get());
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ModBlocks.ANDESITE_COMPONENT.get())
+                .add(ModBlocks.BRASS_COMPONENT.get())
                 .add(ModBlocks.COPPER_COMPONENT.get())
                 .add(ModBlocks.TRAIN_COMPONENT.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
+                .add(ModBlocks.ANDESITE_COMPONENT.get())
+                .add(ModBlocks.BRASS_COMPONENT.get())
                 .add(ModBlocks.COPPER_COMPONENT.get())
                 .add(ModBlocks.TRAIN_COMPONENT.get());
 
         tag(AllTags.AllBlockTags.WRENCH_PICKUP.tag)
+                .add(ModBlocks.ANDESITE_COMPONENT.get())
+                .add(ModBlocks.BRASS_COMPONENT.get())
                 .add(ModBlocks.COPPER_COMPONENT.get())
                 .add(ModBlocks.TRAIN_COMPONENT.get());
 
