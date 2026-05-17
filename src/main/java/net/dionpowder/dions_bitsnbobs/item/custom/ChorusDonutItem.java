@@ -17,26 +17,27 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 
-public class ChorusDonutItem extends ChorusFruitItem {
+public class ChorusDonutItem extends Item{
     public ChorusDonutItem(Item.Properties properties) {
         super(properties);
     }
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entityLiving) {
+        ItemStack itemstack = super.finishUsingItem(stack, level, entityLiving);
         // check config
         if (!(level instanceof ServerLevel serverLevel)) {
-            return stack;
+            return itemstack;
         }
 
         double chance = ServerConfig.CHORUS_DONUT_TELEPORT_CHANCE.get();
 
         if (chance <= 0.0) {
-            return stack;
+            return itemstack;
         }
 
         if (level.random.nextDouble() >= chance) {
-            return stack;
+            return itemstack;
         }
 
         if (!level.isClientSide) {
@@ -54,7 +55,7 @@ public class ChorusDonutItem extends ChorusFruitItem {
 
                 Vec3 vec3 = entityLiving.position();
                 net.neoforged.neoforge.event.entity.EntityTeleportEvent.ChorusFruit event = net.neoforged.neoforge.event.EventHooks.onChorusFruitTeleport(entityLiving, d0, d1, d2);
-                if (event.isCanceled()) return stack;
+                if (event.isCanceled()) return itemstack;
                 if (entityLiving.randomTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ(), true)) {
                     level.gameEvent(GameEvent.TELEPORT, vec3, GameEvent.Context.of(entityLiving));
                     SoundSource soundsource;
@@ -80,6 +81,6 @@ public class ChorusDonutItem extends ChorusFruitItem {
             }
         }
 
-        return stack;
+        return itemstack;
     }
 }
