@@ -6,6 +6,8 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.dionpowder.dions_bitsnbobs.config.CommonConfig;
 import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.item.ModItems;
+import net.dionpowder.dions_bitsnbobs.utils.ModHelper;
+import net.dionpowder.dions_bitsnbobs.utils.ModTags;
 import net.dionpowder.dions_bitsnbobs.villager.ModVillagers;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -124,21 +126,56 @@ public class ModEvents{
 
         // donut selling
         if(event.getType() == VillagerProfession.FARMER) {
-            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ModHelper.getStandardSellTrades(event);
+        }
 
-                trades.get(1).add((entity, randomSource) -> new MerchantOffer(
-                        new ItemCost(ModItems.STRAWBERRY_DONUT, randomBetween(randomSource, 8, 12)),
-                        new ItemStack(Items.EMERALD, 1), 5, 2, 0.05f));
-                trades.get(1).add((entity, randomSource) -> new MerchantOffer(
-                        new ItemCost(ModItems.ORANGE_DONUT, randomBetween(randomSource, 8, 12)),
-                        new ItemStack(Items.EMERALD, 1), 5, 2, 0.05f));
-                trades.get(1).add((entity, randomSource) -> new MerchantOffer(
-                        new ItemCost(ModItems.PEAR_DONUT, randomBetween(randomSource, 8, 12)),
-                        new ItemStack(Items.EMERALD, 1), 5, 2, 0.05f));
-                trades.get(1).add((entity, randomSource) -> new MerchantOffer(
-                        new ItemCost(ModItems.BLUEBERRY_DONUT, randomBetween(randomSource, 8, 12)),
-                        new ItemStack(Items.EMERALD, 1), 5, 2, 0.05f));
-            }
+        if(event.getType() == VillagerProfession.BUTCHER) {
+            ModHelper.getStandardSellTrades(event);
+        }
+
+        if(event.getType() == VillagerProfession.ARMORER) {
+            ModHelper.getStandardSellTrades(event);
+        }
+
+        if(event.getType() == VillagerProfession.CLERIC) {
+            ModHelper.getStandardSellTrades(event);
+        }
+
+        if(event.getType() == VillagerProfession.CARTOGRAPHER) {
+            ModHelper.getStandardSellTrades(event);
+        }
+
+        if(event.getType() == VillagerProfession.FISHERMAN) {
+            ModHelper.getStandardSellTrades(event);
+        }
+
+        if(event.getType() == VillagerProfession.FLETCHER) {
+            ModHelper.getStandardSellTrades(event);
+        }
+
+        if(event.getType() == VillagerProfession.LEATHERWORKER) {
+            ModHelper.getStandardSellTrades(event);
+        }
+
+        if(event.getType() == VillagerProfession.LIBRARIAN) {
+            ModHelper.getStandardSellTrades(event);
+        }
+
+        if(event.getType() == VillagerProfession.SHEPHERD) {
+            ModHelper.getStandardSellTrades(event);
+        }
+
+        if(event.getType() == VillagerProfession.MASON) {
+            ModHelper.getStandardSellTrades(event);
+        }
+
+        if(event.getType() == VillagerProfession.TOOLSMITH) {
+            ModHelper.getStandardSellTrades(event);
+        }
+
+        if(event.getType() == VillagerProfession.WEAPONSMITH) {
+            ModHelper.getStandardSellTrades(event);
+        }
 
     }
 
