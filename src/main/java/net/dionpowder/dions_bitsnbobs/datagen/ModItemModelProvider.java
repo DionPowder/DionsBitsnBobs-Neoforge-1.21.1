@@ -58,6 +58,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModFluids.ORANGE_FROSTING_BUCKET.get());
         basicItem(ModFluids.BLUEBERRY_FROSTING_BUCKET.get());
         basicItem(ModFluids.PEAR_FROSTING_BUCKET.get());
+        basicItem(ModFluids.DONUT_BATTER_BUCKET.get());
 
     }
 }

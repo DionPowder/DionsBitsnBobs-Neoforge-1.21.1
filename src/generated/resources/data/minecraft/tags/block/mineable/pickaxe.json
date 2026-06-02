@@ -3,6 +3,8 @@
     "dions_bitsnbobs:andesite_component",
     "dions_bitsnbobs:brass_component",
     "dions_bitsnbobs:copper_component",
-    "dions_bitsnbobs:train_component"
+    "dions_bitsnbobs:train_component",
+    "dions_bitsnbobs:donut_cast",
+    "dions_bitsnbobs:filled_donut_cast"
   ]
 }

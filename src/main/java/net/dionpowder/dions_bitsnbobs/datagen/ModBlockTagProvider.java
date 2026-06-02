@@ -3,6 +3,7 @@ package net.dionpowder.dions_bitsnbobs.datagen;
 import com.simibubi.create.AllTags;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
+import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.utils.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -27,7 +28,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ANDESITE_COMPONENT.get())
                 .add(ModBlocks.BRASS_COMPONENT.get())
                 .add(ModBlocks.COPPER_COMPONENT.get())
-                .add(ModBlocks.TRAIN_COMPONENT.get());
+                .add(ModBlocks.TRAIN_COMPONENT.get())
+                .add(ModBlocks.DONUT_CAST.get())
+                .add(ModBlocks.FILLED_DONUT_CAST.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.ANDESITE_COMPONENT.get())
@@ -43,5 +46,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         tag(ModTags.Blocks.STORAGE_BLOCKS).add(ModBlocks.STRAWBERRY_CRATE.get());
         tag(ModTags.Blocks.STORAGE_BLOCKS_STRAWBERRY).add(ModBlocks.STRAWBERRY_CRATE.get());
+
+        tag(ModTags.Blocks.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
+                .add(ModFluids.STRAWBERRY_FROSTING_BLOCK.get());
     }
 }

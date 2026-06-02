@@ -1,5 +1,5 @@
 {
-  "type": "create:pressing",
+  "type": "create:emptying",
   "ingredients": [
     {
       "item": "dions_bitsnbobs:filled_donut_cast"
@@ -10,7 +10,8 @@
       "id": "dions_bitsnbobs:donut_cast"
     },
     {
-      "id": "dions_bitsnbobs:uncooked_donut"
+      "amount": 250,
+      "id": "dions_bitsnbobs:donut_batter"
     }
   ]
 }

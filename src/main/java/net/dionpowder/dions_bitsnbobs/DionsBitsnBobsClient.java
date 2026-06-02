@@ -51,5 +51,7 @@ public class DionsBitsnBobsClient {
                 ModFluidTypes.BLUEBERRY_FROSTING_FLUID_TYPE.get());
         event.registerFluidType(((BaseFluidType) ModFluidTypes.PEAR_FROSTING_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
                 ModFluidTypes.PEAR_FROSTING_FLUID_TYPE.get());
+        event.registerFluidType(((BaseFluidType) ModFluidTypes.DONUT_BATTER_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
+                ModFluidTypes.DONUT_BATTER_FLUID_TYPE.get());
     }
 }

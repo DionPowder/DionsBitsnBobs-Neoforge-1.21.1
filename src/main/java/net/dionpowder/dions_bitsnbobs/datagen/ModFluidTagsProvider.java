@@ -2,6 +2,7 @@ package net.dionpowder.dions_bitsnbobs.datagen;
 
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
+import net.dionpowder.dions_bitsnbobs.utils.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.FluidTagsProvider;
@@ -26,6 +27,10 @@ public class ModFluidTagsProvider extends FluidTagsProvider {
                 .add(ModFluids.SOURCE_BLUEBERRY_FROSTING.get())
                 .add(ModFluids.FLOWING_BLUEBERRY_FROSTING.get())
                 .add(ModFluids.SOURCE_PEAR_FROSTING.get())
-                .add(ModFluids.FLOWING_PEAR_FROSTING.get());
+                .add(ModFluids.FLOWING_PEAR_FROSTING.get())
+                .add(ModFluids.SOURCE_DONUT_BATTER.get())
+                .add(ModFluids.FLOWING_DONUT_BATTER.get());
+        tag(ModTags.Fluids.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
+                .add(ModFluids.SOURCE_STRAWBERRY_FROSTING.get());
     }
 }

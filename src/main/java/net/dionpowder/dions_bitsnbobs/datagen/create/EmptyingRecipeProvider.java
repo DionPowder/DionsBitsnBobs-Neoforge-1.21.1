@@ -1,27 +1,26 @@
 package net.dionpowder.dions_bitsnbobs.datagen.create;
 
-import com.simibubi.create.AllTags;
-import com.simibubi.create.api.data.recipe.PressingRecipeGen;
+import com.simibubi.create.api.data.recipe.EmptyingRecipeGen;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
-import net.dionpowder.dions_bitsnbobs.item.ModItems;
+import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.concurrent.CompletableFuture;
 
-public class PressingRecipeProvider extends PressingRecipeGen {
-    public PressingRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+public class EmptyingRecipeProvider extends EmptyingRecipeGen {
+    public EmptyingRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, DionsBitsnBobs.MOD_ID);
     }
 
     GeneratedRecipe
 
-    UNCOOKED_DONUT = create("uncooked_donut", b -> b
+    DONUT_BATTER = create("donut_batter", b -> b
             .require(ModBlocks.FILLED_DONUT_CAST)
             .output(ModBlocks.DONUT_CAST)
-            .output(ModItems.UNCOOKED_DONUT))
+            .output(ModFluids.SOURCE_DONUT_BATTER.get(), 250))
 
     ;
+
 }

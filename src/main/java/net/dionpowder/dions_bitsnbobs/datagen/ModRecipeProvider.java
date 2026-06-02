@@ -42,6 +42,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_charcoal", has(Items.CHARCOAL))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DONUT_CAST)
+                .pattern("   ")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.BRICK)
+                .unlockedBy("has_brick", has(Items.BRICK))
+                .save(recipeOutput);
+
         // shapeless crafting
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.STRAWBERRY.get(), 9)
                 .requires(ModBlocks.STRAWBERRY_CRATE)

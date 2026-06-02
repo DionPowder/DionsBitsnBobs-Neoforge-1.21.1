@@ -1,0 +1,7 @@
+{
+  "parent": "dions_bitsnbobs:block/donut_cast",
+  "textures": {
+    "0": "dions_bitsnbobs:block/filled_donut_cast",
+    "particle": "dions_bitsnbobs:block/filled_donut_cast"
+  }
+}

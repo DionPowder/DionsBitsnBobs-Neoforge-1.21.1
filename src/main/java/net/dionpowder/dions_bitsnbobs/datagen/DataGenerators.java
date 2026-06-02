@@ -37,6 +37,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new CompactingRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new CrushingRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new DeployingRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new EmptyingRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new FillingRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new MixingRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new PressingRecipeProvider(packOutput, lookupProvider));

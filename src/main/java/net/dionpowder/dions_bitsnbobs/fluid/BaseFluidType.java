@@ -36,6 +36,8 @@ public class BaseFluidType extends FluidType {
         this.fogColor = fogColor;
     }
 
+    protected static final int NO_TINT = 0xffffffff;
+
     public IClientFluidTypeExtensions getClientFluidTypeExtensions() {
         return new IClientFluidTypeExtensions() {
             @Override

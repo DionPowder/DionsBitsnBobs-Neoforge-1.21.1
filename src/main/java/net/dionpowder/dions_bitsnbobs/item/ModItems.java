@@ -5,6 +5,7 @@ import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
 import net.dionpowder.dions_bitsnbobs.item.custom.ChorusDonutItem;
 import net.dionpowder.dions_bitsnbobs.item.custom.SprinklesItemBase;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.neoforged.bus.api.IEventBus;

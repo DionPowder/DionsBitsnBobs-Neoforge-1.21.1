@@ -28,7 +28,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(DionsBitsnBobs.MOD_ID)
 public class DionsBitsnBobs {
-    public static final String NAME = "Create: Dion's Bits n' Bobs!";
+    public static final String NAME = "Create: Dion's Bits 'n' Bobs!";
     public static final String MOD_ID = "dions_bitsnbobs";
     public static final Logger LOGGER = LogUtils.getLogger();
 
@@ -70,6 +70,7 @@ public class DionsBitsnBobs {
         ModHelper.registerFluidDispenseBehavior(ModFluids.ORANGE_FROSTING_BUCKET.get());
         ModHelper.registerFluidDispenseBehavior(ModFluids.BLUEBERRY_FROSTING_BUCKET.get());
         ModHelper.registerFluidDispenseBehavior(ModFluids.PEAR_FROSTING_BUCKET.get());
+        ModHelper.registerFluidDispenseBehavior(ModFluids.DONUT_BATTER_BUCKET.get());
     }
 
     public static CreateRegistrate registrate() {

@@ -1,6 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.datagen.create;
 
 
+import com.simibubi.create.AllFluids;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.api.data.recipe.MixingRecipeGen;
 import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
@@ -14,6 +15,9 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.material.Fluids;
+import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -93,7 +97,17 @@ public class MixingRecipeProvider extends MixingRecipeGen {
             .require(ModItems.STRAWBERRY)
             .require(Fluids.WATER, 150)
             .requiresHeat(HeatCondition.HEATED)
-            .output(ModFluids.SOURCE_STRAWBERRY_FROSTING.get(), 300))
+            .output(ModFluids.SOURCE_STRAWBERRY_FROSTING.get(), 300)),
+
+    DONUT_BATTER = create("donut_batter", b -> b
+            .require(Tags.Fluids.MILK, 400)
+            .require(AllItems.WHEAT_FLOUR)
+            .require(AllItems.WHEAT_FLOUR)
+            .require(Items.SUGAR)
+            .require(Items.EGG)
+            .requiresHeat(HeatCondition.HEATED)
+            .duration(60)
+            .output(ModFluids.SOURCE_DONUT_BATTER.get(), 500))
 
     ;
 

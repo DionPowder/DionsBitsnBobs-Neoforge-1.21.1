@@ -102,6 +102,24 @@ public class ModFluids {
             .slopeFindDistance(2).levelDecreasePerBlock(3)
             .block(ModFluids.PEAR_FROSTING_BLOCK).bucket(ModFluids.PEAR_FROSTING_BUCKET);
 
+    // batter
+    public static final Supplier<FlowingFluid> SOURCE_DONUT_BATTER = FLUIDS.register("donut_batter",
+            () -> new BaseFlowingFluid.Source(ModFluids.DONUT_BATTER_PROPERTIES));
+    // flowing
+    public static final Supplier<FlowingFluid> FLOWING_DONUT_BATTER = FLUIDS.register("flowing_donut_batter",
+            () -> new BaseFlowingFluid.Flowing(ModFluids.DONUT_BATTER_PROPERTIES));
+    // block
+    public static final DeferredBlock<LiquidBlock> DONUT_BATTER_BLOCK = ModBlocks.BLOCKS.register("donut_batter_block",
+            () -> new LiquidBlock(ModFluids.SOURCE_DONUT_BATTER.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER).noLootTable()));
+    // bucket item
+    public static final DeferredItem<BucketItem> DONUT_BATTER_BUCKET = ModItems.ITEMS.registerItem("donut_batter_bucket",
+            properties -> new BucketItem(ModFluids.SOURCE_DONUT_BATTER.get(), properties.craftRemainder(Items.BUCKET).stacksTo(1)));
+    // properties
+    public static final BaseFlowingFluid.Properties DONUT_BATTER_PROPERTIES = new BaseFlowingFluid.Properties(
+            ModFluidTypes.DONUT_BATTER_FLUID_TYPE, SOURCE_DONUT_BATTER, FLOWING_DONUT_BATTER)
+            .slopeFindDistance(2).levelDecreasePerBlock(3)
+            .block(ModFluids.DONUT_BATTER_BLOCK).bucket(ModFluids.DONUT_BATTER_BUCKET);
+
     public static void register(IEventBus eventBus) {
         FLUIDS.register(eventBus);
     }

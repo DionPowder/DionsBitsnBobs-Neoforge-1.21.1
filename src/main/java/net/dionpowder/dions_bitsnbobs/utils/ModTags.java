@@ -3,15 +3,24 @@ package net.dionpowder.dions_bitsnbobs.utils;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
+import net.neoforged.neoforge.fluids.FluidType;
 
 public class ModTags {
     public static class Blocks {
         public static final TagKey<Block> STORAGE_BLOCKS = commonBlockTag("storage_blocks");
         public static final TagKey<Block> STORAGE_BLOCKS_STRAWBERRY = commonBlockTag("storage_blocks/strawberry");
+
+        public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING = createTag("fan_processing_catalysts_strawberry_frosting");
 
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));
@@ -49,6 +58,19 @@ public class ModTags {
 
         private static TagKey<Item> commonItemTag(String path) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", path));
+        }
+
+    }
+
+    public static class Fluids {
+        public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING = createTag("fan_processing_catalysts_strawberry_frosting");
+
+        private static TagKey<Fluid> createTag(String name) {
+            return FluidTags.create(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));
+        }
+
+        private static TagKey<Fluid> commonItemTag(String path) {
+            return FluidTags.create(ResourceLocation.fromNamespaceAndPath("c", path));
         }
 
     }

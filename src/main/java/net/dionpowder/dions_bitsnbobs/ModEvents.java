@@ -6,6 +6,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.dionpowder.dions_bitsnbobs.config.CommonConfig;
 import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.item.ModItems;
+import net.dionpowder.dions_bitsnbobs.potion.ModPotions;
 import net.dionpowder.dions_bitsnbobs.utils.ModHelper;
 import net.dionpowder.dions_bitsnbobs.utils.ModTags;
 import net.dionpowder.dions_bitsnbobs.villager.ModVillagers;
@@ -14,10 +15,13 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionBrewing;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
 import java.util.List;
@@ -181,6 +185,15 @@ public class ModEvents{
 
     public static int randomBetween(RandomSource random, int min, int max) {
         return min + random.nextInt(max - min + 1);
+    }
+
+    @SubscribeEvent
+    public static void onBrewingRecipeRegister(RegisterBrewingRecipesEvent event) {
+        PotionBrewing.Builder builder = event.getBuilder();
+
+        builder.addMix(Potions.AWKWARD, ModItems.BOTTLED_RAINBOW_SPRINKLES.get(), ModPotions.SUGAR_RUSH_POTION);
+        builder.addMix(Potions.AWKWARD, ModItems.BOTTLED_WHITE_SPRINKLES.get(), ModPotions.SUGAR_RUSH_POTION);
+        builder.addMix(Potions.AWKWARD, ModItems.BOTTLED_GREEN_SPRINKLES.get(), ModPotions.SUGAR_RUSH_POTION);
     }
 
 }

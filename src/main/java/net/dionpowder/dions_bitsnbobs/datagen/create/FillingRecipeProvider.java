@@ -3,6 +3,7 @@ package net.dionpowder.dions_bitsnbobs.datagen.create;
 import com.simibubi.create.AllFluids;
 import com.simibubi.create.api.data.recipe.FillingRecipeGen;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
 import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.item.ModItems;
 import net.minecraft.core.HolderLookup;
@@ -60,7 +61,12 @@ public class FillingRecipeProvider extends FillingRecipeGen {
     WHITE_CHOCOLATE_PEAR_DONUT = create("white_chocolate_pear_donut", b -> b
             .require(ModItems.WHITE_CHOCOLATE_DONUT)
             .require(ModFluids.SOURCE_PEAR_FROSTING.get(), 100)
-            .output(ModItems.WHITE_CHOCOLATE_PEAR_DONUT))
+            .output(ModItems.WHITE_CHOCOLATE_PEAR_DONUT)),
+
+    FILLED_DONUT_CAST = create("filled_donut_cast", b -> b
+            .require(ModBlocks.DONUT_CAST)
+            .require(ModFluids.SOURCE_DONUT_BATTER.get(), 250)
+            .output(ModBlocks.FILLED_DONUT_CAST))
 
     ;
 }

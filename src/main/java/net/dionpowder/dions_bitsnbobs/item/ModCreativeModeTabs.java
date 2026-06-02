@@ -21,6 +21,7 @@ public class ModCreativeModeTabs {
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "bitsnbobs_blocks_tab"))
                     .title(Component.translatable("creativetab.dions_bitsnbobs.items_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ModFluids.DONUT_BATTER_BUCKET);
                         output.accept(ModFluids.STRAWBERRY_FROSTING_BUCKET);
                         output.accept(ModFluids.ORANGE_FROSTING_BUCKET);
                         output.accept(ModFluids.BLUEBERRY_FROSTING_BUCKET);
@@ -82,6 +83,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BRASS_COMPONENT);
                         output.accept(ModBlocks.COPPER_COMPONENT);
                         output.accept(ModBlocks.TRAIN_COMPONENT);
+                        output.accept(ModBlocks.DONUT_CAST);
+                        output.accept(ModBlocks.FILLED_DONUT_CAST);
                     }).build());
 
     public static void register(IEventBus eventBus) {

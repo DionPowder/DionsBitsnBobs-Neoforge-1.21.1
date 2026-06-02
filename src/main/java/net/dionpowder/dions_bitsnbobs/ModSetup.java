@@ -7,6 +7,7 @@ import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.AllAdvancements;
 import net.dionpowder.dions_bitsnbobs.item.ModCreativeModeTabs;
 import net.dionpowder.dions_bitsnbobs.item.ModItems;
+import net.dionpowder.dions_bitsnbobs.potion.ModPotions;
 import net.dionpowder.dions_bitsnbobs.villager.ModVillagers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
@@ -24,6 +25,7 @@ public class ModSetup {
         ModFluids.register(modEventBus);
 
         ModEffects.register(modEventBus);
+        ModPotions.register(modEventBus);
 
         ModVillagers.register(modEventBus);
     }

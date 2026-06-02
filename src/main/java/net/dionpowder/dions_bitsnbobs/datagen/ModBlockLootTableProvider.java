@@ -37,6 +37,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BRASS_COMPONENT.get());
         dropSelf(ModBlocks.COPPER_COMPONENT.get());
         dropSelf(ModBlocks.TRAIN_COMPONENT.get());
+        dropSelf(ModBlocks.DONUT_CAST.get());
+        dropSelf(ModBlocks.FILLED_DONUT_CAST.get());
 
         this.add(ModBlocks.WILD_STRAWBERRY_BUSH.get(), block -> this.applyExplosionDecay(
                 block,LootTable.lootTable().withPool(LootPool.lootPool(
