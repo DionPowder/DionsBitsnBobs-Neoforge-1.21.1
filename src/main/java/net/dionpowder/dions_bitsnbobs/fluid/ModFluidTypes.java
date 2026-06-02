@@ -13,8 +13,6 @@ import org.joml.Vector3f;
 import java.util.function.Supplier;
 
 public class ModFluidTypes {
-    public static final ResourceLocation WATER_OVERLAY_RL = ResourceLocation.parse("block/water_overlay");
-
     public static final ResourceLocation STRAWBERRY_FROSTING_STILL_RL = ResourceLocation.fromNamespaceAndPath("dions_bitsnbobs", "block/strawberry_frosting_still");
     public static final ResourceLocation STRAWBERRY_FROSTING_FLOWING_RL = ResourceLocation.fromNamespaceAndPath("dions_bitsnbobs", "block/strawberry_frosting_flowing");
 
@@ -34,27 +32,27 @@ public class ModFluidTypes {
             DeferredRegister.create(NeoForgeRegistries.Keys.FLUID_TYPES, DionsBitsnBobs.MOD_ID);
 
     public static final Supplier<FluidType> STRAWBERRY_FROSTING_FLUID_TYPE = registerFluidType("strawberry_frosting",
-            new BaseFluidType(STRAWBERRY_FROSTING_STILL_RL, STRAWBERRY_FROSTING_FLOWING_RL, WATER_OVERLAY_RL, 0xFFF29AA3,
+            new BaseFluidType(STRAWBERRY_FROSTING_STILL_RL, STRAWBERRY_FROSTING_FLOWING_RL, STRAWBERRY_FROSTING_FLOWING_RL, 0xFFF29AA3,
                     new Vector3f(242f / 255f, 154f / 255f, 163f / 255f),
                     FluidType.Properties.create().sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)));
 
     public static final Supplier<FluidType> ORANGE_FROSTING_FLUID_TYPE = registerFluidType("orange_frosting",
-            new BaseFluidType(ORANGE_FROSTING_STILL_RL, ORANGE_FROSTING_FLOWING_RL, WATER_OVERLAY_RL, 0xFFFFB347,
+            new BaseFluidType(ORANGE_FROSTING_STILL_RL, ORANGE_FROSTING_FLOWING_RL, ORANGE_FROSTING_FLOWING_RL, 0xFFFFB347,
                     new Vector3f(1.0f, 179f / 255f, 71f / 255f),
                     FluidType.Properties.create().sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)));
 
     public static final Supplier<FluidType> BLUEBERRY_FROSTING_FLUID_TYPE = registerFluidType("blueberry_frosting",
-            new BaseFluidType(BLUEBERRY_FROSTING_STILL_RL, BLUEBERRY_FROSTING_FLOWING_RL, WATER_OVERLAY_RL, 0xFF8B6FF7,
+            new BaseFluidType(BLUEBERRY_FROSTING_STILL_RL, BLUEBERRY_FROSTING_FLOWING_RL, BLUEBERRY_FROSTING_FLOWING_RL, 0xFF8B6FF7,
                     new Vector3f(139f / 255f, 111f / 255f, 247f / 255f),
                     FluidType.Properties.create().sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)));
 
     public static final Supplier<FluidType> PEAR_FROSTING_FLUID_TYPE = registerFluidType("pear_frosting",
-            new BaseFluidType(PEAR_FROSTING_STILL_RL, PEAR_FROSTING_FLOWING_RL, WATER_OVERLAY_RL, 0xFFB7E65A,
+            new BaseFluidType(PEAR_FROSTING_STILL_RL, PEAR_FROSTING_FLOWING_RL, PEAR_FROSTING_FLOWING_RL, 0xFFB7E65A,
                     new Vector3f(183f / 255f, 230f / 255f, 90f / 255f),
                     FluidType.Properties.create().sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)));
 
     public static final Supplier<FluidType> DONUT_BATTER_FLUID_TYPE = registerFluidType("donut_batter",
-            new BaseFluidType(DONUT_BATTER_STILL_RL, DONUT_BATTER_FLOWING_RL, WATER_OVERLAY_RL, 0xffffffff,
+            new BaseFluidType(DONUT_BATTER_STILL_RL, DONUT_BATTER_FLOWING_RL, DONUT_BATTER_FLOWING_RL, 0xffffffff,
                     new Vector3f(0.97f, 0.94f, 0.78f),
                     FluidType.Properties.create().sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)));
 

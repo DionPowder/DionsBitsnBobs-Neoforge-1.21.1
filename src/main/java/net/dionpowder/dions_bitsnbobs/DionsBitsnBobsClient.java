@@ -30,14 +30,16 @@ public class DionsBitsnBobsClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
        event.enqueueWork(() -> {
-           //ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           //ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           //ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
-           //ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
-           //ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           //ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           //ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_PEAR_FROSTING.get(), RenderType.TRANSLUCENT);
-           //ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_PEAR_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_PEAR_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_PEAR_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_DONUT_BATTER.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_DONUT_BATTER.get(), RenderType.TRANSLUCENT);
        });
     }
 
