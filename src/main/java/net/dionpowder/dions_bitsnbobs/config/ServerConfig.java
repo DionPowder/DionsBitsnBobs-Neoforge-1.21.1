@@ -11,7 +11,7 @@ public class ServerConfig {
 
     public static final ModConfigSpec.BooleanValue BULK_FROSTING = BUILDER
             .comment("Defines if bulk frosting using encased fans is enabled")
-            .define("bulkFrosting", false);
+            .define("bulkFrosting", true);
 
     public static final ModConfigSpec.DoubleValue CHORUS_DONUT_TELEPORT_CHANCE = BUILDER
             .comment("The chance for a chorus donut to teleport the player")
