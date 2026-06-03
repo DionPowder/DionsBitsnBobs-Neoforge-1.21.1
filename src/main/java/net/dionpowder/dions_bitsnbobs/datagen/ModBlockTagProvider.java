@@ -49,5 +49,11 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         tag(ModTags.Blocks.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
                 .add(ModFluids.STRAWBERRY_FROSTING_BLOCK.get());
+        tag(ModTags.Blocks.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
+                .add(ModFluids.ORANGE_FROSTING_BLOCK.get());
+        tag(ModTags.Blocks.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
+                .add(ModFluids.BLUEBERRY_FROSTING_BLOCK.get());
+        tag(ModTags.Blocks.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
+                .add(ModFluids.PEAR_FROSTING_BLOCK.get());
     }
 }

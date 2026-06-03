@@ -151,6 +151,12 @@ public class AllAdvancements implements DataProvider {
             .after(STRAWBERRY)
             .special(EXPERT)),
 
+    BULK_FROSTED = create("bulk_frosted", b -> b.icon(Items.SUGAR)
+            .title("Sugar Infused")
+            .description("Get bulk frosted by an encased fan")
+            .after(STRAWBERRY_FROSTING)
+            .special(SECRET)),
+
     // Sprinkles branch
     SPRINKLES = create("sprinkles", b -> b.icon(ModItems.BOTTLED_WHITE_SPRINKLES)
             .title("Sprinkles")

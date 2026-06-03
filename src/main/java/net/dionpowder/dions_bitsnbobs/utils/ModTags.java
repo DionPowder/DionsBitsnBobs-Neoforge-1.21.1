@@ -13,7 +13,6 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
-import net.neoforged.neoforge.fluids.FluidType;
 
 public class ModTags {
     public static class Blocks {
@@ -21,6 +20,9 @@ public class ModTags {
         public static final TagKey<Block> STORAGE_BLOCKS_STRAWBERRY = commonBlockTag("storage_blocks/strawberry");
 
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING = createTag("fan_processing_catalysts_strawberry_frosting");
+        public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING = createTag("fan_processing_catalysts_orange_frosting");
+        public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING = createTag("fan_processing_catalysts_blueberry_frosting");
+        public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_PEAR_FROSTING = createTag("fan_processing_catalysts_pear_frosting");
 
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));
@@ -64,6 +66,9 @@ public class ModTags {
 
     public static class Fluids {
         public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING = createTag("fan_processing_catalysts_strawberry_frosting");
+        public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING = createTag("fan_processing_catalysts_orange_frosting");
+        public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING = createTag("fan_processing_catalysts_blueberry_frosting");
+        public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_PEAR_FROSTING = createTag("fan_processing_catalysts_pear_frosting");
 
         private static TagKey<Fluid> createTag(String name) {
             return FluidTags.create(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));

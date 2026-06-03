@@ -1,0 +1,6 @@
+{
+  "parent": "block/water",
+  "textures": {
+    "particle": "dions_bitsnbobs:block/blueberry_frosting_still"
+  }
+}

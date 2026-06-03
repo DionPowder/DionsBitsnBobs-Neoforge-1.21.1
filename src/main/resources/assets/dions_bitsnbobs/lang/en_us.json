@@ -119,6 +119,9 @@
   "advancement.dions_bitsnbobs.strawberry_frosting": "More Sugar",
   "advancement.dions_bitsnbobs.strawberry_frosting.desc": "Mix your first strawberry frosting",
 
+  "advancement.dions_bitsnbobs.bulk_frosted": "Sugar Infused",
+  "advancement.dions_bitsnbobs.bulk_frosted.desc": "Get bulk frosted by an encased fan",
+
   "advancement.dions_bitsnbobs.sprinkles": "Sprinkles",
   "advancement.dions_bitsnbobs.sprinkles.desc": "Craft your first sprinkles",
 
@@ -139,5 +142,10 @@
 
   "creativetab.dions_bitsnbobs.blocks_tab": "Create: DB&B Blocks",
   "creativetab.dions_bitsnbobs.items_tab": "Create: DB&B Items",
-  "creativetab.dions_bitsnbobs.donuts_tab": "Create: DB&B Donuts"
+  "creativetab.dions_bitsnbobs.donuts_tab": "Create: DB&B Donuts",
+
+  "create.recipe.fan_strawberry_frosting": "Bulk Strawberry Frosting",
+  "create.recipe.fan_orange_frosting": "Bulk Orange Frosting",
+  "create.recipe.fan_blueberry_frosting": "Bulk Blueberry Frosting",
+  "create.recipe.fan_pear_frosting": "Bulk Pear Frosting"
 }

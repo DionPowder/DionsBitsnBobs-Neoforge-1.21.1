@@ -32,5 +32,11 @@ public class ModFluidTagsProvider extends FluidTagsProvider {
                 .add(ModFluids.FLOWING_DONUT_BATTER.get());
         tag(ModTags.Fluids.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
                 .add(ModFluids.SOURCE_STRAWBERRY_FROSTING.get());
+        tag(ModTags.Fluids.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
+                .add(ModFluids.SOURCE_ORANGE_FROSTING.get());
+        tag(ModTags.Fluids.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
+                .add(ModFluids.SOURCE_BLUEBERRY_FROSTING.get());
+        tag(ModTags.Fluids.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
+                .add(ModFluids.SOURCE_PEAR_FROSTING.get());
     }
 }

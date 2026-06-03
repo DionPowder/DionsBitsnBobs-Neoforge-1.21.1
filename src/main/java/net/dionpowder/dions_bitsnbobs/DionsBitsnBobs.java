@@ -6,10 +6,17 @@ import net.dionpowder.dions_bitsnbobs.config.ServerConfig;
 import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.AllAdvancements;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.AllTriggers;
+import net.dionpowder.dions_bitsnbobs.recipe.BulkFrostingRecipes;
+import net.dionpowder.dions_bitsnbobs.recipe.ModFanProcessingTypes;
 import net.dionpowder.dions_bitsnbobs.utils.ModHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.server.packs.resources.SimplePreparableReloadListener;
+import net.minecraft.util.profiling.ProfilerFiller;
+import net.minecraft.world.item.crafting.RecipeManager;
 import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.neoforge.event.AddReloadListenerEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import org.slf4j.Logger;
 
@@ -22,7 +29,6 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -55,11 +61,30 @@ public class DionsBitsnBobs {
 
     // Register advancements
     public static void onRegister(final RegisterEvent event) {
+        ModFanProcessingTypes.init();
         if (event.getRegistry() == BuiltInRegistries.TRIGGER_TYPES) {
             AllAdvancements.register();
             AllTriggers.register();
         }
     }
+
+    @SubscribeEvent
+    public void onAddReloadListeners(AddReloadListenerEvent event) {
+        RecipeManager manager = event.getServerResources().getRecipeManager();
+
+        event.addListener(new SimplePreparableReloadListener<Void>() {
+            @Override
+            protected Void prepare(ResourceManager resourceManager, ProfilerFiller profiler) {
+                return null;
+            }
+
+            @Override
+            protected void apply(Void object, ResourceManager resourceManager, ProfilerFiller profiler) {
+                BulkFrostingRecipes.rebuild(manager);
+            }
+        });
+    }
+
 
     public static ResourceLocation rl(String path) {
         return ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, path);

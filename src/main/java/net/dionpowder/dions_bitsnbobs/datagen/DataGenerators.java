@@ -2,6 +2,10 @@ package net.dionpowder.dions_bitsnbobs.datagen;
 
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.datagen.create.*;
+import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.BlueberryFrostingRecipeProvider;
+import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.OrangeFrostingRecipeProvider;
+import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.PearFrostingRecipeProvider;
+import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.StrawberryFrostingRecipeProvider;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.AllAdvancements;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -43,6 +47,11 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new PressingRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new SequencedAssemblyRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new WashingRecipeProvider(packOutput, lookupProvider));
+        // generate dions_bitsnbobs recipes
+        generator.addProvider(event.includeServer(), new StrawberryFrostingRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new OrangeFrostingRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new BlueberryFrostingRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new PearFrostingRecipeProvider(packOutput, lookupProvider));
 
         // advancements
         generator.addProvider(event.includeServer(), new AllAdvancements(packOutput, lookupProvider));
