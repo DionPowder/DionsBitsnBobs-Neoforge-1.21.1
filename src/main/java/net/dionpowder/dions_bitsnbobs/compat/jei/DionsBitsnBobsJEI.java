@@ -1,4 +1,4 @@
-package net.dionpowder.compat.jei;
+package net.dionpowder.dions_bitsnbobs.compat.jei;
 
 import com.simibubi.create.AllItems;
 import com.simibubi.create.compat.jei.category.CreateRecipeCategory;
@@ -9,10 +9,10 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.runtime.IJeiRuntime;
-import net.dionpowder.compat.jei.category.BlueberryFrostingCategory;
-import net.dionpowder.compat.jei.category.OrangeFrostingCategory;
-import net.dionpowder.compat.jei.category.PearFrostingCategory;
-import net.dionpowder.compat.jei.category.StrawberryFrostingCategory;
+import net.dionpowder.dions_bitsnbobs.compat.jei.category.BlueberryFrostingCategory;
+import net.dionpowder.dions_bitsnbobs.compat.jei.category.OrangeFrostingCategory;
+import net.dionpowder.dions_bitsnbobs.compat.jei.category.PearFrostingCategory;
+import net.dionpowder.dions_bitsnbobs.compat.jei.category.StrawberryFrostingCategory;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.recipe.ModRecipeTypes;

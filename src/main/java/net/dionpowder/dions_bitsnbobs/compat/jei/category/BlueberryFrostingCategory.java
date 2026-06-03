@@ -1,4 +1,4 @@
-package net.dionpowder.compat.jei.category;
+package net.dionpowder.dions_bitsnbobs.compat.jei.category;
 
 import com.simibubi.create.compat.jei.category.ProcessingViaFanCategory;
 import com.simibubi.create.compat.jei.category.animations.AnimatedKinetics;

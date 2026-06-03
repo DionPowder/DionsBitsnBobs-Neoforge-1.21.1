@@ -1,20 +1,20 @@
-package net.dionpowder.compat.jei.category;
+package net.dionpowder.dions_bitsnbobs.compat.jei.category;
 
 import com.simibubi.create.compat.jei.category.ProcessingViaFanCategory;
 import com.simibubi.create.compat.jei.category.animations.AnimatedKinetics;
 import net.createmod.catnip.gui.element.GuiGameElement;
 import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
-import net.dionpowder.dions_bitsnbobs.recipe.fan.OrangeFrostingRecipe;
+import net.dionpowder.dions_bitsnbobs.recipe.fan.StrawberryFrostingRecipe;
 import net.minecraft.client.gui.GuiGraphics;
 
-public class OrangeFrostingCategory extends ProcessingViaFanCategory.MultiOutput<OrangeFrostingRecipe> {
-    public OrangeFrostingCategory(Info<OrangeFrostingRecipe> info) {
+public class StrawberryFrostingCategory extends ProcessingViaFanCategory.MultiOutput<StrawberryFrostingRecipe> {
+    public StrawberryFrostingCategory(Info<StrawberryFrostingRecipe> info) {
         super(info);
     }
 
     @Override
     protected void renderAttachedBlock(GuiGraphics graphics) {
-        GuiGameElement.of(ModFluids.ORANGE_FROSTING_BLOCK.get().defaultBlockState())
+        GuiGameElement.of(ModFluids.STRAWBERRY_FROSTING_BLOCK.get().defaultBlockState())
                 .scale(SCALE)
                 .atLocal(0, 0, 2)
                 .lighting(AnimatedKinetics.DEFAULT_LIGHTING)
