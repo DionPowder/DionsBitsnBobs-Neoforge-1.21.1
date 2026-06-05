@@ -144,8 +144,8 @@
   "creativetab.dions_bitsnbobs.items_tab": "Create: DB&B Items",
   "creativetab.dions_bitsnbobs.donuts_tab": "Create: DB&B Donuts",
 
-  "create.recipe.fan_strawberry_frosting": "Bulk Strawberry Frosting",
-  "create.recipe.fan_orange_frosting": "Bulk Orange Frosting",
-  "create.recipe.fan_blueberry_frosting": "Bulk Blueberry Frosting",
-  "create.recipe.fan_pear_frosting": "Bulk Pear Frosting"
+  "create.recipe.fan_strawberry_frosting": "Bulk Frosting",
+  "create.recipe.fan_orange_frosting": "Bulk Frosting",
+  "create.recipe.fan_blueberry_frosting": "Bulk Frosting",
+  "create.recipe.fan_pear_frosting": "Bulk Frosting"
 }

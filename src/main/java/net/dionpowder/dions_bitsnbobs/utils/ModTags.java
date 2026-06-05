@@ -70,6 +70,12 @@ public class ModTags {
         public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING = createTag("fan_processing_catalysts_blueberry_frosting");
         public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_PEAR_FROSTING = createTag("fan_processing_catalysts_pear_frosting");
 
+        public static final TagKey<Fluid> STRAWBERRY_FROSTING = createTag("strawberry_frosting");
+        public static final TagKey<Fluid> ORANGE_FROSTING = createTag("orange_frosting");
+        public static final TagKey<Fluid> BLUEBERRY_FROSTING = createTag("blueberry_frosting");
+        public static final TagKey<Fluid> PEAR_FROSTING = createTag("pear_frosting");
+        public static final TagKey<Fluid> DONUT_BATTER = createTag("donut_batter");
+
         private static TagKey<Fluid> createTag(String name) {
             return FluidTags.create(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));
         }

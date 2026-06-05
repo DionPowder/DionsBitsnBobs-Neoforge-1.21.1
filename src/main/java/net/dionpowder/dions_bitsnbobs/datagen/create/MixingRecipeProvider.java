@@ -97,16 +97,16 @@ public class MixingRecipeProvider extends MixingRecipeGen {
             .require(ModItems.STRAWBERRY)
             .require(Fluids.WATER, 150)
             .requiresHeat(HeatCondition.HEATED)
-            .output(ModFluids.SOURCE_STRAWBERRY_FROSTING.get(), 300)),
+            .output(ModFluids.SOURCE_STRAWBERRY_FROSTING.get(), 250)),
 
     DONUT_BATTER = create("donut_batter", b -> b
             .require(Tags.Fluids.MILK, 400)
             .require(AllItems.WHEAT_FLOUR)
             .require(AllItems.WHEAT_FLOUR)
             .require(Items.SUGAR)
-            .require(Items.EGG)
+            .require(Ingredient.of(Tags.Items.EGGS))
             .requiresHeat(HeatCondition.HEATED)
-            .duration(60)
+            .duration(100)
             .output(ModFluids.SOURCE_DONUT_BATTER.get(), 500))
 
     ;

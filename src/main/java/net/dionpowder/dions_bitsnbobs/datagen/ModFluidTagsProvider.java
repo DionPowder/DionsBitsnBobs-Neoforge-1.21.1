@@ -19,17 +19,22 @@ public class ModFluidTagsProvider extends FluidTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(FluidTags.WATER)
+        tag(ModTags.Fluids.STRAWBERRY_FROSTING)
                 .add(ModFluids.SOURCE_STRAWBERRY_FROSTING.get())
-                .add(ModFluids.FLOWING_STRAWBERRY_FROSTING.get())
+                .add(ModFluids.FLOWING_STRAWBERRY_FROSTING.get());
+        tag(ModTags.Fluids.ORANGE_FROSTING)
                 .add(ModFluids.SOURCE_ORANGE_FROSTING.get())
-                .add(ModFluids.FLOWING_ORANGE_FROSTING.get())
+                .add(ModFluids.FLOWING_ORANGE_FROSTING.get());
+        tag(ModTags.Fluids.BLUEBERRY_FROSTING)
                 .add(ModFluids.SOURCE_BLUEBERRY_FROSTING.get())
-                .add(ModFluids.FLOWING_BLUEBERRY_FROSTING.get())
+                .add(ModFluids.FLOWING_BLUEBERRY_FROSTING.get());
+        tag(ModTags.Fluids.PEAR_FROSTING)
                 .add(ModFluids.SOURCE_PEAR_FROSTING.get())
-                .add(ModFluids.FLOWING_PEAR_FROSTING.get())
+                .add(ModFluids.FLOWING_PEAR_FROSTING.get());
+        tag(ModTags.Fluids.DONUT_BATTER)
                 .add(ModFluids.SOURCE_DONUT_BATTER.get())
                 .add(ModFluids.FLOWING_DONUT_BATTER.get());
+
         tag(ModTags.Fluids.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
                 .add(ModFluids.SOURCE_STRAWBERRY_FROSTING.get());
         tag(ModTags.Fluids.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
