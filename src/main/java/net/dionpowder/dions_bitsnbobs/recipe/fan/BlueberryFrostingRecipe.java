@@ -2,29 +2,19 @@ package net.dionpowder.dions_bitsnbobs.recipe.fan;
 
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeParams;
 import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe;
+import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.recipe.ModRecipeTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 
-public class BlueberryFrostingRecipe extends StandardProcessingRecipe<SingleRecipeInput> {
-    public BlueberryFrostingRecipe(ProcessingRecipeParams params) {
-        super(ModRecipeTypes.BLUEBERRY_FROSTING, params);
-    }
-
-    @Override
-    protected int getMaxInputCount() {
-        return 1;
-    }
+public class BlueberryFrostingRecipe extends AbstractFrostingRecipe {
+    public BlueberryFrostingRecipe(ProcessingRecipeParams params) {super(ModRecipeTypes.BLUEBERRY_FROSTING, params);}
 
     @Override
-    protected int getMaxOutputCount() {
-        return 12;
-    }
-
-    @Override
-    public boolean matches(SingleRecipeInput input, Level level) {
-        return getIngredients().getFirst().test(input.item());
+    public Block getFrostingBlock() {
+        return ModFluids.BLUEBERRY_FROSTING_BLOCK.get();
     }
 
     public static Builder<BlueberryFrostingRecipe> builder(ResourceLocation id) {
