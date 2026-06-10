@@ -1,8 +1,8 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
-import net.dionpowder.dions_bitsnbobs.item.ModItems;
+import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
+import net.dionpowder.dions_bitsnbobs.content.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;

@@ -1,7 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
-import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
-import net.dionpowder.dions_bitsnbobs.item.ModItems;
+import net.dionpowder.dions_bitsnbobs.content.block.ModBlocks;
+import net.dionpowder.dions_bitsnbobs.content.item.ModItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;

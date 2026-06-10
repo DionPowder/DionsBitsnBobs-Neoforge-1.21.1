@@ -3,7 +3,6 @@ package net.dionpowder.dions_bitsnbobs.datagen.create;
 import com.simibubi.create.AllFluids;
 import com.simibubi.create.api.data.recipe.CompactingRecipeGen;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Items;

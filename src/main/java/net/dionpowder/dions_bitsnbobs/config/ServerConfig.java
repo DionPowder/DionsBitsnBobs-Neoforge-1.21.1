@@ -1,25 +1,19 @@
 package net.dionpowder.dions_bitsnbobs.config;
 
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.neoforged.neoforge.common.ModConfigSpec;
+import net.createmod.catnip.config.ConfigBase;
 
-// An example config class. This is not required, but it's a good idea to have one to keep your config organized.
-// Demonstrates how to use Neo's config APIs
-public class ServerConfig {
-    private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
+public class ServerConfig extends ConfigBase {
 
-    public static final ModConfigSpec.BooleanValue BULK_FROSTING = BUILDER
-            .comment("Defines if bulk frosting using encased fans is enabled")
-            .define("bulkFrosting", true);
+    public final RecipesConfig recipes = nested(0, RecipesConfig::new, Comments.recipes);
+    public final FoodConfig food = nested(0, FoodConfig::new, Comments.food);
 
-    public static final ModConfigSpec.DoubleValue CHORUS_DONUT_TELEPORT_CHANCE = BUILDER
-            .comment("The chance for a chorus donut to teleport the player")
-            .defineInRange("chorusDonutTeleportChance", 1.0, 0.0, 1.0);
+    @Override
+    public String getName() {
+        return "server";
+    }
 
-    public static final ModConfigSpec SPEC = BUILDER.build();
-
-    private static boolean validateItemName(final Object obj) {
-        return obj instanceof String itemName && BuiltInRegistries.ITEM.containsKey(ResourceLocation.parse(itemName));
+    static class Comments {
+        static final String recipes = "Config options for recipe types";
+        static final String food = "Config options for food items";
     }
 }

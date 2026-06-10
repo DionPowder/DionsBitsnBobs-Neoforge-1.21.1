@@ -1,9 +1,9 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.worldgen.ModBiomeModifiers;
-import net.dionpowder.dions_bitsnbobs.worldgen.ModConfiguredFeatures;
-import net.dionpowder.dions_bitsnbobs.worldgen.ModPlacedFeatures;
+import net.dionpowder.dions_bitsnbobs.content.worldgen.ModBiomeModifiers;
+import net.dionpowder.dions_bitsnbobs.content.worldgen.ModConfiguredFeatures;
+import net.dionpowder.dions_bitsnbobs.content.worldgen.ModPlacedFeatures;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;

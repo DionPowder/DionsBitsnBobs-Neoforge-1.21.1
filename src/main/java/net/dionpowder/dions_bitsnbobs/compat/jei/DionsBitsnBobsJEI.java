@@ -1,5 +1,6 @@
 package net.dionpowder.dions_bitsnbobs.compat.jei;
 
+import com.simibubi.create.AllFluids;
 import com.simibubi.create.compat.jei.category.CreateRecipeCategory;
 import com.simibubi.create.compat.jei.category.ProcessingViaFanCategory;
 import mezz.jei.api.IModPlugin;
@@ -12,11 +13,14 @@ import net.createmod.catnip.animation.AnimationTickHolder;
 import net.dionpowder.dions_bitsnbobs.compat.jei.category.*;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.compat.jei.widget.FanProcessingIcon;
-import net.dionpowder.dions_bitsnbobs.config.ServerConfig;
-import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
-import net.dionpowder.dions_bitsnbobs.recipe.ModRecipeTypes;
-import net.dionpowder.dions_bitsnbobs.recipe.fan.*;
+import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
+import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
+import net.dionpowder.dions_bitsnbobs.content.recipe.ModRecipeTypes;
+import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.AbstractChocolateGlazingRecipe;
+import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.AbstractFrostingRecipe;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeInput;
@@ -32,9 +36,7 @@ public class DionsBitsnBobsJEI implements IModPlugin {
     private final List<CreateRecipeCategory<?>> allCategories = new ArrayList<>();
     public static IJeiRuntime runtime;
 
-    private void loadCategories() {
-        allCategories.clear();
-
+    private void loadFrostingCategory() {
         CreateRecipeCategory<?>
 
                 frosting = builder(AbstractFrostingRecipe.class)
@@ -46,7 +48,21 @@ public class DionsBitsnBobsJEI implements IModPlugin {
                 .icon(new FrostingIcon())
                 .emptyBackground(178, 72)
                 .build("fan_frosting", FrostingCategory::new);
+    }
 
+    private void loadChocolateCategory() {
+        CreateRecipeCategory<?>
+
+                chocolate_glazing = builder(AbstractChocolateGlazingRecipe.class)
+                .addTypedRecipes(ModRecipeTypes.CHOCOLATE_GLAZING)
+                .addTypedRecipes(ModRecipeTypes.DARK_CHOCOLATE_GLAZING)
+                .addTypedRecipes(ModRecipeTypes.WHITE_CHOCOLATE_GLAZING)
+                .addTypedRecipes(ModRecipeTypes.CARAMEL_CHOCOLATE_GLAZING)
+                .addTypedRecipes(ModRecipeTypes.RUBY_CHOCOLATE_GLAZING)
+                .catalystStack(ProcessingViaFanCategory.getFan("fan_chocolate_glazing"))
+                .icon(new ChocolateIcon())
+                .emptyBackground(178, 72)
+                .build("fan_chocolate_glazing", ChocolateGlazingCategory::new);
     }
 
     // frosting icon
@@ -60,7 +76,27 @@ public class DionsBitsnBobsJEI implements IModPlugin {
                         new ItemStack(ModFluids.STRAWBERRY_FROSTING_BUCKET.get()),
                         new ItemStack(ModFluids.ORANGE_FROSTING_BUCKET.get()),
                         new ItemStack(ModFluids.BLUEBERRY_FROSTING_BUCKET.get()),
-                        new ItemStack(ModFluids.PEAR_FROSTING_BUCKET.get())
+                        new ItemStack(ModFluids.PEAR_FROSTING_BUCKET.get()),
+                };
+            }
+            return catalystStacks[(AnimationTickHolder.getTicks() / 20) % catalystStacks.length];
+        }
+    }
+
+    // chocolate icon
+    protected static class ChocolateIcon extends FanProcessingIcon {
+        Item chocolateBucket = AllFluids.CHOCOLATE.get().getBucket();
+        private ItemStack[] catalystStacks;
+
+        @Override
+        protected ItemStack getCatalyst() {
+            if (catalystStacks == null) {
+                catalystStacks = new ItemStack[]{
+                        new ItemStack(chocolateBucket),
+                        new ItemStack(BuiltInRegistries.ITEM.getOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "black_chocolate_bucket")).orElse(chocolateBucket)),
+                        new ItemStack(BuiltInRegistries.ITEM.getOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "white_chocolate_bucket")).orElse(chocolateBucket)),
+                        new ItemStack(BuiltInRegistries.ITEM.getOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "caramel_bucket")).orElse(chocolateBucket)),
+                        new ItemStack(BuiltInRegistries.ITEM.getOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "ruby_chocolate_bucket")).orElse(chocolateBucket)),
                 };
             }
             return catalystStacks[(AnimationTickHolder.getTicks() / 20) % catalystStacks.length];
@@ -74,8 +110,9 @@ public class DionsBitsnBobsJEI implements IModPlugin {
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
-        // register frosting recipe to JEI if enabled in config
-        if (ServerConfig.BULK_FROSTING.get()) {loadCategories();}
+        allCategories.clear();
+        if (DionsBitsnBobsConfig.recipes().BULK_FROSTING.get()) {loadFrostingCategory();}
+        if (DionsBitsnBobsConfig.recipes().BULK_CHOCOLATE_GLAZING.get()) {loadChocolateCategory();}
         registration.addRecipeCategories(allCategories.toArray(IRecipeCategory[]::new));
     }
 

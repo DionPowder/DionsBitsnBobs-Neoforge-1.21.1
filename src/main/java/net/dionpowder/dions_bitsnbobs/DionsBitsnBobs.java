@@ -2,12 +2,13 @@ package net.dionpowder.dions_bitsnbobs;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.dionpowder.dions_bitsnbobs.config.CommonConfig;
+import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
 import net.dionpowder.dions_bitsnbobs.config.ServerConfig;
-import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
+import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.AllAdvancements;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.AllTriggers;
-import net.dionpowder.dions_bitsnbobs.recipe.BulkFrostingRecipes;
-import net.dionpowder.dions_bitsnbobs.recipe.ModFanProcessingTypes;
+import net.dionpowder.dions_bitsnbobs.content.recipe.BulkRecipeGen;
+import net.dionpowder.dions_bitsnbobs.content.recipe.ModFanProcessingTypes;
 import net.dionpowder.dions_bitsnbobs.utils.ModHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -49,9 +50,8 @@ public class DionsBitsnBobs {
         NeoForge.EVENT_BUS.register(this);
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
 
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SPEC);
-        modContainer.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC);
+        // register config
+        modEventBus.register(new DionsBitsnBobsConfig(modContainer));
 
         // create registrate system
         REGISTRATE.registerEventListeners(modEventBus);
@@ -80,7 +80,7 @@ public class DionsBitsnBobs {
 
             @Override
             protected void apply(Void object, ResourceManager resourceManager, ProfilerFiller profiler) {
-                BulkFrostingRecipes.rebuild(manager);
+                BulkRecipeGen.rebuild(manager);
             }
         });
     }

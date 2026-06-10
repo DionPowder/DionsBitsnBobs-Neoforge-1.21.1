@@ -1,12 +1,14 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
+import com.simibubi.create.AllFluids;
 import com.simibubi.create.AllTags;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
-import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
+import net.dionpowder.dions_bitsnbobs.content.block.ModBlocks;
+import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.utils.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -55,5 +57,17 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModFluids.BLUEBERRY_FROSTING_BLOCK.get());
         tag(ModTags.Blocks.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
                 .add(ModFluids.PEAR_FROSTING_BLOCK.get());
+
+        tag(ModTags.Blocks.FAN_PROCESSING_CATALYSTS_CHOCOLATE_GLAZING)
+                .add(AllFluids.CHOCOLATE.get().getSource().defaultFluidState().createLegacyBlock().getBlock());
+        tag(ModTags.Blocks.FAN_PROCESSING_CATALYSTS_DARK_CHOCOLATE_GLAZING)
+                .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "black_chocolate"));
+        tag(ModTags.Blocks.FAN_PROCESSING_CATALYSTS_WHITE_CHOCOLATE_GLAZING)
+                .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "white_chocolate"));
+        tag(ModTags.Blocks.FAN_PROCESSING_CATALYSTS_CARAMEL_CHOCOLATE_GLAZING)
+                .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "caramel"));
+        tag(ModTags.Blocks.FAN_PROCESSING_CATALYSTS_RUBY_CHOCOLATE_GLAZING)
+                .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "ruby_chocolate"));
+
     }
 }

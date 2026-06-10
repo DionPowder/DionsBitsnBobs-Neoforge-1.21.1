@@ -2,8 +2,8 @@ package net.dionpowder.dions_bitsnbobs.datagen.create;
 
 import com.simibubi.create.api.data.recipe.EmptyingRecipeGen;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
-import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
+import net.dionpowder.dions_bitsnbobs.content.block.ModBlocks;
+import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 

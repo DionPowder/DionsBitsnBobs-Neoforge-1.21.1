@@ -4,7 +4,7 @@ import com.simibubi.create.compat.jei.category.ProcessingViaFanCategory;
 import com.simibubi.create.compat.jei.category.animations.AnimatedKinetics;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import net.createmod.catnip.gui.element.GuiGameElement;
-import net.dionpowder.dions_bitsnbobs.recipe.fan.AbstractFrostingRecipe;
+import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.AbstractFrostingRecipe;
 import net.minecraft.client.gui.GuiGraphics;
 
 public class FrostingCategory extends ProcessingViaFanCategory.MultiOutput<AbstractFrostingRecipe> {

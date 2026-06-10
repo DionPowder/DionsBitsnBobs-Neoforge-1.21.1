@@ -11,9 +11,9 @@ import java.util.function.UnaryOperator;
 
 import com.google.common.collect.Sets;
 
-import net.dionpowder.dions_bitsnbobs.block.ModBlocks;
-import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
-import net.dionpowder.dions_bitsnbobs.item.ModItems;
+import net.dionpowder.dions_bitsnbobs.content.block.ModBlocks;
+import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
+import net.dionpowder.dions_bitsnbobs.content.item.ModItems;
 import net.dionpowder.dions_bitsnbobs.utils.ModTags;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;

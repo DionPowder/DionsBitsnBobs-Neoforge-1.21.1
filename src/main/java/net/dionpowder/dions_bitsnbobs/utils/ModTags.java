@@ -24,6 +24,12 @@ public class ModTags {
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING = createTag("fan_processing_catalysts_blueberry_frosting");
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_PEAR_FROSTING = createTag("fan_processing_catalysts_pear_frosting");
 
+        public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_chocolate_glazing");
+        public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_DARK_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_dark_chocolate_glazing");
+        public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_WHITE_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_white_chocolate_glazing");
+        public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_CARAMEL_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_caramel_chocolate_glazing");
+        public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_RUBY_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_ruby_chocolate_glazing");
+
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));
         }
@@ -69,6 +75,12 @@ public class ModTags {
         public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING = createTag("fan_processing_catalysts_orange_frosting");
         public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING = createTag("fan_processing_catalysts_blueberry_frosting");
         public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_PEAR_FROSTING = createTag("fan_processing_catalysts_pear_frosting");
+
+        public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_chocolate_glazing");
+        public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_DARK_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_dark_chocolate_glazing");
+        public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_WHITE_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_white_chocolate_glazing");
+        public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_CARAMEL_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_caramel_chocolate_glazing");
+        public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_RUBY_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_ruby_chocolate_glazing");
 
         public static final TagKey<Fluid> STRAWBERRY_FROSTING = createTag("strawberry_frosting");
         public static final TagKey<Fluid> ORANGE_FROSTING = createTag("orange_frosting");

@@ -4,12 +4,12 @@ import com.simibubi.create.AllFluids;
 import com.simibubi.create.AllItems;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.dionpowder.dions_bitsnbobs.config.CommonConfig;
-import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
-import net.dionpowder.dions_bitsnbobs.item.ModItems;
-import net.dionpowder.dions_bitsnbobs.potion.ModPotions;
+import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
+import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
+import net.dionpowder.dions_bitsnbobs.content.item.ModItems;
+import net.dionpowder.dions_bitsnbobs.content.potion.ModPotions;
 import net.dionpowder.dions_bitsnbobs.utils.ModHelper;
-import net.dionpowder.dions_bitsnbobs.utils.ModTags;
-import net.dionpowder.dions_bitsnbobs.villager.ModVillagers;
+import net.dionpowder.dions_bitsnbobs.content.villager.ModVillagers;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -126,7 +126,7 @@ public class ModEvents{
 
         }
 
-        if (!CommonConfig.DONUT_SELLING.get()) return;
+        if (!DionsBitsnBobsConfig.common().DONUT_SELLING.get()) return;
 
         // donut selling
         if(event.getType() == VillagerProfession.FARMER) {

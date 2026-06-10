@@ -2,8 +2,8 @@ package net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.base_gens;
 
 import com.simibubi.create.api.data.recipe.StandardProcessingRecipeGen;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.recipe.ModRecipeTypes;
-import net.dionpowder.dions_bitsnbobs.recipe.fan.StrawberryFrostingRecipe;
+import net.dionpowder.dions_bitsnbobs.content.recipe.ModRecipeTypes;
+import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.StrawberryFrostingRecipe;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 

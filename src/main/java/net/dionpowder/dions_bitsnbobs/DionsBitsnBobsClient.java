@@ -1,8 +1,8 @@
 package net.dionpowder.dions_bitsnbobs;
 
-import net.dionpowder.dions_bitsnbobs.fluid.BaseFluidType;
-import net.dionpowder.dions_bitsnbobs.fluid.ModFluidTypes;
-import net.dionpowder.dions_bitsnbobs.fluid.ModFluids;
+import net.dionpowder.dions_bitsnbobs.content.fluid.BaseFluidType;
+import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluidTypes;
+import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.neoforged.api.distmarker.Dist;
