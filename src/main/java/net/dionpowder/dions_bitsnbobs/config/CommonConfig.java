@@ -8,6 +8,10 @@ public class CommonConfig extends ConfigBase {
             "villagerDonutSelling",
             Comments.villagerDonutSelling);
 
+    public final ConfigBool DIAMOND_RECIPE = b(false,
+            "diamondRecipe",
+            Comments.diamondRecipe);
+
     @Override
     public String getName() {
         return "common";
@@ -15,5 +19,6 @@ public class CommonConfig extends ConfigBase {
 
     static class Comments {
         static final String villagerDonutSelling = "If selling donuts to villagers should be enabled, " + "requires reload";
+        static final String diamondRecipe = "If producing diamonds is enabled, " + "requires reload";
     }
 }

@@ -10,6 +10,7 @@ import net.dionpowder.dions_bitsnbobs.content.item.ModItems;
 import net.dionpowder.dions_bitsnbobs.content.potion.ModPotions;
 import net.dionpowder.dions_bitsnbobs.utils.ModHelper;
 import net.dionpowder.dions_bitsnbobs.content.villager.ModVillagers;
+import net.dionpowder.dions_bitsnbobs.utils.ModTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -80,49 +81,22 @@ public class ModEvents{
                     new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
                     new ItemStack(ModFluids.PEAR_FROSTING_BUCKET.get(), 1), 2, 10, 0.05f));
             trades.get(3).add((entity, randomSource) -> new MerchantOffer(
+                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
+                    new ItemStack(ModFluids.DONUT_BATTER_BUCKET.get(), 1), 2, 10, 0.05f));
+            trades.get(3).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(Items.EMERALD, randomBetween(randomSource, 1, 2)),
                     new ItemStack(AllFluids.CHOCOLATE.get().getBucket(), 1), 2, 10, 0.05f));
             // tier 4
             trades.get(4).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 3)),
-                    new ItemStack(ModItems.BLUEBERRY_DONUT.get(), randomBetween(randomSource, 10, 14)), 8, 15, 0.05f));
+                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 3, 5)),
+                    new ItemStack(ModHelper.getRandomItemFromTag(ModTags.Items.ADVANCEMENT_GLAZED_DONUT, randomSource), randomBetween(randomSource, 10, 14)), 8, 15, 0.05f));
             trades.get(4).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 3)),
-                    new ItemStack(ModItems.ORANGE_DONUT.get(), randomBetween(randomSource, 10, 14)), 8, 15, 0.05f));
-            trades.get(4).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 3)),
-                    new ItemStack(ModItems.WHITE_CHOCOLATE_DONUT.get(), randomBetween(randomSource, 10, 14)), 8, 15, 0.05f));
-            trades.get(4).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 3)),
-                    new ItemStack(ModItems.RUBY_CHOCOLATE_DONUT.get(), randomBetween(randomSource, 10, 14)), 8, 15, 0.05f));
-            trades.get(4).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 3)),
-                    new ItemStack(ModItems.SPRINKLED_STRAWBERRY_DONUT.get(), randomBetween(randomSource, 8, 12)), 8, 15, 0.05f));
-            trades.get(4).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 3)),
-                    new ItemStack(ModItems.SPRINKLED_PEAR_DONUT.get(), randomBetween(randomSource, 8, 12)), 8, 15, 0.05f));
-            trades.get(4).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 3)),
-                    new ItemStack(ModItems.STRAWBERRY_TOPPED_DARK_CHOCOLATE_DONUT.get(), randomBetween(randomSource, 8, 12)), 8, 15, 0.05f));
-            trades.get(4).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 3)),
-                    new ItemStack(ModItems.SPRINKLED_WHITE_CHOCOLATE_DONUT.get(), randomBetween(randomSource, 8, 12)), 8, 15, 0.05f));
+                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 3, 5)),
+                    new ItemStack(ModHelper.getRandomItemFromTag(ModTags.Items.ADVANCEMENT_TOPPED_DONUT, randomSource), randomBetween(randomSource, 8, 12)), 8, 15, 0.05f));
             // tier 5
             trades.get(5).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
-                    new ItemStack(ModItems.CHOCOLATE_HONEY_DONUT.get(), randomBetween(randomSource, 6, 8)), 6, 20, 0.05f));
-            trades.get(5).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
-                    new ItemStack(ModItems.WHITE_CHOCOLATE_HONEY_DONUT.get(), randomBetween(randomSource, 6, 8)), 6, 20, 0.05f));
-            trades.get(5).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
-                    new ItemStack(ModItems.CHOCOLATE_STRAWBERRY_DONUT.get(), randomBetween(randomSource, 6, 8)), 6, 20, 0.05f));
-            trades.get(5).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
-                    new ItemStack(ModItems.WHITE_CHOCOLATE_RUBY_DONUT.get(), randomBetween(randomSource, 6, 8)), 6, 20, 0.05f));
-            trades.get(5).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
-                    new ItemStack(ModItems.WHITE_CHOCOLATE_PEAR_DONUT.get(), randomBetween(randomSource, 6, 8)), 6, 20, 0.05f));
+                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 4, 6)),
+                    new ItemStack(ModHelper.getRandomItemFromTag(ModTags.Items.DOUBLE_GLAZED_DONUTS, randomSource), randomBetween(randomSource, 6, 8)), 6, 20, 0.05f));
 
         }
 

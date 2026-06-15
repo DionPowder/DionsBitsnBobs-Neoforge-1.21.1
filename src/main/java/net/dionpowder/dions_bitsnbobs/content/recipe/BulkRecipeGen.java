@@ -2,19 +2,27 @@ package net.dionpowder.dions_bitsnbobs.content.recipe;
 
 import com.simibubi.create.AllFluids;
 import com.simibubi.create.AllRecipeTypes;
+import com.simibubi.create.api.data.recipe.PressingRecipeGen;
 import com.simibubi.create.content.fluids.transfer.FillingRecipe;
 
+import com.simibubi.create.content.kinetics.mixer.CompactingRecipe;
+import com.simibubi.create.content.kinetics.press.PressingRecipe;
 import com.simibubi.create.content.processing.recipe.ProcessingOutput;
+import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.compat.ModCompat;
+import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
 import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.crafting.FluidIngredient;
 
@@ -103,6 +111,16 @@ public class BulkRecipeGen {
                 }
 
             }
+        }
+
+        // config recipes
+        if (DionsBitsnBobsConfig.common().DIAMOND_RECIPE.get()) {
+            ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/compacting/diamond");
+            var builder = new StandardProcessingRecipe.Builder<>(CompactingRecipe::new, newId);
+            builder.require(Blocks.COAL_BLOCK);
+            builder.require(Fluids.LAVA, 250);
+            builder.output(Items.DIAMOND);
+            allRecipes.add(new RecipeHolder<>(newId, builder.build()));
         }
 
         manager.replaceRecipes(allRecipes);

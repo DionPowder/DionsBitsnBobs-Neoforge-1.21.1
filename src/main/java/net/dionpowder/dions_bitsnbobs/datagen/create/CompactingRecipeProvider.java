@@ -41,18 +41,7 @@ public class CompactingRecipeProvider extends CompactingRecipeGen {
             .require(Items.SUGAR)
             .require(Items.SUGAR)
             .require(AllFluids.HONEY.get(), 100)
-            .output(Items.HONEYCOMB)),
-
-    EMERALD = create("emerald", b -> b
-            .require(Items.COAL_BLOCK)
-            .require(Items.LIME_DYE)
-            .require(Fluids.LAVA, 250)
-            .output(Items.EMERALD)),
-
-    DIAMOND = create("diamond", b -> b
-            .require(Items.COAL_BLOCK)
-            .require(Fluids.LAVA, 250)
-            .output(Items.DIAMOND))
+            .output(Items.HONEYCOMB))
 
     ;
 
