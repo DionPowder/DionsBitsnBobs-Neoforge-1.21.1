@@ -37,6 +37,10 @@ public class DionsBitsnBobsConfig {
         return COMMON_CONFIG;
     }
 
+    public static CommonRecipesConfig commonRecipes() {
+        return common().commonRecipes;
+    }
+
     public static ServerConfig server() {
         return SERVER_CONFIG;
     }

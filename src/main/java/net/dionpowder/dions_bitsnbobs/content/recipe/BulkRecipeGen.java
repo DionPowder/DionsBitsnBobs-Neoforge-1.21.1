@@ -114,7 +114,7 @@ public class BulkRecipeGen {
         }
 
         // config recipes
-        if (DionsBitsnBobsConfig.common().DIAMOND_RECIPE.get()) {
+        if (DionsBitsnBobsConfig.commonRecipes().DIAMOND_AUTOMATION.get()) {
             ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/compacting/diamond");
             var builder = new StandardProcessingRecipe.Builder<>(CompactingRecipe::new, newId);
             builder.require(Blocks.COAL_BLOCK);

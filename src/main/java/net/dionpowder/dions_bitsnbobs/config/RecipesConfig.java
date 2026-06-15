@@ -20,6 +20,7 @@ public class RecipesConfig extends ConfigBase {
     static class Comments {
         static final String bulkFrosting = "If Bulk Frosting should be enabled";
         static final String bulkChocolateGlazing = "If Bulk Chocolate Glazing should be enabled";
+
     }
 
 }
