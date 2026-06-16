@@ -14,7 +14,7 @@ public class CommonRecipesConfig extends ConfigBase {
     }
 
     static class Comments {
-        static final String diamondAutomation = "Allow diamonds to be automated, requires reload";
+        static final String diamondAutomation = "If automating diamonds should be enabled, requires reload";
 
     }
 

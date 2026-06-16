@@ -97,6 +97,11 @@ public class PearFrostingType implements FanProcessingType {
             if (!player.hasEffect(ModEffects.SUGAR_RUSH_EFFECT)){
                 AllAdvancements.BULK_FROSTED.awardTo(player);
                 player.addEffect(new MobEffectInstance(ModEffects.SUGAR_RUSH_EFFECT, 100, 0));
+            } else {
+                MobEffectInstance instance = player.getEffect(ModEffects.SUGAR_RUSH_EFFECT);
+                if (instance != null && instance.getDuration() <= 20) {
+                    player.addEffect(new MobEffectInstance(ModEffects.SUGAR_RUSH_EFFECT, 100, 0));
+                }
             }
         }
         if (entity.isOnFire()) {
