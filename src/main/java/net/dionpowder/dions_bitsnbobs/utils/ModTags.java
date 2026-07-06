@@ -60,6 +60,8 @@ public class ModTags {
 
         public static final TagKey<Item> ROOTED_DIRT_MIXING = createTag("rooted_dirt_mixing");
 
+        public static final TagKey<Item> BAKER_FLUID_TRADES = createTag("baker_fluid_trades");
+
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));
         }

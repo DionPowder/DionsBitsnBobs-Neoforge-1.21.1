@@ -1,11 +1,14 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
+import com.simibubi.create.AllFluids;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.content.item.ModItems;
 import net.dionpowder.dions_bitsnbobs.utils.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -113,5 +116,17 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModTags.Items.ROOTED_DIRT_MIXING)
                 .add(Items.HANGING_ROOTS)
                 .add(Items.DEAD_BUSH);
+
+        tag(ModTags.Items.BAKER_FLUID_TRADES)
+                .add(ModFluids.BLUEBERRY_FROSTING_BUCKET.get())
+                .add(ModFluids.PEAR_FROSTING_BUCKET.get())
+                .add(ModFluids.STRAWBERRY_FROSTING_BUCKET.get())
+                .add(ModFluids.ORANGE_FROSTING_BUCKET.get())
+                .add(AllFluids.CHOCOLATE.get().getBucket())
+                .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "black_chocolate_bucket"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "white_chocolate_bucket"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "ruby_chocolate_bucket"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "caramel_bucket"));
+
     }
 }

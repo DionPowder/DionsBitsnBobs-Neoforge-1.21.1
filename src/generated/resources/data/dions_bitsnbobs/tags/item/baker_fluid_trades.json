@@ -1,0 +1,25 @@
+{
+  "values": [
+    "dions_bitsnbobs:blueberry_frosting_bucket",
+    "dions_bitsnbobs:pear_frosting_bucket",
+    "dions_bitsnbobs:strawberry_frosting_bucket",
+    "dions_bitsnbobs:orange_frosting_bucket",
+    "create:chocolate_bucket",
+    {
+      "id": "create_confectionery:black_chocolate_bucket",
+      "required": false
+    },
+    {
+      "id": "create_confectionery:white_chocolate_bucket",
+      "required": false
+    },
+    {
+      "id": "create_confectionery:ruby_chocolate_bucket",
+      "required": false
+    },
+    {
+      "id": "create_confectionery:caramel_bucket",
+      "required": false
+    }
+  ]
+}

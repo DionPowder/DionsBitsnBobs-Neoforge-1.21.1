@@ -82,10 +82,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_empty_spinkles_bottle", has(ModItems.EMPTY_SPRINKLES_BOTTLE))
                 .save(recipeOutput);
 
+        // furnace
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.UNCOOKED_DONUT), RecipeCategory.FOOD, ModItems.DONUT, 0.35f, 200)
+                .unlockedBy("has_uncooked_donut", has(ModItems.UNCOOKED_DONUT))
+                .save(recipeOutput, "donut_smelting");
+
+        // campfire cooking
+        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ModItems.UNCOOKED_DONUT), RecipeCategory.FOOD, ModItems.DONUT, 0.0f, 200)
+                .unlockedBy("has_uncooked_donut", has(ModItems.UNCOOKED_DONUT))
+                .save(recipeOutput, "donut_campfire");
+
         // smoking
         SimpleCookingRecipeBuilder.smoking(Ingredient.of(ModItems.UNCOOKED_DONUT), RecipeCategory.FOOD, ModItems.DONUT, 0.35f, 100)
                 .unlockedBy("has_uncooked_donut", has(ModItems.UNCOOKED_DONUT))
-                .save(recipeOutput);
+                .save(recipeOutput, "donut_smoking");
 
         // stone cutting (andesite component)
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.ADJUSTABLE_CHAIN_GEARSHIFT, 4)

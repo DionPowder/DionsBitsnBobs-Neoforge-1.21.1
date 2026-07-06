@@ -1,6 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.content.worldgen;
 
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
 import net.dionpowder.dions_bitsnbobs.content.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;

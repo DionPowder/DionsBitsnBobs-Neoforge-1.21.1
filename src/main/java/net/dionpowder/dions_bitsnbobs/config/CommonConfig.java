@@ -8,6 +8,12 @@ public class CommonConfig extends ConfigBase {
             "villagerDonutSelling",
             Comments.villagerDonutSelling);
 
+    //public final ConfigInt PATCH_TRIES = i(12,
+            //1,
+            //64,
+            //"strawberryBushPatchTries",
+            //Comments.strawberryBushPatchTries);
+
     public final CommonRecipesConfig commonRecipes = nested(0, CommonRecipesConfig::new, Comments.commonRecipes);
 
     @Override
@@ -17,6 +23,7 @@ public class CommonConfig extends ConfigBase {
 
     static class Comments {
         static final String villagerDonutSelling = "If selling donuts to villagers should be enabled, " + "requires reload";
+        //static final String strawberryBushPatchTries = "The amount of tries for generating strawberry bush patches";
         static final String commonRecipes = "Config options for recipes generated during reloads";
     }
 }

@@ -70,22 +70,10 @@ public class ModEvents{
             // tier 3
             trades.get(3).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
-                    new ItemStack(ModFluids.STRAWBERRY_FROSTING_BUCKET.get(), 1), 2, 10, 0.05f));
+                    new ItemStack(ModHelper.getRandomItemFromTag(ModTags.Items.BAKER_FLUID_TRADES, randomSource), 1), 2, 10, 0.05f));
             trades.get(3).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
-                    new ItemStack(ModFluids.ORANGE_FROSTING_BUCKET.get(), 1), 2, 10, 0.05f));
-            trades.get(3).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
-                    new ItemStack(ModFluids.BLUEBERRY_FROSTING_BUCKET.get(), 1), 2, 10, 0.05f));
-            trades.get(3).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
-                    new ItemStack(ModFluids.PEAR_FROSTING_BUCKET.get(), 1), 2, 10, 0.05f));
-            trades.get(3).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
-                    new ItemStack(ModFluids.DONUT_BATTER_BUCKET.get(), 1), 2, 10, 0.05f));
-            trades.get(3).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomBetween(randomSource, 1, 2)),
-                    new ItemStack(AllFluids.CHOCOLATE.get().getBucket(), 1), 2, 10, 0.05f));
+                    new ItemStack(ModHelper.getRandomItemFromTag(ModTags.Items.BAKER_FLUID_TRADES, randomSource), 1), 2, 10, 0.05f));
             // tier 4
             trades.get(4).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(Items.EMERALD, randomBetween(randomSource, 3, 5)),
