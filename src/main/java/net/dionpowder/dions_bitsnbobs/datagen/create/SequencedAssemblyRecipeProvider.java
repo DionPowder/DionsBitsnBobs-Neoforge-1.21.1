@@ -27,7 +27,7 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
 
     ANDESITE_COMPONENT = create("andesite_component", b -> b
             .require(AllBlocks.ANDESITE_CASING)
-            .transitionTo(AllBlocks.ANDESITE_CASING)
+            .transitionTo(ModItems.UNPROCESSED_COMPONENT)
             .addOutput(ModBlocks.ANDESITE_COMPONENT, 1)
             .loops(1)
             .addStep(CuttingRecipe::new, rb -> rb)
@@ -39,7 +39,7 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
 
     BRASS_COMPONENT = create("brass_component", b -> b
             .require(AllBlocks.BRASS_CASING)
-            .transitionTo(AllBlocks.ANDESITE_CASING)
+            .transitionTo(ModItems.UNPROCESSED_COMPONENT)
             .addOutput(ModBlocks.BRASS_COMPONENT, 1)
             .loops(1)
             .addStep(CuttingRecipe::new, rb -> rb)
@@ -51,7 +51,7 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
 
     COPPER_COMPONENT = create("copper_component", b -> b
             .require(AllBlocks.COPPER_CASING)
-            .transitionTo(AllBlocks.COPPER_CASING)
+            .transitionTo(ModItems.UNPROCESSED_COMPONENT)
             .addOutput(ModBlocks.COPPER_COMPONENT, 1)
             .loops(1)
             .addStep(CuttingRecipe::new, rb -> rb)
@@ -63,7 +63,7 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
 
     TRAIN_COMPONENT = create("train_component", b -> b
             .require(AllBlocks.RAILWAY_CASING)
-            .transitionTo(AllBlocks.RAILWAY_CASING)
+            .transitionTo(ModItems.UNPROCESSED_COMPONENT)
             .addOutput(ModBlocks.TRAIN_COMPONENT, 1)
             .loops(1)
             .addStep(CuttingRecipe::new, rb -> rb)
@@ -86,7 +86,7 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
 
     MAGMA_BLOCK = create("magma_block", b -> b
             .require(Blocks.COBBLESTONE)
-            .transitionTo(Blocks.COBBLESTONE)
+            .transitionTo(ModItems.UNPROCESSED_MAGMA_BLOCK)
             .addOutput(Blocks.MAGMA_BLOCK, 95)
             .addOutput(Blocks.COBBLESTONE, 5)
             .loops(5)

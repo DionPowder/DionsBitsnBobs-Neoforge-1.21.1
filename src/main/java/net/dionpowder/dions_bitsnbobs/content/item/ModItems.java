@@ -20,6 +20,12 @@ public class ModItems {
     public static final DeferredItem<Item> UNPROCESSED_NETHERITE_DUST = ITEMS.register("unprocessed_netherite_dust",
             () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
 
+    public static final DeferredItem<Item> UNPROCESSED_MAGMA_BLOCK = ITEMS.register("unprocessed_magma_block",
+            () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
+
+    public static final DeferredItem<Item> UNPROCESSED_COMPONENT = ITEMS.register("unprocessed_component",
+            () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
+
     public static final DeferredItem<Item> STRAWBERRY = ITEMS.register("strawberry",
             () -> new ItemNameBlockItem(ModBlocks.STRAWBERRY_BUSH.get(), new Item.Properties().food(ModFoodProperties.STRAWBERRY)));
 

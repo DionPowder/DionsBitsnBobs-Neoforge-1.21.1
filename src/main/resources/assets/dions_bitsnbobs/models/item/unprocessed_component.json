@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "dions_bitsnbobs:item/unprocessed_component"
+  }
+}

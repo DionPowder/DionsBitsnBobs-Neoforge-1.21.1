@@ -19,7 +19,7 @@
       "type": "create:filling",
       "ingredients": [
         {
-          "item": "minecraft:cobblestone"
+          "item": "dions_bitsnbobs:unprocessed_magma_block"
         },
         {
           "type": "neoforge:single",
@@ -29,7 +29,7 @@
       ],
       "results": [
         {
-          "id": "minecraft:cobblestone"
+          "id": "dions_bitsnbobs:unprocessed_magma_block"
         }
       ]
     },
@@ -37,12 +37,12 @@
       "type": "create:pressing",
       "ingredients": [
         {
-          "item": "minecraft:cobblestone"
+          "item": "dions_bitsnbobs:unprocessed_magma_block"
         }
       ],
       "results": [
         {
-          "id": "minecraft:cobblestone"
+          "id": "dions_bitsnbobs:unprocessed_magma_block"
         }
       ]
     },
@@ -50,17 +50,17 @@
       "type": "create:pressing",
       "ingredients": [
         {
-          "item": "minecraft:cobblestone"
+          "item": "dions_bitsnbobs:unprocessed_magma_block"
         }
       ],
       "results": [
         {
-          "id": "minecraft:cobblestone"
+          "id": "dions_bitsnbobs:unprocessed_magma_block"
         }
       ]
     }
   ],
   "transitional_item": {
-    "id": "minecraft:cobblestone"
+    "id": "dions_bitsnbobs:unprocessed_magma_block"
   }
 }
