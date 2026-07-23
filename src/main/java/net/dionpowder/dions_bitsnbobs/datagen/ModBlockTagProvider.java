@@ -32,7 +32,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.COPPER_COMPONENT.get())
                 .add(ModBlocks.TRAIN_COMPONENT.get())
                 .add(ModBlocks.DONUT_CAST.get())
-                .add(ModBlocks.FILLED_DONUT_CAST.get());
+                .add(ModBlocks.FILLED_DONUT_CAST.get())
+                .add(ModBlocks.COOKED_DONUT_CAST.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.ANDESITE_COMPONENT.get())

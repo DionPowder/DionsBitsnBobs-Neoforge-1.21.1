@@ -11,7 +11,10 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
+import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
+import net.neoforged.neoforge.fluids.FluidInteractionRegistry.InteractionInformation;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -118,7 +121,28 @@ public class ModFluids {
     public static final BaseFlowingFluid.Properties DONUT_BATTER_PROPERTIES = new BaseFlowingFluid.Properties(
             ModFluidTypes.DONUT_BATTER_FLUID_TYPE, SOURCE_DONUT_BATTER, FLOWING_DONUT_BATTER)
             .slopeFindDistance(2).levelDecreasePerBlock(3)
+            .tickRate(30)
             .block(ModFluids.DONUT_BATTER_BLOCK).bucket(ModFluids.DONUT_BATTER_BUCKET);
+
+    // register fluid interactions
+    public static void registerFluidInteractions() {
+        FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
+                ModFluidTypes.STRAWBERRY_FROSTING_FLUID_TYPE.get(),
+                fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.RED_TERRACOTTA.defaultBlockState()));
+
+        FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
+                ModFluidTypes.ORANGE_FROSTING_FLUID_TYPE.get(),
+                fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.ORANGE_TERRACOTTA.defaultBlockState()));
+
+        FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
+                ModFluidTypes.BLUEBERRY_FROSTING_FLUID_TYPE.get(),
+                fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.BLUE_TERRACOTTA.defaultBlockState()));
+
+        FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
+                ModFluidTypes.PEAR_FROSTING_FLUID_TYPE.get(),
+                fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.LIME_TERRACOTTA.defaultBlockState()));
+
+    }
 
     public static void register(IEventBus eventBus) {
         FLUIDS.register(eventBus);

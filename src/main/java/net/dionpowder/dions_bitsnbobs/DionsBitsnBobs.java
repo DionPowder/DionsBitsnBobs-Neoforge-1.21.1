@@ -96,6 +96,7 @@ public class DionsBitsnBobs {
         ModHelper.registerFluidDispenseBehavior(ModFluids.BLUEBERRY_FROSTING_BUCKET.get());
         ModHelper.registerFluidDispenseBehavior(ModFluids.PEAR_FROSTING_BUCKET.get());
         ModHelper.registerFluidDispenseBehavior(ModFluids.DONUT_BATTER_BUCKET.get());
+        ModFluids.registerFluidInteractions();
     }
 
     public static CreateRegistrate registrate() {

@@ -1,5 +1,6 @@
 package net.dionpowder.dions_bitsnbobs.content.block;
 
+import com.simibubi.create.content.contraptions.bearing.SailBlock;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.content.block.custom.DonutCast;
 import net.dionpowder.dions_bitsnbobs.content.block.custom.StrawberryBush;
@@ -39,13 +40,14 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> STRAWBERRY_BUSH = BLOCKS.register("strawberry_bush",
             () -> new StrawberryBush(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)));
-
     // casts
     public static final DeferredBlock<Block> DONUT_CAST = registerBlock(8, "donut_cast",
             () -> new DonutCast(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).noOcclusion()));
 
-
     public static final DeferredBlock<Block> FILLED_DONUT_CAST = registerBlock(1, "filled_donut_cast",
+            () -> new DonutCast(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).noOcclusion()));
+
+    public static final DeferredBlock<Block> COOKED_DONUT_CAST = registerBlock(1, "cooked_donut_cast",
             () -> new DonutCast(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).noOcclusion()));
 
     private static<T extends Block> DeferredBlock<T> registerBlock(int stackSize, String name, Supplier<T> block) {

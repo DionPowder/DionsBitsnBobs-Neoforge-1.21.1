@@ -117,11 +117,19 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(Items.HANGING_ROOTS)
                 .add(Items.DEAD_BUSH);
 
-        tag(ModTags.Items.BAKER_FLUID_TRADES)
+        tag(ModTags.Items.UNPROCESSED_COMPONENTS)
+                .add(ModItems.UNPROCESSED_ANDESITE_COMPONENT.get())
+                .add(ModItems.UNPROCESSED_BRASS_COMPONENT.get())
+                .add(ModItems.UNPROCESSED_COPPER_COMPONENT.get())
+                .add(ModItems.UNPROCESSED_TRAIN_COMPONENT.get());
+
+        tag(ModTags.Items.BAKER_FROSTING_TRADES)
                 .add(ModFluids.BLUEBERRY_FROSTING_BUCKET.get())
                 .add(ModFluids.PEAR_FROSTING_BUCKET.get())
                 .add(ModFluids.STRAWBERRY_FROSTING_BUCKET.get())
-                .add(ModFluids.ORANGE_FROSTING_BUCKET.get())
+                .add(ModFluids.ORANGE_FROSTING_BUCKET.get());
+
+        tag(ModTags.Items.BAKER_CHOCOLATE_TRADES)
                 .add(AllFluids.CHOCOLATE.get().getBucket())
                 .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "black_chocolate_bucket"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "white_chocolate_bucket"))

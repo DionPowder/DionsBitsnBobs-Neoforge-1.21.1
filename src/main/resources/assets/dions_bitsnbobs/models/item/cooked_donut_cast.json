@@ -1,0 +1,7 @@
+{
+  "parent": "dions_bitsnbobs:item/donut_cast",
+  "textures": {
+    "0": "dions_bitsnbobs:block/cooked_donut_cast",
+    "particle": "dions_bitsnbobs:block/cooked_donut_cast"
+  }
+}

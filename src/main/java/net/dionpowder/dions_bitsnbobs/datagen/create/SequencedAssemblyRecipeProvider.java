@@ -27,8 +27,12 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
 
     ANDESITE_COMPONENT = create("andesite_component", b -> b
             .require(AllBlocks.ANDESITE_CASING)
-            .transitionTo(ModItems.UNPROCESSED_COMPONENT)
-            .addOutput(ModBlocks.ANDESITE_COMPONENT, 1)
+            .transitionTo(ModItems.UNPROCESSED_ANDESITE_COMPONENT)
+            .addOutput(ModBlocks.ANDESITE_COMPONENT, 85)
+            .addOutput(AllBlocks.ANDESITE_CASING, 6)
+            .addOutput(AllItems.PRECISION_MECHANISM, 3)
+            .addOutput(AllItems.ELECTRON_TUBE, 3)
+            .addOutput(ModItems.NETHERITE_DUST, 3)
             .loops(1)
             .addStep(CuttingRecipe::new, rb -> rb)
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
@@ -39,8 +43,12 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
 
     BRASS_COMPONENT = create("brass_component", b -> b
             .require(AllBlocks.BRASS_CASING)
-            .transitionTo(ModItems.UNPROCESSED_COMPONENT)
-            .addOutput(ModBlocks.BRASS_COMPONENT, 1)
+            .transitionTo(ModItems.UNPROCESSED_BRASS_COMPONENT)
+            .addOutput(ModBlocks.BRASS_COMPONENT, 85)
+            .addOutput(AllBlocks.BRASS_CASING, 6)
+            .addOutput(AllItems.PRECISION_MECHANISM, 3)
+            .addOutput(AllItems.ELECTRON_TUBE, 3)
+            .addOutput(ModItems.NETHERITE_DUST, 3)
             .loops(1)
             .addStep(CuttingRecipe::new, rb -> rb)
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
@@ -51,8 +59,12 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
 
     COPPER_COMPONENT = create("copper_component", b -> b
             .require(AllBlocks.COPPER_CASING)
-            .transitionTo(ModItems.UNPROCESSED_COMPONENT)
-            .addOutput(ModBlocks.COPPER_COMPONENT, 1)
+            .transitionTo(ModItems.UNPROCESSED_COPPER_COMPONENT)
+            .addOutput(ModBlocks.COPPER_COMPONENT, 85)
+            .addOutput(AllBlocks.COPPER_CASING, 6)
+            .addOutput(AllItems.PRECISION_MECHANISM, 3)
+            .addOutput(AllItems.ELECTRON_TUBE, 3)
+            .addOutput(ModItems.NETHERITE_DUST, 3)
             .loops(1)
             .addStep(CuttingRecipe::new, rb -> rb)
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
@@ -63,8 +75,12 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
 
     TRAIN_COMPONENT = create("train_component", b -> b
             .require(AllBlocks.RAILWAY_CASING)
-            .transitionTo(ModItems.UNPROCESSED_COMPONENT)
-            .addOutput(ModBlocks.TRAIN_COMPONENT, 1)
+            .transitionTo(ModItems.UNPROCESSED_TRAIN_COMPONENT)
+            .addOutput(ModBlocks.TRAIN_COMPONENT, 85)
+            .addOutput(AllBlocks.RAILWAY_CASING, 6)
+            .addOutput(AllItems.PRECISION_MECHANISM, 3)
+            .addOutput(AllItems.ELECTRON_TUBE, 3)
+            .addOutput(ModItems.NETHERITE_DUST, 3)
             .loops(1)
             .addStep(CuttingRecipe::new, rb -> rb)
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))

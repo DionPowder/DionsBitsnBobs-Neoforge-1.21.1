@@ -5,7 +5,24 @@
   },
   "results": [
     {
+      "chance": 85.0,
       "id": "dions_bitsnbobs:train_component"
+    },
+    {
+      "chance": 6.0,
+      "id": "create:railway_casing"
+    },
+    {
+      "chance": 3.0,
+      "id": "create:precision_mechanism"
+    },
+    {
+      "chance": 3.0,
+      "id": "create:electron_tube"
+    },
+    {
+      "chance": 3.0,
+      "id": "dions_bitsnbobs:netherite_dust"
     }
   ],
   "sequence": [
@@ -13,12 +30,12 @@
       "type": "create:cutting",
       "ingredients": [
         {
-          "item": "dions_bitsnbobs:unprocessed_component"
+          "item": "dions_bitsnbobs:unprocessed_train_component"
         }
       ],
       "results": [
         {
-          "id": "dions_bitsnbobs:unprocessed_component"
+          "id": "dions_bitsnbobs:unprocessed_train_component"
         }
       ]
     },
@@ -26,7 +43,7 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "dions_bitsnbobs:unprocessed_component"
+          "item": "dions_bitsnbobs:unprocessed_train_component"
         },
         {
           "item": "create:precision_mechanism"
@@ -34,7 +51,7 @@
       ],
       "results": [
         {
-          "id": "dions_bitsnbobs:unprocessed_component"
+          "id": "dions_bitsnbobs:unprocessed_train_component"
         }
       ]
     },
@@ -42,7 +59,7 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "dions_bitsnbobs:unprocessed_component"
+          "item": "dions_bitsnbobs:unprocessed_train_component"
         },
         {
           "item": "create:electron_tube"
@@ -50,7 +67,7 @@
       ],
       "results": [
         {
-          "id": "dions_bitsnbobs:unprocessed_component"
+          "id": "dions_bitsnbobs:unprocessed_train_component"
         }
       ]
     },
@@ -58,7 +75,7 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "dions_bitsnbobs:unprocessed_component"
+          "item": "dions_bitsnbobs:unprocessed_train_component"
         },
         {
           "item": "dions_bitsnbobs:netherite_dust"
@@ -66,7 +83,7 @@
       ],
       "results": [
         {
-          "id": "dions_bitsnbobs:unprocessed_component"
+          "id": "dions_bitsnbobs:unprocessed_train_component"
         }
       ]
     },
@@ -74,7 +91,7 @@
       "type": "create:filling",
       "ingredients": [
         {
-          "item": "dions_bitsnbobs:unprocessed_component"
+          "item": "dions_bitsnbobs:unprocessed_train_component"
         },
         {
           "type": "neoforge:single",
@@ -84,7 +101,7 @@
       ],
       "results": [
         {
-          "id": "dions_bitsnbobs:unprocessed_component"
+          "id": "dions_bitsnbobs:unprocessed_train_component"
         }
       ]
     },
@@ -92,17 +109,17 @@
       "type": "create:pressing",
       "ingredients": [
         {
-          "item": "dions_bitsnbobs:unprocessed_component"
+          "item": "dions_bitsnbobs:unprocessed_train_component"
         }
       ],
       "results": [
         {
-          "id": "dions_bitsnbobs:unprocessed_component"
+          "id": "dions_bitsnbobs:unprocessed_train_component"
         }
       ]
     }
   ],
   "transitional_item": {
-    "id": "dions_bitsnbobs:unprocessed_component"
+    "id": "dions_bitsnbobs:unprocessed_train_component"
   }
 }

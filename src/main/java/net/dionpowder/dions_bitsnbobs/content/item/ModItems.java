@@ -23,7 +23,16 @@ public class ModItems {
     public static final DeferredItem<Item> UNPROCESSED_MAGMA_BLOCK = ITEMS.register("unprocessed_magma_block",
             () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
 
-    public static final DeferredItem<Item> UNPROCESSED_COMPONENT = ITEMS.register("unprocessed_component",
+    public static final DeferredItem<Item> UNPROCESSED_ANDESITE_COMPONENT = ITEMS.register("unprocessed_andesite_component",
+            () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
+
+    public static final DeferredItem<Item> UNPROCESSED_BRASS_COMPONENT = ITEMS.register("unprocessed_brass_component",
+            () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
+
+    public static final DeferredItem<Item> UNPROCESSED_COPPER_COMPONENT = ITEMS.register("unprocessed_copper_component",
+            () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
+
+    public static final DeferredItem<Item> UNPROCESSED_TRAIN_COMPONENT = ITEMS.register("unprocessed_train_component",
             () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
 
     public static final DeferredItem<Item> STRAWBERRY = ITEMS.register("strawberry",
