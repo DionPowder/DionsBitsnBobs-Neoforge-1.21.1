@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:uncooked_donut"
+            "items": "dions_bitsnbobs:filled_donut_cast"
           }
         ]
       },
@@ -20,7 +20,7 @@
     },
     "icon": {
       "count": 1,
-      "id": "dions_bitsnbobs:uncooked_donut"
+      "id": "dions_bitsnbobs:filled_donut_cast"
     },
     "title": {
       "translate": "advancement.dions_bitsnbobs.uncooked_donut"

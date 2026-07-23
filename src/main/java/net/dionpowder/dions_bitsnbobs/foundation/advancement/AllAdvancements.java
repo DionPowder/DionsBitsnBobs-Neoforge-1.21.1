@@ -40,16 +40,16 @@ public class AllAdvancements implements DataProvider {
             .special(NORMAL)),
 
     // Donut branch
-    UNCOOKED_DONUT = create("uncooked_donut", b -> b.icon(ModItems.UNCOOKED_DONUT)
+    UNCOOKED_DONUT = create("uncooked_donut", b -> b.icon(ModBlocks.FILLED_DONUT_CAST)
             .title("It's a Start")
-            .description("Press your first donut")
+            .description("Fill your first donut cast")
             .whenIconCollected()
             .after(ROOT)
             .special(NORMAL)),
 
     DONUT = create("donut", b -> b.icon(ModItems.DONUT)
             .title("We're Getting Somewhere")
-            .description("Cook your first donut")
+            .description("Press your first donut")
             .whenIconCollected()
             .after(UNCOOKED_DONUT)
             .special(NORMAL)),
@@ -84,7 +84,6 @@ public class AllAdvancements implements DataProvider {
     ALL_DONUTS = create("all_donuts", b -> b.icon(ModItems.WHITE_CHOCOLATE_RUBY_DONUT)
             .title("A Donut Empire")
             .description("Collect all the different donuts")
-            .whenItemCollected(ModItems.UNCOOKED_DONUT)
             .whenItemCollected(ModItems.DONUT)
             .whenItemCollected(ModItems.SUGAR_DONUT)
             .whenItemCollected(ModItems.CHORUS_DONUT)

@@ -85,6 +85,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.TRAIN_COMPONENT);
                         output.accept(ModBlocks.DONUT_CAST);
                         output.accept(ModBlocks.FILLED_DONUT_CAST);
+                        output.accept(ModBlocks.COOKED_DONUT_CAST);
                     }).build());
 
     public static void register(IEventBus eventBus) {

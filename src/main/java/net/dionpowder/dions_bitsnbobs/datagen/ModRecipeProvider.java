@@ -87,6 +87,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_uncooked_donut", has(ModItems.UNCOOKED_DONUT))
                 .save(recipeOutput, "donut_smelting");
 
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.FILLED_DONUT_CAST), RecipeCategory.FOOD, ModBlocks.COOKED_DONUT_CAST, 0.35f, 200)
+                .unlockedBy("has_filled_donut_cast", has(ModBlocks.FILLED_DONUT_CAST))
+                .save(recipeOutput, "filled_donut_cast_smelting");
+
         // campfire cooking
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ModItems.UNCOOKED_DONUT), RecipeCategory.FOOD, ModItems.DONUT, 0.0f, 200)
                 .unlockedBy("has_uncooked_donut", has(ModItems.UNCOOKED_DONUT))
@@ -96,6 +100,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         SimpleCookingRecipeBuilder.smoking(Ingredient.of(ModItems.UNCOOKED_DONUT), RecipeCategory.FOOD, ModItems.DONUT, 0.35f, 100)
                 .unlockedBy("has_uncooked_donut", has(ModItems.UNCOOKED_DONUT))
                 .save(recipeOutput, "donut_smoking");
+
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(ModBlocks.FILLED_DONUT_CAST), RecipeCategory.FOOD, ModBlocks.COOKED_DONUT_CAST, 0.35f, 100)
+                .unlockedBy("has_filled_donut_cast", has(ModBlocks.FILLED_DONUT_CAST))
+                .save(recipeOutput, "filled_donut_cast_smoking");
 
         // stone cutting (andesite component)
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.ADJUSTABLE_CHAIN_GEARSHIFT, 4)

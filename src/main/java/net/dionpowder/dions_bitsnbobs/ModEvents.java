@@ -5,6 +5,7 @@ import com.simibubi.create.AllItems;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.dionpowder.dions_bitsnbobs.config.CommonConfig;
 import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
+import net.dionpowder.dions_bitsnbobs.content.block.ModBlocks;
 import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
 import net.dionpowder.dions_bitsnbobs.content.item.ModItems;
 import net.dionpowder.dions_bitsnbobs.content.potion.ModPotions;
@@ -62,7 +63,7 @@ public class ModEvents{
                     new ItemCost(Items.DRAGON_BREATH, randomBetween(randomSource, 1, 3)),
                     new ItemStack(Items.EMERALD, 1), 12, 10, 0.05f));
             trades.get(2).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(ModItems.UNCOOKED_DONUT, randomBetween(randomSource, 8, 14)),
+                    new ItemCost(ModBlocks.FILLED_DONUT_CAST, 1),
                     new ItemStack(Items.EMERALD, 1), 12, 10, 0.05f));
             trades.get(2).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(ModItems.DONUT, randomBetween(randomSource, 6, 10)),

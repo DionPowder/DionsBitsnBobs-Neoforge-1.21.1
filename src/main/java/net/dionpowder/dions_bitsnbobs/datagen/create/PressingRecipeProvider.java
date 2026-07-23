@@ -16,10 +16,10 @@ public class PressingRecipeProvider extends PressingRecipeGen {
 
     GeneratedRecipe
 
-    UNCOOKED_DONUT = create("uncooked_donut", b -> b
-            .require(ModBlocks.FILLED_DONUT_CAST)
+    DONUT = create("donut", b -> b
+            .require(ModBlocks.COOKED_DONUT_CAST)
             .output(ModBlocks.DONUT_CAST)
-            .output(ModItems.UNCOOKED_DONUT))
+            .output(ModItems.DONUT))
 
     ;
 }
