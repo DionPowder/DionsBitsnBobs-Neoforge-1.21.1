@@ -10,6 +10,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -33,7 +34,49 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.TRAIN_COMPONENT.get())
                 .add(ModBlocks.DONUT_CAST.get())
                 .add(ModBlocks.FILLED_DONUT_CAST.get())
-                .add(ModBlocks.COOKED_DONUT_CAST.get());
+                .add(ModBlocks.COOKED_DONUT_CAST.get())
+                // glass mining
+                .addTag(Tags.Blocks.GLASS_BLOCKS)
+                .addTag(Tags.Blocks.GLASS_BLOCKS_CHEAP)
+                .addTag(Tags.Blocks.GLASS_BLOCKS_COLORLESS)
+                .addTag(Tags.Blocks.GLASS_BLOCKS_TINTED)
+                .addTag(Tags.Blocks.GLASS_PANES)
+                .addTag(Tags.Blocks.GLASS_PANES_COLORLESS)
+                // chipped
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "white_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "white_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "light_gray_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "light_gray_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "gray_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "gray_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "black_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "black_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "brown_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "brown_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "red_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "red_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "orange_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "orange_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "yellow_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "yellow_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "lime_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "lime_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "green_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "green_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "cyan_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "cyan_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "light_blue_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "light_blue_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "blue_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "blue_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "purple_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "purple_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "magenta_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "magenta_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "pink_stained_glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "pink_stained_glass"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "glass_pane"))
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "glass"));
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.ANDESITE_COMPONENT.get())
