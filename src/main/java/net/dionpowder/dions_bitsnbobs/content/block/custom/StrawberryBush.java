@@ -1,6 +1,6 @@
 package net.dionpowder.dions_bitsnbobs.content.block.custom;
 
-import net.dionpowder.dions_bitsnbobs.content.item.ModItems;
+import net.dionpowder.dions_bitsnbobs.content.item.DionsBitsnBobsItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -25,7 +25,7 @@ public class StrawberryBush extends SweetBerryBushBlock {
 
     @Override
     public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
-        return new ItemStack(ModItems.STRAWBERRY.get());
+        return new ItemStack(DionsBitsnBobsItems.STRAWBERRY.get());
     }
 
     @Override
@@ -41,7 +41,7 @@ public class StrawberryBush extends SweetBerryBushBlock {
         boolean flag = i == 3;
         if (i > 1) {
             int j = 1 + level.random.nextInt(2);
-            popResource(level, pos, new ItemStack(ModItems.STRAWBERRY.get(), j + (flag ? 1 : 0)));
+            popResource(level, pos, new ItemStack(DionsBitsnBobsItems.STRAWBERRY.get(), j + (flag ? 1 : 0)));
             level.playSound(
                     null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F
             );

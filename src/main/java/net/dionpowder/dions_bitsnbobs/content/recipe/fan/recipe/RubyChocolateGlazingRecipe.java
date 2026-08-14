@@ -1,14 +1,14 @@
 package net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe;
 
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeParams;
-import net.dionpowder.dions_bitsnbobs.content.recipe.ModRecipeTypes;
+import net.dionpowder.dions_bitsnbobs.content.recipe.DionsBitsnBobsRecipeTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 public class RubyChocolateGlazingRecipe extends AbstractChocolateGlazingRecipe {
-    public RubyChocolateGlazingRecipe(ProcessingRecipeParams params) {super(ModRecipeTypes.RUBY_CHOCOLATE_GLAZING, params);}
+    public RubyChocolateGlazingRecipe(ProcessingRecipeParams params) {super(DionsBitsnBobsRecipeTypes.RUBY_CHOCOLATE_GLAZING, params);}
 
     @Override
     public Block getChocolateBlock() {

@@ -1,15 +1,12 @@
 package net.dionpowder.dions_bitsnbobs.content.worldgen;
 
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
-import net.dionpowder.dions_bitsnbobs.content.block.ModBlocks;
+import net.dionpowder.dions_bitsnbobs.content.block.DionsBitsnBobsBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -17,10 +14,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConf
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 
-import java.util.List;
 
-
-public class ModConfiguredFeatures {
+public class DionsBitsnBobsConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILD_STRAWBERRY_BUSH_KEY = registerKey("wild_strawberry_bush");
 
@@ -28,7 +23,7 @@ public class ModConfiguredFeatures {
         register(context, WILD_STRAWBERRY_BUSH_KEY, Feature.RANDOM_PATCH,
                 new RandomPatchConfiguration(12, 4, 3,
                         PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
-                                new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.WILD_STRAWBERRY_BUSH.get().defaultBlockState())))));
+                                new SimpleBlockConfiguration(BlockStateProvider.simple(DionsBitsnBobsBlocks.WILD_STRAWBERRY_BUSH.get().defaultBlockState())))));
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

@@ -1,15 +1,13 @@
 package net.dionpowder.dions_bitsnbobs;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
-import net.dionpowder.dions_bitsnbobs.config.CommonConfig;
 import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
-import net.dionpowder.dions_bitsnbobs.config.ServerConfig;
-import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
-import net.dionpowder.dions_bitsnbobs.foundation.advancement.AllAdvancements;
-import net.dionpowder.dions_bitsnbobs.foundation.advancement.AllTriggers;
+import net.dionpowder.dions_bitsnbobs.content.fluid.DionsBitsnBobsFluids;
+import net.dionpowder.dions_bitsnbobs.foundation.advancement.DionsBitsnBobsAdvancements;
+import net.dionpowder.dions_bitsnbobs.foundation.advancement.DionsBitsnBobsTriggers;
 import net.dionpowder.dions_bitsnbobs.content.recipe.BulkRecipeGen;
-import net.dionpowder.dions_bitsnbobs.content.recipe.ModFanProcessingTypes;
-import net.dionpowder.dions_bitsnbobs.utils.ModHelper;
+import net.dionpowder.dions_bitsnbobs.content.recipe.DionsBitsnBobsFanProcessingTypes;
+import net.dionpowder.dions_bitsnbobs.utils.DionsBitsnBobsHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -26,7 +24,6 @@ import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
@@ -55,16 +52,16 @@ public class DionsBitsnBobs {
 
         // create registrate system
         REGISTRATE.registerEventListeners(modEventBus);
-        ModSetup.register(modEventBus, modLoadingContext);
+        DionsBitsnBobsSetup.register(modEventBus, modLoadingContext);
 
     }
 
     // Register advancements
     public static void onRegister(final RegisterEvent event) {
-        ModFanProcessingTypes.init();
+        DionsBitsnBobsFanProcessingTypes.init();
         if (event.getRegistry() == BuiltInRegistries.TRIGGER_TYPES) {
-            AllAdvancements.register();
-            AllTriggers.register();
+            DionsBitsnBobsAdvancements.register();
+            DionsBitsnBobsTriggers.register();
         }
     }
 
@@ -91,12 +88,12 @@ public class DionsBitsnBobs {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        ModHelper.registerFluidDispenseBehavior(ModFluids.STRAWBERRY_FROSTING_BUCKET.get());
-        ModHelper.registerFluidDispenseBehavior(ModFluids.ORANGE_FROSTING_BUCKET.get());
-        ModHelper.registerFluidDispenseBehavior(ModFluids.BLUEBERRY_FROSTING_BUCKET.get());
-        ModHelper.registerFluidDispenseBehavior(ModFluids.PEAR_FROSTING_BUCKET.get());
-        ModHelper.registerFluidDispenseBehavior(ModFluids.DONUT_BATTER_BUCKET.get());
-        ModFluids.registerFluidInteractions();
+        DionsBitsnBobsHelper.registerFluidDispenseBehavior(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_BUCKET.get());
+        DionsBitsnBobsHelper.registerFluidDispenseBehavior(DionsBitsnBobsFluids.ORANGE_FROSTING_BUCKET.get());
+        DionsBitsnBobsHelper.registerFluidDispenseBehavior(DionsBitsnBobsFluids.BLUEBERRY_FROSTING_BUCKET.get());
+        DionsBitsnBobsHelper.registerFluidDispenseBehavior(DionsBitsnBobsFluids.PEAR_FROSTING_BUCKET.get());
+        DionsBitsnBobsHelper.registerFluidDispenseBehavior(DionsBitsnBobsFluids.DONUT_BATTER_BUCKET.get());
+        DionsBitsnBobsFluids.registerFluidInteractions();
     }
 
     public static CreateRegistrate registrate() {

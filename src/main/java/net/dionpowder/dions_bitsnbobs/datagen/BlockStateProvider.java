@@ -1,19 +1,18 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.content.block.ModBlocks;
+import net.dionpowder.dions_bitsnbobs.content.block.DionsBitsnBobsBlocks;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.ModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 
-public class ModBlockStateProvider extends BlockStateProvider {
-    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
+public class BlockStateProvider extends net.neoforged.neoforge.client.model.generators.BlockStateProvider {
+    public BlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, DionsBitsnBobs.MOD_ID, exFileHelper);
     }
 
@@ -28,17 +27,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         // generate mod blocks
-        crateBlock(ModBlocks.STRAWBERRY_CRATE.get(), "strawberry");
-        componentBlock(ModBlocks.ANDESITE_COMPONENT.get(), "andesite");
-        componentBlock(ModBlocks.BRASS_COMPONENT.get(), "brass");
-        componentBlock(ModBlocks.COPPER_COMPONENT.get(), "copper");
-        componentBlock(ModBlocks.TRAIN_COMPONENT.get(), "train");
+        crateBlock(DionsBitsnBobsBlocks.STRAWBERRY_CRATE.get(), "strawberry");
+        componentBlock(DionsBitsnBobsBlocks.ANDESITE_COMPONENT.get(), "andesite");
+        componentBlock(DionsBitsnBobsBlocks.BRASS_COMPONENT.get(), "brass");
+        componentBlock(DionsBitsnBobsBlocks.COPPER_COMPONENT.get(), "copper");
+        componentBlock(DionsBitsnBobsBlocks.TRAIN_COMPONENT.get(), "train");
         // generate mod block item models
-        blockItem(ModBlocks.STRAWBERRY_CRATE);
-        blockItem(ModBlocks.ANDESITE_COMPONENT);
-        blockItem(ModBlocks.BRASS_COMPONENT);
-        blockItem(ModBlocks.COPPER_COMPONENT);
-        blockItem(ModBlocks.TRAIN_COMPONENT);
+        blockItem(DionsBitsnBobsBlocks.STRAWBERRY_CRATE);
+        blockItem(DionsBitsnBobsBlocks.ANDESITE_COMPONENT);
+        blockItem(DionsBitsnBobsBlocks.BRASS_COMPONENT);
+        blockItem(DionsBitsnBobsBlocks.COPPER_COMPONENT);
+        blockItem(DionsBitsnBobsBlocks.TRAIN_COMPONENT);
     }
 
     public void componentBlock(Block block, String componentName) {

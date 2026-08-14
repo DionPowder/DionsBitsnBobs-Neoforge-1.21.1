@@ -2,8 +2,8 @@ package net.dionpowder.dions_bitsnbobs.datagen.create;
 
 import com.simibubi.create.api.data.recipe.EmptyingRecipeGen;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.content.block.ModBlocks;
-import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
+import net.dionpowder.dions_bitsnbobs.content.block.DionsBitsnBobsBlocks;
+import net.dionpowder.dions_bitsnbobs.content.fluid.DionsBitsnBobsFluids;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 
@@ -17,9 +17,9 @@ public class EmptyingRecipeProvider extends EmptyingRecipeGen {
     GeneratedRecipe
 
     DONUT_BATTER = create("donut_batter", b -> b
-            .require(ModBlocks.FILLED_DONUT_CAST)
-            .output(ModBlocks.DONUT_CAST)
-            .output(ModFluids.SOURCE_DONUT_BATTER.get(), 250))
+            .require(DionsBitsnBobsBlocks.FILLED_DONUT_CAST)
+            .output(DionsBitsnBobsBlocks.DONUT_CAST)
+            .output(DionsBitsnBobsFluids.SOURCE_DONUT_BATTER.get(), 250))
 
     ;
 

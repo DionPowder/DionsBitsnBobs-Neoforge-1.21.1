@@ -2,17 +2,18 @@ package net.dionpowder.dions_bitsnbobs.content.recipe;
 
 import com.simibubi.create.AllFluids;
 import com.simibubi.create.AllRecipeTypes;
-import com.simibubi.create.api.data.recipe.PressingRecipeGen;
+import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
 import com.simibubi.create.content.fluids.transfer.FillingRecipe;
 
 import com.simibubi.create.content.kinetics.mixer.CompactingRecipe;
-import com.simibubi.create.content.kinetics.press.PressingRecipe;
+import com.simibubi.create.content.kinetics.mixer.MixingRecipe;
+import com.simibubi.create.content.processing.recipe.HeatCondition;
 import com.simibubi.create.content.processing.recipe.ProcessingOutput;
 import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.compat.ModCompat;
 import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
-import net.dionpowder.dions_bitsnbobs.content.fluid.ModFluids;
+import net.dionpowder.dions_bitsnbobs.content.fluid.DionsBitsnBobsFluids;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -43,22 +44,22 @@ public class BulkRecipeGen {
             ResourceLocation sourceId = holder.id();
             FluidIngredient fluidIngredient = recipe.getRequiredFluid().ingredient();
 
-            if (fluidIngredient.test(new FluidStack(ModFluids.SOURCE_STRAWBERRY_FROSTING.get(), 1))) {
+            if (fluidIngredient.test(new FluidStack(DionsBitsnBobsFluids.SOURCE_STRAWBERRY_FROSTING.get(), 1))) {
                 ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/strawberry_frosting/" + sourceId.getNamespace() + "/" + sourceId.getPath());
                 StrawberryFrostingRecipe newStrawberryFrostingRecipe = buildStrawberryDerived(newId, recipe);
                 allRecipes.add(new RecipeHolder<>(newId, newStrawberryFrostingRecipe));
             }
-            else if (fluidIngredient.test(new FluidStack(ModFluids.SOURCE_ORANGE_FROSTING.get(), 1))) {
+            else if (fluidIngredient.test(new FluidStack(DionsBitsnBobsFluids.SOURCE_ORANGE_FROSTING.get(), 1))) {
                 ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/orange_frosting/" + sourceId.getNamespace() + "/" + sourceId.getPath());
                 OrangeFrostingRecipe newOrangeFrostingRecipe = buildOrangeDerived(newId, recipe);
                 allRecipes.add(new RecipeHolder<>(newId, newOrangeFrostingRecipe));
             }
-            else if (fluidIngredient.test(new FluidStack(ModFluids.SOURCE_BLUEBERRY_FROSTING.get(), 1))) {
+            else if (fluidIngredient.test(new FluidStack(DionsBitsnBobsFluids.SOURCE_BLUEBERRY_FROSTING.get(), 1))) {
                 ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/blueberry_frosting/" + sourceId.getNamespace() + "/" + sourceId.getPath());
                 BlueberryFrostingRecipe newBlueberryFrostingRecipe = buildBlueberryDerived(newId, recipe);
                 allRecipes.add(new RecipeHolder<>(newId, newBlueberryFrostingRecipe));
             }
-            else if (fluidIngredient.test(new FluidStack(ModFluids.SOURCE_PEAR_FROSTING.get(), 1))) {
+            else if (fluidIngredient.test(new FluidStack(DionsBitsnBobsFluids.SOURCE_PEAR_FROSTING.get(), 1))) {
                 ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/pear_frosting/" + sourceId.getNamespace() + "/" + sourceId.getPath());
                 PearFrostingRecipe newPearFrostingRecipe = buildPearDerived(newId, recipe);
                 allRecipes.add(new RecipeHolder<>(newId, newPearFrostingRecipe));
@@ -121,6 +122,41 @@ public class BulkRecipeGen {
             builder.require(Fluids.LAVA, 250);
             builder.output(Items.DIAMOND);
             allRecipes.add(new RecipeHolder<>(newId, builder.build()));
+        }
+
+        if (DionsBitsnBobsConfig.commonRecipes().RENEWABLE_CREATE_STONES_TYPES.get()) {
+            // asurine
+            ResourceLocation newAsurineId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/mixing/asurine");
+            var asurineBuilder = new StandardProcessingRecipe.Builder<>(MixingRecipe::new, newAsurineId);
+            asurineBuilder.require(AllPaletteStoneTypes.ASURINE.getBaseBlock().get());
+            asurineBuilder.require(Items.BASALT);
+            asurineBuilder.requiresHeat(HeatCondition.HEATED);
+            asurineBuilder.output(AllPaletteStoneTypes.ASURINE.getBaseBlock().get(), 2);
+            allRecipes.add(new RecipeHolder<>(newAsurineId, asurineBuilder.build()));
+            // crimsite
+            ResourceLocation newCrimsiteId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/mixing/crimsite");
+            var crimsiteBuilder = new StandardProcessingRecipe.Builder<>(MixingRecipe::new, newCrimsiteId);
+            crimsiteBuilder.require(AllPaletteStoneTypes.CRIMSITE.getBaseBlock().get());
+            crimsiteBuilder.require(Items.BLACKSTONE);
+            crimsiteBuilder.requiresHeat(HeatCondition.HEATED);
+            crimsiteBuilder.output(AllPaletteStoneTypes.CRIMSITE.getBaseBlock().get(), 2);
+            allRecipes.add(new RecipeHolder<>(newCrimsiteId, crimsiteBuilder.build()));
+            // ochrum
+            ResourceLocation newOchrumId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/mixing/ochrum");
+            var ochrumBuilder = new StandardProcessingRecipe.Builder<>(MixingRecipe::new, newOchrumId);
+            ochrumBuilder.require(AllPaletteStoneTypes.OCHRUM.getBaseBlock().get());
+            ochrumBuilder.require(Items.SANDSTONE);
+            ochrumBuilder.requiresHeat(HeatCondition.HEATED);
+            ochrumBuilder.output(AllPaletteStoneTypes.OCHRUM.getBaseBlock().get(), 2);
+            allRecipes.add(new RecipeHolder<>(newOchrumId, ochrumBuilder.build()));
+            // veridium
+            ResourceLocation newVeridiumId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/mixing/veridium");
+            var veridiumBuilder = new StandardProcessingRecipe.Builder<>(MixingRecipe::new, newVeridiumId);
+            veridiumBuilder.require(AllPaletteStoneTypes.VERIDIUM.getBaseBlock().get());
+            veridiumBuilder.require(Items.MOSSY_COBBLESTONE);
+            veridiumBuilder.requiresHeat(HeatCondition.HEATED);
+            veridiumBuilder.output(AllPaletteStoneTypes.VERIDIUM.getBaseBlock().get(), 2);
+            allRecipes.add(new RecipeHolder<>(newVeridiumId, veridiumBuilder.build()));
         }
 
         manager.replaceRecipes(allRecipes);

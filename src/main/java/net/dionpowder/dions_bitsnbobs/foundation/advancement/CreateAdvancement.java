@@ -51,14 +51,14 @@ public class CreateAdvancement {
         b.apply(createBuilder);
 
         if (!createBuilder.externalTrigger) {
-            builtinTrigger = AllTriggers.addSimple(id + "_builtin");
+            builtinTrigger = DionsBitsnBobsTriggers.addSimple(id + "_builtin");
             mcBuilder.addCriterion("0", builtinTrigger.createCriterion(builtinTrigger.instance()));
         }
 
         if (createBuilder.type == TaskType.SECRET)
             description += SECRET_SUFFIX;
 
-        AllAdvancements.ENTRIES.add(this);
+        DionsBitsnBobsAdvancements.ENTRIES.add(this);
     }
 
     private String titleKey() {

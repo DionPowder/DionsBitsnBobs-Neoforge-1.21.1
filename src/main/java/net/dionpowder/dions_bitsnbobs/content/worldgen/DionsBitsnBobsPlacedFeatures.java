@@ -12,14 +12,14 @@ import net.minecraft.world.level.levelgen.placement.*;
 
 import java.util.List;
 
-public class ModPlacedFeatures {
+public class DionsBitsnBobsPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> WILD_STRAWBERRY_BUSH_PLACED_KEY = registerKey("wild_strawberry_bush_placed");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
-        register(context, WILD_STRAWBERRY_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.WILD_STRAWBERRY_BUSH_KEY),
+        register(context, WILD_STRAWBERRY_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(DionsBitsnBobsConfiguredFeatures.WILD_STRAWBERRY_BUSH_KEY),
                 List.of(RarityFilter.onAverageOnceEvery(64), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
 
     }

@@ -1,7 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.content.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.dionpowder.dions_bitsnbobs.content.item.ModItems;
+import net.dionpowder.dions_bitsnbobs.content.item.DionsBitsnBobsItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -25,7 +25,7 @@ public class WildStrawberryBush extends BushBlock {
 
     @Override
     public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
-        return new ItemStack(ModItems.STRAWBERRY.get());
+        return new ItemStack(DionsBitsnBobsItems.STRAWBERRY.get());
     }
 
     @Override

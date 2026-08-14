@@ -4,8 +4,8 @@ import com.simibubi.create.content.kinetics.fan.processing.FanProcessingType;
 import com.simibubi.create.foundation.recipe.RecipeApplier;
 import net.createmod.catnip.theme.Color;
 import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
-import net.dionpowder.dions_bitsnbobs.content.recipe.ModRecipeTypes;
-import net.dionpowder.dions_bitsnbobs.utils.ModTags;
+import net.dionpowder.dions_bitsnbobs.content.recipe.DionsBitsnBobsRecipeTypes;
+import net.dionpowder.dions_bitsnbobs.utils.DionsBitsnBobsTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.util.RandomSource;
@@ -27,9 +27,9 @@ public class ChocolateGlazingType implements FanProcessingType {
         // add config check here
         if (!DionsBitsnBobsConfig.recipes().BULK_CHOCOLATE_GLAZING.get()) return false;
         var fluidState = level.getFluidState(pos);
-        if (fluidState.getType().builtInRegistryHolder().is(ModTags.Fluids.FAN_PROCESSING_CATALYSTS_CHOCOLATE_GLAZING)) return true;
+        if (fluidState.getType().builtInRegistryHolder().is(DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_CHOCOLATE_GLAZING)) return true;
         var blockState = level.getBlockState(pos);
-        return blockState.getBlock().builtInRegistryHolder().is(ModTags.Blocks.FAN_PROCESSING_CATALYSTS_CHOCOLATE_GLAZING);
+        return blockState.getBlock().builtInRegistryHolder().is(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_CHOCOLATE_GLAZING);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class ChocolateGlazingType implements FanProcessingType {
         var recipeManager = level.getRecipeManager();
         var input = new SingleRecipeInput(stack);
         return recipeManager
-                .getRecipeFor(ModRecipeTypes.CHOCOLATE_GLAZING.getType(), input, level)
+                .getRecipeFor(DionsBitsnBobsRecipeTypes.CHOCOLATE_GLAZING.getType(), input, level)
                 .isPresent();
     }
 
@@ -53,7 +53,7 @@ public class ChocolateGlazingType implements FanProcessingType {
         var recipeManager = level.getRecipeManager();
         var input = new SingleRecipeInput(stack);
         return recipeManager
-                .getRecipeFor(ModRecipeTypes.CHOCOLATE_GLAZING.getType(), input, level)
+                .getRecipeFor(DionsBitsnBobsRecipeTypes.CHOCOLATE_GLAZING.getType(), input, level)
                 .map(recipe -> RecipeApplier.applyRecipeOn(level, stack, recipe.value(), false))
                 .orElse(null);
     }

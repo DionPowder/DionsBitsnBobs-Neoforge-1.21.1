@@ -4,10 +4,10 @@ import com.simibubi.create.content.kinetics.fan.processing.FanProcessingType;
 import com.simibubi.create.foundation.recipe.RecipeApplier;
 import net.createmod.catnip.theme.Color;
 import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
-import net.dionpowder.dions_bitsnbobs.content.effect.ModEffects;
-import net.dionpowder.dions_bitsnbobs.foundation.advancement.AllAdvancements;
-import net.dionpowder.dions_bitsnbobs.content.recipe.ModRecipeTypes;
-import net.dionpowder.dions_bitsnbobs.utils.ModTags;
+import net.dionpowder.dions_bitsnbobs.content.effect.DionsBitsnBobsEffects;
+import net.dionpowder.dions_bitsnbobs.content.recipe.DionsBitsnBobsRecipeTypes;
+import net.dionpowder.dions_bitsnbobs.foundation.advancement.DionsBitsnBobsAdvancements;
+import net.dionpowder.dions_bitsnbobs.utils.DionsBitsnBobsTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.sounds.SoundEvents;
@@ -35,9 +35,9 @@ public class BlueberryFrostingType implements FanProcessingType {
         // add config check here
         if (!DionsBitsnBobsConfig.recipes().BULK_FROSTING.get()) return false;
         var fluidState = level.getFluidState(pos);
-        if (fluidState.getType().builtInRegistryHolder().is(ModTags.Fluids.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)) return true;
+        if (fluidState.getType().builtInRegistryHolder().is(DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)) return true;
         var blockState = level.getBlockState(pos);
-        return blockState.getBlock().builtInRegistryHolder().is(ModTags.Blocks.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING);
+        return blockState.getBlock().builtInRegistryHolder().is(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class BlueberryFrostingType implements FanProcessingType {
         var recipeManager = level.getRecipeManager();
         var input = new SingleRecipeInput(stack);
         return recipeManager
-                .getRecipeFor(ModRecipeTypes.BLUEBERRY_FROSTING.getType(), input, level)
+                .getRecipeFor(DionsBitsnBobsRecipeTypes.BLUEBERRY_FROSTING.getType(), input, level)
                 .isPresent();
     }
 
@@ -61,7 +61,7 @@ public class BlueberryFrostingType implements FanProcessingType {
         var recipeManager = level.getRecipeManager();
         var input = new SingleRecipeInput(stack);
         return recipeManager
-                .getRecipeFor(ModRecipeTypes.BLUEBERRY_FROSTING.getType(), input, level)
+                .getRecipeFor(DionsBitsnBobsRecipeTypes.BLUEBERRY_FROSTING.getType(), input, level)
                 .map(recipe -> RecipeApplier.applyRecipeOn(level, stack, recipe.value(), false))
                 .orElse(null);
     }
@@ -94,13 +94,13 @@ public class BlueberryFrostingType implements FanProcessingType {
         if (level.isClientSide) return;
         if (entity instanceof EnderMan || entity instanceof Blaze) entity.hurt(entity.damageSources().freeze(), 8);
         if (entity instanceof Player player) {
-            if (!player.hasEffect(ModEffects.SUGAR_RUSH_EFFECT)){
-                AllAdvancements.BULK_FROSTED.awardTo(player);
-                player.addEffect(new MobEffectInstance(ModEffects.SUGAR_RUSH_EFFECT, 100, 0));
+            if (!player.hasEffect(DionsBitsnBobsEffects.SUGAR_RUSH_EFFECT)){
+                DionsBitsnBobsAdvancements.BULK_FROSTED.awardTo(player);
+                player.addEffect(new MobEffectInstance(DionsBitsnBobsEffects.SUGAR_RUSH_EFFECT, 100, 0));
             } else {
-                MobEffectInstance instance = player.getEffect(ModEffects.SUGAR_RUSH_EFFECT);
+                MobEffectInstance instance = player.getEffect(DionsBitsnBobsEffects.SUGAR_RUSH_EFFECT);
                 if (instance != null && instance.getDuration() <= 20) {
-                    player.addEffect(new MobEffectInstance(ModEffects.SUGAR_RUSH_EFFECT, 100, 0));
+                    player.addEffect(new MobEffectInstance(DionsBitsnBobsEffects.SUGAR_RUSH_EFFECT, 100, 0));
                 }
             }
         }

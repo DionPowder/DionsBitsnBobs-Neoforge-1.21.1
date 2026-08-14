@@ -7,8 +7,6 @@ import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.Tag;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -16,15 +14,14 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
 import java.util.List;
 
-import static net.dionpowder.dions_bitsnbobs.ModEvents.randomBetween;
+import static net.dionpowder.dions_bitsnbobs.DionsBitsnBobsEvents.randomBetween;
 
-public class ModHelper {
+public class DionsBitsnBobsHelper {
 
     // register custom fluids to be able to be picked up with dispensers
     private static final DispenseItemBehavior DEFAULT = new DefaultDispenseItemBehavior();
@@ -50,13 +47,13 @@ public class ModHelper {
         Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
 
         trades.get(1).add((entity, randomSource) -> new MerchantOffer(
-                new ItemCost(ModHelper.getRandomItemFromTag(ModTags.Items.ADVANCEMENT_GLAZED_DONUT, randomSource), randomBetween(randomSource, 8, 12)),
+                new ItemCost(DionsBitsnBobsHelper.getRandomItemFromTag(DionsBitsnBobsTags.Items.ADVANCEMENT_GLAZED_DONUT, randomSource), randomBetween(randomSource, 8, 12)),
                 new ItemStack(Items.EMERALD, 1), 5, 2, 0.05f));
         trades.get(2).add((entity, randomSource) -> new MerchantOffer(
-                new ItemCost(ModHelper.getRandomItemFromTag(ModTags.Items.ADVANCEMENT_TOPPED_DONUT, randomSource), randomBetween(randomSource, 6, 10)),
+                new ItemCost(DionsBitsnBobsHelper.getRandomItemFromTag(DionsBitsnBobsTags.Items.ADVANCEMENT_TOPPED_DONUT, randomSource), randomBetween(randomSource, 6, 10)),
                 new ItemStack(Items.EMERALD, 1), 5, 2, 0.05f));
         trades.get(3).add((entity, randomSource) -> new MerchantOffer(
-                new ItemCost(ModHelper.getRandomItemFromTag(ModTags.Items.DOUBLE_GLAZED_DONUTS, randomSource), randomBetween(randomSource, 4, 8)),
+                new ItemCost(DionsBitsnBobsHelper.getRandomItemFromTag(DionsBitsnBobsTags.Items.DOUBLE_GLAZED_DONUTS, randomSource), randomBetween(randomSource, 4, 8)),
                 new ItemStack(Items.EMERALD, 1), 5, 2, 0.05f));
 
         return trades;

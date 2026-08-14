@@ -1,11 +1,10 @@
 package net.dionpowder.dions_bitsnbobs.content.block;
 
-import com.simibubi.create.content.contraptions.bearing.SailBlock;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.content.block.custom.DonutCast;
 import net.dionpowder.dions_bitsnbobs.content.block.custom.StrawberryBush;
 import net.dionpowder.dions_bitsnbobs.content.block.custom.WildStrawberryBush;
-import net.dionpowder.dions_bitsnbobs.content.item.ModItems;
+import net.dionpowder.dions_bitsnbobs.content.item.DionsBitsnBobsItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -17,7 +16,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
 
-public class ModBlocks {
+public class DionsBitsnBobsBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(DionsBitsnBobs.MOD_ID);
 
     public static final DeferredBlock<Block> STRAWBERRY_CRATE = registerBlock(64, "strawberry_crate",
@@ -57,7 +56,7 @@ public class ModBlocks {
     }
 
     private static <T extends Block> void registerBlockItem(int stacksize, String name, DeferredBlock<T> block) {
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().stacksTo(stacksize)));
+        DionsBitsnBobsItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().stacksTo(stacksize)));
     }
 
     public static void register(IEventBus eventBus){

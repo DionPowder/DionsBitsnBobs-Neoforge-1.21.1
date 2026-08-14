@@ -1,7 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
-import net.dionpowder.dions_bitsnbobs.content.block.ModBlocks;
-import net.dionpowder.dions_bitsnbobs.content.item.ModItems;
+import net.dionpowder.dions_bitsnbobs.content.block.DionsBitsnBobsBlocks;
+import net.dionpowder.dions_bitsnbobs.content.item.DionsBitsnBobsItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -23,8 +23,8 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.Set;
 
-public class ModBlockLootTableProvider extends BlockLootSubProvider {
-    protected ModBlockLootTableProvider(HolderLookup.Provider registries) {
+public class BlockLootTableProvider extends BlockLootSubProvider {
+    protected BlockLootTableProvider(HolderLookup.Provider registries) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
     }
 
@@ -32,33 +32,33 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected void generate() {
         HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 
-        dropSelf(ModBlocks.STRAWBERRY_CRATE.get());
-        dropSelf(ModBlocks.ANDESITE_COMPONENT.get());
-        dropSelf(ModBlocks.BRASS_COMPONENT.get());
-        dropSelf(ModBlocks.COPPER_COMPONENT.get());
-        dropSelf(ModBlocks.TRAIN_COMPONENT.get());
-        dropSelf(ModBlocks.DONUT_CAST.get());
-        dropSelf(ModBlocks.FILLED_DONUT_CAST.get());
-        dropSelf(ModBlocks.COOKED_DONUT_CAST.get());
+        dropSelf(DionsBitsnBobsBlocks.STRAWBERRY_CRATE.get());
+        dropSelf(DionsBitsnBobsBlocks.ANDESITE_COMPONENT.get());
+        dropSelf(DionsBitsnBobsBlocks.BRASS_COMPONENT.get());
+        dropSelf(DionsBitsnBobsBlocks.COPPER_COMPONENT.get());
+        dropSelf(DionsBitsnBobsBlocks.TRAIN_COMPONENT.get());
+        dropSelf(DionsBitsnBobsBlocks.DONUT_CAST.get());
+        dropSelf(DionsBitsnBobsBlocks.FILLED_DONUT_CAST.get());
+        dropSelf(DionsBitsnBobsBlocks.COOKED_DONUT_CAST.get());
 
-        this.add(ModBlocks.WILD_STRAWBERRY_BUSH.get(), block -> this.applyExplosionDecay(
+        this.add(DionsBitsnBobsBlocks.WILD_STRAWBERRY_BUSH.get(), block -> this.applyExplosionDecay(
                 block,LootTable.lootTable().withPool(LootPool.lootPool(
-                                ).add(LootItem.lootTableItem(ModItems.STRAWBERRY.get()))
+                                ).add(LootItem.lootTableItem(DionsBitsnBobsItems.STRAWBERRY.get()))
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                                 .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))
                 )));
 
-        this.add(ModBlocks.STRAWBERRY_BUSH.get(), block -> this.applyExplosionDecay(
+        this.add(DionsBitsnBobsBlocks.STRAWBERRY_BUSH.get(), block -> this.applyExplosionDecay(
                 block,LootTable.lootTable().withPool(LootPool.lootPool().when(
-                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.STRAWBERRY_BUSH.get())
+                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(DionsBitsnBobsBlocks.STRAWBERRY_BUSH.get())
                                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 3))
-                                ).add(LootItem.lootTableItem(ModItems.STRAWBERRY.get()))
+                                ).add(LootItem.lootTableItem(DionsBitsnBobsItems.STRAWBERRY.get()))
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F)))
                                 .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))
                 ).withPool(LootPool.lootPool().when(
-                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.STRAWBERRY_BUSH.get())
+                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(DionsBitsnBobsBlocks.STRAWBERRY_BUSH.get())
                                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 2))
-                                ).add(LootItem.lootTableItem(ModItems.STRAWBERRY.get()))
+                                ).add(LootItem.lootTableItem(DionsBitsnBobsItems.STRAWBERRY.get()))
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                                 .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))
                 )));
@@ -74,6 +74,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return ModBlocks.BLOCKS.getEntries().stream().map(Holder::value)::iterator;
+        return DionsBitsnBobsBlocks.BLOCKS.getEntries().stream().map(Holder::value)::iterator;
     }
 }

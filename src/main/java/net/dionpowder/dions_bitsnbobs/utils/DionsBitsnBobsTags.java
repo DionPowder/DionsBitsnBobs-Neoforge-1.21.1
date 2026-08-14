@@ -6,15 +6,11 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.level.material.FluidState;
 
-public class ModTags {
+public class DionsBitsnBobsTags {
     public static class Blocks {
         public static final TagKey<Block> STORAGE_BLOCKS = commonBlockTag("storage_blocks");
         public static final TagKey<Block> STORAGE_BLOCKS_STRAWBERRY = commonBlockTag("storage_blocks/strawberry");

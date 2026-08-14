@@ -8,8 +8,8 @@ import com.simibubi.create.content.kinetics.deployer.DeployerApplicationRecipe;
 import com.simibubi.create.content.kinetics.press.PressingRecipe;
 import com.simibubi.create.content.kinetics.saw.CuttingRecipe;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.content.block.ModBlocks;
-import net.dionpowder.dions_bitsnbobs.content.item.ModItems;
+import net.dionpowder.dions_bitsnbobs.content.block.DionsBitsnBobsBlocks;
+import net.dionpowder.dions_bitsnbobs.content.item.DionsBitsnBobsItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Items;
@@ -27,71 +27,71 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
 
     ANDESITE_COMPONENT = create("andesite_component", b -> b
             .require(AllBlocks.ANDESITE_CASING)
-            .transitionTo(ModItems.UNPROCESSED_ANDESITE_COMPONENT)
-            .addOutput(ModBlocks.ANDESITE_COMPONENT, 85)
+            .transitionTo(DionsBitsnBobsItems.UNPROCESSED_ANDESITE_COMPONENT)
+            .addOutput(DionsBitsnBobsBlocks.ANDESITE_COMPONENT, 85)
             .addOutput(AllBlocks.ANDESITE_CASING, 6)
             .addOutput(AllItems.PRECISION_MECHANISM, 3)
             .addOutput(AllItems.ELECTRON_TUBE, 3)
-            .addOutput(ModItems.NETHERITE_DUST, 3)
+            .addOutput(DionsBitsnBobsItems.NETHERITE_DUST, 3)
             .loops(1)
             .addStep(CuttingRecipe::new, rb -> rb)
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.ELECTRON_TUBE))
-            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(ModItems.NETHERITE_DUST))
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(DionsBitsnBobsItems.NETHERITE_DUST))
             .addStep(FillingRecipe::new, rb -> rb.require(Fluids.LAVA, 1000))
             .addStep(PressingRecipe::new, rb -> rb)),
 
     BRASS_COMPONENT = create("brass_component", b -> b
             .require(AllBlocks.BRASS_CASING)
-            .transitionTo(ModItems.UNPROCESSED_BRASS_COMPONENT)
-            .addOutput(ModBlocks.BRASS_COMPONENT, 85)
+            .transitionTo(DionsBitsnBobsItems.UNPROCESSED_BRASS_COMPONENT)
+            .addOutput(DionsBitsnBobsBlocks.BRASS_COMPONENT, 85)
             .addOutput(AllBlocks.BRASS_CASING, 6)
             .addOutput(AllItems.PRECISION_MECHANISM, 3)
             .addOutput(AllItems.ELECTRON_TUBE, 3)
-            .addOutput(ModItems.NETHERITE_DUST, 3)
+            .addOutput(DionsBitsnBobsItems.NETHERITE_DUST, 3)
             .loops(1)
             .addStep(CuttingRecipe::new, rb -> rb)
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.ELECTRON_TUBE))
-            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(ModItems.NETHERITE_DUST))
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(DionsBitsnBobsItems.NETHERITE_DUST))
             .addStep(FillingRecipe::new, rb -> rb.require(Fluids.LAVA, 1000))
             .addStep(PressingRecipe::new, rb -> rb)),
 
     COPPER_COMPONENT = create("copper_component", b -> b
             .require(AllBlocks.COPPER_CASING)
-            .transitionTo(ModItems.UNPROCESSED_COPPER_COMPONENT)
-            .addOutput(ModBlocks.COPPER_COMPONENT, 85)
+            .transitionTo(DionsBitsnBobsItems.UNPROCESSED_COPPER_COMPONENT)
+            .addOutput(DionsBitsnBobsBlocks.COPPER_COMPONENT, 85)
             .addOutput(AllBlocks.COPPER_CASING, 6)
             .addOutput(AllItems.PRECISION_MECHANISM, 3)
             .addOutput(AllItems.ELECTRON_TUBE, 3)
-            .addOutput(ModItems.NETHERITE_DUST, 3)
+            .addOutput(DionsBitsnBobsItems.NETHERITE_DUST, 3)
             .loops(1)
             .addStep(CuttingRecipe::new, rb -> rb)
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.ELECTRON_TUBE))
-            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(ModItems.NETHERITE_DUST))
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(DionsBitsnBobsItems.NETHERITE_DUST))
             .addStep(FillingRecipe::new, rb -> rb.require(Fluids.LAVA, 1000))
             .addStep(PressingRecipe::new, rb -> rb)),
 
     TRAIN_COMPONENT = create("train_component", b -> b
             .require(AllBlocks.RAILWAY_CASING)
-            .transitionTo(ModItems.UNPROCESSED_TRAIN_COMPONENT)
-            .addOutput(ModBlocks.TRAIN_COMPONENT, 85)
+            .transitionTo(DionsBitsnBobsItems.UNPROCESSED_TRAIN_COMPONENT)
+            .addOutput(DionsBitsnBobsBlocks.TRAIN_COMPONENT, 85)
             .addOutput(AllBlocks.RAILWAY_CASING, 6)
             .addOutput(AllItems.PRECISION_MECHANISM, 3)
             .addOutput(AllItems.ELECTRON_TUBE, 3)
-            .addOutput(ModItems.NETHERITE_DUST, 3)
+            .addOutput(DionsBitsnBobsItems.NETHERITE_DUST, 3)
             .loops(1)
             .addStep(CuttingRecipe::new, rb -> rb)
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.PRECISION_MECHANISM))
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.ELECTRON_TUBE))
-            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(ModItems.NETHERITE_DUST))
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(DionsBitsnBobsItems.NETHERITE_DUST))
             .addStep(FillingRecipe::new, rb -> rb.require(Fluids.LAVA, 1000))
             .addStep(PressingRecipe::new, rb -> rb)),
 
     NETHERITE_SCRAP = create("netherite_scrap", b -> b
-            .require(ModItems.NETHERITE_DUST)
-            .transitionTo(ModItems.UNPROCESSED_NETHERITE_DUST)
+            .require(DionsBitsnBobsItems.NETHERITE_DUST)
+            .transitionTo(DionsBitsnBobsItems.UNPROCESSED_NETHERITE_DUST)
             .addOutput(Items.NETHERITE_SCRAP, 120)
             .addOutput(AllItems.POWDERED_OBSIDIAN, 8)
             .addOutput(AllItems.CINDER_FLOUR, 8)
@@ -102,7 +102,7 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
 
     MAGMA_BLOCK = create("magma_block", b -> b
             .require(Blocks.COBBLESTONE)
-            .transitionTo(ModItems.UNPROCESSED_MAGMA_BLOCK)
+            .transitionTo(DionsBitsnBobsItems.UNPROCESSED_MAGMA_BLOCK)
             .addOutput(Blocks.MAGMA_BLOCK, 95)
             .addOutput(Blocks.COBBLESTONE, 5)
             .loops(5)

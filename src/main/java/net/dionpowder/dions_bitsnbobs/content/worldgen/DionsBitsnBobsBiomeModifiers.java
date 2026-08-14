@@ -12,7 +12,7 @@ import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.common.world.BiomeModifiers;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
-public class ModBiomeModifiers {
+public class DionsBitsnBobsBiomeModifiers {
 
     public static final ResourceKey<BiomeModifier> ADD_WILD_STRAWBERRY_BUSH = registerKey("add_wild_strawberry_bush");
 
@@ -23,7 +23,7 @@ public class ModBiomeModifiers {
 
         context.register(ADD_WILD_STRAWBERRY_BUSH, new BiomeModifiers.AddFeaturesBiomeModifier(
                 HolderSet.direct(biomes.getOrThrow(Biomes.FOREST)),
-                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.WILD_STRAWBERRY_BUSH_PLACED_KEY)),
+                HolderSet.direct(placedFeatures.getOrThrow(DionsBitsnBobsPlacedFeatures.WILD_STRAWBERRY_BUSH_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
 
     }

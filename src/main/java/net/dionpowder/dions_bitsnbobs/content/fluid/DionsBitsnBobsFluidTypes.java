@@ -12,7 +12,7 @@ import org.joml.Vector3f;
 
 import java.util.function.Supplier;
 
-public class ModFluidTypes {
+public class DionsBitsnBobsFluidTypes {
     public static final ResourceLocation STRAWBERRY_FROSTING_STILL_RL = ResourceLocation.fromNamespaceAndPath("dions_bitsnbobs", "block/strawberry_frosting_still");
     public static final ResourceLocation STRAWBERRY_FROSTING_FLOWING_RL = ResourceLocation.fromNamespaceAndPath("dions_bitsnbobs", "block/strawberry_frosting_flowing");
 

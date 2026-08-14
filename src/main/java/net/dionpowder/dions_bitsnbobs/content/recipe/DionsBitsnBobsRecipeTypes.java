@@ -23,7 +23,7 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
-public enum ModRecipeTypes implements IRecipeTypeInfo, StringRepresentable {
+public enum DionsBitsnBobsRecipeTypes implements IRecipeTypeInfo, StringRepresentable {
     STRAWBERRY_FROSTING(StrawberryFrostingRecipe::new),
     ORANGE_FROSTING(OrangeFrostingRecipe::new),
     BLUEBERRY_FROSTING(BlueberryFrostingRecipe::new),
@@ -42,15 +42,15 @@ public enum ModRecipeTypes implements IRecipeTypeInfo, StringRepresentable {
     private final DeferredHolder<RecipeType<?>, RecipeType<?>> typeObject;
     private final Supplier<RecipeType<?>> type;
 
-    public static final Codec<ModRecipeTypes> CODEC = StringRepresentable.fromEnum(ModRecipeTypes::values);
+    public static final Codec<DionsBitsnBobsRecipeTypes> CODEC = StringRepresentable.fromEnum(DionsBitsnBobsRecipeTypes::values);
 
-    ModRecipeTypes(Supplier<RecipeSerializer<?>> serializerSupplier, Supplier<RecipeType<?>> typeSupplier, boolean registerType) {
+    DionsBitsnBobsRecipeTypes(Supplier<RecipeSerializer<?>> serializerSupplier, Supplier<RecipeType<?>> typeSupplier, boolean registerType) {
         var name = Lang.asId(name());
         id = DionsBitsnBobs.rl(name);
         this.serializerSupplier = serializerSupplier;
-        serializerObject = ModRecipeTypes.Registers.SERIALIZER_REGISTER.register(name, serializerSupplier);
+        serializerObject = DionsBitsnBobsRecipeTypes.Registers.SERIALIZER_REGISTER.register(name, serializerSupplier);
         if (registerType) {
-            typeObject = ModRecipeTypes.Registers.TYPE_REGISTER.register(name, typeSupplier);
+            typeObject = DionsBitsnBobsRecipeTypes.Registers.TYPE_REGISTER.register(name, typeSupplier);
             type = typeObject;
         } else {
             typeObject = null;
@@ -58,24 +58,24 @@ public enum ModRecipeTypes implements IRecipeTypeInfo, StringRepresentable {
         }
     }
 
-    ModRecipeTypes(Supplier<RecipeSerializer<?>> serializerSupplier) {
+    DionsBitsnBobsRecipeTypes(Supplier<RecipeSerializer<?>> serializerSupplier) {
         var name = Lang.asId(name());
         id = DionsBitsnBobs.rl(name);
         this.serializerSupplier = serializerSupplier;
-        serializerObject = ModRecipeTypes.Registers.SERIALIZER_REGISTER.register(name, serializerSupplier);
-        typeObject = ModRecipeTypes.Registers.TYPE_REGISTER.register(name, () -> RecipeType.simple(id));
+        serializerObject = DionsBitsnBobsRecipeTypes.Registers.SERIALIZER_REGISTER.register(name, serializerSupplier);
+        typeObject = DionsBitsnBobsRecipeTypes.Registers.TYPE_REGISTER.register(name, () -> RecipeType.simple(id));
         type = typeObject;
     }
 
-    ModRecipeTypes(StandardProcessingRecipe.Factory<?> processingFactory) {
+    DionsBitsnBobsRecipeTypes(StandardProcessingRecipe.Factory<?> processingFactory) {
         this(() -> new StandardProcessingRecipe.Serializer<>(processingFactory));
     }
 
     @ApiStatus.Internal
     public static void register(IEventBus modEventBus) {
         ShapedRecipePattern.setCraftingSize(9, 9);
-        ModRecipeTypes.Registers.SERIALIZER_REGISTER.register(modEventBus);
-        ModRecipeTypes.Registers.TYPE_REGISTER.register(modEventBus);
+        DionsBitsnBobsRecipeTypes.Registers.SERIALIZER_REGISTER.register(modEventBus);
+        DionsBitsnBobsRecipeTypes.Registers.TYPE_REGISTER.register(modEventBus);
     }
 
     @Override

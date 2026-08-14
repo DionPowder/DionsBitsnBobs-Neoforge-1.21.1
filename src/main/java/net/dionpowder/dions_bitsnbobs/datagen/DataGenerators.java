@@ -6,7 +6,7 @@ import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.BlueberryFrostingR
 import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.OrangeFrostingRecipeProvider;
 import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.PearFrostingRecipeProvider;
 import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.StrawberryFrostingRecipeProvider;
-import net.dionpowder.dions_bitsnbobs.foundation.advancement.AllAdvancements;
+import net.dionpowder.dions_bitsnbobs.foundation.advancement.DionsBitsnBobsAdvancements;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -33,10 +33,10 @@ public class DataGenerators {
 
         // generates loot tables
         generator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
-                List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
+                List.of(new LootTableProvider.SubProviderEntry(BlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
 
         // generates recipes
-        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new RecipeProvider(packOutput, lookupProvider));
         // generate create recipes
         generator.addProvider(event.includeServer(), new CompactingRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new CrushingRecipeProvider(packOutput, lookupProvider));
@@ -54,17 +54,17 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new PearFrostingRecipeProvider(packOutput, lookupProvider));
 
         // advancements
-        generator.addProvider(event.includeServer(), new AllAdvancements(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new DionsBitsnBobsAdvancements(packOutput, lookupProvider));
 
         // generates tags
-        BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
+        BlockTagsProvider blockTagsProvider = new BlockTagProvider(packOutput, lookupProvider, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTagsProvider);
-        generator.addProvider(event.includeServer(), new ModItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
-        generator.addProvider(event.includeServer(), new ModFluidTagsProvider(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new ItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
+        generator.addProvider(event.includeServer(), new FluidTagsProvider(packOutput, lookupProvider, existingFileHelper));
 
-        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
-        generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new BlockStateProvider(packOutput, existingFileHelper));
 
-        generator.addProvider(event.includeServer(), new ModDatapackProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new DatapackProvider(packOutput, lookupProvider));
     }
 }

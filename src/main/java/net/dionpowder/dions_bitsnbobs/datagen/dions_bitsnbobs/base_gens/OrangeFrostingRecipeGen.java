@@ -2,7 +2,7 @@ package net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.base_gens;
 
 import com.simibubi.create.api.data.recipe.StandardProcessingRecipeGen;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.content.recipe.ModRecipeTypes;
+import net.dionpowder.dions_bitsnbobs.content.recipe.DionsBitsnBobsRecipeTypes;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.OrangeFrostingRecipe;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -16,8 +16,8 @@ public class OrangeFrostingRecipeGen extends StandardProcessingRecipeGen<OrangeF
     }
 
     @Override
-    protected ModRecipeTypes getRecipeType() {
-        return ModRecipeTypes.ORANGE_FROSTING;
+    protected DionsBitsnBobsRecipeTypes getRecipeType() {
+        return DionsBitsnBobsRecipeTypes.ORANGE_FROSTING;
     }
 
 }

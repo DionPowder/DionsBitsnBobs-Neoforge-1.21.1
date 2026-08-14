@@ -9,7 +9,7 @@ import net.dionpowder.dions_bitsnbobs.content.recipe.fan.type.*;
 import net.minecraft.core.Registry;
 import org.jetbrains.annotations.ApiStatus;
 
-public class ModFanProcessingTypes {
+public class DionsBitsnBobsFanProcessingTypes {
     public static final StrawberryFrostingType STRAWBERRY_FROSTING_TYPE = register("strawberry_frosting", new StrawberryFrostingType());
     public static final OrangeFrostingType ORANGE_FROSTING_TYPE = register("orange_frosting", new OrangeFrostingType());
     public static final BlueberryFrostingType BLUEBERRY_FROSTING_TYPE = register("blueberry_frosting", new BlueberryFrostingType());
