@@ -53,7 +53,6 @@ public class DBB {
         NeoForge.EVENT_BUS.register(this);
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
         
-        // register stuff
         OptionalModCompat.register(modEventBus);
         DBBBlocks.register(modEventBus);
         DBBItems.register(modEventBus);
@@ -66,14 +65,16 @@ public class DBB {
         
         modEventBus.register(new DionsBitsnBobsConfig(modContainer));
         
-        // add listeners
         modEventBus.addListener(DBBCreativeTabs::addCreative);
-        modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(DBB::init);
         modEventBus.addListener(DBB::onRegister);
 
     }
-
-    // Register advancements
+    
+    public static void init(final FMLCommonSetupEvent event) {
+        DBBFluids.registerFluidInteractions();
+    }
+    
     public static void onRegister(final RegisterEvent event) {
         DBBFanProcessingTypes.init();
         if (event.getRegistry() == BuiltInRegistries.TRIGGER_TYPES) {
@@ -102,14 +103,6 @@ public class DBB {
 
     public static ResourceLocation rl(String path) {
         return ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, path);
-    }
-
-    private void commonSetup(FMLCommonSetupEvent event) {
-        DBBFluids.registerFluidInteractions();
-    }
-
-    public static CreateRegistrate registrate() {
-        return REGISTRATE;
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
