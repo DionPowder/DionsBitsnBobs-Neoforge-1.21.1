@@ -7,7 +7,6 @@ import net.dionpowder.dions_bitsnbobs.foundation.advancement.DionsBitsnBobsAdvan
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DionsBitsnBobsTriggers;
 import net.dionpowder.dions_bitsnbobs.content.recipe.BulkRecipeGen;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DionsBitsnBobsFanProcessingTypes;
-import net.dionpowder.dions_bitsnbobs.utils.DionsBitsnBobsHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -88,11 +87,6 @@ public class DionsBitsnBobs {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        DionsBitsnBobsHelper.registerFluidDispenseBehavior(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_BUCKET.get());
-        DionsBitsnBobsHelper.registerFluidDispenseBehavior(DionsBitsnBobsFluids.ORANGE_FROSTING_BUCKET.get());
-        DionsBitsnBobsHelper.registerFluidDispenseBehavior(DionsBitsnBobsFluids.BLUEBERRY_FROSTING_BUCKET.get());
-        DionsBitsnBobsHelper.registerFluidDispenseBehavior(DionsBitsnBobsFluids.PEAR_FROSTING_BUCKET.get());
-        DionsBitsnBobsHelper.registerFluidDispenseBehavior(DionsBitsnBobsFluids.DONUT_BATTER_BUCKET.get());
         DionsBitsnBobsFluids.registerFluidInteractions();
     }
 

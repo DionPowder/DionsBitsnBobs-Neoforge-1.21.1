@@ -23,25 +23,6 @@ import static net.dionpowder.dions_bitsnbobs.DionsBitsnBobsEvents.randomBetween;
 
 public class DionsBitsnBobsHelper {
 
-    // register custom fluids to be able to be picked up with dispensers
-    private static final DispenseItemBehavior DEFAULT = new DefaultDispenseItemBehavior();
-    private static final DispenseItemBehavior DISPENSE_FLUID = new DefaultDispenseItemBehavior(){
-        @Override
-        protected ItemStack execute(BlockSource pSource, ItemStack pStack) {
-            DispensibleContainerItem dispensibleContainerItem = (DispensibleContainerItem) pStack.getItem();
-            BlockPos pos = pSource.pos().relative(pSource.state().getValue(DispenserBlock.FACING));
-            Level level = pSource.level();
-            if (dispensibleContainerItem.emptyContents(null, level, pos, null, pStack)) {
-                return new ItemStack(Items.BUCKET);
-            }
-            return DEFAULT.dispense(pSource, pStack);
-        }
-    };
-
-    public static void registerFluidDispenseBehavior(BucketItem bucket) {
-        DispenserBlock.registerBehavior(bucket, DISPENSE_FLUID);
-    }
-
     // standard villager sell trades
     public static Int2ObjectMap<List<VillagerTrades.ItemListing>> getStandardSellTrades(VillagerTradesEvent event) {
         Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();

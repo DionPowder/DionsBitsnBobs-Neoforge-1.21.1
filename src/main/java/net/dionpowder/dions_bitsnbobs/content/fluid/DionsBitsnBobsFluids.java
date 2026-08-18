@@ -3,9 +3,15 @@ package net.dionpowder.dions_bitsnbobs.content.fluid;
 import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.content.block.DionsBitsnBobsBlocks;
 import net.dionpowder.dions_bitsnbobs.content.item.DionsBitsnBobsItems;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.dispenser.BlockSource;
+import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.FlowingFluid;
@@ -126,6 +132,14 @@ public class DionsBitsnBobsFluids {
 
     // register fluid interactions
     public static void registerFluidInteractions() {
+
+        // buckets
+        registerFluidDispenseBehavior(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_BUCKET.get());
+        registerFluidDispenseBehavior(DionsBitsnBobsFluids.ORANGE_FROSTING_BUCKET.get());
+        registerFluidDispenseBehavior(DionsBitsnBobsFluids.BLUEBERRY_FROSTING_BUCKET.get());
+        registerFluidDispenseBehavior(DionsBitsnBobsFluids.PEAR_FROSTING_BUCKET.get());
+        registerFluidDispenseBehavior(DionsBitsnBobsFluids.DONUT_BATTER_BUCKET.get());
+
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
                 DionsBitsnBobsFluidTypes.STRAWBERRY_FROSTING_FLUID_TYPE.get(),
                 fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.RED_TERRACOTTA.defaultBlockState()));
@@ -142,6 +156,25 @@ public class DionsBitsnBobsFluids {
                 DionsBitsnBobsFluidTypes.PEAR_FROSTING_FLUID_TYPE.get(),
                 fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.LIME_TERRACOTTA.defaultBlockState()));
 
+    }
+
+    // register custom fluids to be able to be picked up with dispensers
+    private static final DispenseItemBehavior DEFAULT = new DefaultDispenseItemBehavior();
+    private static final DispenseItemBehavior DISPENSE_FLUID = new DefaultDispenseItemBehavior(){
+        @Override
+        protected ItemStack execute(BlockSource pSource, ItemStack pStack) {
+            DispensibleContainerItem dispensibleContainerItem = (DispensibleContainerItem) pStack.getItem();
+            BlockPos pos = pSource.pos().relative(pSource.state().getValue(DispenserBlock.FACING));
+            Level level = pSource.level();
+            if (dispensibleContainerItem.emptyContents(null, level, pos, null, pStack)) {
+                return new ItemStack(Items.BUCKET);
+            }
+            return DEFAULT.dispense(pSource, pStack);
+        }
+    };
+
+    public static void registerFluidDispenseBehavior(BucketItem bucket) {
+        DispenserBlock.registerBehavior(bucket, DISPENSE_FLUID);
     }
 
     public static void register(IEventBus eventBus) {
