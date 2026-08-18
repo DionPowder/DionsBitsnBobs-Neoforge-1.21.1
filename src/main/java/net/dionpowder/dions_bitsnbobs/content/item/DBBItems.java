@@ -2,10 +2,12 @@ package net.dionpowder.dions_bitsnbobs.content.item;
 
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.item.custom.ChorusDonutItem;
 import net.dionpowder.dions_bitsnbobs.content.item.custom.SprinklesItem;
 import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.Tags;
 
@@ -13,7 +15,8 @@ import static net.dionpowder.dions_bitsnbobs.DBB.REGISTRATE;
 
 public class DBBItems {
     
-    public static final ItemEntry<Item> STRAWBERRY = REGISTRATE.item("strawberry", Item::new)
+    public static final ItemEntry<ItemNameBlockItem> STRAWBERRY = REGISTRATE
+            .item("strawberry", p -> new ItemNameBlockItem(DBBBlocks.STRAWBERRY_BUSH.get(), p))
             .tag(Tags.Items.CROPS, Tags.Items.FOODS, DBBTags.Items.FOODS_STRAWBERRY, DBBTags.Items.CROPS_STRAWBERRY)
             .properties(p -> p.food(DBBFoodProperties.STRAWBERRY))
             .register();
@@ -48,10 +51,6 @@ public class DBBItems {
             UNPROCESSED_TRAIN_COMPONENT = sequencedIngredient("unprocessed_train_component");
     
     public static final ItemEntry<Item>
-            NETHERITE_DUST = ingredient("netherite_dust"),
-            EMPTY_SPRINKLES_BOTTLE = ingredient("empty_sprinkles_bottle");
-    
-    public static final ItemEntry<Item>
             BLUEBERRY_DONUT = frostingDonuts("blueberry_donut"),
             STRAWBERRY_DONUT = frostingDonuts("strawberry_donut"),
             PEAR_DONUT = frostingDonuts("pear_donut"),
@@ -80,6 +79,10 @@ public class DBBItems {
             WHITE_CHOCOLATE_HONEY_DONUT = doubleGlazedDonuts("white_chocolate_honey_donut"),
             WHITE_CHOCOLATE_PEAR_DONUT = doubleGlazedDonuts("white_chocolate_pear_donut"),
             WHITE_CHOCOLATE_RUBY_DONUT = doubleGlazedDonuts("white_chocolate_ruby_donut");
+    
+    public static final ItemEntry<Item>
+            NETHERITE_DUST = ingredient("netherite_dust"),
+            EMPTY_SPRINKLES_BOTTLE = ingredient("empty_sprinkles_bottle");
 
     public static final ItemEntry<SprinklesItem>
             BOTTLED_RAINBOW_SPRINKLES = sprinkles("bottled_rainbow_sprinkles"),

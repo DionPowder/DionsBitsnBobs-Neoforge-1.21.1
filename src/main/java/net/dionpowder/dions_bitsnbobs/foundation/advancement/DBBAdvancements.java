@@ -27,6 +27,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 
 import static net.dionpowder.dions_bitsnbobs.foundation.advancement.CreateAdvancement.TaskType.*;
+import static net.dionpowder.dions_bitsnbobs.DBB.*;
 
 public class DBBAdvancements implements DataProvider {
 
@@ -34,7 +35,7 @@ public class DBBAdvancements implements DataProvider {
     public static final CreateAdvancement START = null,
 
     ROOT = create("root", b -> b.icon(DBBItems.STRAWBERRY)
-            .title("Create: Dion's Bits n' Bobs!")
+            .title(NAME)
             .description("Explore extra food and automation options!")
             .awardedForFree()
             .special(NORMAL)),

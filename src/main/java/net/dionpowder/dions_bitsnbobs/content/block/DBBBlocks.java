@@ -87,7 +87,6 @@ public class DBBBlocks {
                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                                         .apply(ApplyBonusCount.addUniformBonusCount(enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE)))));
                     })
-                    .simpleItem()
                     .register();
     
     public static final BlockEntry<Block>

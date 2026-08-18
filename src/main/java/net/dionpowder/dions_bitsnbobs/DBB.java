@@ -1,9 +1,16 @@
 package net.dionpowder.dions_bitsnbobs;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import net.dionpowder.dions_bitsnbobs.compat.OptionalModCompat;
 import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
+import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
+import net.dionpowder.dions_bitsnbobs.content.effect.DBBEffects;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
-import net.dionpowder.dions_bitsnbobs.content.item.DBBCreativeModeTabs;
+import net.dionpowder.dions_bitsnbobs.content.item.DBBCreativeTabs;
+import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
+import net.dionpowder.dions_bitsnbobs.content.potion.DBBPotions;
+import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
+import net.dionpowder.dions_bitsnbobs.content.villager.DBBVillagers;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBAdvancements;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBTriggers;
 import net.dionpowder.dions_bitsnbobs.content.recipe.BulkRecipeGen;
@@ -35,22 +42,32 @@ public class DBB {
     public static final String NAME = "Create: Dion's Bits 'n' Bobs!";
     public static final String MOD_ID = "dions_bitsnbobs";
     public static final Logger LOGGER = LogUtils.getLogger();
-    
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(DBB.MOD_ID);
 
     public DBB(IEventBus modEventBus, ModContainer modContainer) {
+        DBBCreativeTabs.register(modEventBus);
+        var context = ModLoadingContext.get();
         REGISTRATE.registerEventListeners(modEventBus);
-        REGISTRATE.defaultCreativeTab(DBBCreativeModeTabs.BITSNBOBS_ITEMS_TAB, "bitsnbobs_items_tab");
+        REGISTRATE.defaultCreativeTab(DBBCreativeTabs.BASE_TAB, "base_tab");
 
         NeoForge.EVENT_BUS.register(this);
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
-
-        // register config
+        
+        // register stuff
+        OptionalModCompat.register(modEventBus);
+        DBBBlocks.register(modEventBus);
+        DBBItems.register(modEventBus);
+        DBBFluids.register(modEventBus);
+        //DBBFluidTypes.register(modEventBus);
+        DBBRecipeTypes.register(modEventBus);
+        DBBEffects.register(modEventBus);
+        DBBPotions.register(modEventBus);
+        DBBVillagers.register(modEventBus);
+        
         modEventBus.register(new DionsBitsnBobsConfig(modContainer));
         
-        DBBSetup.register(modEventBus, modLoadingContext);
-        
         // add listeners
+        modEventBus.addListener(DBBCreativeTabs::addCreative);
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(DBB::onRegister);
 
