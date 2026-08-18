@@ -2,7 +2,7 @@ package net.dionpowder.dions_bitsnbobs.datagen.create;
 
 import com.simibubi.create.AllItems;
 import com.simibubi.create.api.data.recipe.WashingRecipeGen;
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.DBB;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Items;
@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class WashingRecipeProvider extends WashingRecipeGen {
     public WashingRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries, DionsBitsnBobs.MOD_ID);
+        super(output, registries, DBB.MOD_ID);
     }
 
     GeneratedRecipe

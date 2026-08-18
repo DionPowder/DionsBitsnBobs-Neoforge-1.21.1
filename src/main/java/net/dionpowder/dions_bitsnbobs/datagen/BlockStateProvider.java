@@ -1,7 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.content.block.DionsBitsnBobsBlocks;
+import net.dionpowder.dions_bitsnbobs.DBB;
+import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -13,7 +13,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 
 public class BlockStateProvider extends net.neoforged.neoforge.client.model.generators.BlockStateProvider {
     public BlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
-        super(output, DionsBitsnBobs.MOD_ID, exFileHelper);
+        super(output, DBB.MOD_ID, exFileHelper);
     }
 
     private String blockName(Block block) {
@@ -21,17 +21,17 @@ public class BlockStateProvider extends net.neoforged.neoforge.client.model.gene
     }
 
     public ResourceLocation resourceFDBlock(String path) {
-        return ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, ModelProvider.BLOCK_FOLDER + "/" + path);
+        return ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, ModelProvider.BLOCK_FOLDER + "/" + path);
     }
 
     @Override
     protected void registerStatesAndModels() {
         // generate mod blocks
-        crateBlock(DionsBitsnBobsBlocks.STRAWBERRY_CRATE.get(), "strawberry");
-        componentBlock(DionsBitsnBobsBlocks.ANDESITE_COMPONENT.get(), "andesite");
-        componentBlock(DionsBitsnBobsBlocks.BRASS_COMPONENT.get(), "brass");
-        componentBlock(DionsBitsnBobsBlocks.COPPER_COMPONENT.get(), "copper");
-        componentBlock(DionsBitsnBobsBlocks.TRAIN_COMPONENT.get(), "train");
+        crateBlock(DBBBlocks.STRAWBERRY_CRATE.get(), "strawberry");
+        componentBlock(DBBBlocks.ANDESITE_COMPONENT.get(), "andesite");
+        componentBlock(DBBBlocks.BRASS_COMPONENT.get(), "brass");
+        componentBlock(DBBBlocks.COPPER_COMPONENT.get(), "copper");
+        componentBlock(DBBBlocks.TRAIN_COMPONENT.get(), "train");
     }
 
     public void componentBlock(Block block, String componentName) {

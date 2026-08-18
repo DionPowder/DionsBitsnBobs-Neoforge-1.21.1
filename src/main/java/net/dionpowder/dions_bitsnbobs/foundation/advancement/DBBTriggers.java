@@ -6,7 +6,7 @@ import java.util.List;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 
-public class DionsBitsnBobsTriggers {
+public class DBBTriggers {
 
     private static final List<CriterionTriggerBase<?>> triggers = new LinkedList<>();
 

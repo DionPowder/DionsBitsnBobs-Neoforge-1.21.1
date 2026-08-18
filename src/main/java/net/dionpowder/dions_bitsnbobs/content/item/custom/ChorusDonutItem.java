@@ -1,7 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.content.item.custom;
 
 import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
-import net.dionpowder.dions_bitsnbobs.foundation.advancement.DionsBitsnBobsAdvancements;
+import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBAdvancements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -74,7 +74,7 @@ public class ChorusDonutItem extends Item{
             }
 
             if (entityLiving instanceof Player player) {
-                DionsBitsnBobsAdvancements.CHORUS_DONUT.awardTo(player);
+                DBBAdvancements.CHORUS_DONUT.awardTo(player);
                 player.resetCurrentImpulseContext();
                 player.getCooldowns().addCooldown(this, 20);
             }

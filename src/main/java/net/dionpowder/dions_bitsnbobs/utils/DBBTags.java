@@ -1,6 +1,6 @@
 package net.dionpowder.dions_bitsnbobs.utils;
 
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.DBB;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
@@ -10,7 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 
-public class DionsBitsnBobsTags {
+public class DBBTags {
     public static class Blocks {
        
         public static final TagKey<Block> STORAGE_BLOCKS_STRAWBERRY = commonBlockTag("storage_blocks/strawberry");
@@ -27,7 +27,7 @@ public class DionsBitsnBobsTags {
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_RUBY_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_ruby_chocolate_glazing");
 
         private static TagKey<Block> createTag(String name) {
-            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, name));
         }
 
         private static TagKey<Block> commonBlockTag(String path) {
@@ -59,7 +59,7 @@ public class DionsBitsnBobsTags {
         public static final TagKey<Item> BAKER_CHOCOLATE_TRADES = createTag("baker_chocolate_trades");
 
         private static TagKey<Item> createTag(String name) {
-            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, name));
         }
 
         private static TagKey<Item> commonItemTag(String path) {
@@ -87,7 +87,7 @@ public class DionsBitsnBobsTags {
         public static final TagKey<Fluid> DONUT_BATTER = createTag("donut_batter");
 
         private static TagKey<Fluid> createTag(String name) {
-            return FluidTags.create(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));
+            return FluidTags.create(ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, name));
         }
 
         private static TagKey<Fluid> commonItemTag(String path) {

@@ -1,8 +1,6 @@
 package net.dionpowder.dions_bitsnbobs;
 
-import net.dionpowder.dions_bitsnbobs.content.fluid.BaseFluidType;
-import net.dionpowder.dions_bitsnbobs.content.fluid.DionsBitsnBobsFluids;
-import net.dionpowder.dions_bitsnbobs.content.fluid.DionsBitsnBobsFluidTypes;
+import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.neoforged.api.distmarker.Dist;
@@ -16,11 +14,11 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
-@Mod(value = DionsBitsnBobs.MOD_ID, dist = Dist.CLIENT)
+@Mod(value = DBB.MOD_ID, dist = Dist.CLIENT)
 // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-@EventBusSubscriber(modid = DionsBitsnBobs.MOD_ID, value = Dist.CLIENT)
-public class DionsBitsnBobsClient {
-    public DionsBitsnBobsClient(ModContainer container) {
+@EventBusSubscriber(modid = DBB.MOD_ID, value = Dist.CLIENT)
+public class DBBClient {
+    public DBBClient(ModContainer container) {
         // Allows NeoForge to create a config screen for this mod's configs.
         // The config screen is accessed by going to the Mods screen > clicking on your mod > clicking on config.
         // Do not forget to add translations for your config options to the en_us.json file.
@@ -30,10 +28,10 @@ public class DionsBitsnBobsClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
        event.enqueueWork(() -> {
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.PEAR_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(DBBFluids.STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(DBBFluids.ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(DBBFluids.BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(DBBFluids.PEAR_FROSTING.get(), RenderType.TRANSLUCENT);
        });
     }
 

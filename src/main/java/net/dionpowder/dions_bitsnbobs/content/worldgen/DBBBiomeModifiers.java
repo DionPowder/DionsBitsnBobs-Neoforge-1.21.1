@@ -1,6 +1,6 @@
 package net.dionpowder.dions_bitsnbobs.content.worldgen;
 
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.DBB;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -12,7 +12,7 @@ import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.common.world.BiomeModifiers;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
-public class DionsBitsnBobsBiomeModifiers {
+public class DBBBiomeModifiers {
 
     public static final ResourceKey<BiomeModifier> ADD_WILD_STRAWBERRY_BUSH = registerKey("add_wild_strawberry_bush");
 
@@ -23,12 +23,12 @@ public class DionsBitsnBobsBiomeModifiers {
 
         context.register(ADD_WILD_STRAWBERRY_BUSH, new BiomeModifiers.AddFeaturesBiomeModifier(
                 HolderSet.direct(biomes.getOrThrow(Biomes.FOREST)),
-                HolderSet.direct(placedFeatures.getOrThrow(DionsBitsnBobsPlacedFeatures.WILD_STRAWBERRY_BUSH_PLACED_KEY)),
+                HolderSet.direct(placedFeatures.getOrThrow(DBBPlacedFeatures.WILD_STRAWBERRY_BUSH_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
 
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {
-        return ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));
+        return ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, name));
     }
 }

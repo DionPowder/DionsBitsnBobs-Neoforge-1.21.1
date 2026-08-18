@@ -2,12 +2,12 @@ package net.dionpowder.dions_bitsnbobs;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
-import net.dionpowder.dions_bitsnbobs.content.fluid.DionsBitsnBobsFluids;
-import net.dionpowder.dions_bitsnbobs.content.item.DionsBitsnBobsCreativeModeTabs;
-import net.dionpowder.dions_bitsnbobs.foundation.advancement.DionsBitsnBobsAdvancements;
-import net.dionpowder.dions_bitsnbobs.foundation.advancement.DionsBitsnBobsTriggers;
+import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
+import net.dionpowder.dions_bitsnbobs.content.item.DBBCreativeModeTabs;
+import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBAdvancements;
+import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBTriggers;
 import net.dionpowder.dions_bitsnbobs.content.recipe.BulkRecipeGen;
-import net.dionpowder.dions_bitsnbobs.content.recipe.DionsBitsnBobsFanProcessingTypes;
+import net.dionpowder.dions_bitsnbobs.content.recipe.DBBFanProcessingTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -30,17 +30,17 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(DionsBitsnBobs.MOD_ID)
-public class DionsBitsnBobs {
+@Mod(DBB.MOD_ID)
+public class DBB {
     public static final String NAME = "Create: Dion's Bits 'n' Bobs!";
     public static final String MOD_ID = "dions_bitsnbobs";
     public static final Logger LOGGER = LogUtils.getLogger();
     
-    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(DionsBitsnBobs.MOD_ID);
+    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(DBB.MOD_ID);
 
-    public DionsBitsnBobs(IEventBus modEventBus, ModContainer modContainer) {
+    public DBB(IEventBus modEventBus, ModContainer modContainer) {
         REGISTRATE.registerEventListeners(modEventBus);
-        REGISTRATE.defaultCreativeTab(DionsBitsnBobsCreativeModeTabs.BITSNBOBS_ITEMS_TAB, "bitsnbobs_items_tab");
+        REGISTRATE.defaultCreativeTab(DBBCreativeModeTabs.BITSNBOBS_ITEMS_TAB, "bitsnbobs_items_tab");
 
         NeoForge.EVENT_BUS.register(this);
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
@@ -48,20 +48,20 @@ public class DionsBitsnBobs {
         // register config
         modEventBus.register(new DionsBitsnBobsConfig(modContainer));
         
-        DionsBitsnBobsSetup.register(modEventBus, modLoadingContext);
+        DBBSetup.register(modEventBus, modLoadingContext);
         
         // add listeners
         modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(DionsBitsnBobs::onRegister);
+        modEventBus.addListener(DBB::onRegister);
 
     }
 
     // Register advancements
     public static void onRegister(final RegisterEvent event) {
-        DionsBitsnBobsFanProcessingTypes.init();
+        DBBFanProcessingTypes.init();
         if (event.getRegistry() == BuiltInRegistries.TRIGGER_TYPES) {
-            DionsBitsnBobsAdvancements.register();
-            DionsBitsnBobsTriggers.register();
+            DBBAdvancements.register();
+            DBBTriggers.register();
         }
     }
 
@@ -84,11 +84,11 @@ public class DionsBitsnBobs {
 
 
     public static ResourceLocation rl(String path) {
-        return ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, path);
+        return ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, path);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        DionsBitsnBobsFluids.registerFluidInteractions();
+        DBBFluids.registerFluidInteractions();
     }
 
     public static CreateRegistrate registrate() {

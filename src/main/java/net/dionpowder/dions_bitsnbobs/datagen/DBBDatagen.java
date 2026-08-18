@@ -1,29 +1,25 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.datagen.create.*;
 import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.BlueberryFrostingRecipeProvider;
 import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.OrangeFrostingRecipeProvider;
 import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.PearFrostingRecipeProvider;
 import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.StrawberryFrostingRecipeProvider;
-import net.dionpowder.dions_bitsnbobs.foundation.advancement.DionsBitsnBobsAdvancements;
+import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBAdvancements;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.loot.LootTableProvider;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = DionsBitsnBobs.MOD_ID)
-public class DataGenerators {
+@EventBusSubscriber(modid = DBB.MOD_ID)
+public class DBBDatagen {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
@@ -50,7 +46,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new PearFrostingRecipeProvider(packOutput, lookupProvider));
 
         // advancements
-        generator.addProvider(event.includeServer(), new DionsBitsnBobsAdvancements(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new DBBAdvancements(packOutput, lookupProvider));
 
         // generates tags
         BlockTagsProvider blockTagsProvider = new BlockTagProvider(packOutput, lookupProvider, existingFileHelper);

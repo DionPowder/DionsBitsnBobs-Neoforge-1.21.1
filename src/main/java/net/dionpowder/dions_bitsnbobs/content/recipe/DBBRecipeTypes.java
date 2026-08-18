@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
 import net.createmod.catnip.lang.Lang;
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -23,7 +23,7 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
-public enum DionsBitsnBobsRecipeTypes implements IRecipeTypeInfo, StringRepresentable {
+public enum DBBRecipeTypes implements IRecipeTypeInfo, StringRepresentable {
     STRAWBERRY_FROSTING(StrawberryFrostingRecipe::new),
     ORANGE_FROSTING(OrangeFrostingRecipe::new),
     BLUEBERRY_FROSTING(BlueberryFrostingRecipe::new),
@@ -42,15 +42,15 @@ public enum DionsBitsnBobsRecipeTypes implements IRecipeTypeInfo, StringRepresen
     private final DeferredHolder<RecipeType<?>, RecipeType<?>> typeObject;
     private final Supplier<RecipeType<?>> type;
 
-    public static final Codec<DionsBitsnBobsRecipeTypes> CODEC = StringRepresentable.fromEnum(DionsBitsnBobsRecipeTypes::values);
+    public static final Codec<DBBRecipeTypes> CODEC = StringRepresentable.fromEnum(DBBRecipeTypes::values);
 
-    DionsBitsnBobsRecipeTypes(Supplier<RecipeSerializer<?>> serializerSupplier, Supplier<RecipeType<?>> typeSupplier, boolean registerType) {
+    DBBRecipeTypes(Supplier<RecipeSerializer<?>> serializerSupplier, Supplier<RecipeType<?>> typeSupplier, boolean registerType) {
         var name = Lang.asId(name());
-        id = DionsBitsnBobs.rl(name);
+        id = DBB.rl(name);
         this.serializerSupplier = serializerSupplier;
-        serializerObject = DionsBitsnBobsRecipeTypes.Registers.SERIALIZER_REGISTER.register(name, serializerSupplier);
+        serializerObject = DBBRecipeTypes.Registers.SERIALIZER_REGISTER.register(name, serializerSupplier);
         if (registerType) {
-            typeObject = DionsBitsnBobsRecipeTypes.Registers.TYPE_REGISTER.register(name, typeSupplier);
+            typeObject = DBBRecipeTypes.Registers.TYPE_REGISTER.register(name, typeSupplier);
             type = typeObject;
         } else {
             typeObject = null;
@@ -58,24 +58,24 @@ public enum DionsBitsnBobsRecipeTypes implements IRecipeTypeInfo, StringRepresen
         }
     }
 
-    DionsBitsnBobsRecipeTypes(Supplier<RecipeSerializer<?>> serializerSupplier) {
+    DBBRecipeTypes(Supplier<RecipeSerializer<?>> serializerSupplier) {
         var name = Lang.asId(name());
-        id = DionsBitsnBobs.rl(name);
+        id = DBB.rl(name);
         this.serializerSupplier = serializerSupplier;
-        serializerObject = DionsBitsnBobsRecipeTypes.Registers.SERIALIZER_REGISTER.register(name, serializerSupplier);
-        typeObject = DionsBitsnBobsRecipeTypes.Registers.TYPE_REGISTER.register(name, () -> RecipeType.simple(id));
+        serializerObject = DBBRecipeTypes.Registers.SERIALIZER_REGISTER.register(name, serializerSupplier);
+        typeObject = DBBRecipeTypes.Registers.TYPE_REGISTER.register(name, () -> RecipeType.simple(id));
         type = typeObject;
     }
 
-    DionsBitsnBobsRecipeTypes(StandardProcessingRecipe.Factory<?> processingFactory) {
+    DBBRecipeTypes(StandardProcessingRecipe.Factory<?> processingFactory) {
         this(() -> new StandardProcessingRecipe.Serializer<>(processingFactory));
     }
 
     @ApiStatus.Internal
     public static void register(IEventBus modEventBus) {
         ShapedRecipePattern.setCraftingSize(9, 9);
-        DionsBitsnBobsRecipeTypes.Registers.SERIALIZER_REGISTER.register(modEventBus);
-        DionsBitsnBobsRecipeTypes.Registers.TYPE_REGISTER.register(modEventBus);
+        DBBRecipeTypes.Registers.SERIALIZER_REGISTER.register(modEventBus);
+        DBBRecipeTypes.Registers.TYPE_REGISTER.register(modEventBus);
     }
 
     @Override
@@ -105,7 +105,7 @@ public enum DionsBitsnBobsRecipeTypes implements IRecipeTypeInfo, StringRepresen
     }
 
     private static class Registers {
-        private static final DeferredRegister<RecipeSerializer<?>> SERIALIZER_REGISTER = DeferredRegister.create(BuiltInRegistries.RECIPE_SERIALIZER, DionsBitsnBobs.MOD_ID);
-        private static final DeferredRegister<RecipeType<?>> TYPE_REGISTER = DeferredRegister.create(Registries.RECIPE_TYPE, DionsBitsnBobs.MOD_ID);
+        private static final DeferredRegister<RecipeSerializer<?>> SERIALIZER_REGISTER = DeferredRegister.create(BuiltInRegistries.RECIPE_SERIALIZER, DBB.MOD_ID);
+        private static final DeferredRegister<RecipeType<?>> TYPE_REGISTER = DeferredRegister.create(Registries.RECIPE_TYPE, DBB.MOD_ID);
     }
 }

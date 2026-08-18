@@ -1,6 +1,6 @@
 package net.dionpowder.dions_bitsnbobs.content.fluid;
 
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.DBB;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.neoforged.bus.api.IEventBus;
@@ -12,7 +12,7 @@ import org.joml.Vector3f;
 
 import java.util.function.Supplier;
 
-public class DionsBitsnBobsFluidTypes {
+public class DBBFluidTypes {
     public static final ResourceLocation STRAWBERRY_FROSTING_STILL_RL = ResourceLocation.fromNamespaceAndPath("dions_bitsnbobs", "block/strawberry_frosting_still");
     public static final ResourceLocation STRAWBERRY_FROSTING_FLOWING_RL = ResourceLocation.fromNamespaceAndPath("dions_bitsnbobs", "block/strawberry_frosting_flowing");
 
@@ -29,7 +29,7 @@ public class DionsBitsnBobsFluidTypes {
     public static final ResourceLocation DONUT_BATTER_FLOWING_RL = ResourceLocation.fromNamespaceAndPath("dions_bitsnbobs", "block/donut_batter_flowing");
 
     public static final DeferredRegister<FluidType> FLUID_TYPES =
-            DeferredRegister.create(NeoForgeRegistries.Keys.FLUID_TYPES, DionsBitsnBobs.MOD_ID);
+            DeferredRegister.create(NeoForgeRegistries.Keys.FLUID_TYPES, DBB.MOD_ID);
 
     public static final Supplier<FluidType> STRAWBERRY_FROSTING_FLUID_TYPE = registerFluidType("strawberry_frosting",
             new BaseFluidType(STRAWBERRY_FROSTING_STILL_RL, STRAWBERRY_FROSTING_FLOWING_RL, STRAWBERRY_FROSTING_FLOWING_RL, 0xFFF29AA3,

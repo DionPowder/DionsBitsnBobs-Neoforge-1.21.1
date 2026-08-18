@@ -1,11 +1,8 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
 import com.simibubi.create.AllFluids;
-import com.simibubi.create.AllTags;
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.content.block.DionsBitsnBobsBlocks;
-import net.dionpowder.dions_bitsnbobs.content.fluid.DionsBitsnBobsFluids;
-import net.dionpowder.dions_bitsnbobs.utils.DionsBitsnBobsTags;
+import net.dionpowder.dions_bitsnbobs.DBB;
+import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -19,7 +16,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class BlockTagProvider extends BlockTagsProvider {
     public BlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, DionsBitsnBobs.MOD_ID, existingFileHelper);
+        super(output, lookupProvider, DBB.MOD_ID, existingFileHelper);
     }
 
     @Override
@@ -69,15 +66,15 @@ public class BlockTagProvider extends BlockTagsProvider {
                 .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "glass_pane"))
                 .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "glass"));
 
-        tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_CHOCOLATE_GLAZING)
+        tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_CHOCOLATE_GLAZING)
                 .add(AllFluids.CHOCOLATE.get().getSource().defaultFluidState().createLegacyBlock().getBlock());
-        tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_DARK_CHOCOLATE_GLAZING)
+        tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_DARK_CHOCOLATE_GLAZING)
                 .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "black_chocolate"));
-        tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_WHITE_CHOCOLATE_GLAZING)
+        tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_WHITE_CHOCOLATE_GLAZING)
                 .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "white_chocolate"));
-        tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_CARAMEL_CHOCOLATE_GLAZING)
+        tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_CARAMEL_CHOCOLATE_GLAZING)
                 .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "caramel"));
-        tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_RUBY_CHOCOLATE_GLAZING)
+        tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_RUBY_CHOCOLATE_GLAZING)
                 .addOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "ruby_chocolate"));
 
     }

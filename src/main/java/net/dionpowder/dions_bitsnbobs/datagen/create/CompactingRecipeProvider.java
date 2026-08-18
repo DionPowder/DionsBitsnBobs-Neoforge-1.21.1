@@ -2,7 +2,7 @@ package net.dionpowder.dions_bitsnbobs.datagen.create;
 
 import com.simibubi.create.AllFluids;
 import com.simibubi.create.api.data.recipe.CompactingRecipeGen;
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.DBB;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Items;
@@ -12,7 +12,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class CompactingRecipeProvider extends CompactingRecipeGen {
     public CompactingRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries, DionsBitsnBobs.MOD_ID);
+        super(output, registries, DBB.MOD_ID);
     }
 
     GeneratedRecipe

@@ -5,7 +5,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.tterrag.registrate.builders.FluidBuilder;
 import com.tterrag.registrate.util.entry.FluidEntry;
 import net.createmod.catnip.theme.Color;
-import net.dionpowder.dions_bitsnbobs.utils.DionsBitsnBobsTags;
+import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
@@ -36,22 +36,22 @@ import org.joml.Vector3f;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import static net.dionpowder.dions_bitsnbobs.DionsBitsnBobs.REGISTRATE;
+import static net.dionpowder.dions_bitsnbobs.DBB.REGISTRATE;
 
-public class DionsBitsnBobsFluids {
+public class DBBFluids {
     
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> STRAWBERRY_FROSTING =
             REGISTRATE.standardFluid("strawberry_frosting", SolidRenderedPlaceableFluidType.create(0xFFF29AA3, () -> 1f / 8f))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
-                    .tag(DionsBitsnBobsTags.Fluids.STRAWBERRY_FROSTING, DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
+                    .tag(DBBTags.Fluids.STRAWBERRY_FROSTING, DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
-                    .tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
+                    .tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
                     .properties(p -> p.mapColor(MapColor.TERRACOTTA_RED))
                     .build()
                     .bucket()
-                    .onRegister(DionsBitsnBobsFluids::registerFluidDispenseBehavior)
+                    .onRegister(DBBFluids::registerFluidDispenseBehavior)
                     .tag(Tags.Items.BUCKETS)
                     .build()
                     .register();
@@ -59,14 +59,14 @@ public class DionsBitsnBobsFluids {
     public static final FluidEntry<BaseFlowingFluid.Flowing> ORANGE_FROSTING =
             REGISTRATE.standardFluid("orange_frosting", SolidRenderedPlaceableFluidType.create(0xFFFFB347, () -> 1f / 8f))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
-                    .tag(DionsBitsnBobsTags.Fluids.ORANGE_FROSTING, DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
+                    .tag(DBBTags.Fluids.ORANGE_FROSTING, DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
-                    .tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
+                    .tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
                     .properties(p -> p.mapColor(MapColor.TERRACOTTA_ORANGE))
                     .build()
                     .bucket()
-                    .onRegister(DionsBitsnBobsFluids::registerFluidDispenseBehavior)
+                    .onRegister(DBBFluids::registerFluidDispenseBehavior)
                     .tag(Tags.Items.BUCKETS)
                     .build()
                     .register();
@@ -74,14 +74,14 @@ public class DionsBitsnBobsFluids {
     public static final FluidEntry<BaseFlowingFluid.Flowing> BLUEBERRY_FROSTING =
             REGISTRATE.standardFluid("blueberry_frosting", SolidRenderedPlaceableFluidType.create(0xFF8B6FF7, () -> 1f / 8f))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
-                    .tag(DionsBitsnBobsTags.Fluids.BLUEBERRY_FROSTING, DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
+                    .tag(DBBTags.Fluids.BLUEBERRY_FROSTING, DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
-                    .tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
+                    .tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
                     .properties(p -> p.mapColor(MapColor.TERRACOTTA_BLUE))
                     .build()
                     .bucket()
-                    .onRegister(DionsBitsnBobsFluids::registerFluidDispenseBehavior)
+                    .onRegister(DBBFluids::registerFluidDispenseBehavior)
                     .tag(Tags.Items.BUCKETS)
                     .build()
                     .register();
@@ -89,14 +89,14 @@ public class DionsBitsnBobsFluids {
     public static final FluidEntry<BaseFlowingFluid.Flowing> PEAR_FROSTING =
             REGISTRATE.standardFluid("pear_frosting", SolidRenderedPlaceableFluidType.create(0xFFB7E65A, () -> 1f / 8f))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
-                    .tag(DionsBitsnBobsTags.Fluids.PEAR_FROSTING, DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
+                    .tag(DBBTags.Fluids.PEAR_FROSTING, DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
-                    .tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
+                    .tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
                     .properties(p -> p.mapColor(MapColor.TERRACOTTA_LIGHT_GREEN))
                     .build()
                     .bucket()
-                    .onRegister(DionsBitsnBobsFluids::registerFluidDispenseBehavior)
+                    .onRegister(DBBFluids::registerFluidDispenseBehavior)
                     .tag(Tags.Items.BUCKETS)
                     .build()
                     .register();
@@ -104,41 +104,36 @@ public class DionsBitsnBobsFluids {
     public static final FluidEntry<BaseFlowingFluid.Flowing> DONUT_BATTER =
             REGISTRATE.standardFluid("donut_batter", SolidRenderedPlaceableFluidType.create(0xffffffff, () -> 1f / 8f))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2).tickRate(30))
-                    .tag(DionsBitsnBobsTags.Fluids.PEAR_FROSTING)
+                    .tag(DBBTags.Fluids.PEAR_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
                     .properties(p -> p.mapColor(MapColor.TERRACOTTA_LIGHT_GREEN))
                     .build()
                     .bucket()
-                    .onRegister(DionsBitsnBobsFluids::registerFluidDispenseBehavior)
+                    .onRegister(DBBFluids::registerFluidDispenseBehavior)
                     .tag(Tags.Items.BUCKETS)
                     .build()
                     .register();
     
-    
-    
     public static void register(IEventBus eventBus) {
-    
     }
-    
-
     
     public static void registerFluidInteractions() {
 
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
-                DionsBitsnBobsFluidTypes.STRAWBERRY_FROSTING_FLUID_TYPE.get(),
+                DBBFluidTypes.STRAWBERRY_FROSTING_FLUID_TYPE.get(),
                 fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.RED_TERRACOTTA.defaultBlockState()));
 
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
-                DionsBitsnBobsFluidTypes.ORANGE_FROSTING_FLUID_TYPE.get(),
+                DBBFluidTypes.ORANGE_FROSTING_FLUID_TYPE.get(),
                 fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.ORANGE_TERRACOTTA.defaultBlockState()));
 
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
-                DionsBitsnBobsFluidTypes.BLUEBERRY_FROSTING_FLUID_TYPE.get(),
+                DBBFluidTypes.BLUEBERRY_FROSTING_FLUID_TYPE.get(),
                 fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.BLUE_TERRACOTTA.defaultBlockState()));
 
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
-                DionsBitsnBobsFluidTypes.PEAR_FROSTING_FLUID_TYPE.get(),
+                DBBFluidTypes.PEAR_FROSTING_FLUID_TYPE.get(),
                 fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.LIME_TERRACOTTA.defaultBlockState()));
 
     }

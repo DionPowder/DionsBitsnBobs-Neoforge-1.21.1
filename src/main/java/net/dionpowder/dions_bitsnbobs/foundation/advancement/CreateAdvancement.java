@@ -8,7 +8,7 @@ import java.util.function.UnaryOperator;
 import com.simibubi.create.Create;
 import com.tterrag.registrate.util.entry.ItemProviderEntry;
 
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.DBB;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementType;
@@ -30,8 +30,8 @@ import net.minecraft.world.level.block.Block;
 
 public class CreateAdvancement {
 
-    static final ResourceLocation BACKGROUND = DionsBitsnBobs.rl("textures/gui/advancements.png");
-    static final String LANG = "advancement." + DionsBitsnBobs.MOD_ID + ".";
+    static final ResourceLocation BACKGROUND = DBB.rl("textures/gui/advancements.png");
+    static final String LANG = "advancement." + DBB.MOD_ID + ".";
     static final String SECRET_SUFFIX = "\n\u00A77(Hidden Advancement)";
 
     private final Advancement.Builder mcBuilder = Advancement.Builder.advancement();
@@ -51,14 +51,14 @@ public class CreateAdvancement {
         b.apply(createBuilder);
 
         if (!createBuilder.externalTrigger) {
-            builtinTrigger = DionsBitsnBobsTriggers.addSimple(id + "_builtin");
+            builtinTrigger = DBBTriggers.addSimple(id + "_builtin");
             mcBuilder.addCriterion("0", builtinTrigger.createCriterion(builtinTrigger.instance()));
         }
 
         if (createBuilder.type == TaskType.SECRET)
             description += SECRET_SUFFIX;
 
-        DionsBitsnBobsAdvancements.ENTRIES.add(this);
+        DBBAdvancements.ENTRIES.add(this);
     }
 
     private String titleKey() {
@@ -103,7 +103,7 @@ public class CreateAdvancement {
                 id.equals("root") ? BACKGROUND : null, createBuilder.type.advancementType, createBuilder.type.toast,
                 createBuilder.type.announce, createBuilder.type.hide);
 
-        datagenResult = mcBuilder.save(t, DionsBitsnBobs.rl(id)
+        datagenResult = mcBuilder.save(t, DBB.rl(id)
                 .toString());
     }
 

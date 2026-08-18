@@ -3,12 +3,11 @@ package net.dionpowder.dions_bitsnbobs.datagen.create;
 
 import com.simibubi.create.AllItems;
 import com.simibubi.create.api.data.recipe.MixingRecipeGen;
-import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
 import com.simibubi.create.content.processing.recipe.HeatCondition;
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.content.fluid.DionsBitsnBobsFluids;
-import net.dionpowder.dions_bitsnbobs.content.item.DionsBitsnBobsItems;
-import net.dionpowder.dions_bitsnbobs.utils.DionsBitsnBobsTags;
+import net.dionpowder.dions_bitsnbobs.DBB;
+import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
+import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
+import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Items;
@@ -20,7 +19,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class MixingRecipeProvider extends MixingRecipeGen {
     public MixingRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries, DionsBitsnBobs.MOD_ID);
+        super(output, registries, DBB.MOD_ID);
     }
 
     GeneratedRecipe
@@ -29,7 +28,7 @@ public class MixingRecipeProvider extends MixingRecipeGen {
             .require(AllItems.CINDER_FLOUR)
             .require(AllItems.POWDERED_OBSIDIAN)
             .requiresHeat(HeatCondition.SUPERHEATED)
-            .output(DionsBitsnBobsItems.NETHERITE_DUST)),
+            .output(DBBItems.NETHERITE_DUST)),
 
     PHANTOM_MEMBRANE = create("phantom_membrane", b -> b
             .require(Items.FEATHER)
@@ -58,19 +57,19 @@ public class MixingRecipeProvider extends MixingRecipeGen {
 
     ROOTED_DIRT = create("rooted_dirt", b -> b
             .require(Items.DIRT)
-            .require(Ingredient.of(DionsBitsnBobsTags.Items.ROOTED_DIRT_MIXING))
+            .require(Ingredient.of(DBBTags.Items.ROOTED_DIRT_MIXING))
             .output(Items.ROOTED_DIRT)),
 
     STRAWBERRY_FROSTING = create("strawberry_frosting", b -> b
             .require(Items.SUGAR)
             .require(Items.SUGAR)
             .require(Items.SUGAR)
-            .require(DionsBitsnBobsItems.STRAWBERRY)
-            .require(DionsBitsnBobsItems.STRAWBERRY)
-            .require(DionsBitsnBobsItems.STRAWBERRY)
+            .require(DBBItems.STRAWBERRY)
+            .require(DBBItems.STRAWBERRY)
+            .require(DBBItems.STRAWBERRY)
             .require(Fluids.WATER, 150)
             .requiresHeat(HeatCondition.HEATED)
-            .output(DionsBitsnBobsFluids.STRAWBERRY_FROSTING.get(), 250)),
+            .output(DBBFluids.STRAWBERRY_FROSTING.get(), 250)),
 
     DONUT_BATTER = create("donut_batter", b -> b
             .require(Tags.Fluids.MILK, 400)
@@ -79,7 +78,7 @@ public class MixingRecipeProvider extends MixingRecipeGen {
             .require(Items.SUGAR)
             .require(Ingredient.of(Tags.Items.EGGS))
             .requiresHeat(HeatCondition.HEATED)
-            .output(DionsBitsnBobsFluids.DONUT_BATTER.get(), 500))
+            .output(DBBFluids.DONUT_BATTER.get(), 500))
 
     ;
 

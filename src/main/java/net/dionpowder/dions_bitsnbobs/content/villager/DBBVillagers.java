@@ -1,8 +1,8 @@
 package net.dionpowder.dions_bitsnbobs.content.villager;
 
 import com.google.common.collect.ImmutableSet;
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.content.block.DionsBitsnBobsBlocks;
+import net.dionpowder.dions_bitsnbobs.DBB;
+import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
@@ -11,14 +11,14 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class DionsBitsnBobsVillagers {
+public class DBBVillagers {
     public static final DeferredRegister<PoiType> POI_TYPES =
-            DeferredRegister.create(BuiltInRegistries.POINT_OF_INTEREST_TYPE, DionsBitsnBobs.MOD_ID);
+            DeferredRegister.create(BuiltInRegistries.POINT_OF_INTEREST_TYPE, DBB.MOD_ID);
     public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS =
-            DeferredRegister.create(BuiltInRegistries.VILLAGER_PROFESSION, DionsBitsnBobs.MOD_ID);
+            DeferredRegister.create(BuiltInRegistries.VILLAGER_PROFESSION, DBB.MOD_ID);
 
     public static final Holder<PoiType> BAKER_POI = POI_TYPES.register("baker_poi",
-            () -> new PoiType(ImmutableSet.copyOf(DionsBitsnBobsBlocks.STRAWBERRY_CRATE.get().getStateDefinition().getPossibleStates()), 1, 1));
+            () -> new PoiType(ImmutableSet.copyOf(DBBBlocks.STRAWBERRY_CRATE.get().getStateDefinition().getPossibleStates()), 1, 1));
 
     public static final Holder<VillagerProfession> BAKER = VILLAGER_PROFESSIONS.register("baker",
             () -> new VillagerProfession("baker", holder -> holder.value() == BAKER_POI.value(),

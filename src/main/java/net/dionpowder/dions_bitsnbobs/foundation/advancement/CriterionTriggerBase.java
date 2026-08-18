@@ -9,11 +9,10 @@ import java.util.function.Supplier;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.DBB;
 import org.jetbrains.annotations.Nullable;
 
 import com.google.common.collect.Maps;
-import com.simibubi.create.Create;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.CriterionTrigger;
@@ -27,7 +26,7 @@ import net.minecraft.server.level.ServerPlayer;
 public abstract class CriterionTriggerBase<T extends CriterionTriggerBase.Instance> implements CriterionTrigger<T> {
 
     public CriterionTriggerBase(String id) {
-        this.id = DionsBitsnBobs.rl(id);
+        this.id = DBB.rl(id);
     }
 
     private final ResourceLocation id;

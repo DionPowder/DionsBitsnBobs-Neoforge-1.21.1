@@ -1,11 +1,11 @@
 package net.dionpowder.dions_bitsnbobs.content.item;
 
-import net.dionpowder.dions_bitsnbobs.content.effect.DionsBitsnBobsEffects;
+import net.dionpowder.dions_bitsnbobs.content.effect.DBBEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 
-public class DionsBitsnBobsFoodProperties {
+public class DBBFoodProperties {
     public static final FoodProperties STRAWBERRY = new FoodProperties.Builder().nutrition(2).saturationModifier(0.1f).build();
     public static final FoodProperties UNCOOKED_DONUT = new FoodProperties.Builder().nutrition(2).saturationModifier(0.3f)
             .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3f)
@@ -20,7 +20,7 @@ public class DionsBitsnBobsFoodProperties {
     public static final FoodProperties DOUBLE_GLAZED_DONUTS = new FoodProperties.Builder().nutrition(14).saturationModifier(0.6f).alwaysEdible().build();
     public static final FoodProperties SPRINKLES = new FoodProperties.Builder().nutrition(1).saturationModifier(0.5f)
             .fast()
-            .effect(() -> new MobEffectInstance(DionsBitsnBobsEffects.SUGAR_RUSH_EFFECT, 300, 0), 1.0f)
+            .effect(() -> new MobEffectInstance(DBBEffects.SUGAR_RUSH_EFFECT, 300, 0), 1.0f)
             .alwaysEdible()
             .build();
 }

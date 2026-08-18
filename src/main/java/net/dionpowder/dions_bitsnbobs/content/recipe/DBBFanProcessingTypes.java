@@ -4,12 +4,12 @@ import com.simibubi.create.api.registry.CreateBuiltInRegistries;
 import com.simibubi.create.content.kinetics.fan.processing.FanProcessingType;
 
 import it.unimi.dsi.fastutil.objects.Object2ReferenceOpenHashMap;
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
+import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.type.*;
 import net.minecraft.core.Registry;
 import org.jetbrains.annotations.ApiStatus;
 
-public class DionsBitsnBobsFanProcessingTypes {
+public class DBBFanProcessingTypes {
     public static final StrawberryFrostingType STRAWBERRY_FROSTING_TYPE = register("strawberry_frosting", new StrawberryFrostingType());
     public static final OrangeFrostingType ORANGE_FROSTING_TYPE = register("orange_frosting", new OrangeFrostingType());
     public static final BlueberryFrostingType BLUEBERRY_FROSTING_TYPE = register("blueberry_frosting", new BlueberryFrostingType());
@@ -35,7 +35,7 @@ public class DionsBitsnBobsFanProcessingTypes {
     }
 
     private static <T extends FanProcessingType> T register(String name, T type) {
-        return Registry.register(CreateBuiltInRegistries.FAN_PROCESSING_TYPE, DionsBitsnBobs.rl(name), type);
+        return Registry.register(CreateBuiltInRegistries.FAN_PROCESSING_TYPE, DBB.rl(name), type);
     }
 
     @ApiStatus.Internal

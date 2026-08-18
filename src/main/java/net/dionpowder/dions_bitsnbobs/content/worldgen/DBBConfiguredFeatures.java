@@ -1,7 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.content.worldgen;
 
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.content.block.DionsBitsnBobsBlocks;
+import net.dionpowder.dions_bitsnbobs.DBB;
+import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConf
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 
 
-public class DionsBitsnBobsConfiguredFeatures {
+public class DBBConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILD_STRAWBERRY_BUSH_KEY = registerKey("wild_strawberry_bush");
 
@@ -23,11 +23,11 @@ public class DionsBitsnBobsConfiguredFeatures {
         register(context, WILD_STRAWBERRY_BUSH_KEY, Feature.RANDOM_PATCH,
                 new RandomPatchConfiguration(12, 4, 3,
                         PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
-                                new SimpleBlockConfiguration(BlockStateProvider.simple(DionsBitsnBobsBlocks.WILD_STRAWBERRY_BUSH.get().defaultBlockState())))));
+                                new SimpleBlockConfiguration(BlockStateProvider.simple(DBBBlocks.WILD_STRAWBERRY_BUSH.get().defaultBlockState())))));
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, name));
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, name));
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context,

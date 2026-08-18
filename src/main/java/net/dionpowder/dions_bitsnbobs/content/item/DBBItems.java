@@ -1,43 +1,41 @@
 package net.dionpowder.dions_bitsnbobs.content.item;
 
-import com.simibubi.create.Create;
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
-import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.dionpowder.dions_bitsnbobs.content.item.custom.ChorusDonutItem;
 import net.dionpowder.dions_bitsnbobs.content.item.custom.SprinklesItem;
-import net.dionpowder.dions_bitsnbobs.utils.DionsBitsnBobsTags;
+import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.Tags;
 
-import static net.dionpowder.dions_bitsnbobs.DionsBitsnBobs.REGISTRATE;
+import static net.dionpowder.dions_bitsnbobs.DBB.REGISTRATE;
 
-public class DionsBitsnBobsItems {
+public class DBBItems {
     
     public static final ItemEntry<Item> STRAWBERRY = REGISTRATE.item("strawberry", Item::new)
-            .tag(Tags.Items.CROPS, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_STRAWBERRY, DionsBitsnBobsTags.Items.CROPS_STRAWBERRY)
-            .properties(p -> p.food(DionsBitsnBobsFoodProperties.STRAWBERRY))
+            .tag(Tags.Items.CROPS, Tags.Items.FOODS, DBBTags.Items.FOODS_STRAWBERRY, DBBTags.Items.CROPS_STRAWBERRY)
+            .properties(p -> p.food(DBBFoodProperties.STRAWBERRY))
             .register();
     
     public static final ItemEntry<Item> UNCOOKED_DONUT = REGISTRATE.item("uncooked_donut", Item::new)
-            .tag(DionsBitsnBobsTags.Items.SIMPLE_DONUTS, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
-            .properties(p -> p.food(DionsBitsnBobsFoodProperties.UNCOOKED_DONUT))
+            .tag(DBBTags.Items.SIMPLE_DONUTS, Tags.Items.FOODS, DBBTags.Items.FOODS_DONUTS, DBBTags.Items.DONUTS)
+            .properties(p -> p.food(DBBFoodProperties.UNCOOKED_DONUT))
             .register();
     
     public static final ItemEntry<Item> DONUT = REGISTRATE.item("donut", Item::new)
-            .tag(DionsBitsnBobsTags.Items.SIMPLE_DONUTS, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
-            .properties(p -> p.food(DionsBitsnBobsFoodProperties.DONUT))
+            .tag(DBBTags.Items.SIMPLE_DONUTS, Tags.Items.FOODS, DBBTags.Items.FOODS_DONUTS, DBBTags.Items.DONUTS)
+            .properties(p -> p.food(DBBFoodProperties.DONUT))
             .register();
     
     public static final ItemEntry<Item> SUGAR_DONUT = REGISTRATE.item("sugar_donut", Item::new)
-            .tag(DionsBitsnBobsTags.Items.SIMPLE_DONUTS, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
-            .properties(p -> p.food(DionsBitsnBobsFoodProperties.SUGAR_DONUT))
+            .tag(DBBTags.Items.SIMPLE_DONUTS, Tags.Items.FOODS, DBBTags.Items.FOODS_DONUTS, DBBTags.Items.DONUTS)
+            .properties(p -> p.food(DBBFoodProperties.SUGAR_DONUT))
             .register();
     
     public static final ItemEntry<ChorusDonutItem> CHORUS_DONUT = REGISTRATE.item("chorus_donut", ChorusDonutItem::new)
-            .tag(DionsBitsnBobsTags.Items.FROSTING_DONUTS, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
-            .properties(p -> p.food(DionsBitsnBobsFoodProperties.FROSTING_DONUTS))
+            .tag(DBBTags.Items.FROSTING_DONUTS, Tags.Items.FOODS, DBBTags.Items.FOODS_DONUTS, DBBTags.Items.DONUTS)
+            .properties(p -> p.food(DBBFoodProperties.FROSTING_DONUTS))
             .register();
 
     // register items with create registrate system
@@ -102,43 +100,43 @@ public class DionsBitsnBobsItems {
     
     private static ItemEntry<Item> frostingDonuts(String name) {
         return REGISTRATE.item(name, Item::new)
-                .properties(p -> p.food(DionsBitsnBobsFoodProperties.FROSTING_DONUTS))
-                .tag(DionsBitsnBobsTags.Items.FROSTING_DONUTS, DionsBitsnBobsTags.Items.ADVANCEMENT_GLAZED_DONUT, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+                .properties(p -> p.food(DBBFoodProperties.FROSTING_DONUTS))
+                .tag(DBBTags.Items.FROSTING_DONUTS, DBBTags.Items.ADVANCEMENT_GLAZED_DONUT, Tags.Items.FOODS, DBBTags.Items.FOODS_DONUTS, DBBTags.Items.DONUTS)
                 .register();
     }
     
     private static ItemEntry<Item> toppedFrostingDonuts(String name) {
         return REGISTRATE.item(name, Item::new)
-                .properties(p -> p.food(DionsBitsnBobsFoodProperties.TOPPED_FROSTING_DONUTS))
-                .tag(DionsBitsnBobsTags.Items.TOPPED_FROSTING_DONUTS, DionsBitsnBobsTags.Items.ADVANCEMENT_TOPPED_DONUT, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+                .properties(p -> p.food(DBBFoodProperties.TOPPED_FROSTING_DONUTS))
+                .tag(DBBTags.Items.TOPPED_FROSTING_DONUTS, DBBTags.Items.ADVANCEMENT_TOPPED_DONUT, Tags.Items.FOODS, DBBTags.Items.FOODS_DONUTS, DBBTags.Items.DONUTS)
                 .register();
     }
     
     private static ItemEntry<Item> chocolateDonuts(String name) {
         return REGISTRATE.item(name, Item::new)
-                .properties(p -> p.food(DionsBitsnBobsFoodProperties.CHOCOLATE_DONUTS))
-                .tag(DionsBitsnBobsTags.Items.CHOCOLATE_DONUTS, DionsBitsnBobsTags.Items.ADVANCEMENT_GLAZED_DONUT, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+                .properties(p -> p.food(DBBFoodProperties.CHOCOLATE_DONUTS))
+                .tag(DBBTags.Items.CHOCOLATE_DONUTS, DBBTags.Items.ADVANCEMENT_GLAZED_DONUT, Tags.Items.FOODS, DBBTags.Items.FOODS_DONUTS, DBBTags.Items.DONUTS)
                 .register();
     }
     
     private static ItemEntry<Item> toppedChocolateDonuts(String name) {
         return REGISTRATE.item(name, Item::new)
-                .properties(p -> p.food(DionsBitsnBobsFoodProperties.TOPPED_CHOCOLATE_DONUTS))
-                .tag(DionsBitsnBobsTags.Items.TOPPED_CHOCOLATE_DONUTS, DionsBitsnBobsTags.Items.ADVANCEMENT_TOPPED_DONUT, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+                .properties(p -> p.food(DBBFoodProperties.TOPPED_CHOCOLATE_DONUTS))
+                .tag(DBBTags.Items.TOPPED_CHOCOLATE_DONUTS, DBBTags.Items.ADVANCEMENT_TOPPED_DONUT, Tags.Items.FOODS, DBBTags.Items.FOODS_DONUTS, DBBTags.Items.DONUTS)
                 .register();
     }
     
     private static ItemEntry<Item> doubleGlazedDonuts(String name) {
         return REGISTRATE.item(name, Item::new)
-                .properties(p -> p.food(DionsBitsnBobsFoodProperties.DOUBLE_GLAZED_DONUTS))
-                .tag(DionsBitsnBobsTags.Items.DOUBLE_GLAZED_DONUTS, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+                .properties(p -> p.food(DBBFoodProperties.DOUBLE_GLAZED_DONUTS))
+                .tag(DBBTags.Items.DOUBLE_GLAZED_DONUTS, Tags.Items.FOODS, DBBTags.Items.FOODS_DONUTS, DBBTags.Items.DONUTS)
                 .register();
     }
 
     private static ItemEntry<SprinklesItem> sprinkles(String name) {
         return REGISTRATE.item(name, SprinklesItem::new)
-                .properties(p -> p.food(DionsBitsnBobsFoodProperties.SPRINKLES))
-                .tag(DionsBitsnBobsTags.Items.SPRINKLES)
+                .properties(p -> p.food(DBBFoodProperties.SPRINKLES))
+                .tag(DBBTags.Items.SPRINKLES)
                 .register();
     }
 

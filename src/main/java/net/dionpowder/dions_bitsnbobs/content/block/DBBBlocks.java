@@ -8,8 +8,8 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import net.dionpowder.dions_bitsnbobs.content.block.custom.DonutCast;
 import net.dionpowder.dions_bitsnbobs.content.block.custom.StrawberryBush;
 import net.dionpowder.dions_bitsnbobs.content.block.custom.WildStrawberryBush;
-import net.dionpowder.dions_bitsnbobs.content.item.DionsBitsnBobsItems;
-import net.dionpowder.dions_bitsnbobs.utils.DionsBitsnBobsTags;
+import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
+import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -32,9 +32,9 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.Tags;
 
-import static net.dionpowder.dions_bitsnbobs.DionsBitsnBobs.REGISTRATE;
+import static net.dionpowder.dions_bitsnbobs.DBB.REGISTRATE;
 
-public class DionsBitsnBobsBlocks {
+public class DBBBlocks {
     
     
     
@@ -44,7 +44,7 @@ public class DionsBitsnBobsBlocks {
                     .properties(p -> p.mapColor(MapColor.WOOD)
                             .requiresCorrectToolForDrops())
                     .blockstate((c, p) -> p.simpleBlock(c.get(), AssetLookup.standardModel(c, p)))
-                    .tag(Tags.Blocks.STORAGE_BLOCKS, DionsBitsnBobsTags.Blocks.STORAGE_BLOCKS_STRAWBERRY, BlockTags.MINEABLE_WITH_AXE)
+                    .tag(Tags.Blocks.STORAGE_BLOCKS, DBBTags.Blocks.STORAGE_BLOCKS_STRAWBERRY, BlockTags.MINEABLE_WITH_AXE)
                     .loot(RegistrateBlockLootTables::dropSelf)
                     .item()
                     .tag(Tags.Items.STORAGE_BLOCKS)
@@ -60,7 +60,7 @@ public class DionsBitsnBobsBlocks {
                         
                         lt.add(block, LootTable.lootTable().withPool(LootPool.lootPool()
                                 .when(ExplosionCondition.survivesExplosion())
-                                        .add(LootItem.lootTableItem(DionsBitsnBobsItems.STRAWBERRY.get()))
+                                        .add(LootItem.lootTableItem(DBBItems.STRAWBERRY.get()))
                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                                         .apply(ApplyBonusCount.addUniformBonusCount(enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE)))));
                     })
@@ -75,15 +75,15 @@ public class DionsBitsnBobsBlocks {
                         HolderLookup.RegistryLookup<Enchantment> enchantmentRegistryLookup = lt.getRegistries().lookupOrThrow(Registries.ENCHANTMENT);
                         
                         lt.add(block, LootTable.lootTable().withPool(LootPool.lootPool().when(
-                                                LootItemBlockStatePropertyCondition.hasBlockStateProperties(DionsBitsnBobsBlocks.STRAWBERRY_BUSH.get())
+                                                LootItemBlockStatePropertyCondition.hasBlockStateProperties(DBBBlocks.STRAWBERRY_BUSH.get())
                                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 3))
-                                        ).add(LootItem.lootTableItem(DionsBitsnBobsItems.STRAWBERRY.get()))
+                                        ).add(LootItem.lootTableItem(DBBItems.STRAWBERRY.get()))
                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F)))
                                         .apply(ApplyBonusCount.addUniformBonusCount(enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE)))
                         ).withPool(LootPool.lootPool().when(
-                                                LootItemBlockStatePropertyCondition.hasBlockStateProperties(DionsBitsnBobsBlocks.STRAWBERRY_BUSH.get())
+                                                LootItemBlockStatePropertyCondition.hasBlockStateProperties(DBBBlocks.STRAWBERRY_BUSH.get())
                                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 2))
-                                        ).add(LootItem.lootTableItem(DionsBitsnBobsItems.STRAWBERRY.get()))
+                                        ).add(LootItem.lootTableItem(DBBItems.STRAWBERRY.get()))
                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                                         .apply(ApplyBonusCount.addUniformBonusCount(enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE)))));
                     })
