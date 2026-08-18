@@ -12,7 +12,7 @@ import net.minecraft.world.level.material.Fluid;
 
 public class DionsBitsnBobsTags {
     public static class Blocks {
-        public static final TagKey<Block> STORAGE_BLOCKS = commonBlockTag("storage_blocks");
+       
         public static final TagKey<Block> STORAGE_BLOCKS_STRAWBERRY = commonBlockTag("storage_blocks/strawberry");
 
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING = createTag("fan_processing_catalysts_strawberry_frosting");
@@ -47,10 +47,8 @@ public class DionsBitsnBobsTags {
 
         public static final TagKey<Item> ADVANCEMENT_GLAZED_DONUT = createTag("advancement_glazed_donut");
         public static final TagKey<Item> ADVANCEMENT_TOPPED_DONUT = createTag("advancement_topped_donut");
-
-        public static final TagKey<Item> CROPS = commonItemTag("crops");
+        
         public static final TagKey<Item> CROPS_STRAWBERRY = commonItemTag("crops/strawberry");
-        public static final TagKey<Item> FOODS = commonItemTag("foods");
         public static final TagKey<Item> FOODS_STRAWBERRY = commonItemTag("foods/strawberry");
         public static final TagKey<Item> FOODS_DONUTS = commonItemTag("foods/donuts");
 

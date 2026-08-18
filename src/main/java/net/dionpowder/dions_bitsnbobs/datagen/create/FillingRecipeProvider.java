@@ -20,22 +20,22 @@ public class FillingRecipeProvider extends FillingRecipeGen {
 
     STAWBERRY_DONUT = create("strawberry_donut", b -> b
             .require(DionsBitsnBobsItems.DONUT)
-            .require(DionsBitsnBobsFluids.SOURCE_STRAWBERRY_FROSTING.get(), 100)
+            .require(DionsBitsnBobsFluids.STRAWBERRY_FROSTING.get(), 100)
             .output(DionsBitsnBobsItems.STRAWBERRY_DONUT)),
 
     ORANGE_DONUT = create("orange_donut", b -> b
             .require(DionsBitsnBobsItems.DONUT)
-            .require(DionsBitsnBobsFluids.SOURCE_ORANGE_FROSTING.get(), 100)
+            .require(DionsBitsnBobsFluids.ORANGE_FROSTING.get(), 100)
             .output(DionsBitsnBobsItems.ORANGE_DONUT)),
 
     BLUEBERRY_DONUT = create("blueberry_donut", b -> b
             .require(DionsBitsnBobsItems.DONUT)
-            .require(DionsBitsnBobsFluids.SOURCE_BLUEBERRY_FROSTING.get(), 100)
+            .require(DionsBitsnBobsFluids.BLUEBERRY_FROSTING.get(), 100)
             .output(DionsBitsnBobsItems.BLUEBERRY_DONUT)),
 
     PEAR_DONUT = create("pear_donut", b -> b
             .require(DionsBitsnBobsItems.DONUT)
-            .require(DionsBitsnBobsFluids.SOURCE_PEAR_FROSTING.get(), 100)
+            .require(DionsBitsnBobsFluids.PEAR_FROSTING.get(), 100)
             .output(DionsBitsnBobsItems.PEAR_DONUT)),
 
     CHOCOLATE_DONUT = create("chocolate_donut", b -> b
@@ -45,7 +45,7 @@ public class FillingRecipeProvider extends FillingRecipeGen {
 
     CHOCOLATE_STRAWBERRY_DONUT = create("chocolate_strawberry_donut", b -> b
             .require(DionsBitsnBobsItems.CHOCOLATE_DONUT)
-            .require(DionsBitsnBobsFluids.SOURCE_STRAWBERRY_FROSTING.get(), 100)
+            .require(DionsBitsnBobsFluids.STRAWBERRY_FROSTING.get(), 100)
             .output(DionsBitsnBobsItems.CHOCOLATE_STRAWBERRY_DONUT)),
 
     CHOCOLATE_HONEY_DONUT = create("chocolate_honey_donut", b -> b
@@ -60,12 +60,12 @@ public class FillingRecipeProvider extends FillingRecipeGen {
 
     WHITE_CHOCOLATE_PEAR_DONUT = create("white_chocolate_pear_donut", b -> b
             .require(DionsBitsnBobsItems.WHITE_CHOCOLATE_DONUT)
-            .require(DionsBitsnBobsFluids.SOURCE_PEAR_FROSTING.get(), 100)
+            .require(DionsBitsnBobsFluids.PEAR_FROSTING.get(), 100)
             .output(DionsBitsnBobsItems.WHITE_CHOCOLATE_PEAR_DONUT)),
 
     FILLED_DONUT_CAST = create("filled_donut_cast", b -> b
             .require(DionsBitsnBobsBlocks.DONUT_CAST)
-            .require(DionsBitsnBobsFluids.SOURCE_DONUT_BATTER.get(), 250)
+            .require(DionsBitsnBobsFluids.DONUT_BATTER.get(), 250)
             .output(DionsBitsnBobsBlocks.FILLED_DONUT_CAST))
 
     ;

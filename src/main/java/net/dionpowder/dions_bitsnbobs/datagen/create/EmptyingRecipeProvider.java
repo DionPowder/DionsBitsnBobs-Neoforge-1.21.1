@@ -19,7 +19,7 @@ public class EmptyingRecipeProvider extends EmptyingRecipeGen {
     DONUT_BATTER = create("donut_batter", b -> b
             .require(DionsBitsnBobsBlocks.FILLED_DONUT_CAST)
             .output(DionsBitsnBobsBlocks.DONUT_CAST)
-            .output(DionsBitsnBobsFluids.SOURCE_DONUT_BATTER.get(), 250))
+            .output(DionsBitsnBobsFluids.DONUT_BATTER.get(), 250))
 
     ;
 

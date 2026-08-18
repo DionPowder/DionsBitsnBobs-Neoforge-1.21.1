@@ -7,8 +7,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class SprinklesItemBase extends Item {
-    public SprinklesItemBase(Properties properties) {super(properties);}
+public class SprinklesItem extends Item {
+    public SprinklesItem(Properties properties) {super(properties);}
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {

@@ -30,30 +30,15 @@ public class DionsBitsnBobsClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
        event.enqueueWork(() -> {
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.SOURCE_STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.FLOWING_STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.SOURCE_ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.FLOWING_ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.SOURCE_BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.FLOWING_BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.SOURCE_PEAR_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.FLOWING_PEAR_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.SOURCE_DONUT_BATTER.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.FLOWING_DONUT_BATTER.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+           ItemBlockRenderTypes.setRenderLayer(DionsBitsnBobsFluids.PEAR_FROSTING.get(), RenderType.TRANSLUCENT);
        });
     }
 
     @SubscribeEvent
     public static void onClientExtensions(RegisterClientExtensionsEvent event) {
-        event.registerFluidType(((BaseFluidType) DionsBitsnBobsFluidTypes.STRAWBERRY_FROSTING_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
-                DionsBitsnBobsFluidTypes.STRAWBERRY_FROSTING_FLUID_TYPE.get());
-        event.registerFluidType(((BaseFluidType) DionsBitsnBobsFluidTypes.ORANGE_FROSTING_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
-                DionsBitsnBobsFluidTypes.ORANGE_FROSTING_FLUID_TYPE.get());
-        event.registerFluidType(((BaseFluidType) DionsBitsnBobsFluidTypes.BLUEBERRY_FROSTING_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
-                DionsBitsnBobsFluidTypes.BLUEBERRY_FROSTING_FLUID_TYPE.get());
-        event.registerFluidType(((BaseFluidType) DionsBitsnBobsFluidTypes.PEAR_FROSTING_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
-                DionsBitsnBobsFluidTypes.PEAR_FROSTING_FLUID_TYPE.get());
-        event.registerFluidType(((BaseFluidType) DionsBitsnBobsFluidTypes.DONUT_BATTER_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
-                DionsBitsnBobsFluidTypes.DONUT_BATTER_FLUID_TYPE.get());
+    
     }
 }

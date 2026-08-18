@@ -1,144 +1,129 @@
 package net.dionpowder.dions_bitsnbobs.content.fluid;
 
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.content.block.DionsBitsnBobsBlocks;
-import net.dionpowder.dions_bitsnbobs.content.item.DionsBitsnBobsItems;
+import com.mojang.blaze3d.shaders.FogShape;
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.tterrag.registrate.builders.FluidBuilder;
+import com.tterrag.registrate.util.entry.FluidEntry;
+import net.createmod.catnip.theme.Color;
+import net.dionpowder.dions_bitsnbobs.utils.DionsBitsnBobsTags;
+import net.minecraft.client.Camera;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
-import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.FlowingFluid;
-import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
 import net.neoforged.neoforge.fluids.FluidInteractionRegistry.InteractionInformation;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidType;
+import org.jetbrains.annotations.NotNull;
+import org.joml.Vector3f;
 
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import static net.dionpowder.dions_bitsnbobs.DionsBitsnBobs.REGISTRATE;
+
 public class DionsBitsnBobsFluids {
-    public static final DeferredRegister<Fluid> FLUIDS =
-            DeferredRegister.create(BuiltInRegistries.FLUID, DionsBitsnBobs.MOD_ID);
+    
+    
+    public static final FluidEntry<BaseFlowingFluid.Flowing> STRAWBERRY_FROSTING =
+            REGISTRATE.standardFluid("strawberry_frosting", SolidRenderedPlaceableFluidType.create(0xFFF29AA3, () -> 1f / 8f))
+                    .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
+                    .tag(DionsBitsnBobsTags.Fluids.STRAWBERRY_FROSTING, DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
+                    .source(BaseFlowingFluid.Source::new)
+                    .block()
+                    .tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_RED))
+                    .build()
+                    .bucket()
+                    .onRegister(DionsBitsnBobsFluids::registerFluidDispenseBehavior)
+                    .tag(Tags.Items.BUCKETS)
+                    .build()
+                    .register();
+    
+    public static final FluidEntry<BaseFlowingFluid.Flowing> ORANGE_FROSTING =
+            REGISTRATE.standardFluid("orange_frosting", SolidRenderedPlaceableFluidType.create(0xFFFFB347, () -> 1f / 8f))
+                    .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
+                    .tag(DionsBitsnBobsTags.Fluids.ORANGE_FROSTING, DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
+                    .source(BaseFlowingFluid.Source::new)
+                    .block()
+                    .tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_ORANGE))
+                    .build()
+                    .bucket()
+                    .onRegister(DionsBitsnBobsFluids::registerFluidDispenseBehavior)
+                    .tag(Tags.Items.BUCKETS)
+                    .build()
+                    .register();
+    
+    public static final FluidEntry<BaseFlowingFluid.Flowing> BLUEBERRY_FROSTING =
+            REGISTRATE.standardFluid("blueberry_frosting", SolidRenderedPlaceableFluidType.create(0xFF8B6FF7, () -> 1f / 8f))
+                    .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
+                    .tag(DionsBitsnBobsTags.Fluids.BLUEBERRY_FROSTING, DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
+                    .source(BaseFlowingFluid.Source::new)
+                    .block()
+                    .tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_BLUE))
+                    .build()
+                    .bucket()
+                    .onRegister(DionsBitsnBobsFluids::registerFluidDispenseBehavior)
+                    .tag(Tags.Items.BUCKETS)
+                    .build()
+                    .register();
+    
+    public static final FluidEntry<BaseFlowingFluid.Flowing> PEAR_FROSTING =
+            REGISTRATE.standardFluid("pear_frosting", SolidRenderedPlaceableFluidType.create(0xFFB7E65A, () -> 1f / 8f))
+                    .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
+                    .tag(DionsBitsnBobsTags.Fluids.PEAR_FROSTING, DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
+                    .source(BaseFlowingFluid.Source::new)
+                    .block()
+                    .tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_LIGHT_GREEN))
+                    .build()
+                    .bucket()
+                    .onRegister(DionsBitsnBobsFluids::registerFluidDispenseBehavior)
+                    .tag(Tags.Items.BUCKETS)
+                    .build()
+                    .register();
+    
+    public static final FluidEntry<BaseFlowingFluid.Flowing> DONUT_BATTER =
+            REGISTRATE.standardFluid("donut_batter", SolidRenderedPlaceableFluidType.create(0xffffffff, () -> 1f / 8f))
+                    .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2).tickRate(30))
+                    .tag(DionsBitsnBobsTags.Fluids.PEAR_FROSTING)
+                    .source(BaseFlowingFluid.Source::new)
+                    .block()
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_LIGHT_GREEN))
+                    .build()
+                    .bucket()
+                    .onRegister(DionsBitsnBobsFluids::registerFluidDispenseBehavior)
+                    .tag(Tags.Items.BUCKETS)
+                    .build()
+                    .register();
+    
+    
+    
+    public static void register(IEventBus eventBus) {
+    
+    }
+    
 
-    // strawberry
-
-    // source
-    public static final Supplier<FlowingFluid> SOURCE_STRAWBERRY_FROSTING = FLUIDS.register("strawberry_frosting",
-            () -> new BaseFlowingFluid.Source(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_PROPERTIES));
-    // flowing
-    public static final Supplier<FlowingFluid> FLOWING_STRAWBERRY_FROSTING = FLUIDS.register("flowing_strawberry_frosting",
-            () -> new BaseFlowingFluid.Flowing(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_PROPERTIES));
-    // block
-    public static final DeferredBlock<LiquidBlock> STRAWBERRY_FROSTING_BLOCK = DionsBitsnBobsBlocks.BLOCKS.register("strawberry_frosting_block",
-            () -> new LiquidBlock(DionsBitsnBobsFluids.SOURCE_STRAWBERRY_FROSTING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER).noLootTable()));
-    // bucket item
-    public static final DeferredItem<BucketItem> STRAWBERRY_FROSTING_BUCKET = DionsBitsnBobsItems.ITEMS.registerItem("strawberry_frosting_bucket",
-            properties -> new BucketItem(DionsBitsnBobsFluids.SOURCE_STRAWBERRY_FROSTING.get(), properties.craftRemainder(Items.BUCKET).stacksTo(1)));
-    // properties
-    public static final BaseFlowingFluid.Properties STRAWBERRY_FROSTING_PROPERTIES = new BaseFlowingFluid.Properties(
-            DionsBitsnBobsFluidTypes.STRAWBERRY_FROSTING_FLUID_TYPE, SOURCE_STRAWBERRY_FROSTING, FLOWING_STRAWBERRY_FROSTING)
-            .slopeFindDistance(2).levelDecreasePerBlock(3)
-            .block(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_BLOCK).bucket(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_BUCKET);
-
-    // orange
-
-    // source
-    public static final Supplier<FlowingFluid> SOURCE_ORANGE_FROSTING = FLUIDS.register("orange_frosting",
-            () -> new BaseFlowingFluid.Source(DionsBitsnBobsFluids.ORANGE_FROSTING_PROPERTIES));
-    // flowing
-    public static final Supplier<FlowingFluid> FLOWING_ORANGE_FROSTING = FLUIDS.register("flowing_orange_frosting",
-            () -> new BaseFlowingFluid.Flowing(DionsBitsnBobsFluids.ORANGE_FROSTING_PROPERTIES));
-    // block
-    public static final DeferredBlock<LiquidBlock> ORANGE_FROSTING_BLOCK = DionsBitsnBobsBlocks.BLOCKS.register("orange_frosting_block",
-            () -> new LiquidBlock(DionsBitsnBobsFluids.SOURCE_ORANGE_FROSTING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER).noLootTable()));
-    // bucket item
-    public static final DeferredItem<BucketItem> ORANGE_FROSTING_BUCKET = DionsBitsnBobsItems.ITEMS.registerItem("orange_frosting_bucket",
-            properties -> new BucketItem(DionsBitsnBobsFluids.SOURCE_ORANGE_FROSTING.get(), properties.craftRemainder(Items.BUCKET).stacksTo(1)));
-    // properties
-    public static final BaseFlowingFluid.Properties ORANGE_FROSTING_PROPERTIES = new BaseFlowingFluid.Properties(
-            DionsBitsnBobsFluidTypes.ORANGE_FROSTING_FLUID_TYPE, SOURCE_ORANGE_FROSTING, FLOWING_ORANGE_FROSTING)
-            .slopeFindDistance(2).levelDecreasePerBlock(3)
-            .block(DionsBitsnBobsFluids.ORANGE_FROSTING_BLOCK).bucket(DionsBitsnBobsFluids.ORANGE_FROSTING_BUCKET);
-
-    // blueberry
-
-    // source
-    public static final Supplier<FlowingFluid> SOURCE_BLUEBERRY_FROSTING = FLUIDS.register("blueberry_frosting",
-            () -> new BaseFlowingFluid.Source(DionsBitsnBobsFluids.BLUEBERRY_FROSTING_PROPERTIES));
-    // flowing
-    public static final Supplier<FlowingFluid> FLOWING_BLUEBERRY_FROSTING = FLUIDS.register("flowing_blueberry_frosting",
-            () -> new BaseFlowingFluid.Flowing(DionsBitsnBobsFluids.BLUEBERRY_FROSTING_PROPERTIES));
-    // block
-    public static final DeferredBlock<LiquidBlock> BLUEBERRY_FROSTING_BLOCK = DionsBitsnBobsBlocks.BLOCKS.register("blueberry_frosting_block",
-            () -> new LiquidBlock(DionsBitsnBobsFluids.SOURCE_BLUEBERRY_FROSTING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER).noLootTable()));
-    // bucket item
-    public static final DeferredItem<BucketItem> BLUEBERRY_FROSTING_BUCKET = DionsBitsnBobsItems.ITEMS.registerItem("blueberry_frosting_bucket",
-            properties -> new BucketItem(DionsBitsnBobsFluids.SOURCE_BLUEBERRY_FROSTING.get(), properties.craftRemainder(Items.BUCKET).stacksTo(1)));
-    // properties
-    public static final BaseFlowingFluid.Properties BLUEBERRY_FROSTING_PROPERTIES = new BaseFlowingFluid.Properties(
-            DionsBitsnBobsFluidTypes.BLUEBERRY_FROSTING_FLUID_TYPE, SOURCE_BLUEBERRY_FROSTING, FLOWING_BLUEBERRY_FROSTING)
-            .slopeFindDistance(2).levelDecreasePerBlock(3)
-            .block(DionsBitsnBobsFluids.BLUEBERRY_FROSTING_BLOCK).bucket(DionsBitsnBobsFluids.BLUEBERRY_FROSTING_BUCKET);
-
-    // pear
-
-    // source
-    public static final Supplier<FlowingFluid> SOURCE_PEAR_FROSTING = FLUIDS.register("pear_frosting",
-            () -> new BaseFlowingFluid.Source(DionsBitsnBobsFluids.PEAR_FROSTING_PROPERTIES));
-    // flowing
-    public static final Supplier<FlowingFluid> FLOWING_PEAR_FROSTING = FLUIDS.register("flowing_pear_frosting",
-            () -> new BaseFlowingFluid.Flowing(DionsBitsnBobsFluids.PEAR_FROSTING_PROPERTIES));
-    // block
-    public static final DeferredBlock<LiquidBlock> PEAR_FROSTING_BLOCK = DionsBitsnBobsBlocks.BLOCKS.register("pear_frosting_block",
-            () -> new LiquidBlock(DionsBitsnBobsFluids.SOURCE_PEAR_FROSTING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER).noLootTable()));
-    // bucket item
-    public static final DeferredItem<BucketItem> PEAR_FROSTING_BUCKET = DionsBitsnBobsItems.ITEMS.registerItem("pear_frosting_bucket",
-            properties -> new BucketItem(DionsBitsnBobsFluids.SOURCE_PEAR_FROSTING.get(), properties.craftRemainder(Items.BUCKET).stacksTo(1)));
-    // properties
-    public static final BaseFlowingFluid.Properties PEAR_FROSTING_PROPERTIES = new BaseFlowingFluid.Properties(
-            DionsBitsnBobsFluidTypes.PEAR_FROSTING_FLUID_TYPE, SOURCE_PEAR_FROSTING, FLOWING_PEAR_FROSTING)
-            .slopeFindDistance(2).levelDecreasePerBlock(3)
-            .block(DionsBitsnBobsFluids.PEAR_FROSTING_BLOCK).bucket(DionsBitsnBobsFluids.PEAR_FROSTING_BUCKET);
-
-    // batter
-    public static final Supplier<FlowingFluid> SOURCE_DONUT_BATTER = FLUIDS.register("donut_batter",
-            () -> new BaseFlowingFluid.Source(DionsBitsnBobsFluids.DONUT_BATTER_PROPERTIES));
-    // flowing
-    public static final Supplier<FlowingFluid> FLOWING_DONUT_BATTER = FLUIDS.register("flowing_donut_batter",
-            () -> new BaseFlowingFluid.Flowing(DionsBitsnBobsFluids.DONUT_BATTER_PROPERTIES));
-    // block
-    public static final DeferredBlock<LiquidBlock> DONUT_BATTER_BLOCK = DionsBitsnBobsBlocks.BLOCKS.register("donut_batter_block",
-            () -> new LiquidBlock(DionsBitsnBobsFluids.SOURCE_DONUT_BATTER.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER).noLootTable()));
-    // bucket item
-    public static final DeferredItem<BucketItem> DONUT_BATTER_BUCKET = DionsBitsnBobsItems.ITEMS.registerItem("donut_batter_bucket",
-            properties -> new BucketItem(DionsBitsnBobsFluids.SOURCE_DONUT_BATTER.get(), properties.craftRemainder(Items.BUCKET).stacksTo(1)));
-    // properties
-    public static final BaseFlowingFluid.Properties DONUT_BATTER_PROPERTIES = new BaseFlowingFluid.Properties(
-            DionsBitsnBobsFluidTypes.DONUT_BATTER_FLUID_TYPE, SOURCE_DONUT_BATTER, FLOWING_DONUT_BATTER)
-            .slopeFindDistance(2).levelDecreasePerBlock(3)
-            .tickRate(30)
-            .block(DionsBitsnBobsFluids.DONUT_BATTER_BLOCK).bucket(DionsBitsnBobsFluids.DONUT_BATTER_BUCKET);
-
-    // register fluid interactions
+    
     public static void registerFluidInteractions() {
-
-        // buckets
-        registerFluidDispenseBehavior(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_BUCKET.get());
-        registerFluidDispenseBehavior(DionsBitsnBobsFluids.ORANGE_FROSTING_BUCKET.get());
-        registerFluidDispenseBehavior(DionsBitsnBobsFluids.BLUEBERRY_FROSTING_BUCKET.get());
-        registerFluidDispenseBehavior(DionsBitsnBobsFluids.PEAR_FROSTING_BUCKET.get());
-        registerFluidDispenseBehavior(DionsBitsnBobsFluids.DONUT_BATTER_BUCKET.get());
 
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
                 DionsBitsnBobsFluidTypes.STRAWBERRY_FROSTING_FLUID_TYPE.get(),
@@ -176,8 +161,124 @@ public class DionsBitsnBobsFluids {
     public static void registerFluidDispenseBehavior(BucketItem bucket) {
         DispenserBlock.registerBehavior(bucket, DISPENSE_FLUID);
     }
-
-    public static void register(IEventBus eventBus) {
-        FLUIDS.register(eventBus);
+    
+    
+    public static abstract class TintedFluidType extends FluidType {
+        
+        protected static final int NO_TINT = 0xffffffff;
+        private final ResourceLocation stillTexture;
+        private final ResourceLocation flowingTexture;
+        
+        public TintedFluidType(Properties properties, ResourceLocation stillTexture, ResourceLocation flowingTexture) {
+            super(properties);
+            this.stillTexture = stillTexture;
+            this.flowingTexture = flowingTexture;
+        }
+        
+        @Override
+        public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
+            consumer.accept(new IClientFluidTypeExtensions() {
+                
+                @Override
+                public ResourceLocation getStillTexture() {
+                    return stillTexture;
+                }
+                
+                @Override
+                public ResourceLocation getFlowingTexture() {
+                    return flowingTexture;
+                }
+                
+                @Override
+                public int getTintColor(FluidStack stack) {
+                    return TintedFluidType.this.getTintColor(stack);
+                }
+                
+                @Override
+                public int getTintColor(FluidState state, BlockAndTintGetter getter, BlockPos pos) {
+                    return TintedFluidType.this.getTintColor(state, getter, pos);
+                }
+                
+                @Override
+                public @NotNull Vector3f modifyFogColor(Camera camera, float partialTick, ClientLevel level,
+                                                        int renderDistance, float darkenWorldAmount, Vector3f fluidFogColor) {
+                    Vector3f customFogColor = TintedFluidType.this.getCustomFogColor();
+                    return customFogColor == null ? fluidFogColor : customFogColor;
+                }
+                
+                @Override
+                public void modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick,
+                                            float nearDistance, float farDistance, FogShape shape) {
+                    float modifier = TintedFluidType.this.getFogDistanceModifier();
+                    float baseWaterFog = 96.0f;
+                    if (modifier != 1f) {
+                        RenderSystem.setShaderFogShape(FogShape.CYLINDER);
+                        RenderSystem.setShaderFogStart(-8);
+                        RenderSystem.setShaderFogEnd(baseWaterFog * modifier);
+                    }
+                }
+                
+            });
+        }
+        
+        protected abstract int getTintColor(FluidStack stack);
+        
+        protected abstract int getTintColor(FluidState state, BlockAndTintGetter getter, BlockPos pos);
+        
+        protected Vector3f getCustomFogColor() {
+            return null;
+        }
+        
+        protected float getFogDistanceModifier() {
+            return 1f;
+        }
+        
     }
+    
+    private static class SolidRenderedPlaceableFluidType extends TintedFluidType {
+        
+        private Vector3f fogColor;
+        private Supplier<Float> fogDistance;
+        
+        public static FluidBuilder.FluidTypeFactory create(int fogColor, Supplier<Float> fogDistance) {
+            return (p, s, f) -> {
+                SolidRenderedPlaceableFluidType fluidType = new SolidRenderedPlaceableFluidType(p, s, f);
+                fluidType.fogColor = new Color(fogColor, false).asVectorF();
+                fluidType.fogDistance = fogDistance;
+                return fluidType;
+            };
+        }
+        
+        private SolidRenderedPlaceableFluidType(Properties properties, ResourceLocation stillTexture,
+                                                ResourceLocation flowingTexture) {
+            super(properties, stillTexture, flowingTexture);
+        }
+        
+        @Override
+        protected int getTintColor(FluidStack stack) {
+            return NO_TINT;
+        }
+        
+        /*
+         * Removing alpha from tint prevents optifine from forcibly applying biome
+         * colors to modded fluids (this workaround only works for fluids in the solid
+         * render layer)
+         */
+        @Override
+        public int getTintColor(FluidState state, BlockAndTintGetter world, BlockPos pos) {
+            return 0x00ffffff;
+        }
+        
+        @Override
+        protected Vector3f getCustomFogColor() {
+            return fogColor;
+        }
+        
+        @Override
+        protected float getFogDistanceModifier() {
+            return fogDistance.get();
+        }
+        
+    }
+    
 }

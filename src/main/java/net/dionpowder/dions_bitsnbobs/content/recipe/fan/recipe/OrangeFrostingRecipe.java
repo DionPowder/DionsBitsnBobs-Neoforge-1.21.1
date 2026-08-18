@@ -13,7 +13,7 @@ public class OrangeFrostingRecipe extends AbstractFrostingRecipe {
 
     @Override
     public Block getFrostingBlock() {
-        return DionsBitsnBobsFluids.ORANGE_FROSTING_BLOCK.get();
+        return DionsBitsnBobsFluids.ORANGE_FROSTING.get().getSource().defaultFluidState().createLegacyBlock().getBlock();
     }
 
     public static Builder<OrangeFrostingRecipe> builder(ResourceLocation id) {

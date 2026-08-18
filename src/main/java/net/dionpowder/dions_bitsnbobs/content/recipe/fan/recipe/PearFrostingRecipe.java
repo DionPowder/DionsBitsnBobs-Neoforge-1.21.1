@@ -13,7 +13,7 @@ public class PearFrostingRecipe extends AbstractFrostingRecipe {
 
     @Override
     public Block getFrostingBlock() {
-        return DionsBitsnBobsFluids.PEAR_FROSTING_BLOCK.get();
+        return DionsBitsnBobsFluids.PEAR_FROSTING.get().getSource().defaultFluidState().createLegacyBlock().getBlock();
     }
 
     public static Builder<PearFrostingRecipe> builder(ResourceLocation id) {

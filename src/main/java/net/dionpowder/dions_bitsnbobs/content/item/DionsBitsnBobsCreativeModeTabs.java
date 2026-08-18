@@ -21,11 +21,11 @@ public class DionsBitsnBobsCreativeModeTabs {
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "bitsnbobs_blocks_tab"))
                     .title(Component.translatable("creativetab.dions_bitsnbobs.items_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_BUCKET);
-                        output.accept(DionsBitsnBobsFluids.ORANGE_FROSTING_BUCKET);
-                        output.accept(DionsBitsnBobsFluids.BLUEBERRY_FROSTING_BUCKET);
-                        output.accept(DionsBitsnBobsFluids.PEAR_FROSTING_BUCKET);
-                        output.accept(DionsBitsnBobsFluids.DONUT_BATTER_BUCKET);
+                        output.accept(DionsBitsnBobsFluids.STRAWBERRY_FROSTING.get().getBucket());
+                        output.accept(DionsBitsnBobsFluids.ORANGE_FROSTING.get().getBucket());
+                        output.accept(DionsBitsnBobsFluids.BLUEBERRY_FROSTING.get().getBucket());
+                        output.accept(DionsBitsnBobsFluids.PEAR_FROSTING.get().getBucket());
+                        output.accept(DionsBitsnBobsFluids.DONUT_BATTER.get().getBucket());
 
                         output.accept(DionsBitsnBobsItems.EMPTY_SPRINKLES_BOTTLE);
                         output.accept(DionsBitsnBobsItems.BOTTLED_RAINBOW_SPRINKLES);

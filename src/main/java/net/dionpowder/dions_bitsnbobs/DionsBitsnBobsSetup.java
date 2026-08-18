@@ -18,12 +18,12 @@ public class DionsBitsnBobsSetup {
 
         OptionalModCompat.register(modEventBus);
         // other register methods
-        DionsBitsnBobsCreativeModeTabs.register(modEventBus);
+        //DionsBitsnBobsCreativeModeTabs.register(modEventBus);
 
         DionsBitsnBobsItems.register(modEventBus);
         DionsBitsnBobsBlocks.register(modEventBus);
 
-        DionsBitsnBobsFluidTypes.register(modEventBus);
+        //DionsBitsnBobsFluidTypes.register(modEventBus);
         DionsBitsnBobsFluids.register(modEventBus);
 
         DionsBitsnBobsRecipeTypes.register(modEventBus);

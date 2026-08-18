@@ -32,12 +32,6 @@ public class BlockStateProvider extends net.neoforged.neoforge.client.model.gene
         componentBlock(DionsBitsnBobsBlocks.BRASS_COMPONENT.get(), "brass");
         componentBlock(DionsBitsnBobsBlocks.COPPER_COMPONENT.get(), "copper");
         componentBlock(DionsBitsnBobsBlocks.TRAIN_COMPONENT.get(), "train");
-        // generate mod block item models
-        blockItem(DionsBitsnBobsBlocks.STRAWBERRY_CRATE);
-        blockItem(DionsBitsnBobsBlocks.ANDESITE_COMPONENT);
-        blockItem(DionsBitsnBobsBlocks.BRASS_COMPONENT);
-        blockItem(DionsBitsnBobsBlocks.COPPER_COMPONENT);
-        blockItem(DionsBitsnBobsBlocks.TRAIN_COMPONENT);
     }
 
     public void componentBlock(Block block, String componentName) {

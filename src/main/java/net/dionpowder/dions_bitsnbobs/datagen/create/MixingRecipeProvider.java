@@ -70,7 +70,7 @@ public class MixingRecipeProvider extends MixingRecipeGen {
             .require(DionsBitsnBobsItems.STRAWBERRY)
             .require(Fluids.WATER, 150)
             .requiresHeat(HeatCondition.HEATED)
-            .output(DionsBitsnBobsFluids.SOURCE_STRAWBERRY_FROSTING.get(), 250)),
+            .output(DionsBitsnBobsFluids.STRAWBERRY_FROSTING.get(), 250)),
 
     DONUT_BATTER = create("donut_batter", b -> b
             .require(Tags.Fluids.MILK, 400)
@@ -79,7 +79,7 @@ public class MixingRecipeProvider extends MixingRecipeGen {
             .require(Items.SUGAR)
             .require(Ingredient.of(Tags.Items.EGGS))
             .requiresHeat(HeatCondition.HEATED)
-            .output(DionsBitsnBobsFluids.SOURCE_DONUT_BATTER.get(), 500))
+            .output(DionsBitsnBobsFluids.DONUT_BATTER.get(), 500))
 
     ;
 

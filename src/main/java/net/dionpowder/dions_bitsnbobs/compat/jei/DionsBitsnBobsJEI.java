@@ -73,10 +73,10 @@ public class DionsBitsnBobsJEI implements IModPlugin {
         protected ItemStack getCatalyst() {
             if (catalystStacks == null) {
                 catalystStacks = new ItemStack[]{
-                        new ItemStack(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_BUCKET.get()),
-                        new ItemStack(DionsBitsnBobsFluids.ORANGE_FROSTING_BUCKET.get()),
-                        new ItemStack(DionsBitsnBobsFluids.BLUEBERRY_FROSTING_BUCKET.get()),
-                        new ItemStack(DionsBitsnBobsFluids.PEAR_FROSTING_BUCKET.get()),
+                        new ItemStack(DionsBitsnBobsFluids.STRAWBERRY_FROSTING.get().getBucket()),
+                        new ItemStack(DionsBitsnBobsFluids.BLUEBERRY_FROSTING.get().getBucket()),
+                        new ItemStack(DionsBitsnBobsFluids.ORANGE_FROSTING.get().getBucket()),
+                        new ItemStack(DionsBitsnBobsFluids.PEAR_FROSTING.get().getBucket()),
                 };
             }
             return catalystStacks[(AnimationTickHolder.getTicks() / 20) % catalystStacks.length];

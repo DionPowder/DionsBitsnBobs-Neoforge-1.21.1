@@ -44,22 +44,22 @@ public class BulkRecipeGen {
             ResourceLocation sourceId = holder.id();
             FluidIngredient fluidIngredient = recipe.getRequiredFluid().ingredient();
 
-            if (fluidIngredient.test(new FluidStack(DionsBitsnBobsFluids.SOURCE_STRAWBERRY_FROSTING.get(), 1))) {
+            if (fluidIngredient.test(new FluidStack(DionsBitsnBobsFluids.STRAWBERRY_FROSTING.get().getSource(), 1))) {
                 ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/strawberry_frosting/" + sourceId.getNamespace() + "/" + sourceId.getPath());
                 StrawberryFrostingRecipe newStrawberryFrostingRecipe = buildStrawberryDerived(newId, recipe);
                 allRecipes.add(new RecipeHolder<>(newId, newStrawberryFrostingRecipe));
             }
-            else if (fluidIngredient.test(new FluidStack(DionsBitsnBobsFluids.SOURCE_ORANGE_FROSTING.get(), 1))) {
+            else if (fluidIngredient.test(new FluidStack(DionsBitsnBobsFluids.ORANGE_FROSTING.get().getSource(), 1))) {
                 ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/orange_frosting/" + sourceId.getNamespace() + "/" + sourceId.getPath());
                 OrangeFrostingRecipe newOrangeFrostingRecipe = buildOrangeDerived(newId, recipe);
                 allRecipes.add(new RecipeHolder<>(newId, newOrangeFrostingRecipe));
             }
-            else if (fluidIngredient.test(new FluidStack(DionsBitsnBobsFluids.SOURCE_BLUEBERRY_FROSTING.get(), 1))) {
+            else if (fluidIngredient.test(new FluidStack(DionsBitsnBobsFluids.BLUEBERRY_FROSTING.get().getSource(), 1))) {
                 ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/blueberry_frosting/" + sourceId.getNamespace() + "/" + sourceId.getPath());
                 BlueberryFrostingRecipe newBlueberryFrostingRecipe = buildBlueberryDerived(newId, recipe);
                 allRecipes.add(new RecipeHolder<>(newId, newBlueberryFrostingRecipe));
             }
-            else if (fluidIngredient.test(new FluidStack(DionsBitsnBobsFluids.SOURCE_PEAR_FROSTING.get(), 1))) {
+            else if (fluidIngredient.test(new FluidStack(DionsBitsnBobsFluids.PEAR_FROSTING.get().getSource(), 1))) {
                 ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DionsBitsnBobs.MOD_ID, "generated/pear_frosting/" + sourceId.getNamespace() + "/" + sourceId.getPath());
                 PearFrostingRecipe newPearFrostingRecipe = buildPearDerived(newId, recipe);
                 allRecipes.add(new RecipeHolder<>(newId, newPearFrostingRecipe));

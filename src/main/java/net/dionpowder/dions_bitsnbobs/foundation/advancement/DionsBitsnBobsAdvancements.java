@@ -143,7 +143,7 @@ public class DionsBitsnBobsAdvancements implements DataProvider {
             .after(STRAWBERRY)
             .special(NORMAL)),
 
-    STRAWBERRY_FROSTING = create("strawberry_frosting", b -> b.icon(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_BUCKET)
+    STRAWBERRY_FROSTING = create("strawberry_frosting", b -> b.icon(DionsBitsnBobsFluids.STRAWBERRY_FROSTING.get().getBucket())
             .title("More Sugar")
             .description("Mix your first strawberry frosting bucket")
             .whenIconCollected()

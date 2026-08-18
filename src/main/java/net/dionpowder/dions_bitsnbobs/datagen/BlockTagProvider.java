@@ -24,17 +24,8 @@ public class BlockTagProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(BlockTags.MINEABLE_WITH_AXE)
-                .add(DionsBitsnBobsBlocks.STRAWBERRY_CRATE.get());
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(DionsBitsnBobsBlocks.ANDESITE_COMPONENT.get())
-                .add(DionsBitsnBobsBlocks.BRASS_COMPONENT.get())
-                .add(DionsBitsnBobsBlocks.COPPER_COMPONENT.get())
-                .add(DionsBitsnBobsBlocks.TRAIN_COMPONENT.get())
-                .add(DionsBitsnBobsBlocks.DONUT_CAST.get())
-                .add(DionsBitsnBobsBlocks.FILLED_DONUT_CAST.get())
-                .add(DionsBitsnBobsBlocks.COOKED_DONUT_CAST.get())
                 // glass mining
                 .addTag(Tags.Blocks.GLASS_BLOCKS)
                 .addTag(Tags.Blocks.GLASS_BLOCKS_CHEAP)
@@ -77,30 +68,6 @@ public class BlockTagProvider extends BlockTagsProvider {
                 .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "pink_stained_glass"))
                 .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "glass_pane"))
                 .addOptionalTag(ResourceLocation.fromNamespaceAndPath("chipped", "glass"));
-
-        tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(DionsBitsnBobsBlocks.ANDESITE_COMPONENT.get())
-                .add(DionsBitsnBobsBlocks.BRASS_COMPONENT.get())
-                .add(DionsBitsnBobsBlocks.COPPER_COMPONENT.get())
-                .add(DionsBitsnBobsBlocks.TRAIN_COMPONENT.get());
-
-        tag(AllTags.AllBlockTags.WRENCH_PICKUP.tag)
-                .add(DionsBitsnBobsBlocks.ANDESITE_COMPONENT.get())
-                .add(DionsBitsnBobsBlocks.BRASS_COMPONENT.get())
-                .add(DionsBitsnBobsBlocks.COPPER_COMPONENT.get())
-                .add(DionsBitsnBobsBlocks.TRAIN_COMPONENT.get());
-
-        tag(DionsBitsnBobsTags.Blocks.STORAGE_BLOCKS).add(DionsBitsnBobsBlocks.STRAWBERRY_CRATE.get());
-        tag(DionsBitsnBobsTags.Blocks.STORAGE_BLOCKS_STRAWBERRY).add(DionsBitsnBobsBlocks.STRAWBERRY_CRATE.get());
-
-        tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
-                .add(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_BLOCK.get());
-        tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
-                .add(DionsBitsnBobsFluids.ORANGE_FROSTING_BLOCK.get());
-        tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
-                .add(DionsBitsnBobsFluids.BLUEBERRY_FROSTING_BLOCK.get());
-        tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
-                .add(DionsBitsnBobsFluids.PEAR_FROSTING_BLOCK.get());
 
         tag(DionsBitsnBobsTags.Blocks.FAN_PROCESSING_CATALYSTS_CHOCOLATE_GLAZING)
                 .add(AllFluids.CHOCOLATE.get().getSource().defaultFluidState().createLegacyBlock().getBlock());

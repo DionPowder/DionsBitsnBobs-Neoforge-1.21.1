@@ -11,7 +11,7 @@ public class BlueberryFrostingRecipe extends AbstractFrostingRecipe {
 
     @Override
     public Block getFrostingBlock() {
-        return DionsBitsnBobsFluids.BLUEBERRY_FROSTING_BLOCK.get();
+        return DionsBitsnBobsFluids.BLUEBERRY_FROSTING.get().getSource().defaultFluidState().createLegacyBlock().getBlock();
     }
 
     public static Builder<BlueberryFrostingRecipe> builder(ResourceLocation id) {

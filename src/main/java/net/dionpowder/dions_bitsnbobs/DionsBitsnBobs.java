@@ -3,6 +3,7 @@ package net.dionpowder.dions_bitsnbobs;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DionsBitsnBobsFluids;
+import net.dionpowder.dions_bitsnbobs.content.item.DionsBitsnBobsCreativeModeTabs;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DionsBitsnBobsAdvancements;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DionsBitsnBobsTriggers;
 import net.dionpowder.dions_bitsnbobs.content.recipe.BulkRecipeGen;
@@ -34,24 +35,24 @@ public class DionsBitsnBobs {
     public static final String NAME = "Create: Dion's Bits 'n' Bobs!";
     public static final String MOD_ID = "dions_bitsnbobs";
     public static final Logger LOGGER = LogUtils.getLogger();
-
-    // create
+    
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(DionsBitsnBobs.MOD_ID);
 
     public DionsBitsnBobs(IEventBus modEventBus, ModContainer modContainer) {
-        // add listeners
-        modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(DionsBitsnBobs::onRegister);
+        REGISTRATE.registerEventListeners(modEventBus);
+        REGISTRATE.defaultCreativeTab(DionsBitsnBobsCreativeModeTabs.BITSNBOBS_ITEMS_TAB, "bitsnbobs_items_tab");
 
         NeoForge.EVENT_BUS.register(this);
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
 
         // register config
         modEventBus.register(new DionsBitsnBobsConfig(modContainer));
-
-        // create registrate system
-        REGISTRATE.registerEventListeners(modEventBus);
+        
         DionsBitsnBobsSetup.register(modEventBus, modLoadingContext);
+        
+        // add listeners
+        modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(DionsBitsnBobs::onRegister);
 
     }
 

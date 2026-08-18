@@ -1,135 +1,148 @@
 package net.dionpowder.dions_bitsnbobs.content.item;
 
+import com.simibubi.create.Create;
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
-import net.dionpowder.dions_bitsnbobs.content.block.DionsBitsnBobsBlocks;
+import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.tterrag.registrate.util.entry.ItemEntry;
 import net.dionpowder.dions_bitsnbobs.content.item.custom.ChorusDonutItem;
-import net.dionpowder.dions_bitsnbobs.content.item.custom.SprinklesItemBase;
+import net.dionpowder.dions_bitsnbobs.content.item.custom.SprinklesItem;
+import net.dionpowder.dions_bitsnbobs.utils.DionsBitsnBobsTags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemNameBlockItem;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.common.Tags;
+
+import static net.dionpowder.dions_bitsnbobs.DionsBitsnBobs.REGISTRATE;
 
 public class DionsBitsnBobsItems {
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(DionsBitsnBobs.MOD_ID);
+    
+    public static final ItemEntry<Item> STRAWBERRY = REGISTRATE.item("strawberry", Item::new)
+            .tag(Tags.Items.CROPS, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_STRAWBERRY, DionsBitsnBobsTags.Items.CROPS_STRAWBERRY)
+            .properties(p -> p.food(DionsBitsnBobsFoodProperties.STRAWBERRY))
+            .register();
+    
+    public static final ItemEntry<Item> UNCOOKED_DONUT = REGISTRATE.item("uncooked_donut", Item::new)
+            .tag(DionsBitsnBobsTags.Items.SIMPLE_DONUTS, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+            .properties(p -> p.food(DionsBitsnBobsFoodProperties.UNCOOKED_DONUT))
+            .register();
+    
+    public static final ItemEntry<Item> DONUT = REGISTRATE.item("donut", Item::new)
+            .tag(DionsBitsnBobsTags.Items.SIMPLE_DONUTS, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+            .properties(p -> p.food(DionsBitsnBobsFoodProperties.DONUT))
+            .register();
+    
+    public static final ItemEntry<Item> SUGAR_DONUT = REGISTRATE.item("sugar_donut", Item::new)
+            .tag(DionsBitsnBobsTags.Items.SIMPLE_DONUTS, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+            .properties(p -> p.food(DionsBitsnBobsFoodProperties.SUGAR_DONUT))
+            .register();
+    
+    public static final ItemEntry<ChorusDonutItem> CHORUS_DONUT = REGISTRATE.item("chorus_donut", ChorusDonutItem::new)
+            .tag(DionsBitsnBobsTags.Items.FROSTING_DONUTS, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+            .properties(p -> p.food(DionsBitsnBobsFoodProperties.FROSTING_DONUTS))
+            .register();
 
-    public static final DeferredItem<Item> NETHERITE_DUST = ITEMS.register("netherite_dust",
-            () -> new Item(new Item.Properties()));
+    // register items with create registrate system
+    public static final ItemEntry<SequencedAssemblyItem>
+            UNPROCESSED_NETHERITE_DUST = sequencedIngredient("unprocessed_netherite_dust"),
+            UNPROCESSED_MAGMA_BLOCK = sequencedIngredient("unprocessed_magma_block"),
+            UNPROCESSED_ANDESITE_COMPONENT = sequencedIngredient("unprocessed_andesite_component"),
+            UNPROCESSED_BRASS_COMPONENT = sequencedIngredient("unprocessed_brass_component"),
+            UNPROCESSED_COPPER_COMPONENT = sequencedIngredient("unprocessed_copper_component"),
+            UNPROCESSED_TRAIN_COMPONENT = sequencedIngredient("unprocessed_train_component");
+    
+    public static final ItemEntry<Item>
+            NETHERITE_DUST = ingredient("netherite_dust"),
+            EMPTY_SPRINKLES_BOTTLE = ingredient("empty_sprinkles_bottle");
+    
+    public static final ItemEntry<Item>
+            BLUEBERRY_DONUT = frostingDonuts("blueberry_donut"),
+            STRAWBERRY_DONUT = frostingDonuts("strawberry_donut"),
+            PEAR_DONUT = frostingDonuts("pear_donut"),
+            ORANGE_DONUT = frostingDonuts("orange_donut");
+    
+    public static final ItemEntry<Item>
+            SPRINKLED_PEAR_DONUT = toppedFrostingDonuts("sprinkled_pear_donut"),
+            SPRINKLED_STRAWBERRY_DONUT = toppedFrostingDonuts("sprinkled_strawberry_donut"),
+            SPRINKLED_ORANGE_DONUT = toppedFrostingDonuts("sprinkled_orange_donut");
+    
+    public static final ItemEntry<Item>
+            CHOCOLATE_DONUT = chocolateDonuts("chocolate_donut"),
+            DARK_CHOCOLATE_DONUT = chocolateDonuts("dark_chocolate_donut"),
+            WHITE_CHOCOLATE_DONUT = chocolateDonuts("white_chocolate_donut"),
+            RUBY_CHOCOLATE_DONUT = chocolateDonuts("ruby_chocolate_donut"),
+            CARAMEL_DONUT = chocolateDonuts("caramel_donut");
+    
+    public static final ItemEntry<Item>
+            STRAWBERRY_TOPPED_DARK_CHOCOLATE_DONUT = toppedChocolateDonuts("strawberry_topped_dark_chocolate_donut"),
+            BLUEBERRY_TOPPED_WHITE_CHOCOLATE_DONUT = toppedChocolateDonuts("blueberry_topped_white_chocolate_donut"),
+            SPRINKLED_WHITE_CHOCOLATE_DONUT = toppedChocolateDonuts("sprinkled_white_chocolate_donut");
+    
+    public static final ItemEntry<Item>
+            CHOCOLATE_HONEY_DONUT = doubleGlazedDonuts("chocolate_honey_donut"),
+            CHOCOLATE_STRAWBERRY_DONUT = doubleGlazedDonuts("chocolate_strawberry_donut"),
+            WHITE_CHOCOLATE_HONEY_DONUT = doubleGlazedDonuts("white_chocolate_honey_donut"),
+            WHITE_CHOCOLATE_PEAR_DONUT = doubleGlazedDonuts("white_chocolate_pear_donut"),
+            WHITE_CHOCOLATE_RUBY_DONUT = doubleGlazedDonuts("white_chocolate_ruby_donut");
 
-    public static final DeferredItem<Item> UNPROCESSED_NETHERITE_DUST = ITEMS.register("unprocessed_netherite_dust",
-            () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
+    public static final ItemEntry<SprinklesItem>
+            BOTTLED_RAINBOW_SPRINKLES = sprinkles("bottled_rainbow_sprinkles"),
+            BOTTLED_WHITE_SPRINKLES = sprinkles("bottled_white_sprinkles"),
+            BOTTLED_GREEN_SPRINKLES = sprinkles("bottled_green_sprinkles");
+    
+    // shortcuts
 
-    public static final DeferredItem<Item> UNPROCESSED_MAGMA_BLOCK = ITEMS.register("unprocessed_magma_block",
-            () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
+    private static ItemEntry<SequencedAssemblyItem> sequencedIngredient(String name) {
+        return REGISTRATE.item(name, SequencedAssemblyItem::new)
+                .register();
+    }
+    
+    private static ItemEntry<Item> ingredient(String name) {
+        return REGISTRATE.item(name, Item::new)
+                .register();
+    }
+    
+    private static ItemEntry<Item> frostingDonuts(String name) {
+        return REGISTRATE.item(name, Item::new)
+                .properties(p -> p.food(DionsBitsnBobsFoodProperties.FROSTING_DONUTS))
+                .tag(DionsBitsnBobsTags.Items.FROSTING_DONUTS, DionsBitsnBobsTags.Items.ADVANCEMENT_GLAZED_DONUT, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+                .register();
+    }
+    
+    private static ItemEntry<Item> toppedFrostingDonuts(String name) {
+        return REGISTRATE.item(name, Item::new)
+                .properties(p -> p.food(DionsBitsnBobsFoodProperties.TOPPED_FROSTING_DONUTS))
+                .tag(DionsBitsnBobsTags.Items.TOPPED_FROSTING_DONUTS, DionsBitsnBobsTags.Items.ADVANCEMENT_TOPPED_DONUT, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+                .register();
+    }
+    
+    private static ItemEntry<Item> chocolateDonuts(String name) {
+        return REGISTRATE.item(name, Item::new)
+                .properties(p -> p.food(DionsBitsnBobsFoodProperties.CHOCOLATE_DONUTS))
+                .tag(DionsBitsnBobsTags.Items.CHOCOLATE_DONUTS, DionsBitsnBobsTags.Items.ADVANCEMENT_GLAZED_DONUT, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+                .register();
+    }
+    
+    private static ItemEntry<Item> toppedChocolateDonuts(String name) {
+        return REGISTRATE.item(name, Item::new)
+                .properties(p -> p.food(DionsBitsnBobsFoodProperties.TOPPED_CHOCOLATE_DONUTS))
+                .tag(DionsBitsnBobsTags.Items.TOPPED_CHOCOLATE_DONUTS, DionsBitsnBobsTags.Items.ADVANCEMENT_TOPPED_DONUT, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+                .register();
+    }
+    
+    private static ItemEntry<Item> doubleGlazedDonuts(String name) {
+        return REGISTRATE.item(name, Item::new)
+                .properties(p -> p.food(DionsBitsnBobsFoodProperties.DOUBLE_GLAZED_DONUTS))
+                .tag(DionsBitsnBobsTags.Items.DOUBLE_GLAZED_DONUTS, Tags.Items.FOODS, DionsBitsnBobsTags.Items.FOODS_DONUTS, DionsBitsnBobsTags.Items.DONUTS)
+                .register();
+    }
 
-    public static final DeferredItem<Item> UNPROCESSED_ANDESITE_COMPONENT = ITEMS.register("unprocessed_andesite_component",
-            () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
-
-    public static final DeferredItem<Item> UNPROCESSED_BRASS_COMPONENT = ITEMS.register("unprocessed_brass_component",
-            () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
-
-    public static final DeferredItem<Item> UNPROCESSED_COPPER_COMPONENT = ITEMS.register("unprocessed_copper_component",
-            () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
-
-    public static final DeferredItem<Item> UNPROCESSED_TRAIN_COMPONENT = ITEMS.register("unprocessed_train_component",
-            () -> new SequencedAssemblyItem(new SequencedAssemblyItem.Properties()));
-
-    public static final DeferredItem<Item> STRAWBERRY = ITEMS.register("strawberry",
-            () -> new ItemNameBlockItem(DionsBitsnBobsBlocks.STRAWBERRY_BUSH.get(), new Item.Properties().food(DionsBitsnBobsFoodProperties.STRAWBERRY)));
-
-    // simple donuts
-    public static final DeferredItem<Item> UNCOOKED_DONUT = ITEMS.register("uncooked_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.UNCOOKED_DONUT)));
-
-    public static final DeferredItem<Item> DONUT = ITEMS.register("donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.DONUT)));
-
-    public static final DeferredItem<Item> SUGAR_DONUT = ITEMS.register("sugar_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.SUGAR_DONUT)));
-
-    // frosting donuts
-    public static final DeferredItem<Item> CHORUS_DONUT = ITEMS.register("chorus_donut",
-            () -> new ChorusDonutItem(new ChorusDonutItem.Properties().food(DionsBitsnBobsFoodProperties.FROSTING_DONUTS)));
-
-    public static final DeferredItem<Item> BLUEBERRY_DONUT = ITEMS.register("blueberry_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.FROSTING_DONUTS)));
-
-    public static final DeferredItem<Item> PEAR_DONUT = ITEMS.register("pear_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.FROSTING_DONUTS)));
-
-    public static final DeferredItem<Item> STRAWBERRY_DONUT = ITEMS.register("strawberry_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.FROSTING_DONUTS)));
-
-    public static final DeferredItem<Item> ORANGE_DONUT = ITEMS.register("orange_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.FROSTING_DONUTS)));
-
-    // topped frosting donuts
-    public static final DeferredItem<Item> SPRINKLED_PEAR_DONUT = ITEMS.register("sprinkled_pear_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.TOPPED_FROSTING_DONUTS)));
-
-    public static final DeferredItem<Item> SPRINKLED_STRAWBERRY_DONUT = ITEMS.register("sprinkled_strawberry_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.TOPPED_FROSTING_DONUTS)));
-
-    public static final DeferredItem<Item> SPRINKLED_ORANGE_DONUT = ITEMS.register("sprinkled_orange_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.TOPPED_FROSTING_DONUTS)));
-
-    // chocolate donuts
-    public static final DeferredItem<Item> CHOCOLATE_DONUT = ITEMS.register("chocolate_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.CHOCOLATE_DONUTS)));
-
-    public static final DeferredItem<Item> DARK_CHOCOLATE_DONUT = ITEMS.register("dark_chocolate_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.CHOCOLATE_DONUTS)));
-
-    public static final DeferredItem<Item> CARAMEL_DONUT = ITEMS.register("caramel_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.CHOCOLATE_DONUTS)));
-
-    public static final DeferredItem<Item> WHITE_CHOCOLATE_DONUT = ITEMS.register("white_chocolate_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.CHOCOLATE_DONUTS)));
-
-    public static final DeferredItem<Item> RUBY_CHOCOLATE_DONUT = ITEMS.register("ruby_chocolate_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.CHOCOLATE_DONUTS)));
-
-    // topped chocolate donuts
-    public static final DeferredItem<Item> STRAWBERRY_TOPPED_DARK_CHOCOLATE_DONUT = ITEMS.register("strawberry_topped_dark_chocolate_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.TOPPED_CHOCOLATE_DONUTS)));
-
-    public static final DeferredItem<Item> BLUEBERRY_TOPPED_WHITE_CHOCOLATE_DONUT = ITEMS.register("blueberry_topped_white_chocolate_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.TOPPED_CHOCOLATE_DONUTS)));
-
-    public static final DeferredItem<Item> SPRINKLED_WHITE_CHOCOLATE_DONUT = ITEMS.register("sprinkled_white_chocolate_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.TOPPED_CHOCOLATE_DONUTS)));
-
-    // double glazed donuts
-    public static final DeferredItem<Item> CHOCOLATE_HONEY_DONUT = ITEMS.register("chocolate_honey_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.DOUBLE_GLAZED_DONUTS)));
-
-    public static final DeferredItem<Item> CHOCOLATE_STRAWBERRY_DONUT = ITEMS.register("chocolate_strawberry_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.DOUBLE_GLAZED_DONUTS)));
-
-    public static final DeferredItem<Item> WHITE_CHOCOLATE_HONEY_DONUT = ITEMS.register("white_chocolate_honey_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.DOUBLE_GLAZED_DONUTS)));
-
-    public static final DeferredItem<Item> WHITE_CHOCOLATE_PEAR_DONUT = ITEMS.register("white_chocolate_pear_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.DOUBLE_GLAZED_DONUTS)));
-
-    public static final DeferredItem<Item> WHITE_CHOCOLATE_RUBY_DONUT = ITEMS.register("white_chocolate_ruby_donut",
-            () -> new Item(new Item.Properties().food(DionsBitsnBobsFoodProperties.DOUBLE_GLAZED_DONUTS)));
-
-    // sprinkles
-    public static final DeferredItem<Item> EMPTY_SPRINKLES_BOTTLE = ITEMS.register("empty_sprinkles_bottle",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> BOTTLED_RAINBOW_SPRINKLES = ITEMS.register("bottled_rainbow_sprinkles",
-            () -> new SprinklesItemBase(new SprinklesItemBase.Properties().food(DionsBitsnBobsFoodProperties.SPRINKLES)));
-
-    public static final DeferredItem<Item> BOTTLED_WHITE_SPRINKLES = ITEMS.register("bottled_white_sprinkles",
-            () -> new SprinklesItemBase(new SprinklesItemBase.Properties().food(DionsBitsnBobsFoodProperties.SPRINKLES)));
-
-    public static final DeferredItem<Item> BOTTLED_GREEN_SPRINKLES = ITEMS.register("bottled_green_sprinkles",
-            () -> new SprinklesItemBase(new SprinklesItemBase.Properties().food(DionsBitsnBobsFoodProperties.SPRINKLES)));
+    private static ItemEntry<SprinklesItem> sprinkles(String name) {
+        return REGISTRATE.item(name, SprinklesItem::new)
+                .properties(p -> p.food(DionsBitsnBobsFoodProperties.SPRINKLES))
+                .tag(DionsBitsnBobsTags.Items.SPRINKLES)
+                .register();
+    }
 
     public static void register(IEventBus eventBus) {
-       ITEMS.register(eventBus);
+    
     }
 }

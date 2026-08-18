@@ -19,30 +19,6 @@ public class FluidTagsProvider extends net.minecraft.data.tags.FluidTagsProvider
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(DionsBitsnBobsTags.Fluids.STRAWBERRY_FROSTING)
-                .add(DionsBitsnBobsFluids.SOURCE_STRAWBERRY_FROSTING.get())
-                .add(DionsBitsnBobsFluids.FLOWING_STRAWBERRY_FROSTING.get());
-        tag(DionsBitsnBobsTags.Fluids.ORANGE_FROSTING)
-                .add(DionsBitsnBobsFluids.SOURCE_ORANGE_FROSTING.get())
-                .add(DionsBitsnBobsFluids.FLOWING_ORANGE_FROSTING.get());
-        tag(DionsBitsnBobsTags.Fluids.BLUEBERRY_FROSTING)
-                .add(DionsBitsnBobsFluids.SOURCE_BLUEBERRY_FROSTING.get())
-                .add(DionsBitsnBobsFluids.FLOWING_BLUEBERRY_FROSTING.get());
-        tag(DionsBitsnBobsTags.Fluids.PEAR_FROSTING)
-                .add(DionsBitsnBobsFluids.SOURCE_PEAR_FROSTING.get())
-                .add(DionsBitsnBobsFluids.FLOWING_PEAR_FROSTING.get());
-        tag(DionsBitsnBobsTags.Fluids.DONUT_BATTER)
-                .add(DionsBitsnBobsFluids.SOURCE_DONUT_BATTER.get())
-                .add(DionsBitsnBobsFluids.FLOWING_DONUT_BATTER.get());
-
-        tag(DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
-                .add(DionsBitsnBobsFluids.SOURCE_STRAWBERRY_FROSTING.get());
-        tag(DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
-                .add(DionsBitsnBobsFluids.SOURCE_ORANGE_FROSTING.get());
-        tag(DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
-                .add(DionsBitsnBobsFluids.SOURCE_BLUEBERRY_FROSTING.get());
-        tag(DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
-                .add(DionsBitsnBobsFluids.SOURCE_PEAR_FROSTING.get());
 
         tag(DionsBitsnBobsTags.Fluids.FAN_PROCESSING_CATALYSTS_CHOCOLATE_GLAZING)
                 .add(AllFluids.CHOCOLATE.get().getSource());

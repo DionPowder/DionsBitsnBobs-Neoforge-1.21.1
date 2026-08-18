@@ -12,7 +12,6 @@ public class ChocolateGlazingRecipe extends AbstractChocolateGlazingRecipe {
     @Override
     public Block getChocolateBlock() {
         return AllFluids.CHOCOLATE.get().getSource().defaultFluidState().createLegacyBlock().getBlock();
-        //return BuiltInRegistries.BLOCK.getOptional(ResourceLocation.fromNamespaceAndPath("create_confectionery", "ruby_chocolate")).orElse(Blocks.AIR);
     }
 
     public static Builder<ChocolateGlazingRecipe> builder(ResourceLocation id) {

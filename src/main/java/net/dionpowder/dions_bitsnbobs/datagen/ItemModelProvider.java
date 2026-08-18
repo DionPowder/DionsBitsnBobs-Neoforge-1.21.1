@@ -53,11 +53,11 @@ public class ItemModelProvider extends net.neoforged.neoforge.client.model.gener
         basicItem(DionsBitsnBobsItems.BOTTLED_WHITE_SPRINKLES.get());
         basicItem(DionsBitsnBobsItems.BOTTLED_GREEN_SPRINKLES.get());
 
-        basicItem(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_BUCKET.get());
-        basicItem(DionsBitsnBobsFluids.ORANGE_FROSTING_BUCKET.get());
-        basicItem(DionsBitsnBobsFluids.BLUEBERRY_FROSTING_BUCKET.get());
-        basicItem(DionsBitsnBobsFluids.PEAR_FROSTING_BUCKET.get());
-        basicItem(DionsBitsnBobsFluids.DONUT_BATTER_BUCKET.get());
+        basicItem(DionsBitsnBobsFluids.STRAWBERRY_FROSTING.get().getBucket());
+        basicItem(DionsBitsnBobsFluids.ORANGE_FROSTING.get().getBucket());
+        basicItem(DionsBitsnBobsFluids.BLUEBERRY_FROSTING.get().getBucket());
+        basicItem(DionsBitsnBobsFluids.PEAR_FROSTING.get().getBucket());
+        basicItem(DionsBitsnBobsFluids.DONUT_BATTER.get().getBucket());
 
     }
 }

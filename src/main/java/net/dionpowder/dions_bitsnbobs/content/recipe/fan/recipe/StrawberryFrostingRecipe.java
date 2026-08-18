@@ -12,7 +12,7 @@ public class StrawberryFrostingRecipe extends AbstractFrostingRecipe {
 
     @Override
     public Block getFrostingBlock() {
-        return DionsBitsnBobsFluids.STRAWBERRY_FROSTING_BLOCK.get();
+        return DionsBitsnBobsFluids.STRAWBERRY_FROSTING.get().getSource().defaultFluidState().createLegacyBlock().getBlock();
     }
 
     public static StandardProcessingRecipe.Builder<StrawberryFrostingRecipe> builder(ResourceLocation id) {
