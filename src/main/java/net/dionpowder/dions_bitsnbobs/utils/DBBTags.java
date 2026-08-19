@@ -84,6 +84,7 @@ public class DBBTags {
         public static final TagKey<Fluid> ORANGE_FROSTING = createTag("orange_frosting");
         public static final TagKey<Fluid> BLUEBERRY_FROSTING = createTag("blueberry_frosting");
         public static final TagKey<Fluid> PEAR_FROSTING = createTag("pear_frosting");
+        public static final TagKey<Fluid> CRANBERRY_FROSTING = createTag("cranberry_frosting");
         public static final TagKey<Fluid> DONUT_BATTER = createTag("donut_batter");
 
         private static TagKey<Fluid> createTag(String name) {

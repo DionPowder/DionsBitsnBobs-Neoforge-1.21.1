@@ -43,7 +43,6 @@ import static net.dionpowder.dions_bitsnbobs.DBB.REGISTRATE;
 
 public class DBBFluids {
     
-    
     public static final FluidEntry<BaseFlowingFluid.Flowing> STRAWBERRY_FROSTING =
             REGISTRATE.standardFluid("strawberry_frosting", SolidRenderedPlaceableFluidType.create(0xFFF29AA3, () -> 1f / 8f, true))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
@@ -108,13 +107,28 @@ public class DBBFluids {
                     .build()
                     .register();
     
+    public static final FluidEntry<BaseFlowingFluid.Flowing> CRANBERRY_FROSTING =
+            REGISTRATE.standardFluid("cranberry_frosting", SolidRenderedPlaceableFluidType.create(0xFCA2ED, () -> 1f / 8f, true))
+                    .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
+                    //.renderType(() -> RenderType::translucent)
+                    .tag(DBBTags.Fluids.CRANBERRY_FROSTING)
+                    .source(BaseFlowingFluid.Source::new)
+                    .block()
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_PINK))
+                    .build()
+                    .bucket()
+                    .onRegister(DBBFluids::registerFluidDispenseBehavior)
+                    .tag(Tags.Items.BUCKETS)
+                    .build()
+                    .register();
+    
     public static final FluidEntry<BaseFlowingFluid.Flowing> DONUT_BATTER =
             REGISTRATE.standardFluid("donut_batter", SolidRenderedPlaceableFluidType.create(0xffffffff, () -> 1f / 8f, false))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2).tickRate(30))
                     .tag(DBBTags.Fluids.DONUT_BATTER)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
-                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_LIGHT_GREEN))
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_WHITE))
                     .build()
                     .bucket()
                     .onRegister(DBBFluids::registerFluidDispenseBehavior)
@@ -142,6 +156,10 @@ public class DBBFluids {
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
                 PEAR_FROSTING.get().getFluidType(),
                 fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.LIME_TERRACOTTA.defaultBlockState()));
+        
+        FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
+                CRANBERRY_FROSTING.get().getFluidType(),
+                fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.MAGENTA_TERRACOTTA.defaultBlockState()));
 
     }
 
