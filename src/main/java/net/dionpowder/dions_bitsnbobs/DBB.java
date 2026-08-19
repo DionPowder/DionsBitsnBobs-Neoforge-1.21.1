@@ -16,6 +16,7 @@ import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBAdvancements;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBTriggers;
 import net.dionpowder.dions_bitsnbobs.content.recipe.BulkRecipeGen;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBFanProcessingTypes;
+import net.dionpowder.dions_bitsnbobs.utils.DBBHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -47,6 +48,7 @@ public class DBB {
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(DBB.MOD_ID);
 
     public DBB(IEventBus modEventBus, ModContainer modContainer) {
+        DBBHelper.addLangToRegistrate();
         DBBCreativeTabs.register(modEventBus);
         var context = ModLoadingContext.get();
         REGISTRATE.registerEventListeners(modEventBus);

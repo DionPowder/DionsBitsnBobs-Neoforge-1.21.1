@@ -1,0 +1,16 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "dions_bitsnbobs:cooked_donut_cast"
+    }
+  ],
+  "results": [
+    {
+      "id": "dions_bitsnbobs:donut_cast"
+    },
+    {
+      "id": "dions_bitsnbobs:donut"
+    }
+  ]
+}

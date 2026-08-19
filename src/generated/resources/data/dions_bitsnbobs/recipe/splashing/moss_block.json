@@ -1,0 +1,13 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "tag": "minecraft:logs"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:moss_block"
+    }
+  ]
+}

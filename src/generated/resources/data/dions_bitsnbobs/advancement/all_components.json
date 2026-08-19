@@ -1,0 +1,74 @@
+{
+  "parent": "dions_bitsnbobs:netherite_dust",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:andesite_component"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "1": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:brass_component"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "2": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:copper_component"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "3": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:train_component"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.dions_bitsnbobs.all_components.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "dions_bitsnbobs:brass_component"
+    },
+    "title": {
+      "translate": "advancement.dions_bitsnbobs.all_components"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ],
+    [
+      "1"
+    ],
+    [
+      "2"
+    ],
+    [
+      "3"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

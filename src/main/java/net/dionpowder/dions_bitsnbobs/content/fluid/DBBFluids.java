@@ -9,11 +9,13 @@ import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.Level;
@@ -24,6 +26,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.common.SoundActions;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
@@ -42,8 +45,9 @@ public class DBBFluids {
     
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> STRAWBERRY_FROSTING =
-            REGISTRATE.standardFluid("strawberry_frosting", SolidRenderedPlaceableFluidType.create(0xFFF29AA3, () -> 1f / 8f))
+            REGISTRATE.standardFluid("strawberry_frosting", SolidRenderedPlaceableFluidType.create(0xFFF29AA3, () -> 1f / 8f, true))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
+                    //.renderType(() -> RenderType::translucent)
                     .tag(DBBTags.Fluids.STRAWBERRY_FROSTING, DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
@@ -57,8 +61,9 @@ public class DBBFluids {
                     .register();
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> ORANGE_FROSTING =
-            REGISTRATE.standardFluid("orange_frosting", SolidRenderedPlaceableFluidType.create(0xFFFFB347, () -> 1f / 8f))
+            REGISTRATE.standardFluid("orange_frosting", SolidRenderedPlaceableFluidType.create(0xFFFFB347, () -> 1f / 8f, true))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
+                    //.renderType(() -> RenderType::translucent)
                     .tag(DBBTags.Fluids.ORANGE_FROSTING, DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
@@ -72,8 +77,9 @@ public class DBBFluids {
                     .register();
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> BLUEBERRY_FROSTING =
-            REGISTRATE.standardFluid("blueberry_frosting", SolidRenderedPlaceableFluidType.create(0xFF8B6FF7, () -> 1f / 8f))
+            REGISTRATE.standardFluid("blueberry_frosting", SolidRenderedPlaceableFluidType.create(0xFF8B6FF7, () -> 1f / 8f, true))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
+                    //.renderType(() -> RenderType::translucent)
                     .tag(DBBTags.Fluids.BLUEBERRY_FROSTING, DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
@@ -87,8 +93,9 @@ public class DBBFluids {
                     .register();
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> PEAR_FROSTING =
-            REGISTRATE.standardFluid("pear_frosting", SolidRenderedPlaceableFluidType.create(0xFFB7E65A, () -> 1f / 8f))
+            REGISTRATE.standardFluid("pear_frosting", SolidRenderedPlaceableFluidType.create(0xFFB7E65A, () -> 1f / 8f, true))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
+                    //.renderType(() -> RenderType::translucent)
                     .tag(DBBTags.Fluids.PEAR_FROSTING, DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
@@ -102,9 +109,9 @@ public class DBBFluids {
                     .register();
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> DONUT_BATTER =
-            REGISTRATE.standardFluid("donut_batter", SolidRenderedPlaceableFluidType.create(0xffffffff, () -> 1f / 8f))
+            REGISTRATE.standardFluid("donut_batter", SolidRenderedPlaceableFluidType.create(0xffffffff, () -> 1f / 8f, false))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2).tickRate(30))
-                    .tag(DBBTags.Fluids.PEAR_FROSTING)
+                    .tag(DBBTags.Fluids.DONUT_BATTER)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
                     .properties(p -> p.mapColor(MapColor.TERRACOTTA_LIGHT_GREEN))
@@ -163,11 +170,18 @@ public class DBBFluids {
         protected static final int NO_TINT = 0xffffffff;
         private final ResourceLocation stillTexture;
         private final ResourceLocation flowingTexture;
+        private final boolean shouldVaporize;
         
-        public TintedFluidType(Properties properties, ResourceLocation stillTexture, ResourceLocation flowingTexture) {
+        public TintedFluidType(Properties properties, ResourceLocation stillTexture, ResourceLocation flowingTexture, boolean shouldVaporize) {
             super(properties);
             this.stillTexture = stillTexture;
             this.flowingTexture = flowingTexture;
+            this.shouldVaporize = shouldVaporize;
+        }
+        
+        @Override
+        public boolean isVaporizedOnPlacement(Level level, BlockPos pos, FluidStack stack) {
+            return shouldVaporize && level.dimensionType().ultraWarm();
         }
         
         @Override
@@ -235,18 +249,17 @@ public class DBBFluids {
         private Vector3f fogColor;
         private Supplier<Float> fogDistance;
         
-        public static FluidBuilder.FluidTypeFactory create(int fogColor, Supplier<Float> fogDistance) {
+        public static FluidBuilder.FluidTypeFactory create(int fogColor, Supplier<Float> fogDistance, Boolean shouldVaporize) {
             return (p, s, f) -> {
-                SolidRenderedPlaceableFluidType fluidType = new SolidRenderedPlaceableFluidType(p, s, f);
+                SolidRenderedPlaceableFluidType fluidType = new SolidRenderedPlaceableFluidType(p.sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL), s, f, shouldVaporize);
                 fluidType.fogColor = new Color(fogColor, false).asVectorF();
                 fluidType.fogDistance = fogDistance;
                 return fluidType;
             };
         }
         
-        private SolidRenderedPlaceableFluidType(Properties properties, ResourceLocation stillTexture,
-                                                ResourceLocation flowingTexture) {
-            super(properties, stillTexture, flowingTexture);
+        private SolidRenderedPlaceableFluidType(Properties properties, ResourceLocation stillTexture, ResourceLocation flowingTexture, Boolean shouldVaporize) {
+            super(properties, stillTexture, flowingTexture, shouldVaporize);
         }
         
         @Override

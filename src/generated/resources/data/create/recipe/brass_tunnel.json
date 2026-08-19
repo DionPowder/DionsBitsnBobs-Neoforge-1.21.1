@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "dions_bitsnbobs:brass_component"
+  },
+  "result": {
+    "count": 2,
+    "id": "create:brass_tunnel"
+  }
+}

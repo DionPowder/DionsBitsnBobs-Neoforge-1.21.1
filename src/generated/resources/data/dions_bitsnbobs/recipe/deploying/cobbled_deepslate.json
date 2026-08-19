@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "minecraft:deepslate"
+    },
+    {
+      "tag": "minecraft:pickaxes"
+    }
+  ],
+  "keep_held_item": true,
+  "results": [
+    {
+      "id": "minecraft:cobbled_deepslate"
+    }
+  ]
+}

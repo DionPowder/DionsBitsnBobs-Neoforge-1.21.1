@@ -1,0 +1,16 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "dions_bitsnbobs:donut"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "results": [
+    {
+      "id": "dions_bitsnbobs:sugar_donut"
+    }
+  ]
+}

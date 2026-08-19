@@ -1,0 +1,29 @@
+{
+  "type": "create:mixing",
+  "heat_requirement": "heated",
+  "ingredients": [
+    {
+      "item": "create:wheat_flour"
+    },
+    {
+      "item": "create:wheat_flour"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "c:eggs"
+    },
+    {
+      "type": "neoforge:tag",
+      "amount": 400,
+      "tag": "c:milk"
+    }
+  ],
+  "results": [
+    {
+      "amount": 500,
+      "id": "dions_bitsnbobs:donut_batter"
+    }
+  ]
+}

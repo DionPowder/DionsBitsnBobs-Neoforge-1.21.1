@@ -1,0 +1,8 @@
+{
+  "values": [
+    {
+      "id": "create_confectionery:ruby_chocolate",
+      "required": false
+    }
+  ]
+}

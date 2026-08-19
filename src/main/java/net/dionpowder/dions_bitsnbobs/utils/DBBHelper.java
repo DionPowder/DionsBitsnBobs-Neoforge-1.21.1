@@ -13,9 +13,35 @@ import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
 import java.util.List;
 
+import static net.dionpowder.dions_bitsnbobs.DBB.REGISTRATE;
 import static net.dionpowder.dions_bitsnbobs.DBBEvents.randomBetween;
 
 public class DBBHelper {
+    
+    public static void addLangToRegistrate() {
+        REGISTRATE.addRawLang("entity.minecraft.villager.dions_bitsnbobs.baker", "Baker");
+        REGISTRATE.addRawLang("entity.minecraft.villager.baker", "Baker");
+        REGISTRATE.addRawLang("item.minecraft.potion.effect.sugar_rush_potion", "Potion of Sugar Rush");
+        REGISTRATE.addRawLang("item.minecraft.splash_potion.effect.sugar_rush_potion", "Splash Potion of Sugar Rush");
+        REGISTRATE.addRawLang("item.minecraft.lingering_potion.effect.sugar_rush_potion", "Lingering Potion of Sugar Rush");
+        REGISTRATE.addRawLang("item.minecraft.tipped_arrow.effect.sugar_rush_potion", "Arrow of Sugar Rush");
+        REGISTRATE.addRawLang("effect.dions_bitsnbobs.sugar_rush", "Sugar Rush");
+        REGISTRATE.addRawLang("effect.dions_bitsnbobs.sugar_rush.description", "Increases movement and mining speed; higher levels increase both stats further.");
+        REGISTRATE.addRawLang("create.recipe.fan_frosting", "Bulk Frosting");
+        REGISTRATE.addRawLang("create.recipe.fan_chocolate_glazing", "Bulk Chocolate Glazing");
+        REGISTRATE.addRawLang("tag.dions_bitsnbobs.donuts", "Donuts");
+        REGISTRATE.addRawLang("tag.dions_bitsnbobs.simple_donuts", "Simple Donuts");
+        REGISTRATE.addRawLang("tag.dions_bitsnbobs.frosting_donuts", "Frosting Donuts");
+        REGISTRATE.addRawLang("tag.dions_bitsnbobs.topped_frosting_donuts", "Topped Frosting Donuts");
+        REGISTRATE.addRawLang("tag.dions_bitsnbobs.chocolate_donuts", "Chocolate Donuts");
+        REGISTRATE.addRawLang("tag.dions_bitsnbobs.topped_chocolate_donuts", "Topped Chocolate Donuts");
+        REGISTRATE.addRawLang("tag.dions_bitsnbobs.double_glazed_donuts", "Double Glazed Donuts");
+        REGISTRATE.addRawLang("tag.dions_bitsnbobs.sprinkles", "Sprinkles");
+        REGISTRATE.addRawLang("tag.dions_bitsnbobs.advancement_glazed_donut", "Advancement Glazed Donut");
+        REGISTRATE.addRawLang("tag.dions_bitsnbobs.advancement_topped_donut", "Advancement Topped Donut");
+        REGISTRATE.addRawLang("tag.dions_bitsnbobs.rooted_dirt_mixing", "Rooted Dirt Mixing");
+        REGISTRATE.addRawLang("tag.dions_bitsnbobs.unprocessed_components", "Unprocessed Components");
+    }
 
     // standard villager sell trades
     public static Int2ObjectMap<List<VillagerTrades.ItemListing>> getStandardSellTrades(VillagerTradesEvent event) {

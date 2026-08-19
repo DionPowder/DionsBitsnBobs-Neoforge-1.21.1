@@ -1,0 +1,321 @@
+{
+  "parent": "dions_bitsnbobs:double_glazed_donut",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "1": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:sugar_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "10": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:chocolate_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "11": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:dark_chocolate_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "12": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:caramel_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "13": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:white_chocolate_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "14": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:ruby_chocolate_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "15": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:strawberry_topped_dark_chocolate_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "16": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:blueberry_topped_white_chocolate_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "17": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:sprinkled_white_chocolate_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "18": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:chocolate_honey_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "19": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:chocolate_strawberry_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "2": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:chorus_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "20": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:white_chocolate_honey_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "21": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:white_chocolate_pear_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "22": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:white_chocolate_ruby_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "3": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:blueberry_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "4": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:pear_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "5": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:strawberry_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "6": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:orange_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "7": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:sprinkled_pear_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "8": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:sprinkled_strawberry_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "9": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:sprinkled_orange_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.dions_bitsnbobs.all_donuts.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "dions_bitsnbobs:white_chocolate_ruby_donut"
+    },
+    "title": {
+      "translate": "advancement.dions_bitsnbobs.all_donuts"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ],
+    [
+      "1"
+    ],
+    [
+      "2"
+    ],
+    [
+      "3"
+    ],
+    [
+      "4"
+    ],
+    [
+      "5"
+    ],
+    [
+      "6"
+    ],
+    [
+      "7"
+    ],
+    [
+      "8"
+    ],
+    [
+      "9"
+    ],
+    [
+      "10"
+    ],
+    [
+      "11"
+    ],
+    [
+      "12"
+    ],
+    [
+      "13"
+    ],
+    [
+      "14"
+    ],
+    [
+      "15"
+    ],
+    [
+      "16"
+    ],
+    [
+      "17"
+    ],
+    [
+      "18"
+    ],
+    [
+      "19"
+    ],
+    [
+      "20"
+    ],
+    [
+      "21"
+    ],
+    [
+      "22"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

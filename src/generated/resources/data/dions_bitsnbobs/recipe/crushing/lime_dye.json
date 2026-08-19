@@ -1,0 +1,15 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat_seeds"
+    }
+  ],
+  "processing_time": 300,
+  "results": [
+    {
+      "chance": 0.75,
+      "id": "minecraft:lime_dye"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "minecraft:andesite"
+    },
+    {
+      "item": "minecraft:diorite"
+    },
+    {
+      "type": "neoforge:single",
+      "amount": 50,
+      "fluid": "minecraft:lava"
+    }
+  ],
+  "results": [
+    {
+      "count": 2,
+      "id": "minecraft:tuff"
+    }
+  ]
+}

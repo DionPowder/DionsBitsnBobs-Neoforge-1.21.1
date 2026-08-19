@@ -35,6 +35,7 @@ public class DBBDatagen {
         generator.addProvider(event.includeServer(), new DBBVanillaRecipeProvider(output, lookupProvider));
         generator.addProvider(event.includeServer(), new DBBDatapackProvider(output, lookupProvider));
         
+        
         if (event.includeServer()) {
             DBBRecipeProvider.registerAllProcessing(generator, output, lookupProvider);
         }
@@ -46,18 +47,9 @@ public class DBBDatagen {
         DBB.REGISTRATE.addDataGenerator(ProviderType.LANG, provider -> {
             BiConsumer<String, String> langConsumer = provider::add;
             
-            //provideDefaultLang("interface", langConsumer);
-            //("tooltips", langConsumer);
             DBBAdvancements.provideLang(langConsumer);
             //new TagLangGenerator(langConsumer).generate();
         });
-    }
-    
-    private static void provideDefaultLang(String fileName, BiConsumer<String, String> consumer) {
-        var path = "assets/"+ DBB.MOD_ID +"/lang/default/" + fileName + ".json";
-        var jsonElement = FilesHelper.loadJsonResource(path);
-        if (jsonElement == null) throw new IllegalStateException(String.format("Could not find default lang file: %s", path));
-        for (Map.Entry<String, JsonElement> entry : jsonElement.getAsJsonObject().entrySet()) consumer.accept(entry.getKey(), entry.getValue().getAsString());
     }
     
 }

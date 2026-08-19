@@ -29,15 +29,14 @@ public class DBBClient {
 
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
-        ResourceLocation texture = ResourceLocation.parse("dions_bitsnbobs:fluid/strawberry_frosting_still");
-        
-        ResourceLocation textureFile = texture.withPath(path -> "textures/" + path + ".png");
-        
-        Minecraft.getInstance().getResourceManager()
-                .getResource(textureFile)
-                .ifPresentOrElse(
-                        resource -> System.out.println("FOUND: " + textureFile),
-                        () -> System.out.println("NOT FOUND: " + textureFile));
+        /*
+        event.enqueueWork(() -> {
+            ItemBlockRenderTypes.setRenderLayer(DBBFluids.STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+            ItemBlockRenderTypes.setRenderLayer(DBBFluids.PEAR_FROSTING.get(), RenderType.TRANSLUCENT);
+            ItemBlockRenderTypes.setRenderLayer(DBBFluids.ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
+            ItemBlockRenderTypes.setRenderLayer(DBBFluids.BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
+        });
+         */
     }
 
     @SubscribeEvent

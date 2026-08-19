@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "dions_bitsnbobs:strawberry_crate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "dions_bitsnbobs:strawberry"
+  }
+}
