@@ -1,6 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.content.item;
 
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
+import com.simibubi.create.foundation.data.AssetLookup;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.item.custom.ChorusDonutItem;
@@ -40,15 +41,19 @@ public class DBBItems {
             .tag(DBBTags.Items.FROSTING_DONUTS, Tags.Items.FOODS, DBBTags.Items.FOODS_DONUTS, DBBTags.Items.DONUTS)
             .properties(p -> p.food(DBBFoodProperties.FROSTING_DONUTS))
             .register();
-
-    // register items with create registrate system
+    
+    public static final ItemEntry<SequencedAssemblyItem> UNPROCESSED_NETHERITE_DUST = REGISTRATE.item("unprocessed_netherite_dust", SequencedAssemblyItem::new)
+            .register();
+    
+    public static final ItemEntry<SequencedAssemblyItem> UNPROCESSED_MAGMA_BLOCK = REGISTRATE.item("unprocessed_magma_block", SequencedAssemblyItem::new)
+            .model(AssetLookup.existingItemModel())
+            .register();
+    
     public static final ItemEntry<SequencedAssemblyItem>
-            UNPROCESSED_NETHERITE_DUST = sequencedIngredient("unprocessed_netherite_dust"),
-            UNPROCESSED_MAGMA_BLOCK = sequencedIngredient("unprocessed_magma_block"),
-            UNPROCESSED_ANDESITE_COMPONENT = sequencedIngredient("unprocessed_andesite_component"),
-            UNPROCESSED_BRASS_COMPONENT = sequencedIngredient("unprocessed_brass_component"),
-            UNPROCESSED_COPPER_COMPONENT = sequencedIngredient("unprocessed_copper_component"),
-            UNPROCESSED_TRAIN_COMPONENT = sequencedIngredient("unprocessed_train_component");
+            UNPROCESSED_ANDESITE_COMPONENT = unprocessedComponent("unprocessed_andesite_component"),
+            UNPROCESSED_BRASS_COMPONENT = unprocessedComponent("unprocessed_brass_component"),
+            UNPROCESSED_COPPER_COMPONENT = unprocessedComponent("unprocessed_copper_component"),
+            UNPROCESSED_TRAIN_COMPONENT = unprocessedComponent("unprocessed_train_component");
     
     public static final ItemEntry<Item>
             BLUEBERRY_DONUT = frostingDonuts("blueberry_donut"),
@@ -91,8 +96,10 @@ public class DBBItems {
     
     // shortcuts
 
-    private static ItemEntry<SequencedAssemblyItem> sequencedIngredient(String name) {
+    private static ItemEntry<SequencedAssemblyItem> unprocessedComponent(String name) {
         return REGISTRATE.item(name, SequencedAssemblyItem::new)
+                .tag(DBBTags.Items.UNPROCESSED_COMPONENTS)
+                .model(AssetLookup.existingItemModel())
                 .register();
     }
     

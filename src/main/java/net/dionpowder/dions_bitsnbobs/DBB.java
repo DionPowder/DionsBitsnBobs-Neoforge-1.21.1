@@ -11,6 +11,7 @@ import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
 import net.dionpowder.dions_bitsnbobs.content.potion.DBBPotions;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
 import net.dionpowder.dions_bitsnbobs.content.villager.DBBVillagers;
+import net.dionpowder.dions_bitsnbobs.datagen.DBBDatagen;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBAdvancements;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBTriggers;
 import net.dionpowder.dions_bitsnbobs.content.recipe.BulkRecipeGen;
@@ -21,6 +22,7 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimplePreparableReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.item.crafting.RecipeManager;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
@@ -57,7 +59,6 @@ public class DBB {
         DBBBlocks.register(modEventBus);
         DBBItems.register(modEventBus);
         DBBFluids.register(modEventBus);
-        //DBBFluidTypes.register(modEventBus);
         DBBRecipeTypes.register(modEventBus);
         DBBEffects.register(modEventBus);
         DBBPotions.register(modEventBus);
@@ -68,6 +69,8 @@ public class DBB {
         modEventBus.addListener(DBBCreativeTabs::addCreative);
         modEventBus.addListener(DBB::init);
         modEventBus.addListener(DBB::onRegister);
+        modEventBus.addListener(EventPriority.HIGHEST, DBBDatagen::gatherDataHighPriority);
+        modEventBus.addListener(EventPriority.LOWEST, DBBDatagen::gatherData);
 
     }
     

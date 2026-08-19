@@ -33,6 +33,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.Tags;
 
 import static net.dionpowder.dions_bitsnbobs.DBB.REGISTRATE;
+import static net.minecraft.advancements.AdvancementRewards.Builder.loot;
 
 public class DBBBlocks {
     
@@ -43,7 +44,13 @@ public class DBBBlocks {
                     .initialProperties(SharedProperties::wooden)
                     .properties(p -> p.mapColor(MapColor.WOOD)
                             .requiresCorrectToolForDrops())
-                    .blockstate((c, p) -> p.simpleBlock(c.get(), AssetLookup.standardModel(c, p)))
+                    .blockstate((c, p) -> {
+                        p.simpleBlock(c.get(), p.models()
+                                .withExistingParent(c.getName(), p.modLoc("block/crate_block"))
+                                .texture("bottom", p.modLoc("block/crate_bottom"))
+                                .texture("side", p.modLoc("block/strawberry_crate_side"))
+                                .texture("top", p.modLoc("block/strawberry_crate_top")));
+                    })
                     .tag(Tags.Blocks.STORAGE_BLOCKS, DBBTags.Blocks.STORAGE_BLOCKS_STRAWBERRY, BlockTags.MINEABLE_WITH_AXE)
                     .loot(RegistrateBlockLootTables::dropSelf)
                     .item()
@@ -54,7 +61,9 @@ public class DBBBlocks {
     public static final BlockEntry<WildStrawberryBush> WILD_STRAWBERRY_BUSH =
             REGISTRATE.block("wild_strawberry_bush", WildStrawberryBush::new)
                     .properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH))
-                    .blockstate((c, p) -> p.simpleBlock(c.get(), AssetLookup.standardModel(c, p)))
+                    .blockstate((c, p) -> {
+                        p.simpleBlock(c.get(), p.models().withExistingParent(c.getName(), p.modLoc("block/strawberry_bush_4")));
+                    })
                     .loot((lt, block) -> {
                         HolderLookup.RegistryLookup<Enchantment> enchantmentRegistryLookup = lt.getRegistries().lookupOrThrow(Registries.ENCHANTMENT);
                         
@@ -64,13 +73,15 @@ public class DBBBlocks {
                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                                         .apply(ApplyBonusCount.addUniformBonusCount(enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE)))));
                     })
-                    .simpleItem()
+                    .item()
+                    .model(AssetLookup.existingItemModel())
+                    .build()
                     .register();
     
     public static final BlockEntry<StrawberryBush> STRAWBERRY_BUSH =
             REGISTRATE.block("strawberry_bush", StrawberryBush::new)
                     .properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH))
-                    .blockstate((c, p) -> p.simpleBlock(c.get(), AssetLookup.standardModel(c, p)))
+                    .blockstate((c, p) -> p.getExistingMultipartBuilder(c.getEntry()))
                     .loot((lt, block) -> {
                         HolderLookup.RegistryLookup<Enchantment> enchantmentRegistryLookup = lt.getRegistries().lookupOrThrow(Registries.ENCHANTMENT);
                         
@@ -107,7 +118,13 @@ public class DBBBlocks {
                 .initialProperties(SharedProperties::softMetal)
                 .properties(p -> p.mapColor(MapColor.COLOR_GRAY)
                         .requiresCorrectToolForDrops())
-                .blockstate((c, p) -> p.simpleBlock(c.get(), AssetLookup.standardModel(c, p)))
+                .blockstate((c, p) -> {
+                    p.simpleBlock(c.get(), p.models()
+                            .withExistingParent(c.getName(), p.modLoc("block/crate_block"))
+                            .texture("bottom", p.modLoc("block/" + c.getName() + "_top"))
+                            .texture("side", p.modLoc("block/" + c.getName() + "_side"))
+                            .texture("top", p.modLoc("block/" + c.getName() + "_top")));
+                })
                 .tag(BlockTags.MINEABLE_WITH_AXE, BlockTags.NEEDS_IRON_TOOL, AllTags.AllBlockTags.WRENCH_PICKUP.tag)
                 .loot(RegistrateBlockLootTables::dropSelf)
                 .simpleItem()
@@ -117,9 +134,10 @@ public class DBBBlocks {
     private static BlockEntry<DonutCast> donutCast(String name, int stackSize) {
         return REGISTRATE.block(name, DonutCast::new)
                 .properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).noOcclusion())
-                .blockstate((c, p) -> p.simpleBlock(c.get(), AssetLookup.standardModel(c, p)))
+                .blockstate((c, p) -> p.getExistingMultipartBuilder(c.getEntry()))
                 .loot(RegistrateBlockLootTables::dropSelf)
                 .item()
+                .model(AssetLookup.existingItemModel())
                 .properties(p -> p.stacksTo(stackSize))
                 .build()
                 .register();

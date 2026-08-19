@@ -1,8 +1,10 @@
 package net.dionpowder.dions_bitsnbobs;
 
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -27,12 +29,15 @@ public class DBBClient {
 
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
-       event.enqueueWork(() -> {
-           ItemBlockRenderTypes.setRenderLayer(DBBFluids.STRAWBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DBBFluids.ORANGE_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DBBFluids.BLUEBERRY_FROSTING.get(), RenderType.TRANSLUCENT);
-           ItemBlockRenderTypes.setRenderLayer(DBBFluids.PEAR_FROSTING.get(), RenderType.TRANSLUCENT);
-       });
+        ResourceLocation texture = ResourceLocation.parse("dions_bitsnbobs:fluid/strawberry_frosting_still");
+        
+        ResourceLocation textureFile = texture.withPath(path -> "textures/" + path + ".png");
+        
+        Minecraft.getInstance().getResourceManager()
+                .getResource(textureFile)
+                .ifPresentOrElse(
+                        resource -> System.out.println("FOUND: " + textureFile),
+                        () -> System.out.println("NOT FOUND: " + textureFile));
     }
 
     @SubscribeEvent

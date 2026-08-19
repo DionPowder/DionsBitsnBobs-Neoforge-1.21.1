@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "dions_bitsnbobs:block/andesite_component_top",
-    "side": "dions_bitsnbobs:block/andesite_component_side",
-    "top": "dions_bitsnbobs:block/andesite_component_top"
-  }
-}

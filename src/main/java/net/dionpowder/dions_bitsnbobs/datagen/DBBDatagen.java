@@ -1,62 +1,63 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
+import com.google.gson.JsonElement;
+import com.simibubi.create.foundation.utility.FilesHelper;
+import com.tterrag.registrate.providers.ProviderType;
 import net.dionpowder.dions_bitsnbobs.DBB;
-import net.dionpowder.dions_bitsnbobs.datagen.create.*;
-import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.BlueberryFrostingRecipeProvider;
-import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.OrangeFrostingRecipeProvider;
-import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.PearFrostingRecipeProvider;
-import net.dionpowder.dions_bitsnbobs.datagen.dions_bitsnbobs.StrawberryFrostingRecipeProvider;
+import net.dionpowder.dions_bitsnbobs.datagen.recipes.SequencedAssemblyRecipeProvider;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBAdvancements;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.BiConsumer;
 
-@EventBusSubscriber(modid = DBB.MOD_ID)
 public class DBBDatagen {
-    @SubscribeEvent
-    public static void gatherData(GatherDataEvent event) {
-        DataGenerator generator = event.getGenerator();
-        PackOutput packOutput = generator.getPackOutput();
-        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
-
-        // generates recipes
-        generator.addProvider(event.includeServer(), new RecipeProvider(packOutput, lookupProvider));
-        // generate create recipes
-        generator.addProvider(event.includeServer(), new CompactingRecipeProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new CrushingRecipeProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new DeployingRecipeProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new EmptyingRecipeProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new FillingRecipeProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new MixingRecipeProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new PressingRecipeProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new SequencedAssemblyRecipeProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new WashingRecipeProvider(packOutput, lookupProvider));
-        // generate dions_bitsnbobs recipes
-        generator.addProvider(event.includeServer(), new StrawberryFrostingRecipeProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new OrangeFrostingRecipeProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new BlueberryFrostingRecipeProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new PearFrostingRecipeProvider(packOutput, lookupProvider));
-
-        // advancements
-        generator.addProvider(event.includeServer(), new DBBAdvancements(packOutput, lookupProvider));
-
-        // generates tags
-        BlockTagsProvider blockTagsProvider = new BlockTagProvider(packOutput, lookupProvider, existingFileHelper);
-        generator.addProvider(event.includeServer(), blockTagsProvider);
-        generator.addProvider(event.includeServer(), new ItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
-        generator.addProvider(event.includeServer(), new FluidTagsProvider(packOutput, lookupProvider, existingFileHelper));
-
-        generator.addProvider(event.includeClient(), new ItemModelProvider(packOutput, existingFileHelper));
-        generator.addProvider(event.includeClient(), new BlockStateProvider(packOutput, existingFileHelper));
-
-        generator.addProvider(event.includeServer(), new DatapackProvider(packOutput, lookupProvider));
+    public static void gatherDataHighPriority(GatherDataEvent event) {
+        if (event.getMods().contains(DBB.MOD_ID)) addExtraRegistrateData();
     }
+    
+    public static void gatherData(GatherDataEvent event) {
+        if (!event.getMods().contains(DBB.MOD_ID))
+            return;
+        
+        DataGenerator generator = event.getGenerator();
+        PackOutput output = generator.getPackOutput();
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        
+        generator.addProvider(event.includeServer(), new DBBAdvancements(output, lookupProvider));
+        generator.addProvider(event.includeServer(), new SequencedAssemblyRecipeProvider(output, lookupProvider));
+        generator.addProvider(event.includeServer(), new DBBVanillaRecipeProvider(output, lookupProvider));
+        generator.addProvider(event.includeServer(), new DBBDatapackProvider(output, lookupProvider));
+        
+        if (event.includeServer()) {
+            DBBRecipeProvider.registerAllProcessing(generator, output, lookupProvider);
+        }
+    }
+    
+    private static void addExtraRegistrateData() {
+        DatagenTags.addGenerators();
+        
+        DBB.REGISTRATE.addDataGenerator(ProviderType.LANG, provider -> {
+            BiConsumer<String, String> langConsumer = provider::add;
+            
+            //provideDefaultLang("interface", langConsumer);
+            //("tooltips", langConsumer);
+            DBBAdvancements.provideLang(langConsumer);
+            //new TagLangGenerator(langConsumer).generate();
+        });
+    }
+    
+    private static void provideDefaultLang(String fileName, BiConsumer<String, String> consumer) {
+        var path = "assets/"+ DBB.MOD_ID +"/lang/default/" + fileName + ".json";
+        var jsonElement = FilesHelper.loadJsonResource(path);
+        if (jsonElement == null) throw new IllegalStateException(String.format("Could not find default lang file: %s", path));
+        for (Map.Entry<String, JsonElement> entry : jsonElement.getAsJsonObject().entrySet()) consumer.accept(entry.getKey(), entry.getValue().getAsString());
+    }
+    
 }

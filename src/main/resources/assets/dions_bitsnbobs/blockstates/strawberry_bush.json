@@ -1,7 +1,7 @@
 {
   "variants": {
     "age=0": {
-      "model": "dions_bitsnbobs:block/strawberry_bush_1"
+      "model": "dions_bitsnbobs:block/strawberry_bush"
     },
     "age=1": {
       "model": "dions_bitsnbobs:block/strawberry_bush_2"

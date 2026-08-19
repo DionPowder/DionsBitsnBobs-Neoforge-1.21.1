@@ -2,6 +2,8 @@ package net.dionpowder.dions_bitsnbobs.content.fluid;
 
 import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.tterrag.registrate.builders.FluidBuilder;
+import net.createmod.catnip.theme.Color;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
@@ -14,6 +16,8 @@ import net.neoforged.neoforge.fluids.FluidType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
+
+import java.util.function.Supplier;
 
 /**
  * Basic implementation of {@link FluidType} that supports specifying still and flowing textures in the constructor.
@@ -85,4 +89,5 @@ public class BaseFluidType extends FluidType {
             }
         };
     }
+    
 }

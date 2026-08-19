@@ -121,19 +121,19 @@ public class DBBFluids {
     public static void registerFluidInteractions() {
 
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
-                DBBFluidTypes.STRAWBERRY_FROSTING_FLUID_TYPE.get(),
+                STRAWBERRY_FROSTING.get().getFluidType(),
                 fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.RED_TERRACOTTA.defaultBlockState()));
 
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
-                DBBFluidTypes.ORANGE_FROSTING_FLUID_TYPE.get(),
+                ORANGE_FROSTING.get().getFluidType(),
                 fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.ORANGE_TERRACOTTA.defaultBlockState()));
 
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
-                DBBFluidTypes.BLUEBERRY_FROSTING_FLUID_TYPE.get(),
+                BLUEBERRY_FROSTING.get().getFluidType(),
                 fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.BLUE_TERRACOTTA.defaultBlockState()));
 
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
-                DBBFluidTypes.PEAR_FROSTING_FLUID_TYPE.get(),
+                PEAR_FROSTING.get().getFluidType(),
                 fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.LIME_TERRACOTTA.defaultBlockState()));
 
     }
