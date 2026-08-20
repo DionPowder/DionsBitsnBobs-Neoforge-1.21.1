@@ -10,16 +10,28 @@ import net.createmod.ponder.api.scene.SceneBuildingUtil;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+
+import java.util.List;
+import java.util.stream.Stream;
 
 public class DBBPonderScenes {
     
     public static void register(PonderSceneRegistrationHelper<ResourceLocation> helper) {
-        var registration = helper.<ItemProviderEntry<?, ?>>withKeyFunction(RegistryEntry::getId);
-        registration.forComponents(DBBItems.STRAWBERRY)
-                .addStoryBoard("frosting", DBBPonderScenes::frosting);
+        List<ResourceLocation> buckets = Stream.of(
+                DBBFluids.STRAWBERRY_FROSTING,
+                DBBFluids.ORANGE_FROSTING,
+                DBBFluids.BLUEBERRY_FROSTING,
+                DBBFluids.PEAR_FROSTING)
+        .map(entry -> entry.getBucket()
+                .map(bucket -> BuiltInRegistries.ITEM.getKey(bucket.asItem()))
+                .orElseThrow())
+        .toList();
         
+        helper.forComponents(buckets)
+                .addStoryBoard("frosting", DBBPonderScenes::frosting);
     }
     
     public static void frosting(SceneBuilder builder, SceneBuildingUtil util) {
