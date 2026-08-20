@@ -70,7 +70,5 @@ public class DBBPonderScenes {
         scene.idle(80);
         scene.world().changeBeltItemTo(transported, strawberryDonut);
         scene.idle(80);
-        scene.world().removeItemsFromBelt(util.grid().at(2, 1, 1));
-        scene.idle(20);
     }
 }
