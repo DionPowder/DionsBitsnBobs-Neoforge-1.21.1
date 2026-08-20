@@ -3,9 +3,11 @@ package net.dionpowder.dions_bitsnbobs.datagen;
 import com.google.gson.JsonElement;
 import com.simibubi.create.foundation.utility.FilesHelper;
 import com.tterrag.registrate.providers.ProviderType;
+import net.createmod.ponder.foundation.PonderIndex;
 import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.datagen.recipes.SequencedAssemblyRecipeProvider;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBAdvancements;
+import net.dionpowder.dions_bitsnbobs.foundation.ponder.DBBPonderPlugin;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -48,8 +50,13 @@ public class DBBDatagen {
             BiConsumer<String, String> langConsumer = provider::add;
             
             DBBAdvancements.provideLang(langConsumer);
-            //new TagLangGenerator(langConsumer).generate();
+            providePonderLang(langConsumer);
         });
+    }
+    
+    private static void providePonderLang(BiConsumer<String, String> consumer) {
+        PonderIndex.addPlugin(new DBBPonderPlugin());
+        PonderIndex.getLangAccess().provideLang(DBB.MOD_ID, consumer);
     }
     
 }

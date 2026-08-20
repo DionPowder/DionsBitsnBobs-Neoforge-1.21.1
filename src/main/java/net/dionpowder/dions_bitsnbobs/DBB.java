@@ -7,6 +7,7 @@ import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.effect.DBBEffects;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBCreativeTabs;
+import net.dionpowder.dions_bitsnbobs.content.item.DBBItemAttributeTypes;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
 import net.dionpowder.dions_bitsnbobs.content.potion.DBBPotions;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
@@ -60,6 +61,8 @@ public class DBB {
         OptionalModCompat.register(modEventBus);
         DBBBlocks.register(modEventBus);
         DBBItems.register(modEventBus);
+        DBBFanProcessingTypes.register(modEventBus);
+        DBBItemAttributeTypes.register(modEventBus);
         DBBFluids.register(modEventBus);
         DBBRecipeTypes.register(modEventBus);
         DBBEffects.register(modEventBus);
@@ -81,7 +84,6 @@ public class DBB {
     }
     
     public static void onRegister(final RegisterEvent event) {
-        DBBFanProcessingTypes.init();
         if (event.getRegistry() == BuiltInRegistries.TRIGGER_TYPES) {
             DBBAdvancements.register();
             DBBTriggers.register();
