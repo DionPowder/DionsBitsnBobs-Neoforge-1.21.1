@@ -25,7 +25,8 @@ public class DBBItemAttributeTypes {
             DBBFanProcessingTypes.STRAWBERRY_FROSTING,
             DBBFanProcessingTypes.ORANGE_FROSTING,
             DBBFanProcessingTypes.BLUEBERRY_FROSTING,
-            DBBFanProcessingTypes.PEAR_FROSTING);
+            DBBFanProcessingTypes.PEAR_FROSTING,
+            DBBFanProcessingTypes.CRANBERRY_FROSTING);
     
     public static final Holder<ItemAttributeType> CHOCOLATE_GLAZEABLE = fanProcessing("chocolate_glazeable",
             "Can be Chocolate Glazed",

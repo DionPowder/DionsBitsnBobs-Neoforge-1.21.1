@@ -42,6 +42,11 @@ public class DeployingRecipeProvider extends DeployingRecipeGen {
             .require(DBBItems.ORANGE_DONUT)
             .require(DBBItems.BOTTLED_WHITE_SPRINKLES)
             .output(DBBItems.SPRINKLED_ORANGE_DONUT)),
+    
+    SPRINKLED_CRANBERRY_DONUT = create("sprinkled_cranberry_donut", b -> b
+            .require(DBBItems.CRANBERRY_DONUT)
+            .require(DBBItems.BOTTLED_GREEN_SPRINKLES)
+            .output(DBBItems.SPRINKLED_CRANBERRY_DONUT)),
 
     SPRINKLED_WHITE_CHOCOLATE_DONUT = create("sprinkled_white_chocolate_donut", b -> b
             .require(DBBItems.WHITE_CHOCOLATE_DONUT)

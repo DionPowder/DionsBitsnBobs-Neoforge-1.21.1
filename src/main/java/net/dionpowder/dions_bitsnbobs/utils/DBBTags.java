@@ -19,6 +19,7 @@ public class DBBTags {
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING = createTag("fan_processing_catalysts_orange_frosting");
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING = createTag("fan_processing_catalysts_blueberry_frosting");
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_PEAR_FROSTING = createTag("fan_processing_catalysts_pear_frosting");
+        public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_CRANBERRY_FROSTING = createTag("fan_processing_catalysts_cranberry_frosting");
 
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_chocolate_glazing");
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_DARK_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_dark_chocolate_glazing");
@@ -73,6 +74,7 @@ public class DBBTags {
         public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING = createTag("fan_processing_catalysts_orange_frosting");
         public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING = createTag("fan_processing_catalysts_blueberry_frosting");
         public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_PEAR_FROSTING = createTag("fan_processing_catalysts_pear_frosting");
+        public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_CRANBERRY_FROSTING = createTag("fan_processing_catalysts_cranberry_frosting");
 
         public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_chocolate_glazing");
         public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_DARK_CHOCOLATE_GLAZING = createTag("fan_processing_catalysts_dark_chocolate_glazing");

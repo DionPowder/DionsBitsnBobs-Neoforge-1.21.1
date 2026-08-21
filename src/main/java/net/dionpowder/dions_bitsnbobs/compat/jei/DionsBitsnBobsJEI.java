@@ -44,6 +44,7 @@ public class DionsBitsnBobsJEI implements IModPlugin {
                 .addTypedRecipes(DBBRecipeTypes.ORANGE_FROSTING)
                 .addTypedRecipes(DBBRecipeTypes.BLUEBERRY_FROSTING)
                 .addTypedRecipes(DBBRecipeTypes.PEAR_FROSTING)
+                .addTypedRecipes(DBBRecipeTypes.CRANBERRY_FROSTING)
                 .catalystStack(ProcessingViaFanCategory.getFan("fan_frosting"))
                 .icon(new FrostingIcon())
                 .emptyBackground(178, 72)
@@ -77,6 +78,7 @@ public class DionsBitsnBobsJEI implements IModPlugin {
                         new ItemStack(DBBFluids.BLUEBERRY_FROSTING.get().getBucket()),
                         new ItemStack(DBBFluids.ORANGE_FROSTING.get().getBucket()),
                         new ItemStack(DBBFluids.PEAR_FROSTING.get().getBucket()),
+                        new ItemStack(DBBFluids.CRANBERRY_FROSTING.get().getBucket()),
                 };
             }
             return catalystStacks[(AnimationTickHolder.getTicks() / 20) % catalystStacks.length];

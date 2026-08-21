@@ -1,0 +1,16 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "dions_bitsnbobs:cranberry_donut"
+    },
+    {
+      "item": "dions_bitsnbobs:bottled_green_sprinkles"
+    }
+  ],
+  "results": [
+    {
+      "id": "dions_bitsnbobs:sprinkled_cranberry_donut"
+    }
+  ]
+}

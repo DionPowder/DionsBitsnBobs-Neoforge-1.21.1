@@ -59,12 +59,14 @@ public class DBBItems {
             BLUEBERRY_DONUT = frostingDonuts("blueberry_donut"),
             STRAWBERRY_DONUT = frostingDonuts("strawberry_donut"),
             PEAR_DONUT = frostingDonuts("pear_donut"),
-            ORANGE_DONUT = frostingDonuts("orange_donut");
+            ORANGE_DONUT = frostingDonuts("orange_donut"),
+            CRANBERRY_DONUT = frostingDonuts("cranberry_donut");
     
     public static final ItemEntry<Item>
             SPRINKLED_PEAR_DONUT = toppedFrostingDonuts("sprinkled_pear_donut"),
             SPRINKLED_STRAWBERRY_DONUT = toppedFrostingDonuts("sprinkled_strawberry_donut"),
-            SPRINKLED_ORANGE_DONUT = toppedFrostingDonuts("sprinkled_orange_donut");
+            SPRINKLED_ORANGE_DONUT = toppedFrostingDonuts("sprinkled_orange_donut"),
+            SPRINKLED_CRANBERRY_DONUT = toppedFrostingDonuts("sprinkled_cranberry_donut");
     
     public static final ItemEntry<Item>
             CHOCOLATE_DONUT = chocolateDonuts("chocolate_donut"),
@@ -81,6 +83,7 @@ public class DBBItems {
     public static final ItemEntry<Item>
             CHOCOLATE_HONEY_DONUT = doubleGlazedDonuts("chocolate_honey_donut"),
             CHOCOLATE_STRAWBERRY_DONUT = doubleGlazedDonuts("chocolate_strawberry_donut"),
+            DARK_CHOCOLATE_CRANBERRY_DONUT = doubleGlazedDonuts("dark_chocolate_cranberry_donut"),
             WHITE_CHOCOLATE_HONEY_DONUT = doubleGlazedDonuts("white_chocolate_honey_donut"),
             WHITE_CHOCOLATE_PEAR_DONUT = doubleGlazedDonuts("white_chocolate_pear_donut"),
             WHITE_CHOCOLATE_RUBY_DONUT = doubleGlazedDonuts("white_chocolate_ruby_donut");

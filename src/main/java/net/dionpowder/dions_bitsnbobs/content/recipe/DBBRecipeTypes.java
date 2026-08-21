@@ -28,6 +28,7 @@ public enum DBBRecipeTypes implements IRecipeTypeInfo, StringRepresentable {
     ORANGE_FROSTING(OrangeFrostingRecipe::new),
     BLUEBERRY_FROSTING(BlueberryFrostingRecipe::new),
     PEAR_FROSTING(PearFrostingRecipe::new),
+    CRANBERRY_FROSTING(CranberryFrostingRecipe::new),
     CHOCOLATE_GLAZING(ChocolateGlazingRecipe::new),
     DARK_CHOCOLATE_GLAZING(DarkChocolateGlazingRecipe::new),
     WHITE_CHOCOLATE_GLAZING(WhiteChocolateGlazingRecipe::new),

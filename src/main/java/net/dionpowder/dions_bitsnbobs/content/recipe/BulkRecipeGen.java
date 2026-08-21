@@ -64,6 +64,11 @@ public class BulkRecipeGen {
                 PearFrostingRecipe newPearFrostingRecipe = buildPearDerived(newId, recipe);
                 allRecipes.add(new RecipeHolder<>(newId, newPearFrostingRecipe));
             }
+            else if (fluidIngredient.test(new FluidStack(DBBFluids.CRANBERRY_FROSTING.get().getSource(), 1))) {
+                ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, "generated/cranberry_frosting/" + sourceId.getNamespace() + "/" + sourceId.getPath());
+                CranberryFrostingRecipe newCranberryFrostingRecipe = buildCranberryDerived(newId, recipe);
+                allRecipes.add(new RecipeHolder<>(newId, newCranberryFrostingRecipe));
+            }
             else if (fluidIngredient.test(new FluidStack(AllFluids.CHOCOLATE.get().getSource(), 1))) {
                 ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, "generated/chocolate_glazing/" + sourceId.getNamespace() + "/" + sourceId.getPath());
                 ChocolateGlazingRecipe newChocolateGlazingRecipe = buildChocolateDerived(newId, recipe);
@@ -222,6 +227,22 @@ public class BulkRecipeGen {
             builder.output(output.getChance(), output.getStack());
         }
 
+        builder.duration(source.getProcessingDuration());
+        return builder.build();
+    }
+    
+    // cranberry
+    private static CranberryFrostingRecipe buildCranberryDerived(ResourceLocation id, FillingRecipe source) {
+        var builder = CranberryFrostingRecipe.builder(id);
+        
+        for (Ingredient ingredient : source.getIngredients()) {
+            builder.require(ingredient);
+        }
+        
+        for (ProcessingOutput output : source.getRollableResults()) {
+            builder.output(output.getChance(), output.getStack());
+        }
+        
         builder.duration(source.getProcessingDuration());
         return builder.build();
     }

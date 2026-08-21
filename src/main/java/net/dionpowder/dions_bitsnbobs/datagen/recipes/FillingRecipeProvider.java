@@ -37,6 +37,11 @@ public class FillingRecipeProvider extends FillingRecipeGen {
             .require(DBBItems.DONUT)
             .require(DBBFluids.PEAR_FROSTING.get(), 100)
             .output(DBBItems.PEAR_DONUT)),
+    
+    CRANBERRY_DONUT = create("cranberry_donut", b -> b
+            .require(DBBItems.DONUT)
+            .require(DBBFluids.CRANBERRY_FROSTING.get(), 100)
+            .output(DBBItems.CRANBERRY_DONUT)),
 
     CHOCOLATE_DONUT = create("chocolate_donut", b -> b
             .require(DBBItems.DONUT)
@@ -52,6 +57,11 @@ public class FillingRecipeProvider extends FillingRecipeGen {
             .require(DBBItems.CHOCOLATE_DONUT)
             .require(AllFluids.HONEY.get(), 100)
             .output(DBBItems.CHOCOLATE_HONEY_DONUT)),
+    
+    DARK_CHOCOLATE_CRANBERRY_DONUT = create("dark_chocolate_cranberry_donut", b -> b
+            .require(DBBItems.DARK_CHOCOLATE_DONUT)
+            .require(DBBFluids.CRANBERRY_FROSTING.get(), 100)
+            .output(DBBItems.DARK_CHOCOLATE_CRANBERRY_DONUT)),
 
     WHITE_CHOCOLATE_HONEY_DONUT = create("white_chocolate_honey_donut", b -> b
             .require(DBBItems.WHITE_CHOCOLATE_DONUT)
