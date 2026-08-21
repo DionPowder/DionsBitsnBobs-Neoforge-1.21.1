@@ -1,19 +1,19 @@
 package net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe;
 
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeParams;
-import net.dionpowder.dions_bitsnbobs.content.fluid.DionsBitsnBobsFluids;
-import net.dionpowder.dions_bitsnbobs.content.recipe.DionsBitsnBobsRecipeTypes;
+import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
+import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 
 public class OrangeFrostingRecipe extends AbstractFrostingRecipe {
     public OrangeFrostingRecipe(ProcessingRecipeParams params) {
-        super(DionsBitsnBobsRecipeTypes.ORANGE_FROSTING, params);
+        super(DBBRecipeTypes.ORANGE_FROSTING, params);
     }
 
     @Override
     public Block getFrostingBlock() {
-        return DionsBitsnBobsFluids.ORANGE_FROSTING_BLOCK.get();
+        return DBBFluids.ORANGE_FROSTING.get().getSource().defaultFluidState().createLegacyBlock().getBlock();
     }
 
     public static Builder<OrangeFrostingRecipe> builder(ResourceLocation id) {

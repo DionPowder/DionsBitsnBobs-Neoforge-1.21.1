@@ -10,12 +10,12 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.runtime.IJeiRuntime;
 import net.createmod.catnip.animation.AnimationTickHolder;
+import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.compat.jei.category.*;
-import net.dionpowder.dions_bitsnbobs.DionsBitsnBobs;
 import net.dionpowder.dions_bitsnbobs.compat.jei.widget.FanProcessingIcon;
 import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
-import net.dionpowder.dions_bitsnbobs.content.fluid.DionsBitsnBobsFluids;
-import net.dionpowder.dions_bitsnbobs.content.recipe.DionsBitsnBobsRecipeTypes;
+import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
+import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.AbstractChocolateGlazingRecipe;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.AbstractFrostingRecipe;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -31,7 +31,7 @@ import java.util.List;
 
 @JeiPlugin
 public class DionsBitsnBobsJEI implements IModPlugin {
-    private static final ResourceLocation ID = DionsBitsnBobs.rl("jei_plugin");
+    private static final ResourceLocation ID = DBB.rl("jei_plugin");
 
     private final List<CreateRecipeCategory<?>> allCategories = new ArrayList<>();
     public static IJeiRuntime runtime;
@@ -40,10 +40,11 @@ public class DionsBitsnBobsJEI implements IModPlugin {
         CreateRecipeCategory<?>
 
                 frosting = builder(AbstractFrostingRecipe.class)
-                .addTypedRecipes(DionsBitsnBobsRecipeTypes.STRAWBERRY_FROSTING)
-                .addTypedRecipes(DionsBitsnBobsRecipeTypes.ORANGE_FROSTING)
-                .addTypedRecipes(DionsBitsnBobsRecipeTypes.BLUEBERRY_FROSTING)
-                .addTypedRecipes(DionsBitsnBobsRecipeTypes.PEAR_FROSTING)
+                .addTypedRecipes(DBBRecipeTypes.STRAWBERRY_FROSTING)
+                .addTypedRecipes(DBBRecipeTypes.ORANGE_FROSTING)
+                .addTypedRecipes(DBBRecipeTypes.BLUEBERRY_FROSTING)
+                .addTypedRecipes(DBBRecipeTypes.PEAR_FROSTING)
+                .addTypedRecipes(DBBRecipeTypes.CRANBERRY_FROSTING)
                 .catalystStack(ProcessingViaFanCategory.getFan("fan_frosting"))
                 .icon(new FrostingIcon())
                 .emptyBackground(178, 72)
@@ -54,11 +55,11 @@ public class DionsBitsnBobsJEI implements IModPlugin {
         CreateRecipeCategory<?>
 
                 chocolate_glazing = builder(AbstractChocolateGlazingRecipe.class)
-                .addTypedRecipes(DionsBitsnBobsRecipeTypes.CHOCOLATE_GLAZING)
-                .addTypedRecipes(DionsBitsnBobsRecipeTypes.DARK_CHOCOLATE_GLAZING)
-                .addTypedRecipes(DionsBitsnBobsRecipeTypes.WHITE_CHOCOLATE_GLAZING)
-                .addTypedRecipes(DionsBitsnBobsRecipeTypes.CARAMEL_CHOCOLATE_GLAZING)
-                .addTypedRecipes(DionsBitsnBobsRecipeTypes.RUBY_CHOCOLATE_GLAZING)
+                .addTypedRecipes(DBBRecipeTypes.CHOCOLATE_GLAZING)
+                .addTypedRecipes(DBBRecipeTypes.DARK_CHOCOLATE_GLAZING)
+                .addTypedRecipes(DBBRecipeTypes.WHITE_CHOCOLATE_GLAZING)
+                .addTypedRecipes(DBBRecipeTypes.CARAMEL_CHOCOLATE_GLAZING)
+                .addTypedRecipes(DBBRecipeTypes.RUBY_CHOCOLATE_GLAZING)
                 .catalystStack(ProcessingViaFanCategory.getFan("fan_chocolate_glazing"))
                 .icon(new ChocolateIcon())
                 .emptyBackground(178, 72)
@@ -73,10 +74,11 @@ public class DionsBitsnBobsJEI implements IModPlugin {
         protected ItemStack getCatalyst() {
             if (catalystStacks == null) {
                 catalystStacks = new ItemStack[]{
-                        new ItemStack(DionsBitsnBobsFluids.STRAWBERRY_FROSTING_BUCKET.get()),
-                        new ItemStack(DionsBitsnBobsFluids.ORANGE_FROSTING_BUCKET.get()),
-                        new ItemStack(DionsBitsnBobsFluids.BLUEBERRY_FROSTING_BUCKET.get()),
-                        new ItemStack(DionsBitsnBobsFluids.PEAR_FROSTING_BUCKET.get()),
+                        new ItemStack(DBBFluids.STRAWBERRY_FROSTING.get().getBucket()),
+                        new ItemStack(DBBFluids.BLUEBERRY_FROSTING.get().getBucket()),
+                        new ItemStack(DBBFluids.ORANGE_FROSTING.get().getBucket()),
+                        new ItemStack(DBBFluids.PEAR_FROSTING.get().getBucket()),
+                        new ItemStack(DBBFluids.CRANBERRY_FROSTING.get().getBucket()),
                 };
             }
             return catalystStacks[(AnimationTickHolder.getTicks() / 20) % catalystStacks.length];

@@ -1,0 +1,120 @@
+package net.dionpowder.dions_bitsnbobs;
+
+import com.simibubi.create.foundation.data.CreateRegistrate;
+import net.dionpowder.dions_bitsnbobs.compat.OptionalModCompat;
+import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
+import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
+import net.dionpowder.dions_bitsnbobs.content.effect.DBBEffects;
+import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
+import net.dionpowder.dions_bitsnbobs.content.item.DBBCreativeTabs;
+import net.dionpowder.dions_bitsnbobs.content.item.DBBItemAttributeTypes;
+import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
+import net.dionpowder.dions_bitsnbobs.content.potion.DBBPotions;
+import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
+import net.dionpowder.dions_bitsnbobs.content.villager.DBBVillagers;
+import net.dionpowder.dions_bitsnbobs.datagen.DBBDatagen;
+import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBAdvancements;
+import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBTriggers;
+import net.dionpowder.dions_bitsnbobs.content.recipe.BulkRecipeGen;
+import net.dionpowder.dions_bitsnbobs.content.recipe.DBBFanProcessingTypes;
+import net.dionpowder.dions_bitsnbobs.utils.DBBHelper;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.server.packs.resources.SimplePreparableReloadListener;
+import net.minecraft.util.profiling.ProfilerFiller;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.neoforged.bus.api.EventPriority;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.neoforge.event.AddReloadListenerEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
+import org.slf4j.Logger;
+
+import com.mojang.logging.LogUtils;
+
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.server.ServerStartingEvent;
+
+// The value here should match an entry in the META-INF/neoforge.mods.toml file
+@Mod(DBB.MOD_ID)
+public class DBB {
+    public static final String NAME = "Create: Dion's Bits 'n' Bobs!";
+    public static final String MOD_ID = "dions_bitsnbobs";
+    public static final Logger LOGGER = LogUtils.getLogger();
+    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(DBB.MOD_ID);
+
+    public DBB(IEventBus modEventBus, ModContainer modContainer) {
+        DBBHelper.addLangToRegistrate();
+        DBBCreativeTabs.register(modEventBus);
+        var context = ModLoadingContext.get();
+        REGISTRATE.registerEventListeners(modEventBus);
+        REGISTRATE.defaultCreativeTab(DBBCreativeTabs.BASE_TAB, "base_tab");
+
+        NeoForge.EVENT_BUS.register(this);
+        ModLoadingContext modLoadingContext = ModLoadingContext.get();
+        
+        OptionalModCompat.register(modEventBus);
+        DBBBlocks.register(modEventBus);
+        DBBItems.register(modEventBus);
+        DBBFanProcessingTypes.register(modEventBus);
+        DBBItemAttributeTypes.register(modEventBus);
+        DBBFluids.register(modEventBus);
+        DBBRecipeTypes.register(modEventBus);
+        DBBEffects.register(modEventBus);
+        DBBPotions.register(modEventBus);
+        DBBVillagers.register(modEventBus);
+        
+        modEventBus.register(new DionsBitsnBobsConfig(modContainer));
+        
+        modEventBus.addListener(DBBCreativeTabs::addCreative);
+        modEventBus.addListener(DBB::init);
+        modEventBus.addListener(DBB::onRegister);
+        modEventBus.addListener(EventPriority.HIGHEST, DBBDatagen::gatherDataHighPriority);
+        modEventBus.addListener(EventPriority.LOWEST, DBBDatagen::gatherData);
+
+    }
+    
+    public static void init(final FMLCommonSetupEvent event) {
+        DBBFluids.registerFluidInteractions();
+    }
+    
+    public static void onRegister(final RegisterEvent event) {
+        if (event.getRegistry() == BuiltInRegistries.TRIGGER_TYPES) {
+            DBBAdvancements.register();
+            DBBTriggers.register();
+        }
+    }
+
+    @SubscribeEvent
+    public void onAddReloadListeners(AddReloadListenerEvent event) {
+        RecipeManager manager = event.getServerResources().getRecipeManager();
+
+        event.addListener(new SimplePreparableReloadListener<Void>() {
+            @Override
+            protected Void prepare(ResourceManager resourceManager, ProfilerFiller profiler) {
+                return null;
+            }
+
+            @Override
+            protected void apply(Void object, ResourceManager resourceManager, ProfilerFiller profiler) {
+                BulkRecipeGen.rebuild(manager);
+            }
+        });
+    }
+
+
+    public static ResourceLocation rl(String path) {
+        return ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, path);
+    }
+
+    // You can use SubscribeEvent and let the Event Bus discover methods to call
+    @SubscribeEvent
+    public void onServerStarting(ServerStartingEvent event) {
+
+    }
+}

@@ -179,4 +179,9 @@ idea {
         downloadSources = true
         downloadJavadoc = true
     }
+
+// Set the duplicates strategy for all file-copying tasks (including Datagen and ProcessResources)
+tasks.withType(Copy).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
 }

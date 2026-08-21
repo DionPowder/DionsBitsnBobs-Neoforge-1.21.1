@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "dions_bitsnbobs:donut"
+    },
+    {
+      "type": "neoforge:single",
+      "amount": 100,
+      "fluid": "dions_bitsnbobs:cranberry_frosting"
+    }
+  ],
+  "results": [
+    {
+      "id": "dions_bitsnbobs:cranberry_donut"
+    }
+  ]
+}

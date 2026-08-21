@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cube_bottom_top",
+  "parent": "dions_bitsnbobs:block/crate_block",
   "textures": {
     "bottom": "dions_bitsnbobs:block/copper_component_top",
     "side": "dions_bitsnbobs:block/copper_component_side",

@@ -1,0 +1,10 @@
+{
+  "sources": [
+    {
+      "type": "neoforge:namespaced_directory",
+      "namespace": "dions_bitsnbobs",
+      "source": "fluid",
+      "prefix": "fluid/"
+    }
+  ]
+}

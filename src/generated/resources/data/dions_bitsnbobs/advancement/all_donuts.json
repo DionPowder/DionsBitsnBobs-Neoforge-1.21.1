@@ -25,7 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:chocolate_donut"
+            "items": "dions_bitsnbobs:sprinkled_orange_donut"
           }
         ]
       },
@@ -35,7 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:dark_chocolate_donut"
+            "items": "dions_bitsnbobs:sprinkled_cranberry_donut"
           }
         ]
       },
@@ -45,7 +45,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:caramel_donut"
+            "items": "dions_bitsnbobs:chocolate_donut"
           }
         ]
       },
@@ -55,7 +55,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:white_chocolate_donut"
+            "items": "dions_bitsnbobs:dark_chocolate_donut"
           }
         ]
       },
@@ -65,7 +65,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:ruby_chocolate_donut"
+            "items": "dions_bitsnbobs:caramel_donut"
           }
         ]
       },
@@ -75,7 +75,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:strawberry_topped_dark_chocolate_donut"
+            "items": "dions_bitsnbobs:white_chocolate_donut"
           }
         ]
       },
@@ -85,7 +85,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:blueberry_topped_white_chocolate_donut"
+            "items": "dions_bitsnbobs:ruby_chocolate_donut"
           }
         ]
       },
@@ -95,7 +95,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:sprinkled_white_chocolate_donut"
+            "items": "dions_bitsnbobs:strawberry_topped_dark_chocolate_donut"
           }
         ]
       },
@@ -105,7 +105,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:chocolate_honey_donut"
+            "items": "dions_bitsnbobs:blueberry_topped_white_chocolate_donut"
           }
         ]
       },
@@ -115,7 +115,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:chocolate_strawberry_donut"
+            "items": "dions_bitsnbobs:sprinkled_white_chocolate_donut"
           }
         ]
       },
@@ -135,7 +135,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:white_chocolate_honey_donut"
+            "items": "dions_bitsnbobs:chocolate_honey_donut"
           }
         ]
       },
@@ -145,13 +145,43 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:white_chocolate_pear_donut"
+            "items": "dions_bitsnbobs:chocolate_strawberry_donut"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
     "22": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:dark_chocolate_cranberry_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "23": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:white_chocolate_honey_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "24": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:white_chocolate_pear_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "25": {
       "conditions": {
         "items": [
           {
@@ -205,7 +235,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:sprinkled_pear_donut"
+            "items": "dions_bitsnbobs:cranberry_donut"
           }
         ]
       },
@@ -215,7 +245,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:sprinkled_strawberry_donut"
+            "items": "dions_bitsnbobs:sprinkled_pear_donut"
           }
         ]
       },
@@ -225,7 +255,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:sprinkled_orange_donut"
+            "items": "dions_bitsnbobs:sprinkled_strawberry_donut"
           }
         ]
       },
@@ -315,6 +345,15 @@
     ],
     [
       "22"
+    ],
+    [
+      "23"
+    ],
+    [
+      "24"
+    ],
+    [
+      "25"
     ]
   ],
   "sends_telemetry_event": true
