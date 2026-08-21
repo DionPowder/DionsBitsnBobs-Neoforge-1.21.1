@@ -1,8 +1,6 @@
 package net.dionpowder.dions_bitsnbobs.foundation.ponder;
 
 import com.simibubi.create.foundation.ponder.CreateSceneBuilder;
-import com.tterrag.registrate.util.entry.ItemProviderEntry;
-import com.tterrag.registrate.util.entry.RegistryEntry;
 import net.createmod.ponder.api.PonderPalette;
 import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
 import net.createmod.ponder.api.scene.SceneBuilder;
@@ -24,6 +22,7 @@ public class DBBPonderScenes {
                 DBBFluids.STRAWBERRY_FROSTING,
                 DBBFluids.ORANGE_FROSTING,
                 DBBFluids.BLUEBERRY_FROSTING,
+                DBBFluids.CRANBERRY_FROSTING,
                 DBBFluids.PEAR_FROSTING)
         .map(entry -> entry.getBucket()
                 .map(bucket -> BuiltInRegistries.ITEM.getKey(bucket.asItem()))
