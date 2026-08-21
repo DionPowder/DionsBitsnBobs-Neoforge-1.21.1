@@ -67,7 +67,8 @@ public class MixingRecipeProvider extends MixingRecipeGen {
             .require(DBBItems.STRAWBERRY)
             .require(DBBItems.STRAWBERRY)
             .require(DBBItems.STRAWBERRY)
-            .require(Fluids.WATER, 150)
+            .require(DBBItems.BUTTER)
+            .require(Tags.Fluids.MILK, 200)
             .requiresHeat(HeatCondition.HEATED)
             .output(DBBFluids.STRAWBERRY_FROSTING.get(), 250)),
 
@@ -75,10 +76,15 @@ public class MixingRecipeProvider extends MixingRecipeGen {
             .require(Tags.Fluids.MILK, 400)
             .require(AllItems.WHEAT_FLOUR)
             .require(AllItems.WHEAT_FLOUR)
+            .require(DBBItems.BUTTER)
             .require(Items.SUGAR)
             .require(Ingredient.of(Tags.Items.EGGS))
             .requiresHeat(HeatCondition.HEATED)
-            .output(DBBFluids.DONUT_BATTER.get(), 500))
+            .output(DBBFluids.DONUT_BATTER.get(), 500)),
+    
+    BUTTER = create("butter", b -> b
+            .require(Tags.Fluids.MILK, 250)
+            .output(DBBItems.BUTTER, 1))
 
     ;
 

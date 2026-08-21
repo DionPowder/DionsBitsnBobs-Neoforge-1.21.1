@@ -70,17 +70,17 @@ public class StrawberryFrostingType implements FanProcessingType {
     public void spawnProcessingParticles(Level level, Vec3 pos) {
         if (level.random.nextInt(8) != 0)
             return;
-        Vector3f color = new Color(0xED4747).asVectorF();
+        Vector3f color = new Color(0xff94b0).asVectorF();
         level.addParticle(new DustParticleOptions(color, 1), pos.x + (level.random.nextFloat() - .5f) * .5f,
                 pos.y + .5f, pos.z + (level.random.nextFloat() - .5f) * .5f, 0, 1 / 8f, 0);
-        Vector3f color2 = new Color(0xDE4343).asVectorF();
+        Vector3f color2 = new Color(0xcc788e).asVectorF();
         level.addParticle(new DustParticleOptions(color2, 1), pos.x + (level.random.nextFloat() - .5f) * .5f,
                 pos.y + .5f, pos.z + (level.random.nextFloat() - .5f) * .5f, 0, 1 / 8f, 0);
     }
 
     @Override
     public void morphAirFlow(AirFlowParticleAccess particleAccess, RandomSource random) {
-        particleAccess.setColor(Color.mixColors(0xED4747, 0xDE4343, random.nextFloat()));
+        particleAccess.setColor(Color.mixColors(0xff94b0, 0xcc788e, random.nextFloat()));
         particleAccess.setAlpha(1f);
         //if (random.nextFloat() < 1 / 32f)
             //particleAccess.spawnExtraParticle(ParticleTypes.BUBBLE, .125f);

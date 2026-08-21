@@ -63,12 +63,11 @@ public class DBBPonderScenes {
         scene.world().showSection(belt, Direction.DOWN);
         var transported = scene.world().createItemOnBelt(util.grid().at(2, 1, 3), Direction.SOUTH, donut);
         scene.overlay()
-                .showText(80)
+                .showText(120)
                 .pointAt(util.vector().topOf(2, 1, 2))
                 .attachKeyFrame()
                 .text("Air from an encased fan passing through liquid frosting creates a bulk frosting setup");
-        scene.idle(80);
+        scene.idle(120);
         scene.world().changeBeltItemTo(transported, strawberryDonut);
-        scene.idle(80);
     }
 }

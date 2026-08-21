@@ -86,6 +86,7 @@ public class DBBItems {
             WHITE_CHOCOLATE_RUBY_DONUT = doubleGlazedDonuts("white_chocolate_ruby_donut");
     
     public static final ItemEntry<Item>
+            BUTTER = ingredient("butter"),
             NETHERITE_DUST = ingredient("netherite_dust"),
             EMPTY_SPRINKLES_BOTTLE = ingredient("empty_sprinkles_bottle");
 

@@ -51,7 +51,7 @@ public class DBBFluids {
                     .source(BaseFlowingFluid.Source::new)
                     .block()
                     .tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
-                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_RED))
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_MAGENTA))
                     .build()
                     .bucket()
                     .onRegister(DBBFluids::registerFluidDispenseBehavior)
@@ -114,7 +114,7 @@ public class DBBFluids {
                     .tag(DBBTags.Fluids.CRANBERRY_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
-                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_PINK))
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_RED))
                     .build()
                     .bucket()
                     .onRegister(DBBFluids::registerFluidDispenseBehavior)
@@ -143,7 +143,7 @@ public class DBBFluids {
 
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
                 STRAWBERRY_FROSTING.get().getFluidType(),
-                fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.RED_TERRACOTTA.defaultBlockState()));
+                fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.MAGENTA_TERRACOTTA.defaultBlockState()));
 
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
                 ORANGE_FROSTING.get().getFluidType(),
@@ -159,7 +159,7 @@ public class DBBFluids {
         
         FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(), new InteractionInformation(
                 CRANBERRY_FROSTING.get().getFluidType(),
-                fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.MAGENTA_TERRACOTTA.defaultBlockState()));
+                fluidState -> fluidState.isSource() ? Blocks.OBSIDIAN.defaultBlockState() : Blocks.RED_TERRACOTTA.defaultBlockState()));
 
     }
 

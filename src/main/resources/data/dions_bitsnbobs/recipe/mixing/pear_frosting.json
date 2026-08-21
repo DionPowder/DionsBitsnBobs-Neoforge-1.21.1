@@ -21,9 +21,12 @@
       "item": "fruitsdelight:pear"
     },
     {
-      "type": "neoforge:single",
-      "amount": 150,
-      "fluid": "minecraft:water"
+      "item": "dions_bitsnbobs:butter"
+    },
+    {
+      "type": "neoforge:tag",
+      "amount": 200,
+      "tag": "c:milk"
     }
   ],
   "results": [
