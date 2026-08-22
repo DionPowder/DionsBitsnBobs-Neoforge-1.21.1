@@ -2,7 +2,7 @@ package net.dionpowder.dions_bitsnbobs;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.dionpowder.dions_bitsnbobs.compat.OptionalModCompat;
-import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
+import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.effect.DBBEffects;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
@@ -69,7 +69,7 @@ public class DBB {
         DBBPotions.register(modEventBus);
         DBBVillagers.register(modEventBus);
         
-        modEventBus.register(new DionsBitsnBobsConfig(modContainer));
+        modEventBus.register(new DBBConfig(modContainer));
         
         modEventBus.addListener(DBBCreativeTabs::addCreative);
         modEventBus.addListener(DBB::init);

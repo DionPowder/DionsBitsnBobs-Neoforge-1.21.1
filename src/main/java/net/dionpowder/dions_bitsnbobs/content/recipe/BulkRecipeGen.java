@@ -12,7 +12,7 @@ import com.simibubi.create.content.processing.recipe.ProcessingOutput;
 import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe;
 import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.compat.ModCompat;
-import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
+import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.*;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -120,7 +120,7 @@ public class BulkRecipeGen {
         }
 
         // config recipes
-        if (DionsBitsnBobsConfig.commonRecipes().DIAMOND_AUTOMATION.get()) {
+        if (DBBConfig.commonRecipes().DIAMOND_AUTOMATION.get()) {
             ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, "generated/compacting/diamond");
             var builder = new StandardProcessingRecipe.Builder<>(CompactingRecipe::new, newId);
             builder.require(Blocks.COAL_BLOCK);
@@ -129,7 +129,7 @@ public class BulkRecipeGen {
             allRecipes.add(new RecipeHolder<>(newId, builder.build()));
         }
 
-        if (DionsBitsnBobsConfig.commonRecipes().RENEWABLE_CREATE_STONES_TYPES.get()) {
+        if (DBBConfig.commonRecipes().RENEWABLE_CREATE_STONES_TYPES.get()) {
             // asurine
             ResourceLocation newAsurineId = ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, "generated/mixing/asurine");
             var asurineBuilder = new StandardProcessingRecipe.Builder<>(MixingRecipe::new, newAsurineId);

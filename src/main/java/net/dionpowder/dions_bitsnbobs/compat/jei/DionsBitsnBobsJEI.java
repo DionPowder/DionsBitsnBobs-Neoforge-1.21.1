@@ -13,7 +13,7 @@ import net.createmod.catnip.animation.AnimationTickHolder;
 import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.compat.jei.category.*;
 import net.dionpowder.dions_bitsnbobs.compat.jei.widget.FanProcessingIcon;
-import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
+import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.AbstractChocolateGlazingRecipe;
@@ -113,8 +113,8 @@ public class DionsBitsnBobsJEI implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         allCategories.clear();
-        if (DionsBitsnBobsConfig.recipes().BULK_FROSTING.get()) {loadFrostingCategory();}
-        if (DionsBitsnBobsConfig.recipes().BULK_CHOCOLATE_GLAZING.get()) {loadChocolateCategory();}
+        if (DBBConfig.recipes().BULK_FROSTING.get()) {loadFrostingCategory();}
+        if (DBBConfig.recipes().BULK_CHOCOLATE_GLAZING.get()) {loadChocolateCategory();}
         registration.addRecipeCategories(allCategories.toArray(IRecipeCategory[]::new));
     }
 

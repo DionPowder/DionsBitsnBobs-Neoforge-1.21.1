@@ -5,6 +5,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.tterrag.registrate.builders.FluidBuilder;
 import com.tterrag.registrate.util.entry.FluidEntry;
 import net.createmod.catnip.theme.Color;
+import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -44,10 +45,10 @@ import static net.dionpowder.dions_bitsnbobs.DBB.REGISTRATE;
 public class DBBFluids {
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> STRAWBERRY_FROSTING =
-            REGISTRATE.standardFluid("strawberry_frosting", SolidRenderedPlaceableFluidType.create(0xFFF29AA3, () -> 1f / 8f, true))
+            REGISTRATE.standardFluid("strawberry_frosting", SolidRenderedPlaceableFluidType.create(0xFFF29AA3, () -> DBBConfig.fluidFogSettingsConfig().FROSTING_TRANSPARENCY_MULTIPLIER.getF() / 8f, true))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
                     //.renderType(() -> RenderType::translucent)
-                    .tag(DBBTags.Fluids.STRAWBERRY_FROSTING, DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
+                    .tag(DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
                     .tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_STRAWBERRY_FROSTING)
@@ -60,10 +61,10 @@ public class DBBFluids {
                     .register();
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> ORANGE_FROSTING =
-            REGISTRATE.standardFluid("orange_frosting", SolidRenderedPlaceableFluidType.create(0xFFFFB347, () -> 1f / 8f, true))
+            REGISTRATE.standardFluid("orange_frosting", SolidRenderedPlaceableFluidType.create(0xFFFFB347, () -> DBBConfig.fluidFogSettingsConfig().FROSTING_TRANSPARENCY_MULTIPLIER.getF() / 8f, true))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
                     //.renderType(() -> RenderType::translucent)
-                    .tag(DBBTags.Fluids.ORANGE_FROSTING, DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
+                    .tag(DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
                     .tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_ORANGE_FROSTING)
@@ -76,10 +77,10 @@ public class DBBFluids {
                     .register();
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> BLUEBERRY_FROSTING =
-            REGISTRATE.standardFluid("blueberry_frosting", SolidRenderedPlaceableFluidType.create(0xFF8B6FF7, () -> 1f / 8f, true))
+            REGISTRATE.standardFluid("blueberry_frosting", SolidRenderedPlaceableFluidType.create(0xFF8B6FF7, () -> DBBConfig.fluidFogSettingsConfig().FROSTING_TRANSPARENCY_MULTIPLIER.getF() / 8f, true))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
                     //.renderType(() -> RenderType::translucent)
-                    .tag(DBBTags.Fluids.BLUEBERRY_FROSTING, DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
+                    .tag(DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
                     .tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_BLUEBERRY_FROSTING)
@@ -92,10 +93,10 @@ public class DBBFluids {
                     .register();
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> PEAR_FROSTING =
-            REGISTRATE.standardFluid("pear_frosting", SolidRenderedPlaceableFluidType.create(0xFFB7E65A, () -> 1f / 8f, true))
+            REGISTRATE.standardFluid("pear_frosting", SolidRenderedPlaceableFluidType.create(0xFFB7E65A, () -> DBBConfig.fluidFogSettingsConfig().FROSTING_TRANSPARENCY_MULTIPLIER.getF() / 8f, true))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
                     //.renderType(() -> RenderType::translucent)
-                    .tag(DBBTags.Fluids.PEAR_FROSTING, DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
+                    .tag(DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
                     .tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_PEAR_FROSTING)
@@ -108,10 +109,10 @@ public class DBBFluids {
                     .register();
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> CRANBERRY_FROSTING =
-            REGISTRATE.standardFluid("cranberry_frosting", SolidRenderedPlaceableFluidType.create(0xFCA2ED, () -> 1f / 8f, true))
+            REGISTRATE.standardFluid("cranberry_frosting", SolidRenderedPlaceableFluidType.create(0xe8234a, () -> DBBConfig.fluidFogSettingsConfig().FROSTING_TRANSPARENCY_MULTIPLIER.getF() / 8f, true))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2))
                     //.renderType(() -> RenderType::translucent)
-                    .tag(DBBTags.Fluids.CRANBERRY_FROSTING, DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_CRANBERRY_FROSTING)
+                    .tag(DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_CRANBERRY_FROSTING)
                     .source(BaseFlowingFluid.Source::new)
                     .block()
                     .tag(DBBTags.Blocks.FAN_PROCESSING_CATALYSTS_CRANBERRY_FROSTING)
@@ -124,7 +125,7 @@ public class DBBFluids {
                     .register();
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> DONUT_BATTER =
-            REGISTRATE.standardFluid("donut_batter", SolidRenderedPlaceableFluidType.create(0xffffffff, () -> 1f / 8f, false))
+            REGISTRATE.standardFluid("donut_batter", SolidRenderedPlaceableFluidType.create(0xfffae3, () -> DBBConfig.fluidFogSettingsConfig().DONUT_BATTER_TRANSPARENCY_MULTIPLIER.getF() / 24f, false))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2).tickRate(30))
                     .tag(DBBTags.Fluids.DONUT_BATTER)
                     .source(BaseFlowingFluid.Source::new)

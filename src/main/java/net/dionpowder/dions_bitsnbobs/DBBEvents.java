@@ -2,7 +2,7 @@ package net.dionpowder.dions_bitsnbobs;
 
 import com.simibubi.create.AllItems;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
+import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
 import net.dionpowder.dions_bitsnbobs.content.potion.DBBPotions;
@@ -86,7 +86,7 @@ public class DBBEvents {
 
         }
 
-        if (!DionsBitsnBobsConfig.common().DONUT_SELLING.get()) return;
+        if (!DBBConfig.common().DONUT_SELLING.get()) return;
 
         // donut selling
         if(event.getType() == VillagerProfession.FARMER) {
