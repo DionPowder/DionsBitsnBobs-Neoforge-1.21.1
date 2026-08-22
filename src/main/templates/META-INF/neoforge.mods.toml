@@ -33,7 +33,7 @@ displayName="${mod_name}" #mandatory
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
 
 # A URL for the "homepage" for this mod, displayed in the mod UI
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
+displayURL="https://www.curseforge.com/minecraft/mc-mods/dions-bits-n-bobs" #optional
 
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="logo.png"
@@ -46,7 +46,7 @@ authors="DionPowder"
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Adds more food items and create mod recipes
+A create addon that adds an entire donut processing line, create component blocks and a lot of recipes!
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.

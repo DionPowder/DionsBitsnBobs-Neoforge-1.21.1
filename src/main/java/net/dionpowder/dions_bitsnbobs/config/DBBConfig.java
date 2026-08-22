@@ -8,30 +8,34 @@ import net.neoforged.fml.config.ModConfig.Type;
 import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
-public class DionsBitsnBobsConfig {
+public class DBBConfig {
     private static final CommonConfig COMMON_CONFIG = new CommonConfig();
-   // private static final CDPClientConfig CLIENT_CONFIG = new CDPClientConfig();
+    private static final ClientConfig CLIENT_CONFIG = new ClientConfig();
     private static final ServerConfig SERVER_CONFIG = new ServerConfig();
     private static ModConfigSpec COMMON_SPEC;
-    //private static ModConfigSpec CLIENT_SPEC;
+    private static ModConfigSpec CLIENT_SPEC;
     private static ModConfigSpec SERVER_SPEC;
 
-    public DionsBitsnBobsConfig(ModContainer container) {
+    public DBBConfig(ModContainer container) {
         COMMON_SPEC = Util.make(new ModConfigSpec.Builder().configure(builder -> {
             COMMON_CONFIG.registerAll(builder);
             return Unit.INSTANCE;
         }).getValue(), spec -> container.registerConfig(Type.COMMON, spec));
-        /*
+        
         CLIENT_SPEC = Util.make(new ModConfigSpec.Builder().configure(builder -> {
             CLIENT_CONFIG.registerAll(builder);
             return Unit.INSTANCE;
         }).getValue(), spec -> container.registerConfig(Type.CLIENT, spec));
-         */
+        
         SERVER_SPEC = Util.make(new ModConfigSpec.Builder().configure(builder -> {
             SERVER_CONFIG.registerAll(builder);
             return Unit.INSTANCE;
         }).getValue(), spec -> container.registerConfig(Type.SERVER, spec));
     }
+    
+    public static ClientConfig client() {return CLIENT_CONFIG;}
+    
+    public static ClientFluidFogSettingsConfig fluidFogSettingsConfig() {return client().fluidFogSettings;}
 
     public static CommonConfig common() {
         return COMMON_CONFIG;
@@ -58,10 +62,10 @@ public class DionsBitsnBobsConfig {
         var spec = event.getConfig().getSpec();
         if (spec == COMMON_SPEC)
             COMMON_CONFIG.onLoad();
-        /*
+        
         else if (spec == CLIENT_SPEC)
             CLIENT_CONFIG.onLoad();
-         */
+         
         else if (spec == SERVER_SPEC)
             SERVER_CONFIG.onLoad();
     }
@@ -71,10 +75,10 @@ public class DionsBitsnBobsConfig {
         var spec = event.getConfig().getSpec();
         if (spec == COMMON_SPEC)
             COMMON_CONFIG.onReload();
-        /*
+        
         else if (spec == CLIENT_SPEC)
             CLIENT_CONFIG.onReload();
-         */
+         
         else if (spec == SERVER_SPEC)
             SERVER_CONFIG.onReload();
     }

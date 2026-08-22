@@ -3,7 +3,7 @@ package net.dionpowder.dions_bitsnbobs.content.recipe.fan.type;
 import com.simibubi.create.content.kinetics.fan.processing.FanProcessingType;
 import com.simibubi.create.foundation.recipe.RecipeApplier;
 import net.createmod.catnip.theme.Color;
-import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
+import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
 import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
 import net.minecraft.core.BlockPos;
@@ -25,7 +25,7 @@ public class WhiteChocolateGlazingType implements FanProcessingType {
     @Override
     public boolean isValidAt(Level level, BlockPos pos) {
         // add config check here
-        if (!DionsBitsnBobsConfig.recipes().BULK_CHOCOLATE_GLAZING.get()) return false;
+        if (!DBBConfig.recipes().BULK_CHOCOLATE_GLAZING.get()) return false;
         var fluidState = level.getFluidState(pos);
         if (fluidState.getType().builtInRegistryHolder().is(DBBTags.Fluids.FAN_PROCESSING_CATALYSTS_WHITE_CHOCOLATE_GLAZING)) return true;
         var blockState = level.getBlockState(pos);
@@ -39,7 +39,7 @@ public class WhiteChocolateGlazingType implements FanProcessingType {
 
     @Override
     public boolean canProcess(ItemStack stack, Level level) {
-        if (!DionsBitsnBobsConfig.recipes().BULK_CHOCOLATE_GLAZING.get())
+        if (!DBBConfig.recipes().BULK_CHOCOLATE_GLAZING.get())
             return false;
         var recipeManager = level.getRecipeManager();
         var input = new SingleRecipeInput(stack);

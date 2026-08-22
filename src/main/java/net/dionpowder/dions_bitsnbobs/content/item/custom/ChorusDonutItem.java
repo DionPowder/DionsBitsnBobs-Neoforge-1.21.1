@@ -1,6 +1,6 @@
 package net.dionpowder.dions_bitsnbobs.content.item.custom;
 
-import net.dionpowder.dions_bitsnbobs.config.DionsBitsnBobsConfig;
+import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBAdvancements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -29,7 +29,7 @@ public class ChorusDonutItem extends Item{
             return itemstack;
         }
 
-        double chance = DionsBitsnBobsConfig.food().CHORUS_DONUT_TELEPORT_CHANCE.get();
+        double chance = DBBConfig.food().CHORUS_DONUT_TELEPORT_CHANCE.get();
 
         if (chance <= 0.0) {
             return itemstack;
