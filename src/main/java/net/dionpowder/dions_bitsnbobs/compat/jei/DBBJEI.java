@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @JeiPlugin
-public class DionsBitsnBobsJEI implements IModPlugin {
+public class DBBJEI implements IModPlugin {
     private static final ResourceLocation ID = DBB.rl("jei_plugin");
 
     private final List<CreateRecipeCategory<?>> allCategories = new ArrayList<>();
@@ -143,6 +143,6 @@ public class DionsBitsnBobsJEI implements IModPlugin {
 
     @Override
     public void onRuntimeAvailable(IJeiRuntime runtime) {
-        DionsBitsnBobsJEI.runtime = runtime;
+        DBBJEI.runtime = runtime;
     }
 }
