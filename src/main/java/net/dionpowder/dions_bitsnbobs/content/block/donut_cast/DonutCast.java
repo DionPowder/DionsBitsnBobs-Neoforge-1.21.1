@@ -1,4 +1,4 @@
-package net.dionpowder.dions_bitsnbobs.content.block.custom;
+package net.dionpowder.dions_bitsnbobs.content.block.donut_cast;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;

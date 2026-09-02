@@ -1,7 +1,6 @@
 package net.dionpowder.dions_bitsnbobs;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
-import net.dionpowder.dions_bitsnbobs.compat.OptionalModCompat;
 import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.effect.DBBEffects;
@@ -58,7 +57,6 @@ public class DBB {
         NeoForge.EVENT_BUS.register(this);
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
         
-        OptionalModCompat.register(modEventBus);
         DBBBlocks.register(modEventBus);
         DBBItems.register(modEventBus);
         DBBFanProcessingTypes.register(modEventBus);

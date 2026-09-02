@@ -1,7 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.mixin.create;
 
 import com.simibubi.create.content.contraptions.actors.harvester.HarvesterMovementBehaviour;
-import net.dionpowder.dions_bitsnbobs.content.block.custom.StrawberryBush;
+import net.dionpowder.dions_bitsnbobs.content.block.strawberry_bush.StrawberryBush;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;

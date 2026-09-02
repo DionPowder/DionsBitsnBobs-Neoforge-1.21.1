@@ -78,7 +78,7 @@ public class BulkRecipeGen {
         }
 
         // create confectionery generated recipes
-        if (ModCompat.CREATE_CONFECTIONERY_LOADED
+        if (ModCompat.CREATE_CONFECTIONERY.enabled()
             && BuiltInRegistries.FLUID.containsKey(ResourceLocation.fromNamespaceAndPath("create_confectionery", "black_chocolate"))
             && BuiltInRegistries.FLUID.containsKey(ResourceLocation.fromNamespaceAndPath("create_confectionery", "white_chocolate"))
             && BuiltInRegistries.FLUID.containsKey(ResourceLocation.fromNamespaceAndPath("create_confectionery", "caramel"))

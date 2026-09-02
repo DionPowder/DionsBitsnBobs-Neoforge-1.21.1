@@ -1,4 +1,4 @@
-package net.dionpowder.dions_bitsnbobs.content.block.custom;
+package net.dionpowder.dions_bitsnbobs.content.block.wild_strawberry_bush;
 
 import com.mojang.serialization.MapCodec;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;

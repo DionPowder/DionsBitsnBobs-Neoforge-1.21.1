@@ -1,4 +1,4 @@
-package net.dionpowder.dions_bitsnbobs.content.block.custom;
+package net.dionpowder.dions_bitsnbobs.content.block.strawberry_bush;
 
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
 import net.minecraft.core.BlockPos;

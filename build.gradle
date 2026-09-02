@@ -30,6 +30,7 @@ repositories {
     maven { url = "https://maven.blamejared.com" }
     maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywheel
     maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate
+    //maven { url = "https://maven.dragons.plus/releases" }
 }
 
 base {
