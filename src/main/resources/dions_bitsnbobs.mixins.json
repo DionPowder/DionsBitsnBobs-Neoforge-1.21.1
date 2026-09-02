@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "net.dionpowder.dions_bitsnbobs.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "create.HarvesterMovementBehaviourMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

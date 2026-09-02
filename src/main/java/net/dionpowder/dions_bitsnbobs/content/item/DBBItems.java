@@ -19,6 +19,7 @@ public class DBBItems {
     public static final ItemEntry<ItemNameBlockItem> STRAWBERRY = REGISTRATE
             .item("strawberry", p -> new ItemNameBlockItem(DBBBlocks.STRAWBERRY_BUSH.get(), p))
             .tag(Tags.Items.CROPS, Tags.Items.FOODS, DBBTags.Items.FOODS_STRAWBERRY, DBBTags.Items.CROPS_STRAWBERRY)
+            .compostable(0.65f)
             .properties(p -> p.food(DBBFoodProperties.STRAWBERRY))
             .register();
     

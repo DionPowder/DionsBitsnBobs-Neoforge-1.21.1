@@ -1,9 +1,10 @@
 package net.dionpowder.dions_bitsnbobs;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
-import net.dionpowder.dions_bitsnbobs.compat.OptionalModCompat;
+import net.dionpowder.dions_bitsnbobs.compat.ModCompat;
 import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
+import net.dionpowder.dions_bitsnbobs.content.block.strawberry_bush.StrawberryBushHarvestBehaviour;
 import net.dionpowder.dions_bitsnbobs.content.effect.DBBEffects;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBCreativeTabs;
@@ -24,6 +25,7 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimplePreparableReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
@@ -39,6 +41,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import plus.dragons.createintegratedfarming.api.harvester.CustomHarvestBehaviour;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(DBB.MOD_ID)
@@ -58,7 +61,6 @@ public class DBB {
         NeoForge.EVENT_BUS.register(this);
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
         
-        OptionalModCompat.register(modEventBus);
         DBBBlocks.register(modEventBus);
         DBBItems.register(modEventBus);
         DBBFanProcessingTypes.register(modEventBus);
@@ -81,6 +83,10 @@ public class DBB {
     
     public static void init(final FMLCommonSetupEvent event) {
         DBBFluids.registerFluidInteractions();
+        // integrated farming compat
+        if (ModCompat.INTEGRATED_FARMING.enabled()){
+            CustomHarvestBehaviour.REGISTRY.register(DBBBlocks.STRAWBERRY_BUSH.get(), new StrawberryBushHarvestBehaviour());
+        }
     }
     
     public static void onRegister(final RegisterEvent event) {

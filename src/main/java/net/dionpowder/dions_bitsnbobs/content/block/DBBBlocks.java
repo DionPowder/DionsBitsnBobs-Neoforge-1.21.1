@@ -5,9 +5,9 @@ import com.simibubi.create.foundation.data.AssetLookup;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import net.dionpowder.dions_bitsnbobs.content.block.custom.DonutCast;
-import net.dionpowder.dions_bitsnbobs.content.block.custom.StrawberryBush;
-import net.dionpowder.dions_bitsnbobs.content.block.custom.WildStrawberryBush;
+import net.dionpowder.dions_bitsnbobs.content.block.donut_cast.DonutCast;
+import net.dionpowder.dions_bitsnbobs.content.block.strawberry_bush.StrawberryBush;
+import net.dionpowder.dions_bitsnbobs.content.block.wild_strawberry_bush.WildStrawberryBush;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
 import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -18,7 +18,6 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -33,11 +32,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.Tags;
 
 import static net.dionpowder.dions_bitsnbobs.DBB.REGISTRATE;
-import static net.minecraft.advancements.AdvancementRewards.Builder.loot;
 
 public class DBBBlocks {
-    
-    
     
     public static final BlockEntry<Block> STRAWBERRY_CRATE =
             REGISTRATE.block("strawberry_crate", Block::new)
@@ -82,18 +78,19 @@ public class DBBBlocks {
             REGISTRATE.block("strawberry_bush", StrawberryBush::new)
                     .properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH))
                     .blockstate((c, p) -> p.getExistingMultipartBuilder(c.getEntry()))
+                    .tag(BlockTags.CROPS)
                     .loot((lt, block) -> {
                         HolderLookup.RegistryLookup<Enchantment> enchantmentRegistryLookup = lt.getRegistries().lookupOrThrow(Registries.ENCHANTMENT);
                         
                         lt.add(block, LootTable.lootTable().withPool(LootPool.lootPool().when(
                                                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(DBBBlocks.STRAWBERRY_BUSH.get())
-                                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 3))
+                                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryBush.AGE, 3))
                                         ).add(LootItem.lootTableItem(DBBItems.STRAWBERRY.get()))
                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F)))
                                         .apply(ApplyBonusCount.addUniformBonusCount(enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE)))
                         ).withPool(LootPool.lootPool().when(
                                                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(DBBBlocks.STRAWBERRY_BUSH.get())
-                                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBushBlock.AGE, 2))
+                                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryBush.AGE, 2))
                                         ).add(LootItem.lootTableItem(DBBItems.STRAWBERRY.get()))
                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                                         .apply(ApplyBonusCount.addUniformBonusCount(enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE)))));
@@ -125,7 +122,7 @@ public class DBBBlocks {
                             .texture("side", p.modLoc("block/" + c.getName() + "_side"))
                             .texture("top", p.modLoc("block/" + c.getName() + "_top")));
                 })
-                .tag(BlockTags.MINEABLE_WITH_AXE, BlockTags.NEEDS_IRON_TOOL, AllTags.AllBlockTags.WRENCH_PICKUP.tag)
+                .tag(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_IRON_TOOL, AllTags.AllBlockTags.WRENCH_PICKUP.tag)
                 .loot(RegistrateBlockLootTables::dropSelf)
                 .simpleItem()
                 .register();
@@ -135,6 +132,7 @@ public class DBBBlocks {
         return REGISTRATE.block(name, DonutCast::new)
                 .properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).noOcclusion())
                 .blockstate((c, p) -> p.getExistingMultipartBuilder(c.getEntry()))
+                .tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .loot(RegistrateBlockLootTables::dropSelf)
                 .item()
                 .model(AssetLookup.existingItemModel())
