@@ -125,7 +125,7 @@ public class DBBBlocks {
                             .texture("side", p.modLoc("block/" + c.getName() + "_side"))
                             .texture("top", p.modLoc("block/" + c.getName() + "_top")));
                 })
-                .tag(BlockTags.MINEABLE_WITH_AXE, BlockTags.NEEDS_IRON_TOOL, AllTags.AllBlockTags.WRENCH_PICKUP.tag)
+                .tag(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_IRON_TOOL, AllTags.AllBlockTags.WRENCH_PICKUP.tag)
                 .loot(RegistrateBlockLootTables::dropSelf)
                 .simpleItem()
                 .register();
@@ -135,6 +135,7 @@ public class DBBBlocks {
         return REGISTRATE.block(name, DonutCast::new)
                 .properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).noOcclusion())
                 .blockstate((c, p) -> p.getExistingMultipartBuilder(c.getEntry()))
+                .tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .loot(RegistrateBlockLootTables::dropSelf)
                 .item()
                 .model(AssetLookup.existingItemModel())

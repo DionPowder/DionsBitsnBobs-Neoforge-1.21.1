@@ -9,7 +9,6 @@ import net.dionpowder.dions_bitsnbobs.content.potion.DBBPotions;
 import net.dionpowder.dions_bitsnbobs.utils.DBBHelper;
 import net.dionpowder.dions_bitsnbobs.content.villager.DBBVillagers;
 import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
@@ -24,6 +23,8 @@ import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
 import java.util.List;
+
+import static net.dionpowder.dions_bitsnbobs.utils.DBBHelper.randomBetween;
 
 @EventBusSubscriber(modid = DBB.MOD_ID)
 public class DBBEvents {
@@ -143,9 +144,7 @@ public class DBBEvents {
 
     }
 
-    public static int randomBetween(RandomSource random, int min, int max) {
-        return min + random.nextInt(max - min + 1);
-    }
+    
 
     @SubscribeEvent
     public static void onBrewingRecipeRegister(RegisterBrewingRecipesEvent event) {

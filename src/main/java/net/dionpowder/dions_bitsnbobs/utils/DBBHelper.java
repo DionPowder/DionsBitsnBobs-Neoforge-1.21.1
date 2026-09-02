@@ -14,7 +14,6 @@ import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 import java.util.List;
 
 import static net.dionpowder.dions_bitsnbobs.DBB.REGISTRATE;
-import static net.dionpowder.dions_bitsnbobs.DBBEvents.randomBetween;
 
 public class DBBHelper {
     
@@ -73,6 +72,10 @@ public class DBBHelper {
             return Items.AIR;
 
         return items.get(random.nextInt(items.size()));
+    }
+    
+    public static int randomBetween(RandomSource random, int min, int max) {
+        return min + random.nextInt(max - min + 1);
     }
 
 }
