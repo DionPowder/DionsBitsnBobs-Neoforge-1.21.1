@@ -3,6 +3,7 @@ package net.dionpowder.dions_bitsnbobs.datagen.recipes;
 import com.simibubi.create.api.data.recipe.DeployingRecipeGen;
 import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
+import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.ItemTags;
@@ -55,7 +56,7 @@ public class DeployingRecipeProvider extends DeployingRecipeGen {
 
     STRAWBERRY_TOPPED_DARK_CHOCOLATE_DONUT = create("strawberry_topped_dark_chocolate_donut", b -> b
             .require(DBBItems.DARK_CHOCOLATE_DONUT)
-            .require(DBBItems.STRAWBERRY)
+            .require(DBBTags.Items.FOODS_STRAWBERRY)
             .output(DBBItems.STRAWBERRY_TOPPED_DARK_CHOCOLATE_DONUT))
 
     ;

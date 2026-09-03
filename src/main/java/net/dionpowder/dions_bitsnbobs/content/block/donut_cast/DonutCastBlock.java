@@ -16,11 +16,11 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class DonutCast extends HorizontalDirectionalBlock {
-    public static final MapCodec<DonutCast> CODEC = simpleCodec(DonutCast::new);
+public class DonutCastBlock extends HorizontalDirectionalBlock {
+    public static final MapCodec<DonutCastBlock> CODEC = simpleCodec(DonutCastBlock::new);
     private static final VoxelShape SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 3.0, 12.0);
 
-    public DonutCast(Properties properties) {
+    public DonutCastBlock(Properties properties) {
         super(properties);
     }
 

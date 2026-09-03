@@ -6,8 +6,11 @@ import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
+import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -76,7 +79,12 @@ public class FillingRecipeProvider extends FillingRecipeGen {
     FILLED_DONUT_CAST = create("filled_donut_cast", b -> b
             .require(DBBBlocks.DONUT_CAST)
             .require(DBBFluids.DONUT_BATTER.get(), 250)
-            .output(DBBBlocks.FILLED_DONUT_CAST))
-
+            .output(DBBBlocks.FILLED_DONUT_CAST)),
+    
+    CHOCOLATE_STRAWBERRIES = create("chocolate_strawberries", b -> b
+            .require(Ingredient.of(DBBTags.Items.FOODS_STRAWBERRY))
+            .require(AllFluids.CHOCOLATE.get(), 250)
+            .output(ResourceLocation.fromNamespaceAndPath("neapolitan", "chocolate_strawberries")))
+            
     ;
 }

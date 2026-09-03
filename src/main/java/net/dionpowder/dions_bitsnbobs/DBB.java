@@ -83,7 +83,6 @@ public class DBB {
     
     public static void init(final FMLCommonSetupEvent event) {
         DBBFluids.registerFluidInteractions();
-        // integrated farming compat
         if (ModCompat.INTEGRATED_FARMING.enabled()){
             CustomHarvestBehaviour.REGISTRY.register(DBBBlocks.STRAWBERRY_BUSH.get(), new StrawberryBushHarvestBehaviour());
         }
@@ -112,8 +111,7 @@ public class DBB {
             }
         });
     }
-
-
+    
     public static ResourceLocation rl(String path) {
         return ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, path);
     }

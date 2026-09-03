@@ -18,8 +18,8 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 
-public class StrawberryBush extends SweetBerryBushBlock {
-    public StrawberryBush(Properties properties) {
+public class StrawberryBushBlock extends SweetBerryBushBlock {
+    public StrawberryBushBlock(Properties properties) {
         super(properties);
     }
 
