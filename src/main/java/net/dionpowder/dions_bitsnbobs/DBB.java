@@ -3,6 +3,7 @@ package net.dionpowder.dions_bitsnbobs;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.dionpowder.dions_bitsnbobs.compat.ModCompat;
 import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
+import net.dionpowder.dions_bitsnbobs.content.block.DBBBlockEntityTypes;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.block.strawberry_bush.StrawberryBushHarvestBehaviour;
 import net.dionpowder.dions_bitsnbobs.content.effect.DBBEffects;
@@ -62,6 +63,7 @@ public class DBB {
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
         
         DBBBlocks.register(modEventBus);
+        DBBBlockEntityTypes.register();
         DBBItems.register(modEventBus);
         DBBFanProcessingTypes.register(modEventBus);
         DBBItemAttributeTypes.register(modEventBus);

@@ -1,11 +1,15 @@
 package net.dionpowder.dions_bitsnbobs.content.block;
 
 import com.simibubi.create.AllTags;
+import com.simibubi.create.content.processing.AssemblyOperatorBlockItem;
 import com.simibubi.create.foundation.data.AssetLookup;
+import com.simibubi.create.foundation.data.BlockStateGen;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.entry.BlockEntry;
+import net.dionpowder.dions_bitsnbobs.config.StressConfig;
 import net.dionpowder.dions_bitsnbobs.content.block.donut_cast.DonutCastBlock;
+import net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler.FoodSprinklerBlock;
 import net.dionpowder.dions_bitsnbobs.content.block.strawberry_bush.StrawberryBushBlock;
 import net.dionpowder.dions_bitsnbobs.content.block.wild_strawberry_bush.WildStrawberryBushBlock;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
@@ -31,6 +35,8 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.Tags;
 
+import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
+import static com.simibubi.create.foundation.data.TagGen.*;
 import static net.dionpowder.dions_bitsnbobs.DBB.REGISTRATE;
 
 public class DBBBlocks {
@@ -47,8 +53,8 @@ public class DBBBlocks {
                                 .texture("side", p.modLoc("block/strawberry_crate_side"))
                                 .texture("top", p.modLoc("block/strawberry_crate_top")));
                     })
-                    .tag(Tags.Blocks.STORAGE_BLOCKS, DBBTags.Blocks.STORAGE_BLOCKS_STRAWBERRY, BlockTags.MINEABLE_WITH_AXE)
-                    .loot(RegistrateBlockLootTables::dropSelf)
+                    .tag(Tags.Blocks.STORAGE_BLOCKS, DBBTags.Blocks.STORAGE_BLOCKS_STRAWBERRY)
+                    .transform(axeOnly())
                     .item()
                     .tag(Tags.Items.STORAGE_BLOCKS)
                     .build()
@@ -97,6 +103,18 @@ public class DBBBlocks {
                     })
                     .register();
     
+    public static final BlockEntry<FoodSprinklerBlock> FOOD_SPRINKLER =
+            REGISTRATE.block("food_sprinkler", FoodSprinklerBlock::new)
+                    .initialProperties(SharedProperties::stone)
+                    .properties(p -> p.noOcclusion()
+                            .mapColor(MapColor.PODZOL))
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.horizontalBlockProvider(true))
+                    .transform(StressConfig.setImpact(4.0))
+                    .item(AssemblyOperatorBlockItem::new)
+                    .transform(customItemModel())
+                    .register();
+    
     public static final BlockEntry<Block>
         ANDESITE_COMPONENT = component("andesite_component"),
         BRASS_COMPONENT = component("brass_component"),
@@ -122,8 +140,8 @@ public class DBBBlocks {
                             .texture("side", p.modLoc("block/" + c.getName() + "_side"))
                             .texture("top", p.modLoc("block/" + c.getName() + "_top")));
                 })
-                .tag(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_IRON_TOOL, AllTags.AllBlockTags.WRENCH_PICKUP.tag)
-                .loot(RegistrateBlockLootTables::dropSelf)
+                .tag(BlockTags.NEEDS_IRON_TOOL, AllTags.AllBlockTags.WRENCH_PICKUP.tag)
+                .transform(pickaxeOnly())
                 .simpleItem()
                 .register();
     }
@@ -132,8 +150,7 @@ public class DBBBlocks {
         return REGISTRATE.block(name, DonutCastBlock::new)
                 .properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).noOcclusion())
                 .blockstate((c, p) -> p.getExistingMultipartBuilder(c.getEntry()))
-                .tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .loot(RegistrateBlockLootTables::dropSelf)
+                .transform(pickaxeOnly())
                 .item()
                 .model(AssetLookup.existingItemModel())
                 .properties(p -> p.stacksTo(stackSize))
