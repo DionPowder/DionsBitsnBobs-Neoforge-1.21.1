@@ -9,9 +9,9 @@ import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class DBBConfig {
-    private static final CommonConfig COMMON_CONFIG = new CommonConfig();
-    private static final ClientConfig CLIENT_CONFIG = new ClientConfig();
-    private static final ServerConfig SERVER_CONFIG = new ServerConfig();
+    private static final CCommon COMMON_CONFIG = new CCommon();
+    private static final CClient CLIENT_CONFIG = new CClient();
+    private static final CServer SERVER_CONFIG = new CServer();
     private static ModConfigSpec COMMON_SPEC;
     private static ModConfigSpec CLIENT_SPEC;
     private static ModConfigSpec SERVER_SPEC;
@@ -33,27 +33,27 @@ public class DBBConfig {
         }).getValue(), spec -> container.registerConfig(Type.SERVER, spec));
     }
     
-    public static ClientConfig client() {return CLIENT_CONFIG;}
+    public static CClient client() {return CLIENT_CONFIG;}
     
-    public static ClientFluidFogSettingsConfig fluidFogSettingsConfig() {return client().fluidFogSettings;}
+    public static CFluidFogSettings fluidFogSettingsConfig() {return client().fluidFogSettings;}
 
-    public static CommonConfig common() {
+    public static CCommon common() {
         return COMMON_CONFIG;
     }
 
-    public static CommonRecipesConfig commonRecipes() {
+    public static CCRecipes commonRecipes() {
         return common().commonRecipes;
     }
 
-    public static ServerConfig server() {
+    public static CServer server() {
         return SERVER_CONFIG;
     }
 
-    public static FoodConfig food() {
+    public static CFood food() {
         return SERVER_CONFIG.food;
     }
 
-    public static RecipesConfig recipes() {
+    public static CRecipes recipes() {
         return SERVER_CONFIG.recipes;
     }
 

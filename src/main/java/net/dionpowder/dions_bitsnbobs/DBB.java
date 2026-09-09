@@ -1,6 +1,10 @@
 package net.dionpowder.dions_bitsnbobs;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.simibubi.create.foundation.item.ItemDescription;
+import com.simibubi.create.foundation.item.KineticStats;
+import com.simibubi.create.foundation.item.TooltipModifier;
+import net.createmod.catnip.lang.FontHelper;
 import net.dionpowder.dions_bitsnbobs.compat.ModCompat;
 import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlockEntityTypes;
@@ -58,6 +62,7 @@ public class DBB {
         var context = ModLoadingContext.get();
         REGISTRATE.registerEventListeners(modEventBus);
         REGISTRATE.defaultCreativeTab(DBBCreativeTabs.BASE_TAB, "base_tab");
+        REGISTRATE.setTooltipModifierFactory(item -> new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE).andThen(TooltipModifier.mapNull(KineticStats.create(item))));
 
         NeoForge.EVENT_BUS.register(this);
         ModLoadingContext modLoadingContext = ModLoadingContext.get();

@@ -2,13 +2,13 @@ package net.dionpowder.dions_bitsnbobs.config;
 
 import net.createmod.catnip.config.ConfigBase;
 
-public class CommonConfig extends ConfigBase {
+public class CCommon extends ConfigBase {
 
     public final ConfigBool DONUT_SELLING = b(true,
             "villagerDonutSelling",
             Comments.villagerDonutSelling);
 
-    public final CommonRecipesConfig commonRecipes = nested(0, CommonRecipesConfig::new, Comments.commonRecipes);
+    public final CCRecipes commonRecipes = nested(0, CCRecipes::new, Comments.commonRecipes);
 
     @Override
     public String getName() {

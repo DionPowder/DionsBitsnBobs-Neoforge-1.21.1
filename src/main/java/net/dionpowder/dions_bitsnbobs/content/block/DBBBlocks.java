@@ -5,9 +5,8 @@ import com.simibubi.create.content.processing.AssemblyOperatorBlockItem;
 import com.simibubi.create.foundation.data.AssetLookup;
 import com.simibubi.create.foundation.data.BlockStateGen;
 import com.simibubi.create.foundation.data.SharedProperties;
-import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import net.dionpowder.dions_bitsnbobs.config.StressConfig;
+import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.block.donut_cast.DonutCastBlock;
 import net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler.FoodSprinklerBlock;
 import net.dionpowder.dions_bitsnbobs.content.block.strawberry_bush.StrawberryBushBlock;
@@ -46,6 +45,7 @@ public class DBBBlocks {
                     .initialProperties(SharedProperties::wooden)
                     .properties(p -> p.mapColor(MapColor.WOOD)
                             .requiresCorrectToolForDrops())
+                    .transform(axeOnly())
                     .blockstate((c, p) -> {
                         p.simpleBlock(c.get(), p.models()
                                 .withExistingParent(c.getName(), p.modLoc("block/crate_block"))
@@ -54,7 +54,6 @@ public class DBBBlocks {
                                 .texture("top", p.modLoc("block/strawberry_crate_top")));
                     })
                     .tag(Tags.Blocks.STORAGE_BLOCKS, DBBTags.Blocks.STORAGE_BLOCKS_STRAWBERRY)
-                    .transform(axeOnly())
                     .item()
                     .tag(Tags.Items.STORAGE_BLOCKS)
                     .build()
@@ -110,7 +109,7 @@ public class DBBBlocks {
                             .mapColor(MapColor.PODZOL))
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.horizontalBlockProvider(true))
-                    .transform(StressConfig.setImpact(4.0))
+                    .transform(DBBConfig.server().kinetics.stressValues.setImpact(4.0))
                     .item(AssemblyOperatorBlockItem::new)
                     .transform(customItemModel())
                     .register();
@@ -133,6 +132,7 @@ public class DBBBlocks {
                 .initialProperties(SharedProperties::softMetal)
                 .properties(p -> p.mapColor(MapColor.COLOR_GRAY)
                         .requiresCorrectToolForDrops())
+                .transform(pickaxeOnly())
                 .blockstate((c, p) -> {
                     p.simpleBlock(c.get(), p.models()
                             .withExistingParent(c.getName(), p.modLoc("block/crate_block"))
@@ -141,7 +141,6 @@ public class DBBBlocks {
                             .texture("top", p.modLoc("block/" + c.getName() + "_top")));
                 })
                 .tag(BlockTags.NEEDS_IRON_TOOL, AllTags.AllBlockTags.WRENCH_PICKUP.tag)
-                .transform(pickaxeOnly())
                 .simpleItem()
                 .register();
     }
@@ -149,8 +148,8 @@ public class DBBBlocks {
     private static BlockEntry<DonutCastBlock> donutCast(String name, int stackSize) {
         return REGISTRATE.block(name, DonutCastBlock::new)
                 .properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).noOcclusion())
-                .blockstate((c, p) -> p.getExistingMultipartBuilder(c.getEntry()))
                 .transform(pickaxeOnly())
+                .blockstate((c, p) -> p.getExistingMultipartBuilder(c.getEntry()))
                 .item()
                 .model(AssetLookup.existingItemModel())
                 .properties(p -> p.stacksTo(stackSize))
@@ -159,6 +158,5 @@ public class DBBBlocks {
     }
 
     public static void register(IEventBus eventBus){
-    
     }
 }

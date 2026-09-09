@@ -37,7 +37,6 @@ public class FoodSprinklerVisual extends ShaftVisual<FoodSprinklerBlockEntity> i
     
     private void animate(float pt) {
         float renderedHeadOffset = foodSprinkler.getRenderedHeadOffset(pt);
-        
         transformHead(renderedHeadOffset, pt);
     }
     

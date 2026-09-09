@@ -40,7 +40,7 @@
 				"east": {"uv": [0, 6, 16, 16], "texture": "#andesite_casing_short"},
 				"south": {"uv": [0, 6, 2, 16], "texture": "#gearbox_top"},
 				"west": {"uv": [0, 6, 16, 16], "texture": "#andesite_casing_short"},
-				"up": {"uv": [0, 0, 16, 2], "rotation": 90, "texture": "#missing"},
+				"up": {"uv": [0, 14, 16, 16], "rotation": 90, "texture": "#andesite_casing"},
 				"down": {"uv": [0, 0, 16, 2], "rotation": 270, "texture": "#gearbox_top"}
 			}
 		},
@@ -54,7 +54,7 @@
 				"east": {"uv": [0, 6, 16, 16], "texture": "#andesite_casing_short"},
 				"south": {"uv": [14, 6, 16, 16], "texture": "#gearbox_top"},
 				"west": {"uv": [0, 6, 16, 16], "texture": "#andesite_casing_short"},
-				"up": {"uv": [0, 0, 16, 2], "rotation": 90, "texture": "#missing"},
+				"up": {"uv": [0, 0, 16, 2], "rotation": 90, "texture": "#andesite_casing"},
 				"down": {"uv": [0, 14, 16, 16], "rotation": 270, "texture": "#gearbox_top"}
 			}
 		},
@@ -65,10 +65,10 @@
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [2, 2, 14, 12], "texture": "#gearbox"},
-				"east": {"uv": [0, 0, 14.1, 10], "texture": "#missing"},
+				"east": {"uv": [1, 5, 15.1, 15], "texture": "#andesite_casing_short"},
 				"south": {"uv": [2, 2, 14, 12], "texture": "#gearbox"},
-				"west": {"uv": [0, 0, 14.1, 10], "texture": "#missing"},
-				"up": {"uv": [0, 0, 14.1, 12], "rotation": 90, "texture": "#missing"},
+				"west": {"uv": [1, 5, 15.1, 15], "texture": "#andesite_casing_short"},
+				"up": {"uv": [2, 2, 14, 14], "rotation": 90, "texture": "#gearbox_top"},
 				"down": {"uv": [2, 1, 14, 15], "texture": "#piston_inner"}
 			}
 		},

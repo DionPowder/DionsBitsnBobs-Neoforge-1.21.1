@@ -2,7 +2,7 @@ package net.dionpowder.dions_bitsnbobs.config;
 
 import net.createmod.catnip.config.ConfigBase;
 
-public class RecipesConfig extends ConfigBase {
+public class CRecipes extends ConfigBase {
 
     public final ConfigBool BULK_FROSTING = b(true,
             "bulkFrosting",
