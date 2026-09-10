@@ -51,7 +51,7 @@ public class DBBJEI implements IModPlugin {
                 .catalyst(AllItems.BELT_CONNECTOR::get)
                 .doubleItemIcon(DBBBlocks.FOOD_SPRINKLER.get(), AllBlocks.DEPOT.get())
                 .emptyBackground(177, 70)
-                .build("food_sprinkling", FoodSprinklingCategory::new);
+                .build(DBB.rl("food_sprinkling"), FoodSprinklingCategory::new);
     }
 
     private void loadFrostingCategory() {
@@ -66,7 +66,7 @@ public class DBBJEI implements IModPlugin {
                 .catalystStack(ProcessingViaFanCategory.getFan("fan_frosting"))
                 .icon(new FrostingIcon())
                 .emptyBackground(178, 72)
-                .build("fan_frosting", FrostingCategory::new);
+                .build(DBB.rl("fan_frosting"), FrostingCategory::new);
     }
 
     private void loadChocolateCategory() {
@@ -81,7 +81,7 @@ public class DBBJEI implements IModPlugin {
                 .catalystStack(ProcessingViaFanCategory.getFan("fan_chocolate_glazing"))
                 .icon(new ChocolateIcon())
                 .emptyBackground(178, 72)
-                .build("fan_chocolate_glazing", ChocolateGlazingCategory::new);
+                .build(DBB.rl("fan_chocolate_glazing"), ChocolateGlazingCategory::new);
     }
 
     // frosting icon

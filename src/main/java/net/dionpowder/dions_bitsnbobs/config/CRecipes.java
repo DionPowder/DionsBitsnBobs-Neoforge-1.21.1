@@ -24,7 +24,7 @@ public class CRecipes extends ConfigBase {
     static class Comments {
         static final String bulkFrosting = "If Bulk Frosting should be enabled";
         static final String bulkChocolateGlazing = "If Bulk Chocolate Glazing should be enabled";
-        static final String bulkFoodSprinkling = "Allow the food sprinkler to process entire stacks at a time";
+        static final String bulkFoodSprinkling = "Allow the Food Sprinkler to process entire stacks at a time";
 
     }
 
