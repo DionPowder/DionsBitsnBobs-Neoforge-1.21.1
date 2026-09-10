@@ -1,12 +1,11 @@
 package net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler;
 
+import com.simibubi.create.Create;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.item.ItemHelper;
 import com.simibubi.create.foundation.utility.CreateLang;
-import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlockEntityTypes;
-import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -20,13 +19,11 @@ import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 
 import java.util.List;
-import java.util.function.DoubleSupplier;
 
 public class FoodSprinklerBlockEntity extends KineticBlockEntity implements Clearable {
     
     public FoodSprinklerInventory inventory;
-    public int runningTicks;
-    public boolean running;
+    protected FoodSprinklingBehaviour behaviour;
     
     public FoodSprinklerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -40,6 +37,8 @@ public class FoodSprinklerBlockEntity extends KineticBlockEntity implements Clea
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
         super.addBehaviours(behaviours);
+        behaviour = new FoodSprinklingBehaviour(this);
+        behaviours.add(behaviour);
     }
     
     @Override
@@ -81,17 +80,10 @@ public class FoodSprinklerBlockEntity extends KineticBlockEntity implements Clea
                     .forGoggles(tooltip, 0);
             added = true;
         }
+        
+        // add yellow tool tip for when the sprinkler activates
         return added;
     }
-    
-    /*
-    @Override
-    public float calculateStressApplied() {
-        float impact = (float) DBBConfig.server().stress.getImpact(DBBBlocks.FOOD_SPRINKLER.get()).getAsDouble();
-        this.lastStressApplied = impact;
-        return impact;
-    }
-    */
     
     public float getRenderedHeadOffset(float partialTicks) {
         return 0f;
@@ -99,16 +91,10 @@ public class FoodSprinklerBlockEntity extends KineticBlockEntity implements Clea
     
     public float getRenderedHeadRotationSpeed(float partialTicks) {
         float speed = getSpeed();
-        if (running) {
-            if (runningTicks < 15) {
-                return speed;
-            }
-            if (runningTicks <= 20) {
-                return speed * 2;
-            }
+        if (behaviour.state == FoodSprinklingBehaviour.State.RUNNING) {
             return speed;
         }
-        return speed / 2;
+        return speed / 4;
     }
     
 }

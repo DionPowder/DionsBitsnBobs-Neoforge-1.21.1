@@ -11,6 +11,10 @@ public class CRecipes extends ConfigBase {
     public final ConfigBool BULK_CHOCOLATE_GLAZING = b(true,
             "bulkChocolateGlazing",
             Comments.bulkChocolateGlazing);
+    
+    public final ConfigBool BULK_FOOD_SPRINKLING = b(false,
+            "bulkFoodSprinkling",
+            Comments.bulkFoodSprinkling);
 
     @Override
     public String getName() {
@@ -20,6 +24,7 @@ public class CRecipes extends ConfigBase {
     static class Comments {
         static final String bulkFrosting = "If Bulk Frosting should be enabled";
         static final String bulkChocolateGlazing = "If Bulk Chocolate Glazing should be enabled";
+        static final String bulkFoodSprinkling = "Allow the food sprinkler to process entire stacks at a time";
 
     }
 

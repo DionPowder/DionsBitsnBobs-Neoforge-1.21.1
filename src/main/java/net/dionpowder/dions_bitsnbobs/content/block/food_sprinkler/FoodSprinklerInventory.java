@@ -5,12 +5,12 @@ import net.minecraft.world.item.ItemStack;
 
 public class FoodSprinklerInventory extends SmartInventory {
     
-    private FoodSprinklerBlockEntity blockEntity;
+    private final FoodSprinklerBlockEntity foodSprinkler;
     public boolean packagerMode;
     
     public FoodSprinklerInventory(int slots, FoodSprinklerBlockEntity foodSprinkler) {
         super(slots, foodSprinkler, 64, true);
-        this.blockEntity = foodSprinkler;
+        this.foodSprinkler = foodSprinkler;
     }
     
     @Override

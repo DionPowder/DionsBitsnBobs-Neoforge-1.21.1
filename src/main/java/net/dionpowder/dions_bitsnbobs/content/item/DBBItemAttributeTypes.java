@@ -6,6 +6,7 @@ import com.simibubi.create.content.logistics.item.filter.attribute.ItemAttribute
 import com.simibubi.create.content.logistics.item.filter.attribute.SingletonItemAttribute;
 import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBFanProcessingTypes;
+import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
 import net.minecraft.core.Holder;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
