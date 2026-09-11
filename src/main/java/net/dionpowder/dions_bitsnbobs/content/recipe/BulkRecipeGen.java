@@ -122,24 +122,26 @@ public class BulkRecipeGen {
 
             }
         }
-
-        // sprinkling recipes generated from other mods' deploying recipes that deploy food on food
-        Collection<RecipeHolder<DeployerApplicationRecipe>> deployingRecipes = manager.getAllRecipesFor(AllRecipeTypes.DEPLOYING.getType());
-        for (RecipeHolder<DeployerApplicationRecipe> holder : deployingRecipes) {
-            ResourceLocation sourceId = holder.id();
-            if (sourceId.getNamespace().equals(DBB.MOD_ID))
-                continue;
-
-            DeployerApplicationRecipe recipe = holder.value();
-            Ingredient processedItem = recipe.getProcessedItem();
-            Ingredient heldItem = recipe.getRequiredHeldItem();
-
-            if (!isFoodIngredient(processedItem) || !isFoodIngredient(heldItem))
-                continue;
-
-            ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, "generated/food_sprinkling/" + sourceId.getNamespace() + "/" + sourceId.getPath());
-            FoodSprinklingRecipe newSprinklingRecipe = buildSprinklingDerived(newId, recipe);
-            allRecipes.add(new RecipeHolder<>(newId, newSprinklingRecipe));
+        
+        // generate recipes for food sprinkling from other mods
+        if (DBBConfig.common().commonRecipes.GENERATE_FOOD_SPRINKLING_RECIPES.get()) {
+            Collection<RecipeHolder<DeployerApplicationRecipe>> deployingRecipes = manager.getAllRecipesFor(AllRecipeTypes.DEPLOYING.getType());
+            for (RecipeHolder<DeployerApplicationRecipe> holder : deployingRecipes) {
+                ResourceLocation sourceId = holder.id();
+                if (sourceId.getNamespace().equals(DBB.MOD_ID))
+                    continue;
+                
+                DeployerApplicationRecipe recipe = holder.value();
+                Ingredient processedItem = recipe.getProcessedItem();
+                Ingredient heldItem = recipe.getRequiredHeldItem();
+                
+                if (!isFoodIngredient(processedItem) || !isFoodIngredient(heldItem))
+                    continue;
+                
+                ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, "generated/food_sprinkling/" + sourceId.getNamespace() + "/" + sourceId.getPath());
+                FoodSprinklingRecipe newSprinklingRecipe = buildSprinklingDerived(newId, recipe);
+                allRecipes.add(new RecipeHolder<>(newId, newSprinklingRecipe));
+            }
         }
 
         // config recipes

@@ -40,6 +40,18 @@ import static net.dionpowder.dions_bitsnbobs.DBB.REGISTRATE;
 
 public class DBBBlocks {
     
+    public static final BlockEntry<FoodSprinklerBlock> FOOD_SPRINKLER =
+            REGISTRATE.block("food_sprinkler", FoodSprinklerBlock::new)
+                    .initialProperties(SharedProperties::stone)
+                    .properties(p -> p.noOcclusion()
+                            .mapColor(MapColor.PODZOL))
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.horizontalBlockProvider(true))
+                    .transform(DBBConfig.server().kinetics.stressValues.setImpact(4.0))
+                    .item(AssemblyOperatorBlockItem::new)
+                    .transform(customItemModel())
+                    .register();
+    
     public static final BlockEntry<Block> STRAWBERRY_CRATE =
             REGISTRATE.block("strawberry_crate", Block::new)
                     .initialProperties(SharedProperties::wooden)
@@ -100,18 +112,6 @@ public class DBBBlocks {
                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                                         .apply(ApplyBonusCount.addUniformBonusCount(enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE)))));
                     })
-                    .register();
-    
-    public static final BlockEntry<FoodSprinklerBlock> FOOD_SPRINKLER =
-            REGISTRATE.block("food_sprinkler", FoodSprinklerBlock::new)
-                    .initialProperties(SharedProperties::stone)
-                    .properties(p -> p.noOcclusion()
-                            .mapColor(MapColor.PODZOL))
-                    .transform(axeOrPickaxe())
-                    .blockstate(BlockStateGen.horizontalBlockProvider(true))
-                    .transform(DBBConfig.server().kinetics.stressValues.setImpact(4.0))
-                    .item(AssemblyOperatorBlockItem::new)
-                    .transform(customItemModel())
                     .register();
     
     public static final BlockEntry<Block>

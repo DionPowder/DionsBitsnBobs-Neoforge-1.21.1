@@ -85,30 +85,26 @@ public class FoodSprinklingBehaviour extends BeltProcessingBehaviour {
         if (foodSprinkler.inventory.isEmpty())
             return ProcessingResult.HOLD;
         
-        Optional<RecipeHolder<FoodSprinklingRecipe>> recipe = getRecipe(foodSprinkler.getLevel(), transported.stack);
+        Optional<RecipeHolder<FoodSprinklingRecipe>> recipe = getRecipe(foodSprinkler.getLevel(), transported.stack, foodSprinkler.inventory.getItem(0));
         if (recipe.isEmpty())
             return ProcessingResult.PASS;
-        if (!recipe.get().value().getIngredients().get(1).test(foodSprinkler.inventory.getItem(0)))
-            return ProcessingResult.PASS;
-        
+
         start();
         return ProcessingResult.HOLD;
     }
-    
+
     protected ProcessingResult whenItemHeld(TransportedItemStack transported, TransportedItemStackHandlerBehaviour handler) {
         ticksWithoutProcessing = 0;
-        
+
         if (foodSprinkler.getSpeed() == 0)
             return ProcessingResult.PASS;
         if (foodSprinkler.inventory.isEmpty())
             return ProcessingResult.HOLD;
-        
-        Optional<RecipeHolder<FoodSprinklingRecipe>> recipe = getRecipe(foodSprinkler.getLevel(), transported.stack);
+
+        Optional<RecipeHolder<FoodSprinklingRecipe>> recipe = getRecipe(foodSprinkler.getLevel(), transported.stack, foodSprinkler.inventory.getItem(0));
         if (recipe.isEmpty())
             return ProcessingResult.PASS;
-        if (!recipe.get().value().getIngredients().get(1).test(foodSprinkler.inventory.getItem(0)))
-            return ProcessingResult.PASS;
-        
+
         if (state == State.WAITING) {
             start();
             return ProcessingResult.HOLD;
@@ -229,9 +225,13 @@ public class FoodSprinklingBehaviour extends BeltProcessingBehaviour {
         return DBBRecipeTypes.FOOD_SPRINKLING.find(input, world).isPresent();
     }
     
-    protected Optional<RecipeHolder<FoodSprinklingRecipe>> getRecipe(Level world, ItemStack stack) {
-        var input = new SingleRecipeInput(stack);
-        return DBBRecipeTypes.FOOD_SPRINKLING.find(input, world);
+    protected Optional<RecipeHolder<FoodSprinklingRecipe>> getRecipe(Level world, ItemStack stack, ItemStack sprinkleStack) {
+        return world.getRecipeManager()
+                .getAllRecipesFor(DBBRecipeTypes.FOOD_SPRINKLING.<SingleRecipeInput, FoodSprinklingRecipe>getType())
+                .stream()
+                .filter(holder -> holder.value().getProcessedItem().test(stack))
+                .filter(holder -> holder.value().getRequiredSprinkleItem().test(sprinkleStack))
+                .findFirst();
     }
     
 }
