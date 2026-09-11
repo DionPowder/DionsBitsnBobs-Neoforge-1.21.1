@@ -46,6 +46,16 @@ public class DBBVanillaRecipeProvider extends net.minecraft.data.recipes.RecipeP
                 .define('B', Items.BRICK)
                 .unlockedBy("has_brick", has(Items.BRICK))
                 .save(recipeOutput);
+        
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DBBBlocks.FOOD_SPRINKLER)
+                .pattern(" S ")
+                .pattern(" C ")
+                .pattern(" I ")
+                .define('S', AllBlocks.SHAFT)
+                .define('C', AllBlocks.ANDESITE_CASING)
+                .define('I', AllItems.IRON_SHEET)
+                .unlockedBy("has_andesite_casing", has(AllBlocks.ANDESITE_CASING))
+                .save(recipeOutput, "food_sprinkler_craft");
 
         // shapeless crafting
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, DBBItems.STRAWBERRY.get(), 9)
@@ -177,6 +187,10 @@ public class DBBVanillaRecipeProvider extends net.minecraft.data.recipes.RecipeP
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(DBBBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, AllBlocks.DEPLOYER, 2)
                 .unlockedBy("has_andesite_component", has(DBBBlocks.ANDESITE_COMPONENT))
                 .save(recipeOutput);
+        
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(DBBBlocks.ANDESITE_COMPONENT), RecipeCategory.MISC, DBBBlocks.FOOD_SPRINKLER, 4)
+                .unlockedBy("has_andesite_component", has(DBBBlocks.ANDESITE_COMPONENT))
+                .save(recipeOutput, "food_sprinkler_stonecut");
 
         // stone cutting (brass component)
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(DBBBlocks.BRASS_COMPONENT), RecipeCategory.MISC, AllBlocks.MECHANICAL_ARM, 1)

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "dions_bitsnbobs:block/food_sprinkler/block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dions_bitsnbobs:block/food_sprinkler/block"
+    },
+    "facing=south": {
+      "model": "dions_bitsnbobs:block/food_sprinkler/block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "dions_bitsnbobs:block/food_sprinkler/block",
+      "y": 270
+    }
+  }
+}

@@ -26,8 +26,9 @@ public class DBBHelper {
         REGISTRATE.addRawLang("item.minecraft.tipped_arrow.effect.sugar_rush_potion", "Arrow of Sugar Rush");
         REGISTRATE.addRawLang("effect.dions_bitsnbobs.sugar_rush", "Sugar Rush");
         REGISTRATE.addRawLang("effect.dions_bitsnbobs.sugar_rush.description", "Increases movement and mining speed; higher levels increase both stats further.");
-        REGISTRATE.addRawLang("create.recipe.fan_frosting", "Bulk Frosting");
-        REGISTRATE.addRawLang("create.recipe.fan_chocolate_glazing", "Bulk Chocolate Glazing");
+        REGISTRATE.addRawLang("dions_bitsnbobs.recipe.food_sprinkling", "Food Sprinkling");
+        REGISTRATE.addRawLang("dions_bitsnbobs.recipe.fan_frosting", "Bulk Frosting");
+        REGISTRATE.addRawLang("dions_bitsnbobs.recipe.fan_chocolate_glazing", "Bulk Chocolate Glazing");
         REGISTRATE.addRawLang("tag.dions_bitsnbobs.donuts", "Donuts");
         REGISTRATE.addRawLang("tag.dions_bitsnbobs.simple_donuts", "Simple Donuts");
         REGISTRATE.addRawLang("tag.dions_bitsnbobs.frosting_donuts", "Frosting Donuts");

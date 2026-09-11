@@ -1,13 +1,16 @@
 package net.dionpowder.dions_bitsnbobs.content.block;
 
 import com.simibubi.create.AllTags;
+import com.simibubi.create.content.processing.AssemblyOperatorBlockItem;
 import com.simibubi.create.foundation.data.AssetLookup;
+import com.simibubi.create.foundation.data.BlockStateGen;
 import com.simibubi.create.foundation.data.SharedProperties;
-import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import net.dionpowder.dions_bitsnbobs.content.block.donut_cast.DonutCast;
-import net.dionpowder.dions_bitsnbobs.content.block.strawberry_bush.StrawberryBush;
-import net.dionpowder.dions_bitsnbobs.content.block.wild_strawberry_bush.WildStrawberryBush;
+import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
+import net.dionpowder.dions_bitsnbobs.content.block.donut_cast.DonutCastBlock;
+import net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler.FoodSprinklerBlock;
+import net.dionpowder.dions_bitsnbobs.content.block.strawberry_bush.StrawberryBushBlock;
+import net.dionpowder.dions_bitsnbobs.content.block.wild_strawberry_bush.WildStrawberryBushBlock;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
 import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -31,15 +34,30 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.Tags;
 
+import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
+import static com.simibubi.create.foundation.data.TagGen.*;
 import static net.dionpowder.dions_bitsnbobs.DBB.REGISTRATE;
 
 public class DBBBlocks {
+    
+    public static final BlockEntry<FoodSprinklerBlock> FOOD_SPRINKLER =
+            REGISTRATE.block("food_sprinkler", FoodSprinklerBlock::new)
+                    .initialProperties(SharedProperties::stone)
+                    .properties(p -> p.noOcclusion()
+                            .mapColor(MapColor.PODZOL))
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.horizontalBlockProvider(true))
+                    .transform(DBBConfig.server().kinetics.stressValues.setImpact(4.0))
+                    .item(AssemblyOperatorBlockItem::new)
+                    .transform(customItemModel())
+                    .register();
     
     public static final BlockEntry<Block> STRAWBERRY_CRATE =
             REGISTRATE.block("strawberry_crate", Block::new)
                     .initialProperties(SharedProperties::wooden)
                     .properties(p -> p.mapColor(MapColor.WOOD)
                             .requiresCorrectToolForDrops())
+                    .transform(axeOnly())
                     .blockstate((c, p) -> {
                         p.simpleBlock(c.get(), p.models()
                                 .withExistingParent(c.getName(), p.modLoc("block/crate_block"))
@@ -47,15 +65,14 @@ public class DBBBlocks {
                                 .texture("side", p.modLoc("block/strawberry_crate_side"))
                                 .texture("top", p.modLoc("block/strawberry_crate_top")));
                     })
-                    .tag(Tags.Blocks.STORAGE_BLOCKS, DBBTags.Blocks.STORAGE_BLOCKS_STRAWBERRY, BlockTags.MINEABLE_WITH_AXE)
-                    .loot(RegistrateBlockLootTables::dropSelf)
+                    .tag(Tags.Blocks.STORAGE_BLOCKS, DBBTags.Blocks.STORAGE_BLOCKS_STRAWBERRY)
                     .item()
                     .tag(Tags.Items.STORAGE_BLOCKS)
                     .build()
                     .register();
     
-    public static final BlockEntry<WildStrawberryBush> WILD_STRAWBERRY_BUSH =
-            REGISTRATE.block("wild_strawberry_bush", WildStrawberryBush::new)
+    public static final BlockEntry<WildStrawberryBushBlock> WILD_STRAWBERRY_BUSH =
+            REGISTRATE.block("wild_strawberry_bush", WildStrawberryBushBlock::new)
                     .properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH))
                     .blockstate((c, p) -> {
                         p.simpleBlock(c.get(), p.models().withExistingParent(c.getName(), p.modLoc("block/strawberry_bush_4")));
@@ -74,8 +91,8 @@ public class DBBBlocks {
                     .build()
                     .register();
     
-    public static final BlockEntry<StrawberryBush> STRAWBERRY_BUSH =
-            REGISTRATE.block("strawberry_bush", StrawberryBush::new)
+    public static final BlockEntry<StrawberryBushBlock> STRAWBERRY_BUSH =
+            REGISTRATE.block("strawberry_bush", StrawberryBushBlock::new)
                     .properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH))
                     .blockstate((c, p) -> p.getExistingMultipartBuilder(c.getEntry()))
                     .tag(BlockTags.CROPS)
@@ -84,13 +101,13 @@ public class DBBBlocks {
                         
                         lt.add(block, LootTable.lootTable().withPool(LootPool.lootPool().when(
                                                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(DBBBlocks.STRAWBERRY_BUSH.get())
-                                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryBush.AGE, 3))
+                                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryBushBlock.AGE, 3))
                                         ).add(LootItem.lootTableItem(DBBItems.STRAWBERRY.get()))
                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F)))
                                         .apply(ApplyBonusCount.addUniformBonusCount(enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE)))
                         ).withPool(LootPool.lootPool().when(
                                                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(DBBBlocks.STRAWBERRY_BUSH.get())
-                                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryBush.AGE, 2))
+                                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryBushBlock.AGE, 2))
                                         ).add(LootItem.lootTableItem(DBBItems.STRAWBERRY.get()))
                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                                         .apply(ApplyBonusCount.addUniformBonusCount(enchantmentRegistryLookup.getOrThrow(Enchantments.FORTUNE)))));
@@ -103,7 +120,7 @@ public class DBBBlocks {
         COPPER_COMPONENT = component("copper_component"),
         TRAIN_COMPONENT = component("train_component");
     
-    public static final BlockEntry<DonutCast>
+    public static final BlockEntry<DonutCastBlock>
         DONUT_CAST = donutCast("donut_cast", 8),
         FILLED_DONUT_CAST = donutCast("filled_donut_cast", 1),
         COOKED_DONUT_CAST = donutCast("cooked_donut_cast", 1);
@@ -115,6 +132,7 @@ public class DBBBlocks {
                 .initialProperties(SharedProperties::softMetal)
                 .properties(p -> p.mapColor(MapColor.COLOR_GRAY)
                         .requiresCorrectToolForDrops())
+                .transform(pickaxeOnly())
                 .blockstate((c, p) -> {
                     p.simpleBlock(c.get(), p.models()
                             .withExistingParent(c.getName(), p.modLoc("block/crate_block"))
@@ -122,18 +140,16 @@ public class DBBBlocks {
                             .texture("side", p.modLoc("block/" + c.getName() + "_side"))
                             .texture("top", p.modLoc("block/" + c.getName() + "_top")));
                 })
-                .tag(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_IRON_TOOL, AllTags.AllBlockTags.WRENCH_PICKUP.tag)
-                .loot(RegistrateBlockLootTables::dropSelf)
+                .tag(BlockTags.NEEDS_IRON_TOOL, AllTags.AllBlockTags.WRENCH_PICKUP.tag)
                 .simpleItem()
                 .register();
     }
     
-    private static BlockEntry<DonutCast> donutCast(String name, int stackSize) {
-        return REGISTRATE.block(name, DonutCast::new)
+    private static BlockEntry<DonutCastBlock> donutCast(String name, int stackSize) {
+        return REGISTRATE.block(name, DonutCastBlock::new)
                 .properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).noOcclusion())
+                .transform(pickaxeOnly())
                 .blockstate((c, p) -> p.getExistingMultipartBuilder(c.getEntry()))
-                .tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .loot(RegistrateBlockLootTables::dropSelf)
                 .item()
                 .model(AssetLookup.existingItemModel())
                 .properties(p -> p.stacksTo(stackSize))
@@ -142,6 +158,5 @@ public class DBBBlocks {
     }
 
     public static void register(IEventBus eventBus){
-    
     }
 }

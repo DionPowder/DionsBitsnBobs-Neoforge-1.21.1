@@ -39,6 +39,7 @@ public class DBBRecipeProvider extends RecipeProvider {
         GENERATORS.add(new PearFrostingRecipeProvider(output, registries));
         GENERATORS.add(new StrawberryFrostingRecipeProvider(output, registries));
         GENERATORS.add(new CranberryFrostingRecipeProvider(output, registries));
+        GENERATORS.add(new FoodSprinklingRecipeProvider(output, registries));
         
         gen.addProvider(true, new DataProvider() {
             @Override

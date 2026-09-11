@@ -13,8 +13,8 @@ import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-public class WildStrawberryBush extends BushBlock {
-    public WildStrawberryBush(Properties properties) {
+public class WildStrawberryBushBlock extends BushBlock {
+    public WildStrawberryBushBlock(Properties properties) {
         super(properties);
     }
 

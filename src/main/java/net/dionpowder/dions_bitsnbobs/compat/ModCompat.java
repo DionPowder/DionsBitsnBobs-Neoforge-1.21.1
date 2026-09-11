@@ -1,24 +1,30 @@
 package net.dionpowder.dions_bitsnbobs.compat;
 
+import com.simibubi.create.api.data.recipe.DatagenMod;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.common.conditions.NotCondition;
 
-public enum ModCompat {
+public enum ModCompat implements DatagenMod {
     CREATE_CONFECTIONERY(Mods.CREATE_CONFECTIONERY),
     INTEGRATED_FARMING(Mods.INTEGRATED_FARMING);
-    
+
     private final String id;
-    
+
     ModCompat(String id) {
         this.id = id;
     }
-    
+
     public String id() {
         return id;
     }
-    
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
     public boolean enabled() {
         return ModList.get().isLoaded(id);
     }

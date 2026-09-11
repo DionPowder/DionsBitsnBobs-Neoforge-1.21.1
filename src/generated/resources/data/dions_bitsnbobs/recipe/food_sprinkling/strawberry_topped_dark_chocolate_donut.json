@@ -1,0 +1,16 @@
+{
+  "type": "dions_bitsnbobs:food_sprinkling",
+  "ingredients": [
+    {
+      "item": "dions_bitsnbobs:dark_chocolate_donut"
+    },
+    {
+      "tag": "c:foods/strawberry"
+    }
+  ],
+  "results": [
+    {
+      "id": "dions_bitsnbobs:strawberry_topped_dark_chocolate_donut"
+    }
+  ]
+}

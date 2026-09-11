@@ -1,11 +1,14 @@
 package net.dionpowder.dions_bitsnbobs.compat.jei;
 
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllFluids;
+import com.simibubi.create.AllItems;
 import com.simibubi.create.compat.jei.category.CreateRecipeCategory;
 import com.simibubi.create.compat.jei.category.ProcessingViaFanCategory;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.runtime.IJeiRuntime;
@@ -14,6 +17,8 @@ import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.compat.jei.category.*;
 import net.dionpowder.dions_bitsnbobs.compat.jei.widget.FanProcessingIcon;
 import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
+import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
+import net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler.FoodSprinklingRecipe;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.AbstractChocolateGlazingRecipe;
@@ -35,6 +40,19 @@ public class DBBJEI implements IModPlugin {
 
     private final List<CreateRecipeCategory<?>> allCategories = new ArrayList<>();
     public static IJeiRuntime runtime;
+    
+    private void loadFoodSprinklingCategory() {
+        CreateRecipeCategory<?>
+                
+                food_sprinkling = builder(FoodSprinklingRecipe.class)
+                .addTypedRecipes(DBBRecipeTypes.FOOD_SPRINKLING)
+                .catalyst(DBBBlocks.FOOD_SPRINKLER::get)
+                .catalyst(AllBlocks.DEPOT::get)
+                .catalyst(AllItems.BELT_CONNECTOR::get)
+                .doubleItemIcon(DBBBlocks.FOOD_SPRINKLER.get(), AllBlocks.DEPOT.get())
+                .emptyBackground(177, 70)
+                .build(DBB.rl("food_sprinkling"), FoodSprinklingCategory::new);
+    }
 
     private void loadFrostingCategory() {
         CreateRecipeCategory<?>
@@ -48,7 +66,7 @@ public class DBBJEI implements IModPlugin {
                 .catalystStack(ProcessingViaFanCategory.getFan("fan_frosting"))
                 .icon(new FrostingIcon())
                 .emptyBackground(178, 72)
-                .build("fan_frosting", FrostingCategory::new);
+                .build(DBB.rl("fan_frosting"), FrostingCategory::new);
     }
 
     private void loadChocolateCategory() {
@@ -63,7 +81,7 @@ public class DBBJEI implements IModPlugin {
                 .catalystStack(ProcessingViaFanCategory.getFan("fan_chocolate_glazing"))
                 .icon(new ChocolateIcon())
                 .emptyBackground(178, 72)
-                .build("fan_chocolate_glazing", ChocolateGlazingCategory::new);
+                .build(DBB.rl("fan_chocolate_glazing"), ChocolateGlazingCategory::new);
     }
 
     // frosting icon
@@ -113,6 +131,7 @@ public class DBBJEI implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         allCategories.clear();
+        loadFoodSprinklingCategory();
         if (DBBConfig.recipes().BULK_FROSTING.get()) {loadFrostingCategory();}
         if (DBBConfig.recipes().BULK_CHOCOLATE_GLAZING.get()) {loadChocolateCategory();}
         registration.addRecipeCategories(allCategories.toArray(IRecipeCategory[]::new));
@@ -121,6 +140,11 @@ public class DBBJEI implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         allCategories.forEach(c -> c.registerRecipes(registration));
+    }
+    
+    @Override
+    public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+        allCategories.forEach(c -> c.registerCatalysts(registration));
     }
 
     @Override

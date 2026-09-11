@@ -5,6 +5,7 @@ import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
 import net.createmod.catnip.lang.Lang;
 import net.dionpowder.dions_bitsnbobs.DBB;
+import net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler.FoodSprinklingRecipe;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -34,6 +35,7 @@ public enum DBBRecipeTypes implements IRecipeTypeInfo, StringRepresentable {
     WHITE_CHOCOLATE_GLAZING(WhiteChocolateGlazingRecipe::new),
     CARAMEL_CHOCOLATE_GLAZING(CaramelChocolateGlazingRecipe::new),
     RUBY_CHOCOLATE_GLAZING(RubyChocolateGlazingRecipe::new),
+    FOOD_SPRINKLING(FoodSprinklingRecipe::new),
     ;
 
     public final ResourceLocation id;

@@ -1,8 +1,13 @@
 package net.dionpowder.dions_bitsnbobs;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.simibubi.create.foundation.item.ItemDescription;
+import com.simibubi.create.foundation.item.KineticStats;
+import com.simibubi.create.foundation.item.TooltipModifier;
+import net.createmod.catnip.lang.FontHelper;
 import net.dionpowder.dions_bitsnbobs.compat.ModCompat;
 import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
+import net.dionpowder.dions_bitsnbobs.content.block.DBBBlockEntityTypes;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.block.strawberry_bush.StrawberryBushHarvestBehaviour;
 import net.dionpowder.dions_bitsnbobs.content.effect.DBBEffects;
@@ -57,11 +62,13 @@ public class DBB {
         var context = ModLoadingContext.get();
         REGISTRATE.registerEventListeners(modEventBus);
         REGISTRATE.defaultCreativeTab(DBBCreativeTabs.BASE_TAB, "base_tab");
+        REGISTRATE.setTooltipModifierFactory(item -> new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE).andThen(TooltipModifier.mapNull(KineticStats.create(item))));
 
         NeoForge.EVENT_BUS.register(this);
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
         
         DBBBlocks.register(modEventBus);
+        DBBBlockEntityTypes.register();
         DBBItems.register(modEventBus);
         DBBFanProcessingTypes.register(modEventBus);
         DBBItemAttributeTypes.register(modEventBus);
@@ -83,7 +90,6 @@ public class DBB {
     
     public static void init(final FMLCommonSetupEvent event) {
         DBBFluids.registerFluidInteractions();
-        // integrated farming compat
         if (ModCompat.INTEGRATED_FARMING.enabled()){
             CustomHarvestBehaviour.REGISTRY.register(DBBBlocks.STRAWBERRY_BUSH.get(), new StrawberryBushHarvestBehaviour());
         }
@@ -112,8 +118,7 @@ public class DBB {
             }
         });
     }
-
-
+    
     public static ResourceLocation rl(String path) {
         return ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, path);
     }

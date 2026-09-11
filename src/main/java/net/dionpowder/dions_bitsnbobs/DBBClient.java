@@ -1,6 +1,7 @@
 package net.dionpowder.dions_bitsnbobs;
 
 import net.createmod.ponder.foundation.PonderIndex;
+import net.dionpowder.dions_bitsnbobs.content.block.DBBPartialModels;
 import net.dionpowder.dions_bitsnbobs.foundation.ponder.DBBPonderPlugin;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -22,7 +23,7 @@ public class DBBClient {
     }
     
     public static void clientInit(final FMLClientSetupEvent event) {
+        DBBPartialModels.init();
         PonderIndex.addPlugin(new DBBPonderPlugin());
     }
-
 }
