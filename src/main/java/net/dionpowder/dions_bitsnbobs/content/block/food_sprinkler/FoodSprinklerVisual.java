@@ -36,15 +36,14 @@ public class FoodSprinklerVisual extends ShaftVisual<FoodSprinklerBlockEntity> i
     }
     
     private void animate(float pt) {
-        float renderedHeadOffset = foodSprinkler.getRenderedHeadOffset(pt);
-        transformHead(renderedHeadOffset, pt);
+        transformHead(pt);
     }
     
-    private void transformHead(float renderedHeadOffset, float pt) {
+    private void transformHead(float pt) {
         float speed = foodSprinkler.getRenderedHeadRotationSpeed(pt);
         
         foodSprinklerHead.setPosition(getVisualPosition())
-                .nudge(0, -renderedHeadOffset, 0)
+                .nudge(0, 0, 0)
                 .setRotationalSpeed(speed * 2 * RotatingInstance.SPEED_MULTIPLIER)
                 .setChanged();
     }

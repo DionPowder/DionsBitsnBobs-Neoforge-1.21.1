@@ -84,7 +84,7 @@ A create addon that adds an entire donut processing line, create component block
     modId="create"
     type="required"
     versionRange="[6.0.10,6.1.0)"
-    ordering="AFTER"
+    ordering="NONE"
     side="BOTH"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares

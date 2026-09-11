@@ -28,8 +28,6 @@ public class FoodSprinklingCategory extends CreateRecipeCategory<FoodSprinklingR
                 .addSlot(RecipeIngredientRole.INPUT, 51, 5)
                 .setBackground(getRenderedSlot(), -1, -1)
                 .addIngredients(recipe.getRequiredSprinkleItem());
-        
-        
         builder
                 .addSlot(RecipeIngredientRole.OUTPUT, 132, 51)
                 .setBackground(getRenderedSlot(), -1, -1)

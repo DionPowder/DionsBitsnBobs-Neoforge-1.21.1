@@ -20,11 +20,6 @@ public class FoodSprinklerRenderer extends KineticBlockEntityRenderer<FoodSprink
     }
     
     @Override
-    public boolean shouldRenderOffScreen(FoodSprinklerBlockEntity foodSprinkler) {
-        return true;
-    }
-    
-    @Override
     protected void renderSafe(FoodSprinklerBlockEntity foodSprinkler, float partialTicks, PoseStack ms, MultiBufferSource buffer,
                               int light, int overlay) {
         super.renderSafe(foodSprinkler, partialTicks, ms, buffer, light, overlay);
@@ -33,11 +28,6 @@ public class FoodSprinklerRenderer extends KineticBlockEntityRenderer<FoodSprink
             return;
         
         BlockState blockState = foodSprinkler.getBlockState();
-        /*
-        PressingBehaviour pressingBehaviour = be.getPressingBehaviour();
-        float renderedHeadOffset =
-                pressingBehaviour.getRenderedHeadOffset(partialTicks) * pressingBehaviour.mode.headOffset;
-         */
         SuperByteBuffer headRender = CachedBuffers.partialFacing(DBBPartialModels.FOOD_SPRINKLER_HEAD, blockState,
                 blockState.getValue(HORIZONTAL_FACING));
         headRender.translate(0, -0, 0)

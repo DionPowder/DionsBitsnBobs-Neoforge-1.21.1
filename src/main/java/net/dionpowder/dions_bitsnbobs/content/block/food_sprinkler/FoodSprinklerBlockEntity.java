@@ -1,6 +1,5 @@
 package net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler;
 
-import com.simibubi.create.Create;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.item.ItemHelper;
@@ -15,6 +14,7 @@ import net.minecraft.world.Clearable;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 
@@ -41,6 +41,10 @@ public class FoodSprinklerBlockEntity extends KineticBlockEntity implements Clea
         behaviours.add(behaviour);
     }
     
+    public FoodSprinklingBehaviour getFoodSprinklingBehaviour() {
+        return behaviour;
+    }
+    
     @Override
     protected void read(CompoundTag compound, HolderLookup.Provider registries, boolean clientPacket) {
         super.read(compound, registries, clientPacket);
@@ -51,6 +55,11 @@ public class FoodSprinklerBlockEntity extends KineticBlockEntity implements Clea
     public void write(CompoundTag compound, HolderLookup.Provider registries, boolean clientPacket) {
         super.write(compound, registries, clientPacket);
         compound.put("Inventory", inventory.serializeNBT(registries));
+    }
+    
+    @Override
+    protected AABB createRenderBoundingBox() {
+        return super.createRenderBoundingBox().inflate(3);
     }
     
     @Override
@@ -81,12 +90,7 @@ public class FoodSprinklerBlockEntity extends KineticBlockEntity implements Clea
             added = true;
         }
         
-        // add yellow tool tip for when the sprinkler activates
         return added;
-    }
-    
-    public float getRenderedHeadOffset(float partialTicks) {
-        return 0f;
     }
     
     public float getRenderedHeadRotationSpeed(float partialTicks) {

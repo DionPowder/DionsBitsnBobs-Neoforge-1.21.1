@@ -7,7 +7,6 @@ import com.simibubi.create.content.kinetics.belt.behaviour.TransportedItemStackH
 import com.simibubi.create.content.kinetics.belt.transport.TransportedItemStack;
 import com.simibubi.create.foundation.recipe.RecipeApplier;
 import net.createmod.catnip.math.VecHelper;
-import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
 import net.minecraft.core.HolderLookup;
@@ -21,7 +20,6 @@ import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -193,8 +191,6 @@ public class FoodSprinklingBehaviour extends BeltProcessingBehaviour {
             double z = origin.z + radius * Math.sin(angle);
             double y = origin.y;
             
-            // Zero horizontal motion, only fall straight down
-            // The spiral appearance comes from new particles spawning at the rotated position each tick
             level.addParticle(
                     new ItemParticleOption(ParticleTypes.ITEM, ingredient),
                     x, y, z,
@@ -203,7 +199,6 @@ public class FoodSprinklingBehaviour extends BeltProcessingBehaviour {
         }
     }
     
-    // recipe handling
     public void start() {
         state = State.RUNNING;
         prevRunningTicks = 0;
@@ -211,7 +206,6 @@ public class FoodSprinklingBehaviour extends BeltProcessingBehaviour {
         foodSprinkler.sendData();
     }
     
-    // add a check here to see if there are any items left that can be processed, if so keep the visual going instead of creating hitches
     public void finish() {
         state = State.WAITING;
         prevRunningTicks = 0;
