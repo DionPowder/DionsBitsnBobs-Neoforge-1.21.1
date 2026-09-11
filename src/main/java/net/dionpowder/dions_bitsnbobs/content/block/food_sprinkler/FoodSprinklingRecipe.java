@@ -6,6 +6,7 @@ import com.simibubi.create.content.processing.recipe.ProcessingRecipeParams;
 import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe;
 
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
@@ -16,7 +17,11 @@ public class FoodSprinklingRecipe extends StandardProcessingRecipe<SingleRecipeI
     public FoodSprinklingRecipe(ProcessingRecipeParams params) {
         super(DBBRecipeTypes.FOOD_SPRINKLING, params);
     }
-    
+
+    public static Builder<FoodSprinklingRecipe> builder(ResourceLocation id) {
+        return new Builder<>(FoodSprinklingRecipe::new, id);
+    }
+
     @Override
     public boolean matches(SingleRecipeInput inv, Level worldIn) {
         if (inv.isEmpty())

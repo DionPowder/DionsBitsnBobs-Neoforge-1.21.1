@@ -5,6 +5,7 @@ import com.simibubi.create.AllRecipeTypes;
 import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
 import com.simibubi.create.content.fluids.transfer.FillingRecipe;
 
+import com.simibubi.create.content.kinetics.deployer.DeployerApplicationRecipe;
 import com.simibubi.create.content.kinetics.mixer.CompactingRecipe;
 import com.simibubi.create.content.kinetics.mixer.MixingRecipe;
 import com.simibubi.create.content.processing.recipe.HeatCondition;
@@ -13,10 +14,13 @@ import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe;
 import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.compat.ModCompat;
 import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
+import net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler.FoodSprinklingRecipe;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.*;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeHolder;
@@ -117,6 +121,25 @@ public class BulkRecipeGen {
                 }
 
             }
+        }
+
+        // sprinkling recipes generated from other mods' deploying recipes that deploy food on food
+        Collection<RecipeHolder<DeployerApplicationRecipe>> deployingRecipes = manager.getAllRecipesFor(AllRecipeTypes.DEPLOYING.getType());
+        for (RecipeHolder<DeployerApplicationRecipe> holder : deployingRecipes) {
+            ResourceLocation sourceId = holder.id();
+            if (sourceId.getNamespace().equals(DBB.MOD_ID))
+                continue;
+
+            DeployerApplicationRecipe recipe = holder.value();
+            Ingredient processedItem = recipe.getProcessedItem();
+            Ingredient heldItem = recipe.getRequiredHeldItem();
+
+            if (!isFoodIngredient(processedItem) || !isFoodIngredient(heldItem))
+                continue;
+
+            ResourceLocation newId = ResourceLocation.fromNamespaceAndPath(DBB.MOD_ID, "generated/food_sprinkling/" + sourceId.getNamespace() + "/" + sourceId.getPath());
+            FoodSprinklingRecipe newSprinklingRecipe = buildSprinklingDerived(newId, recipe);
+            allRecipes.add(new RecipeHolder<>(newId, newSprinklingRecipe));
         }
 
         // config recipes
@@ -254,6 +277,34 @@ public class BulkRecipeGen {
         for (Ingredient ingredient : source.getIngredients()) {
             builder.require(ingredient);
         }
+
+        for (ProcessingOutput output : source.getRollableResults()) {
+            builder.output(output.getChance(), output.getStack());
+        }
+
+        builder.duration(source.getProcessingDuration());
+        return builder.build();
+    }
+
+    // sprinkling
+    private static boolean isFoodIngredient(Ingredient ingredient) {
+        ItemStack[] items = ingredient.getItems();
+        if (items.length == 0)
+            return false;
+
+        for (ItemStack stack : items) {
+            if (!stack.has(DataComponents.FOOD))
+                return false;
+        }
+
+        return true;
+    }
+
+    private static FoodSprinklingRecipe buildSprinklingDerived(ResourceLocation id, DeployerApplicationRecipe source) {
+        var builder = FoodSprinklingRecipe.builder(id);
+
+        builder.require(source.getProcessedItem());
+        builder.require(source.getRequiredHeldItem());
 
         for (ProcessingOutput output : source.getRollableResults()) {
             builder.output(output.getChance(), output.getStack());
