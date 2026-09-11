@@ -12,6 +12,7 @@ import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.block.strawberry_bush.StrawberryBushHarvestBehaviour;
 import net.dionpowder.dions_bitsnbobs.content.effect.DBBEffects;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
+import net.dionpowder.dions_bitsnbobs.content.item.DBBArmInteractionPoints;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBCreativeTabs;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItemAttributeTypes;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
@@ -96,6 +97,7 @@ public class DBB {
     }
     
     public static void onRegister(final RegisterEvent event) {
+        DBBArmInteractionPoints.init();
         if (event.getRegistry() == BuiltInRegistries.TRIGGER_TYPES) {
             DBBAdvancements.register();
             DBBTriggers.register();

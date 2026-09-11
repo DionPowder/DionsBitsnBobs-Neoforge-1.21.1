@@ -85,7 +85,8 @@ public class FillingRecipeProvider extends FillingRecipeGen {
     CHOCOLATE_STRAWBERRIES = create("chocolate_strawberries", b -> b
             .require(Ingredient.of(DBBTags.Items.FOODS_STRAWBERRY))
             .require(AllFluids.CHOCOLATE.get(), 250)
-            .output(ResourceLocation.fromNamespaceAndPath("neapolitan", "chocolate_strawberries")))
+            .output(ResourceLocation.fromNamespaceAndPath("neapolitan", "chocolate_strawberries"))
+            .whenModLoaded("neapolitan"))
             
     ;
 }

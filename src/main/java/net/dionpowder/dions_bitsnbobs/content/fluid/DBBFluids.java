@@ -125,7 +125,7 @@ public class DBBFluids {
                     .register();
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> DONUT_BATTER =
-            REGISTRATE.standardFluid("donut_batter", SolidRenderedPlaceableFluidType.create(0xfffae3, () -> DBBConfig.fluidFogSettingsConfig().DONUT_BATTER_TRANSPARENCY_MULTIPLIER.getF() / 24f, false))
+            REGISTRATE.standardFluid("donut_batter", SolidRenderedPlaceableFluidType.create(0xebd7a7, () -> DBBConfig.fluidFogSettingsConfig().DONUT_BATTER_TRANSPARENCY_MULTIPLIER.getF() / 24f, false))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2).tickRate(30))
                     .tag(DBBTags.Fluids.DONUT_BATTER)
                     .source(BaseFlowingFluid.Source::new)

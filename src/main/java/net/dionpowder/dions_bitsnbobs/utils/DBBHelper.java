@@ -41,6 +41,7 @@ public class DBBHelper {
         REGISTRATE.addRawLang("tag.dions_bitsnbobs.advancement_topped_donut", "Advancement Topped Donut");
         REGISTRATE.addRawLang("tag.dions_bitsnbobs.rooted_dirt_mixing", "Rooted Dirt Mixing");
         REGISTRATE.addRawLang("tag.dions_bitsnbobs.unprocessed_components", "Unprocessed Components");
+        REGISTRATE.addRawLang("create.recipe.assembly.sprinkling_item", "Sprinkle %1$s");
     }
 
     // standard villager sell trades

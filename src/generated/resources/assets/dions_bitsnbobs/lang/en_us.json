@@ -54,6 +54,7 @@
   "create.item_attributes.dions_bitsnbobs.frostable.inverted": "Cannot be Frosted",
   "create.item_attributes.dions_bitsnbobs.sprinkleable": "Can be Sprinkled",
   "create.item_attributes.dions_bitsnbobs.sprinkleable.inverted": "Cannot be Sprinkled",
+  "create.recipe.assembly.sprinkling_item": "Sprinkle %1$s",
   "dions_bitsnbobs.ponder.bulk_frosting.header": "Bulk Frosting",
   "dions_bitsnbobs.ponder.bulk_frosting.text_1": "Airflow passing through Frosting creates a Frosting setup",
   "dions_bitsnbobs.ponder.bulk_frosting.text_2": "Items that can be filled with Frosting will automatically be converted",
