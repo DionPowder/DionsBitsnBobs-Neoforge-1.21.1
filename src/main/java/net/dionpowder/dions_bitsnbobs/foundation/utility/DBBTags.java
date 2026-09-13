@@ -1,4 +1,4 @@
-package net.dionpowder.dions_bitsnbobs.utils;
+package net.dionpowder.dions_bitsnbobs.foundation.utility;
 
 import net.dionpowder.dions_bitsnbobs.DBB;
 import net.minecraft.resources.ResourceLocation;

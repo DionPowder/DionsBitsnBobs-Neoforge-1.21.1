@@ -7,12 +7,11 @@ import com.simibubi.create.content.processing.recipe.HeatCondition;
 import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
-import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
+import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.common.Tags;
 
 import java.util.concurrent.CompletableFuture;

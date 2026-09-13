@@ -6,7 +6,7 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.item.custom.ChorusDonutItem;
 import net.dionpowder.dions_bitsnbobs.content.item.custom.SprinklesItem;
-import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
+import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.neoforged.bus.api.IEventBus;

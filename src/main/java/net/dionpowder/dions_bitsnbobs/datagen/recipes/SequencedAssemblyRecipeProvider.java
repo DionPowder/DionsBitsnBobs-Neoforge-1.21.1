@@ -100,6 +100,16 @@ public class SequencedAssemblyRecipeProvider extends SequencedAssemblyRecipeGen 
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.EXP_NUGGET))
             .addStep(FillingRecipe::new, rb -> rb.require(Fluids.LAVA, 500))
             .addStep(PressingRecipe::new, rb -> rb)),
+    
+    SPRINKLED_PEAR_DONUT = create("sprinkled_pear_donut", b -> b
+            .require(Items.COBBLESTONE)
+            .transitionTo(Items.COBBLESTONE)
+            .addOutput(DBBItems.SPRINKLED_PEAR_DONUT, 1)
+            .loops(1)
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(DBBItems.DONUT))
+            .addStep(FoodSprinklingRecipe::new, rb -> rb.require(DBBItems.BOTTLED_WHITE_SPRINKLES))
+            .addStep(FoodSprinklingRecipe::new, rb -> rb.require(DBBItems.BOTTLED_GREEN_SPRINKLES))
+            .addStep(FoodSprinklingRecipe::new, rb -> rb.require(DBBItems.BOTTLED_RAINBOW_SPRINKLES))),
 
     MAGMA_BLOCK = create("magma_block", b -> b
             .require(Blocks.COBBLESTONE)

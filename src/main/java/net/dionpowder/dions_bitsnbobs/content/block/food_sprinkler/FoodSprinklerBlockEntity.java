@@ -1,10 +1,12 @@
 package net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler;
 
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
+import com.simibubi.create.content.kinetics.deployer.DeployerBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.item.ItemHelper;
 import com.simibubi.create.foundation.utility.CreateLang;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlockEntityTypes;
+import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBLang;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -24,6 +26,7 @@ public class FoodSprinklerBlockEntity extends KineticBlockEntity implements Clea
     
     public FoodSprinklerInventory inventory;
     protected FoodSprinklingBehaviour behaviour;
+    protected boolean redstoneLocked;
     
     public FoodSprinklerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -49,12 +52,26 @@ public class FoodSprinklerBlockEntity extends KineticBlockEntity implements Clea
     protected void read(CompoundTag compound, HolderLookup.Provider registries, boolean clientPacket) {
         super.read(compound, registries, clientPacket);
         inventory.deserializeNBT(registries, compound.getCompound("Inventory"));
+        redstoneLocked = compound.getBoolean("Powered");
     }
     
     @Override
     public void write(CompoundTag compound, HolderLookup.Provider registries, boolean clientPacket) {
         super.write(compound, registries, clientPacket);
         compound.put("Inventory", inventory.serializeNBT(registries));
+        compound.putBoolean("Powered", redstoneLocked);
+    }
+    
+    public void redstoneUpdate() {
+        if (level.isClientSide)
+            return;
+        boolean blockPowered = level.hasNeighborSignal(worldPosition);
+        if (blockPowered == redstoneLocked)
+            return;
+        redstoneLocked = blockPowered;
+        if (redstoneLocked && behaviour.state == FoodSprinklingBehaviour.State.RUNNING)
+            behaviour.finish();
+        sendData();
     }
     
     @Override
@@ -87,6 +104,13 @@ public class FoodSprinklerBlockEntity extends KineticBlockEntity implements Clea
                     .add(CreateLang.text(" x" + stackInSlot.getCount())
                             .style(ChatFormatting.GREEN))
                     .forGoggles(tooltip, 0);
+            added = true;
+        }
+        
+        if (redstoneLocked) {
+            DBBLang.translate("tooltip.food_sprinkler.locked")
+                    .style(ChatFormatting.RED)
+                    .forGoggles(tooltip);
             added = true;
         }
         

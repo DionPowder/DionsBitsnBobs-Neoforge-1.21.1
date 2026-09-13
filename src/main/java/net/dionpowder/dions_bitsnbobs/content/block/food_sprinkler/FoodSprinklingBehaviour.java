@@ -1,10 +1,12 @@
 package net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler;
 
+import com.simibubi.create.AllRecipeTypes;
 import com.simibubi.create.Create;
 import com.simibubi.create.content.kinetics.belt.BeltHelper;
 import com.simibubi.create.content.kinetics.belt.behaviour.BeltProcessingBehaviour;
 import com.simibubi.create.content.kinetics.belt.behaviour.TransportedItemStackHandlerBehaviour;
 import com.simibubi.create.content.kinetics.belt.transport.TransportedItemStack;
+import com.simibubi.create.content.processing.sequenced.SequencedAssemblyRecipe;
 import com.simibubi.create.foundation.recipe.RecipeApplier;
 import net.createmod.catnip.math.VecHelper;
 import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
@@ -15,10 +17,15 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.wrapper.RecipeWrapper;
 
 import java.util.List;
 import java.util.Optional;
@@ -78,15 +85,15 @@ public class FoodSprinklingBehaviour extends BeltProcessingBehaviour {
     }
     
     protected ProcessingResult onItemReceived(TransportedItemStack transported, TransportedItemStackHandlerBehaviour handler) {
-        if (foodSprinkler.getSpeed() == 0)
+        if (foodSprinkler.getSpeed() == 0 || foodSprinkler.redstoneLocked)
             return ProcessingResult.PASS;
         if (!CanBeSprinkled(foodSprinkler.getLevel(), transported.stack))
             return ProcessingResult.PASS;
         if (foodSprinkler.inventory.isEmpty())
             return ProcessingResult.HOLD;
         
-        Optional<RecipeHolder<FoodSprinklingRecipe>> recipe = getRecipe(foodSprinkler.getLevel(), transported.stack, foodSprinkler.inventory.getItem(0));
-        if (recipe.isEmpty())
+        RecipeHolder<? extends Recipe<? extends RecipeInput>> recipe = getRecipe(transported.stack);
+        if (recipe == null)
             return ProcessingResult.PASS;
 
         start();
@@ -95,40 +102,38 @@ public class FoodSprinklingBehaviour extends BeltProcessingBehaviour {
 
     protected ProcessingResult whenItemHeld(TransportedItemStack transported, TransportedItemStackHandlerBehaviour handler) {
         ticksWithoutProcessing = 0;
-
-        if (foodSprinkler.getSpeed() == 0)
+        
+        if (foodSprinkler.getSpeed() == 0 || foodSprinkler.redstoneLocked)
             return ProcessingResult.PASS;
         if (foodSprinkler.inventory.isEmpty())
             return ProcessingResult.HOLD;
 
-        Optional<RecipeHolder<FoodSprinklingRecipe>> recipe = getRecipe(foodSprinkler.getLevel(), transported.stack, foodSprinkler.inventory.getItem(0));
-        if (recipe.isEmpty())
+        RecipeHolder<? extends Recipe<? extends RecipeInput>> recipe = getRecipe(transported.stack);
+        if (recipe == null)
             return ProcessingResult.PASS;
 
         if (state == State.WAITING) {
             start();
             return ProcessingResult.HOLD;
         }
-        
+
         prevRunningTicks = runningTicks;
         runningTicks += getRunningTickSpeed();
-        
+
         if (runningTicks < CYCLE / 2)
             return ProcessingResult.HOLD;
-        
+
         if (prevRunningTicks >= CYCLE / 2)
             return runningTicks >= CYCLE ? ProcessingResult.PASS : ProcessingResult.HOLD;
-        
-        RecipeHolder<FoodSprinklingRecipe> matched = recipe.get();
-        
+
         int availableIngredients = foodSprinkler.inventory.getItem(0).getCount();
         int stackSize = transported.stack.getCount();
         int toProcess = canProcessInBulk(transported.stack)
                 ? Math.min(stackSize, availableIngredients)
                 : 1;
-        
+
         List<TransportedItemStack> collect =
-                RecipeApplier.applyRecipeOn(blockEntity.getLevel(), transported.stack.copyWithCount(toProcess), matched.value(), false)
+                RecipeApplier.applyRecipeOn(blockEntity.getLevel(), transported.stack.copyWithCount(toProcess), recipe.value(), false)
                         .stream()
                         .map(stack -> {
                             TransportedItemStack copy = transported.copy();
@@ -225,13 +230,33 @@ public class FoodSprinklingBehaviour extends BeltProcessingBehaviour {
         return DBBRecipeTypes.FOOD_SPRINKLING.find(input, world).isPresent();
     }
     
-    protected Optional<RecipeHolder<FoodSprinklingRecipe>> getRecipe(Level world, ItemStack stack, ItemStack sprinkleStack) {
-        return world.getRecipeManager()
-                .getAllRecipesFor(DBBRecipeTypes.FOOD_SPRINKLING.<SingleRecipeInput, FoodSprinklingRecipe>getType())
-                .stream()
-                .filter(holder -> holder.value().getProcessedItem().test(stack))
-                .filter(holder -> holder.value().getRequiredSprinkleItem().test(sprinkleStack))
-                .findFirst();
+    // get correct recipe
+    ItemStackHandler recipeInv = new ItemStackHandler(2);
+    
+    public RecipeHolder<? extends Recipe<? extends RecipeInput>> getRecipe(ItemStack stack) {
+        if (foodSprinkler.getLevel() == null)
+            return null;
+
+        Level level = foodSprinkler.getLevel();
+        ItemStack sprinkleStack = foodSprinkler.inventory.getItem(0);
+
+        recipeInv.setStackInSlot(0, stack);
+        recipeInv.setStackInSlot(1, sprinkleStack);
+
+        FoodSprinklerRecipeSearchEvent event = new FoodSprinklerRecipeSearchEvent(foodSprinkler, new RecipeWrapper(recipeInv));
+        SingleRecipeInput singleInput = new SingleRecipeInput(stack);
+
+        event.addRecipe(() -> SequencedAssemblyRecipe.getRecipe(level, singleInput,
+                DBBRecipeTypes.FOOD_SPRINKLING.<SingleRecipeInput, FoodSprinklingRecipe>getType(), FoodSprinklingRecipe.class,
+                holder -> holder.value().getRequiredSprinkleItem().test(sprinkleStack)), 100);
+        event.addRecipe(() -> checkRecipe(singleInput, level), 50);
+
+        NeoForge.EVENT_BUS.post(event);
+        return event.getRecipe();
+    }
+    
+    private Optional<RecipeHolder<Recipe<RecipeInput>>> checkRecipe(RecipeInput inv, Level level) {
+        return DBBRecipeTypes.FOOD_SPRINKLING.find(inv, level);
     }
     
 }

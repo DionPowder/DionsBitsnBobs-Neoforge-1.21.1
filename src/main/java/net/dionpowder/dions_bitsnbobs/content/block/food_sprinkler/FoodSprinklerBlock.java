@@ -10,7 +10,9 @@ import net.minecraft.core.Direction.Axis;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathComputationType;
@@ -61,6 +63,18 @@ public class FoodSprinklerBlock extends HorizontalKineticBlock implements IBE<Fo
     @Override
     public BlockEntityType<? extends FoodSprinklerBlockEntity> getBlockEntityType() {
         return DBBBlockEntityTypes.FOOD_SPRINKLER.get();
+    }
+    
+    @Override
+    public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean isMoving) {
+        super.onPlace(state, world, pos, oldState, isMoving);
+        withBlockEntityDo(world, pos, FoodSprinklerBlockEntity::redstoneUpdate);
+    }
+    
+    @Override
+    public void neighborChanged(BlockState state, Level world, BlockPos pos, Block p_220069_4_, BlockPos p_220069_5_,
+                                boolean p_220069_6_) {
+        withBlockEntityDo(world, pos, FoodSprinklerBlockEntity::redstoneUpdate);
     }
     
     @Override

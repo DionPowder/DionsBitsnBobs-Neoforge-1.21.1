@@ -1,0 +1,80 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:cobblestone"
+  },
+  "results": [
+    {
+      "id": "dions_bitsnbobs:sprinkled_pear_donut"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "minecraft:cobblestone"
+        },
+        {
+          "item": "dions_bitsnbobs:donut"
+        }
+      ],
+      "results": [
+        {
+          "id": "minecraft:cobblestone"
+        }
+      ]
+    },
+    {
+      "type": "dions_bitsnbobs:food_sprinkling",
+      "ingredients": [
+        {
+          "item": "minecraft:cobblestone"
+        },
+        {
+          "item": "dions_bitsnbobs:bottled_white_sprinkles"
+        }
+      ],
+      "results": [
+        {
+          "id": "minecraft:cobblestone"
+        }
+      ]
+    },
+    {
+      "type": "dions_bitsnbobs:food_sprinkling",
+      "ingredients": [
+        {
+          "item": "minecraft:cobblestone"
+        },
+        {
+          "item": "dions_bitsnbobs:bottled_green_sprinkles"
+        }
+      ],
+      "results": [
+        {
+          "id": "minecraft:cobblestone"
+        }
+      ]
+    },
+    {
+      "type": "dions_bitsnbobs:food_sprinkling",
+      "ingredients": [
+        {
+          "item": "minecraft:cobblestone"
+        },
+        {
+          "item": "dions_bitsnbobs:bottled_rainbow_sprinkles"
+        }
+      ],
+      "results": [
+        {
+          "id": "minecraft:cobblestone"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "minecraft:cobblestone"
+  }
+}

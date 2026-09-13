@@ -7,10 +7,11 @@ import com.simibubi.create.content.processing.recipe.ProcessingRecipeParams;
 import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe;
 
 import com.simibubi.create.content.processing.sequenced.IAssemblyRecipe;
-import com.simibubi.create.foundation.utility.CreateLang;
+
 import net.dionpowder.dions_bitsnbobs.compat.jei.category.AssemblyFoodSprinkling;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
+import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBLang;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -79,7 +80,7 @@ public class FoodSprinklingRecipe extends StandardProcessingRecipe<SingleRecipeI
         if (matchingStacks.length == 0) {
             return Component.literal("Invalid");
         }
-        return CreateLang.translateDirect("recipe.assembly.sprinkling_item",
+        return DBBLang.translateDirect("recipe.assembly.sprinkling_item",
                 Component.translatable(matchingStacks[0].getDescriptionId()).getString());
     }
     

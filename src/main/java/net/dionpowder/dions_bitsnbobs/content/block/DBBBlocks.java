@@ -12,7 +12,7 @@ import net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler.FoodSprinkler
 import net.dionpowder.dions_bitsnbobs.content.block.strawberry_bush.StrawberryBushBlock;
 import net.dionpowder.dions_bitsnbobs.content.block.wild_strawberry_bush.WildStrawberryBushBlock;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
-import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
+import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBTags;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
