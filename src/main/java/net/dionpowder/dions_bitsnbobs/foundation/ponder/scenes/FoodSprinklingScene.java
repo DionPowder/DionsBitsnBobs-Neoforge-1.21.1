@@ -3,6 +3,7 @@ package net.dionpowder.dions_bitsnbobs.foundation.ponder.scenes;
 import com.simibubi.create.foundation.ponder.CreateSceneBuilder;
 import com.simibubi.create.foundation.ponder.element.BeltItemElement;
 import net.createmod.catnip.math.Pointing;
+import net.createmod.ponder.api.PonderPalette;
 import net.createmod.ponder.api.element.ElementLink;
 import net.createmod.ponder.api.element.WorldSectionElement;
 import net.createmod.ponder.api.scene.SceneBuilder;
@@ -13,6 +14,7 @@ import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.LeverBlock;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.phys.Vec3;
 
@@ -97,7 +99,8 @@ public class FoodSprinklingScene {
         scene.idle(5);
         scene.world().showSection(util.select().fromTo(0, 1, 3, 0, 2, 3), Direction.DOWN);
         scene.idle(10);
-        scene.world().showSection(util.select().fromTo(4, 1, 2, 0, 2, 2), Direction.SOUTH);
+        Selection beltS = util.select().fromTo(4, 1, 2, 0, 2, 2);
+        scene.world().showSection(beltS, Direction.SOUTH);
         scene.idle(20);
         BlockPos beltPos = util.grid().at(0, 1, 2);
         scene.overlay().showText(40)
@@ -136,7 +139,33 @@ public class FoodSprinklingScene {
         scene.world().stallBeltItem(donut2, true);
         scene.idle(15);
         scene.world().stallBeltItem(donut2, false);
+        scene.idle((30));
         
+        Selection leverS = util.select().position(1, 3, 2);
+        BlockPos leverPos = util.grid().at(1, 3, 2);
+        scene.overlay().showText(50)
+                .pointAt(foodSprinklerSideWest)
+                .placeNearTarget()
+                .attachKeyFrame()
+                .text("Providing a Food Sprinkler with a redstone signal will lock it");
+        scene.idle(50);
+        scene.world().showSection(leverS, Direction.EAST);
+        scene.idle(20);
+        scene.overlay().showControls(leverPos.getCenter(), Pointing.LEFT, 20).rightClick();
+        scene.world().toggleRedstonePower(leverS);
+        scene.effects().indicateRedstone(leverPos);
+        scene.world().modifyBlockEntity(sprinklerPos, foodSprinklerType, FoodSprinklerBlockEntity::lock);
+        scene.idle(20);
+        ElementLink<BeltItemElement> donut3 = scene.world().createItemOnBelt(beltPos, Direction.SOUTH, whiteChocolateDonut);
+        scene.idle(30);
+        scene.world().setKineticSpeed(beltS, -0.5f);
+        scene.overlay().showText(50)
+                .pointAt(depotCenter)
+                .placeNearTarget()
+                .colored(PonderPalette.RED)
+                .text("While locked, Food Sprinklers won't process items");
+        scene.idle(50);
+        scene.world().setKineticSpeed(beltS, -32);
     }
     
 }

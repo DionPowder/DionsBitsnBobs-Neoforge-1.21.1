@@ -74,13 +74,18 @@ public class DBBAdvancements implements DataProvider {
             .whenItemCollected(DBBTags.Items.ADVANCEMENT_TOPPED_DONUT)
             .after(GLAZED_DONUT)
             .special(NORMAL)),
-    /*
+    
     AUTOMATED_TOPPINGS = create("automated_toppings", b -> b.icon(DBBBlocks.FOOD_SPRINKLER)
-            .title("Automated Toppings!")
-            .description("Automatically apply toppings to your donuts using a food sprinkler")
+            .title("Automated Toppings")
+            .description("Automatically apply toppings using a food sprinkler")
             .after(TOPPED_DONUT)
             .special(EXPERT)),
-     */
+    
+    TOPPING_FACTORY = create("topping_factory", b -> b.icon(DBBBlocks.FOOD_SPRINKLER)
+            .title("Toppings Factory")
+            .description("Add 1000 toppings to your donuts using the same food sprinkler")
+            .after(AUTOMATED_TOPPINGS)
+            .special(CHALLENGE)),
 
     DOUBLE_GLAZED_DONUT = create("double_glazed_donut", b -> b.icon(DBBItems.CHOCOLATE_STRAWBERRY_DONUT)
             .title("Perfection Achieved")

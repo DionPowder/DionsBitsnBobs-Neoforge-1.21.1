@@ -23,11 +23,6 @@ public class DBBItems {
             .properties(p -> p.food(DBBFoodProperties.STRAWBERRY))
             .register();
     
-    public static final ItemEntry<Item> UNCOOKED_DONUT = REGISTRATE.item("uncooked_donut", Item::new)
-            .tag(DBBTags.Items.SIMPLE_DONUTS, Tags.Items.FOODS, DBBTags.Items.FOODS_DONUTS, DBBTags.Items.DONUTS)
-            .properties(p -> p.food(DBBFoodProperties.UNCOOKED_DONUT))
-            .register();
-    
     public static final ItemEntry<Item> DONUT = REGISTRATE.item("donut", Item::new)
             .tag(DBBTags.Items.SIMPLE_DONUTS, Tags.Items.FOODS, DBBTags.Items.FOODS_DONUTS, DBBTags.Items.DONUTS)
             .properties(p -> p.food(DBBFoodProperties.DONUT))

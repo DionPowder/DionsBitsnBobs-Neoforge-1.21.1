@@ -93,24 +93,11 @@ public class DBBVanillaRecipeProvider extends net.minecraft.data.recipes.RecipeP
                 .save(recipeOutput);
 
         // furnace
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(DBBItems.UNCOOKED_DONUT), RecipeCategory.FOOD, DBBItems.DONUT, 0.35f, 200)
-                .unlockedBy("has_uncooked_donut", has(DBBItems.UNCOOKED_DONUT))
-                .save(recipeOutput, "donut_smelting");
-
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(DBBBlocks.FILLED_DONUT_CAST), RecipeCategory.FOOD, DBBBlocks.COOKED_DONUT_CAST, 0.35f, 200)
                 .unlockedBy("has_filled_donut_cast", has(DBBBlocks.FILLED_DONUT_CAST))
                 .save(recipeOutput, "filled_donut_cast_smelting");
 
-        // campfire cooking
-        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(DBBItems.UNCOOKED_DONUT), RecipeCategory.FOOD, DBBItems.DONUT, 0.0f, 200)
-                .unlockedBy("has_uncooked_donut", has(DBBItems.UNCOOKED_DONUT))
-                .save(recipeOutput, "donut_campfire");
-
         // smoking
-        SimpleCookingRecipeBuilder.smoking(Ingredient.of(DBBItems.UNCOOKED_DONUT), RecipeCategory.FOOD, DBBItems.DONUT, 0.35f, 100)
-                .unlockedBy("has_uncooked_donut", has(DBBItems.UNCOOKED_DONUT))
-                .save(recipeOutput, "donut_smoking");
-
         SimpleCookingRecipeBuilder.smoking(Ingredient.of(DBBBlocks.FILLED_DONUT_CAST), RecipeCategory.FOOD, DBBBlocks.COOKED_DONUT_CAST, 0.35f, 100)
                 .unlockedBy("has_filled_donut_cast", has(DBBBlocks.FILLED_DONUT_CAST))
                 .save(recipeOutput, "filled_donut_cast_smoking");

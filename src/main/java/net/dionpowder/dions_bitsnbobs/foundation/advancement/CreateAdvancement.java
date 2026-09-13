@@ -5,7 +5,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
-import com.simibubi.create.Create;
 import com.tterrag.registrate.util.entry.ItemProviderEntry;
 
 import net.dionpowder.dions_bitsnbobs.DBB;
@@ -74,7 +73,7 @@ public class CreateAdvancement {
             return true;
         AdvancementHolder advancement = sp.getServer()
                 .getAdvancements()
-                .get(Create.asResource(id));
+                .get(DBB.rl(id));
         if (advancement == null)
             return true;
         return sp.getAdvancements()

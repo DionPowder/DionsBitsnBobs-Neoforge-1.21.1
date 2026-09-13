@@ -4,10 +4,13 @@ import com.simibubi.create.AllShapes;
 import com.simibubi.create.content.kinetics.base.HorizontalKineticBlock;
 import com.simibubi.create.foundation.block.IBE;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlockEntityTypes;
+import net.dionpowder.dions_bitsnbobs.foundation.advancement.AdvancementBehaviour;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -69,6 +72,12 @@ public class FoodSprinklerBlock extends HorizontalKineticBlock implements IBE<Fo
     public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean isMoving) {
         super.onPlace(state, world, pos, oldState, isMoving);
         withBlockEntityDo(world, pos, FoodSprinklerBlockEntity::redstoneUpdate);
+    }
+
+    @Override
+    public void setPlacedBy(Level worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
+        super.setPlacedBy(worldIn, pos, state, placer, stack);
+        AdvancementBehaviour.setPlacedBy(worldIn, pos, placer);
     }
     
     @Override
