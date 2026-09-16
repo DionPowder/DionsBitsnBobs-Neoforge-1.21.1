@@ -3,11 +3,10 @@ package net.dionpowder.dions_bitsnbobs.datagen.recipes;
 import com.simibubi.create.AllFluids;
 import com.simibubi.create.api.data.recipe.FillingRecipeGen;
 import net.dionpowder.dions_bitsnbobs.DBB;
-import net.dionpowder.dions_bitsnbobs.compat.ModCompat;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
-import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
+import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -85,7 +84,8 @@ public class FillingRecipeProvider extends FillingRecipeGen {
     CHOCOLATE_STRAWBERRIES = create("chocolate_strawberries", b -> b
             .require(Ingredient.of(DBBTags.Items.FOODS_STRAWBERRY))
             .require(AllFluids.CHOCOLATE.get(), 250)
-            .output(ResourceLocation.fromNamespaceAndPath("neapolitan", "chocolate_strawberries")))
+            .output(ResourceLocation.fromNamespaceAndPath("neapolitan", "chocolate_strawberries"))
+            .whenModLoaded("neapolitan"))
             
     ;
 }

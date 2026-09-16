@@ -6,9 +6,9 @@ import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
 import net.dionpowder.dions_bitsnbobs.content.potion.DBBPotions;
-import net.dionpowder.dions_bitsnbobs.utils.DBBHelper;
+import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBHelper;
 import net.dionpowder.dions_bitsnbobs.content.villager.DBBVillagers;
-import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
+import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBTags;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
@@ -24,7 +24,7 @@ import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
 import java.util.List;
 
-import static net.dionpowder.dions_bitsnbobs.utils.DBBHelper.randomBetween;
+import static net.dionpowder.dions_bitsnbobs.foundation.utility.DBBHelper.randomBetween;
 
 @EventBusSubscriber(modid = DBB.MOD_ID)
 public class DBBEvents {
@@ -79,7 +79,7 @@ public class DBBEvents {
                     new ItemStack(DBBHelper.getRandomItemFromTag(DBBTags.Items.ADVANCEMENT_GLAZED_DONUT, randomSource), randomBetween(randomSource, 10, 14)), 8, 15, 0.05f));
             trades.get(4).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(Items.EMERALD, randomBetween(randomSource, 3, 5)),
-                    new ItemStack(DBBHelper.getRandomItemFromTag(DBBTags.Items.ADVANCEMENT_TOPPED_DONUT, randomSource), randomBetween(randomSource, 8, 12)), 8, 15, 0.05f));
+                    new ItemStack(DBBHelper.getRandomItemFromTag(DBBTags.Items.GLAZED_TOPPED_DONUTS, randomSource), randomBetween(randomSource, 8, 12)), 8, 15, 0.05f));
             // tier 5
             trades.get(5).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(Items.EMERALD, randomBetween(randomSource, 4, 6)),

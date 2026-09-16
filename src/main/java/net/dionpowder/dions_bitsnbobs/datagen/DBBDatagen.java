@@ -1,7 +1,5 @@
 package net.dionpowder.dions_bitsnbobs.datagen;
 
-import com.google.gson.JsonElement;
-import com.simibubi.create.foundation.utility.FilesHelper;
 import com.tterrag.registrate.providers.ProviderType;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.dionpowder.dions_bitsnbobs.DBB;
@@ -14,7 +12,6 @@ import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 

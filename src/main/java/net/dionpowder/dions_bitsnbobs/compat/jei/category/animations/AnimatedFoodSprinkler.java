@@ -32,7 +32,7 @@ public class AnimatedFoodSprinkler extends AnimatedKinetics {
         matrixStack.pushPose();
         
         blockElement(DBBPartialModels.FOOD_SPRINKLER_HEAD)
-                .rotateBlock(0, getCurrentAngle() * 2, 0)
+                .rotateBlock(0, -getCurrentAngle(), 0)
                 .atLocal(0, 0, 0)
                 .scale(scale)
                 .render(graphics);

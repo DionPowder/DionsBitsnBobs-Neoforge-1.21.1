@@ -2,12 +2,10 @@ package net.dionpowder.dions_bitsnbobs.datagen.recipes;
 
 import com.simibubi.create.api.data.recipe.DeployingRecipeGen;
 import net.dionpowder.dions_bitsnbobs.DBB;
-import net.dionpowder.dions_bitsnbobs.compat.ModCompat;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
-import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
+import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 

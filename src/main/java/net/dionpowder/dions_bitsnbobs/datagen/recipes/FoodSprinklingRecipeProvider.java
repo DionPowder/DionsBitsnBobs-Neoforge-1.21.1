@@ -1,9 +1,8 @@
 package net.dionpowder.dions_bitsnbobs.datagen.recipes;
 
-import net.dionpowder.dions_bitsnbobs.compat.ModCompat;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
 import net.dionpowder.dions_bitsnbobs.datagen.base_gens.FoodSprinklingRecipeGen;
-import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
+import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Items;

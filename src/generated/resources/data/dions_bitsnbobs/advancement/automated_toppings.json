@@ -1,0 +1,28 @@
+{
+  "parent": "dions_bitsnbobs:donut",
+  "criteria": {
+    "0": {
+      "trigger": "dions_bitsnbobs:automated_toppings_builtin"
+    }
+  },
+  "display": {
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.dions_bitsnbobs.automated_toppings.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "dions_bitsnbobs:food_sprinkler"
+    },
+    "title": {
+      "translate": "advancement.dions_bitsnbobs.automated_toppings"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -20,6 +20,7 @@ import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
 import net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler.FoodSprinklingRecipe;
 import net.dionpowder.dions_bitsnbobs.content.fluid.DBBFluids;
+import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.AbstractChocolateGlazingRecipe;
 import net.dionpowder.dions_bitsnbobs.content.recipe.fan.recipe.AbstractFrostingRecipe;
@@ -49,7 +50,7 @@ public class DBBJEI implements IModPlugin {
                 .catalyst(DBBBlocks.FOOD_SPRINKLER::get)
                 .catalyst(AllBlocks.DEPOT::get)
                 .catalyst(AllItems.BELT_CONNECTOR::get)
-                .doubleItemIcon(DBBBlocks.FOOD_SPRINKLER.get(), AllBlocks.DEPOT.get())
+                .doubleItemIcon(DBBBlocks.FOOD_SPRINKLER.get(), DBBItems.BOTTLED_RAINBOW_SPRINKLES.get())
                 .emptyBackground(177, 70)
                 .build(DBB.rl("food_sprinkling"), FoodSprinklingCategory::new);
     }

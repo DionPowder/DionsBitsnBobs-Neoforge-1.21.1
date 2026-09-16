@@ -7,8 +7,9 @@ import net.minecraft.world.food.FoodProperties;
 
 public class DBBFoodProperties {
     public static final FoodProperties STRAWBERRY = new FoodProperties.Builder().nutrition(2).saturationModifier(0.1f).build();
-    public static final FoodProperties UNCOOKED_DONUT = new FoodProperties.Builder().nutrition(2).saturationModifier(0.3f)
-            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3f)
+    public static final FoodProperties BUTTER = new FoodProperties.Builder().nutrition(1).saturationModifier(0.3f)
+            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 400, 0), 0.3f)
+            .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 200, 0), 0.3f)
             .alwaysEdible()
             .build();
     public static final FoodProperties DONUT = new FoodProperties.Builder().nutrition(4).saturationModifier(0.4f).alwaysEdible().build();

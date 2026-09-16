@@ -6,11 +6,10 @@ import com.tterrag.registrate.builders.FluidBuilder;
 import com.tterrag.registrate.util.entry.FluidEntry;
 import net.createmod.catnip.theme.Color;
 import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
-import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
+import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBTags;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
@@ -125,7 +124,7 @@ public class DBBFluids {
                     .register();
     
     public static final FluidEntry<BaseFlowingFluid.Flowing> DONUT_BATTER =
-            REGISTRATE.standardFluid("donut_batter", SolidRenderedPlaceableFluidType.create(0xfffae3, () -> DBBConfig.fluidFogSettingsConfig().DONUT_BATTER_TRANSPARENCY_MULTIPLIER.getF() / 24f, false))
+            REGISTRATE.standardFluid("donut_batter", SolidRenderedPlaceableFluidType.create(0xebd7a7, () -> DBBConfig.fluidFogSettingsConfig().DONUT_BATTER_TRANSPARENCY_MULTIPLIER.getF() / 24f, false))
                     .fluidProperties(p -> p.levelDecreasePerBlock(3).slopeFindDistance(2).tickRate(30))
                     .tag(DBBTags.Fluids.DONUT_BATTER)
                     .source(BaseFlowingFluid.Source::new)

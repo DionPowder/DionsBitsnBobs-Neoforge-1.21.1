@@ -1,6 +1,7 @@
 package net.dionpowder.dions_bitsnbobs.compat.jei.category;
 
 import com.simibubi.create.compat.jei.category.CreateRecipeCategory;
+import com.simibubi.create.content.processing.recipe.ProcessingOutput;
 import com.simibubi.create.foundation.gui.AllGuiTextures;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
@@ -9,6 +10,8 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.dionpowder.dions_bitsnbobs.compat.jei.category.animations.AnimatedFoodSprinkler;
 import net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler.FoodSprinklingRecipe;
 import net.minecraft.client.gui.GuiGraphics;
+
+import java.util.List;
 
 public class FoodSprinklingCategory extends CreateRecipeCategory<FoodSprinklingRecipe> {
     
@@ -28,10 +31,18 @@ public class FoodSprinklingCategory extends CreateRecipeCategory<FoodSprinklingR
                 .addSlot(RecipeIngredientRole.INPUT, 51, 5)
                 .setBackground(getRenderedSlot(), -1, -1)
                 .addIngredients(recipe.getRequiredSprinkleItem());
-        builder
-                .addSlot(RecipeIngredientRole.OUTPUT, 132, 51)
-                .setBackground(getRenderedSlot(), -1, -1)
-                .addItemStack(getResultItem(recipe));
+        List<ProcessingOutput> results = recipe.getRollableResults();
+        int i = 0;
+        for (ProcessingOutput output : results) {
+            int xOffset = (i % 2) * 19;
+            int yOffset = (i / 2) * 19;
+            builder
+                    .addSlot(RecipeIngredientRole.OUTPUT, 132 + xOffset, 51 + yOffset)
+                    .setBackground(getRenderedSlot(output), -1, -1)
+                    .addItemStack(output.getStack())
+                    .addRichTooltipCallback(addStochasticTooltip(output));
+            i++;
+        }
     }
     
     @Override

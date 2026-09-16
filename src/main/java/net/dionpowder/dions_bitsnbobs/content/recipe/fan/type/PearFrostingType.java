@@ -7,7 +7,7 @@ import net.dionpowder.dions_bitsnbobs.config.DBBConfig;
 import net.dionpowder.dions_bitsnbobs.content.effect.DBBEffects;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBAdvancements;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
-import net.dionpowder.dions_bitsnbobs.utils.DBBTags;
+import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.sounds.SoundEvents;

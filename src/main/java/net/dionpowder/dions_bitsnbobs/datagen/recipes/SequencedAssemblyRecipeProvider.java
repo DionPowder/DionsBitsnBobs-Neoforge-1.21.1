@@ -9,6 +9,7 @@ import com.simibubi.create.content.kinetics.press.PressingRecipe;
 import com.simibubi.create.content.kinetics.saw.CuttingRecipe;
 import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlocks;
+import net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler.FoodSprinklingRecipe;
 import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
