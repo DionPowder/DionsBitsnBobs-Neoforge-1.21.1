@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "dions_bitsnbobs:block/whole_donut_cast",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dions_bitsnbobs:block/whole_donut_cast"
+    },
+    "facing=south": {
+      "model": "dions_bitsnbobs:block/whole_donut_cast",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "dions_bitsnbobs:block/whole_donut_cast",
+      "y": 270
+    }
+  }
+}

@@ -1,10 +1,9 @@
 package net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler;
 
+import com.simibubi.create.content.kinetics.base.IRotate;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.item.ItemHelper;
-import com.simibubi.create.foundation.utility.CreateLang;
-import net.dionpowder.dions_bitsnbobs.DBB;
 import net.dionpowder.dions_bitsnbobs.content.block.DBBBlockEntityTypes;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.AdvancementBehaviour;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.CreateAdvancement;
@@ -15,7 +14,9 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.Mth;
 import net.minecraft.world.Clearable;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -122,29 +123,32 @@ public class FoodSprinklerBlockEntity extends KineticBlockEntity implements Clea
     
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        boolean added = super.addToGoggleTooltip(tooltip, isPlayerSneaking);
+        DBBLang.translate("tooltip.food_sprinkler.header").forGoggles(tooltip);
+        boolean added = false;
         
-        for (int i = 0; i < inventory.getSlots(); i++) {
-            ItemStack stackInSlot = inventory.getStackInSlot(i);
-            if (stackInSlot.isEmpty())
-                continue;
-            CreateLang.text("")
-                    .add(Component.translatable(stackInSlot.getDescriptionId())
-                            .withStyle(ChatFormatting.GRAY))
-                    .add(CreateLang.text(" x" + stackInSlot.getCount())
-                            .style(ChatFormatting.GREEN))
+        if (!inventory.isEmpty()) {
+            ItemStack stack = inventory.getItem(0);
+            DBBLang.text("")
+                    .add(DBBLang.translate("tooltip.food_sprinkler.inventory")).style(ChatFormatting.GREEN)
+                    .add(Component.translatable(stack.getDescriptionId()).withStyle(ChatFormatting.GREEN))
+                    .add(DBBLang.text(" x" + stack.getCount()).style(ChatFormatting.GREEN))
                     .forGoggles(tooltip, 0);
             added = true;
         }
         
         if (redstoneLocked) {
-            DBBLang.translate("tooltip.food_sprinkler.locked")
-                    .style(ChatFormatting.RED)
-                    .forGoggles(tooltip);
+            DBBLang.translate("tooltip.food_sprinkler.locked").style(ChatFormatting.RED).forGoggles(tooltip);
             added = true;
         }
         
-        return added;
+        float stressAtBase = calculateStressApplied();
+        if (IRotate.StressImpact.isEnabled() && !Mth.equal(stressAtBase, 0)) {
+            if (added)
+                tooltip.add(CommonComponents.EMPTY);
+            addStressImpactStats(tooltip, stressAtBase);
+        }
+        
+        return true;
     }
     
     public float getRenderedHeadRotationSpeed(float partialTicks) {

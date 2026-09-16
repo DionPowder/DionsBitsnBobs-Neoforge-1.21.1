@@ -16,6 +16,7 @@ import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBTags;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -123,10 +124,12 @@ public class DBBBlocks {
     public static final BlockEntry<DonutCastBlock>
         DONUT_CAST = donutCast("donut_cast", 8),
         FILLED_DONUT_CAST = donutCast("filled_donut_cast", 1),
-        COOKED_DONUT_CAST = donutCast("cooked_donut_cast", 1);
+        COOKED_DONUT_CAST = donutCast("cooked_donut_cast", 1),
+        WHOLE_DONUT_CAST = donutCast("whole_donut_cast", 8),
+        FILLED_WHOLE_DONUT_CAST = donutCast("filled_whole_donut_cast", 1),
+        COOKED_WHOLE_DONUT_CAST = donutCast("cooked_whole_donut_cast", 1);
     
     // shortcuts
-    
     private static BlockEntry<Block> component(String name) {
         return REGISTRATE.block(name, Block::new)
                 .initialProperties(SharedProperties::softMetal)
@@ -144,14 +147,24 @@ public class DBBBlocks {
                 .simpleItem()
                 .register();
     }
-    
     private static BlockEntry<DonutCastBlock> donutCast(String name, int stackSize) {
         return REGISTRATE.block(name, DonutCastBlock::new)
                 .properties(p -> BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).noOcclusion())
                 .transform(pickaxeOnly())
-                .blockstate((c, p) -> p.getExistingMultipartBuilder(c.getEntry()))
+                .blockstate((c, p) -> {
+                    ResourceLocation textureLoc = p.modLoc("block/" + name);
+                    p.horizontalBlock(c.get(), p.models()
+                            .withExistingParent(c.getName(), p.modLoc("block/donut_cast/block"))
+                            .texture("0", textureLoc)
+                            .texture("particle", textureLoc));
+                })
                 .item()
-                .model(AssetLookup.existingItemModel())
+                .model((c, p) -> {
+                    ResourceLocation textureLoc = p.modLoc("block/" + name);
+                    p.withExistingParent(c.getName(), p.modLoc("block/donut_cast/item"))
+                            .texture("0", textureLoc)
+                            .texture("particle", textureLoc);
+                })
                 .properties(p -> p.stacksTo(stackSize))
                 .build()
                 .register();

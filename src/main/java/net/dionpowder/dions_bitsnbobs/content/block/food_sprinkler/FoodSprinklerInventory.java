@@ -41,8 +41,6 @@ public class FoodSprinklerInventory extends SmartInventory {
     @Override
     public ItemStack extractItem(int slot, int amount, boolean simulate) {
         ItemStack extractItem = super.extractItem(slot, amount, simulate);
-        //if (!simulate && !extractItem.isEmpty())
-            //blockEntity.notifyChangeOfContents();
         return extractItem;
     }
     

@@ -25,7 +25,7 @@ public class DBBHelper {
                 new ItemCost(DBBHelper.getRandomItemFromTag(DBBTags.Items.ADVANCEMENT_GLAZED_DONUT, randomSource), randomBetween(randomSource, 8, 12)),
                 new ItemStack(Items.EMERALD, 1), 5, 2, 0.05f));
         trades.get(2).add((entity, randomSource) -> new MerchantOffer(
-                new ItemCost(DBBHelper.getRandomItemFromTag(DBBTags.Items.ADVANCEMENT_TOPPED_DONUT, randomSource), randomBetween(randomSource, 6, 10)),
+                new ItemCost(DBBHelper.getRandomItemFromTag(DBBTags.Items.GLAZED_TOPPED_DONUTS, randomSource), randomBetween(randomSource, 6, 10)),
                 new ItemStack(Items.EMERALD, 1), 5, 2, 0.05f));
         trades.get(3).add((entity, randomSource) -> new MerchantOffer(
                 new ItemCost(DBBHelper.getRandomItemFromTag(DBBTags.Items.DOUBLE_GLAZED_DONUTS, randomSource), randomBetween(randomSource, 4, 8)),
@@ -33,7 +33,7 @@ public class DBBHelper {
 
         return trades;
     }
-
+    
     // get random item from tag
     public static Item getRandomItemFromTag(TagKey<Item> tag, RandomSource random) {
         List<Item> items = BuiltInRegistries.ITEM

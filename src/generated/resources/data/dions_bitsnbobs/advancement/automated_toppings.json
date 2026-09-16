@@ -1,5 +1,5 @@
 {
-  "parent": "dions_bitsnbobs:topped_donut",
+  "parent": "dions_bitsnbobs:donut",
   "criteria": {
     "0": {
       "trigger": "dions_bitsnbobs:automated_toppings_builtin"

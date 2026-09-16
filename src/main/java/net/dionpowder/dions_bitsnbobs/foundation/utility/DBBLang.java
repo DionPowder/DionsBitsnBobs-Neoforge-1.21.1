@@ -98,6 +98,8 @@ public class DBBLang {
         REGISTRATE.addRawLang("tag.dions_bitsnbobs.rooted_dirt_mixing", "Rooted Dirt Mixing");
         REGISTRATE.addRawLang("tag.dions_bitsnbobs.unprocessed_components", "Unprocessed Components");
         REGISTRATE.addRawLang("dions_bitsnbobs.recipe.assembly.sprinkling_item", "Sprinkle %1$s");
+        REGISTRATE.addRawLang("dions_bitsnbobs.tooltip.food_sprinkler.header", "Food Sprinkler Information");
+        REGISTRATE.addRawLang("dions_bitsnbobs.tooltip.food_sprinkler.inventory", "Item: ");
         REGISTRATE.addRawLang("dions_bitsnbobs.tooltip.food_sprinkler.locked", "[Redstone Locked]");
     }
     

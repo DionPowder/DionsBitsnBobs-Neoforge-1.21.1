@@ -79,7 +79,7 @@ public class DBBEvents {
                     new ItemStack(DBBHelper.getRandomItemFromTag(DBBTags.Items.ADVANCEMENT_GLAZED_DONUT, randomSource), randomBetween(randomSource, 10, 14)), 8, 15, 0.05f));
             trades.get(4).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(Items.EMERALD, randomBetween(randomSource, 3, 5)),
-                    new ItemStack(DBBHelper.getRandomItemFromTag(DBBTags.Items.ADVANCEMENT_TOPPED_DONUT, randomSource), randomBetween(randomSource, 8, 12)), 8, 15, 0.05f));
+                    new ItemStack(DBBHelper.getRandomItemFromTag(DBBTags.Items.GLAZED_TOPPED_DONUTS, randomSource), randomBetween(randomSource, 8, 12)), 8, 15, 0.05f));
             // tier 5
             trades.get(5).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(Items.EMERALD, randomBetween(randomSource, 4, 6)),

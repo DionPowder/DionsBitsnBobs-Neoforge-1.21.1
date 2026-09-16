@@ -48,6 +48,7 @@ public class DBBTags {
 
         public static final TagKey<Item> ADVANCEMENT_GLAZED_DONUT = createTag("advancement_glazed_donut");
         public static final TagKey<Item> ADVANCEMENT_TOPPED_DONUT = createTag("advancement_topped_donut");
+        public static final TagKey<Item> GLAZED_TOPPED_DONUTS = createTag("glazed_topped_donuts");
         
         public static final TagKey<Item> CROPS_STRAWBERRY = commonItemTag("crops/strawberry");
         public static final TagKey<Item> FOODS_STRAWBERRY = commonItemTag("foods/strawberry");

@@ -54,6 +54,25 @@ public class DBBAdvancements implements DataProvider {
             .whenIconCollected()
             .after(UNCOOKED_DONUT)
             .special(NORMAL)),
+    
+    AUTOMATED_TOPPINGS = create("automated_toppings", b -> b.icon(DBBBlocks.FOOD_SPRINKLER)
+            .title("Automated Toppings")
+            .description("Automatically apply toppings using a food sprinkler")
+            .after(DONUT)
+            .special(EXPERT)),
+    
+    TOPPED_DONUT = create("topped_donut", b -> b.icon(DBBItems.BOTTLED_RAINBOW_SPRINKLES)
+            .title("Top It Off")
+            .description("Apply some toppings to your donut")
+            .whenItemCollected(DBBTags.Items.ADVANCEMENT_TOPPED_DONUT)
+            .after(AUTOMATED_TOPPINGS)
+            .special(NORMAL)),
+    
+    TOPPING_FACTORY = create("topping_factory", b -> b.icon(DBBBlocks.FOOD_SPRINKLER)
+            .title("Toppings Factory")
+            .description("Add 1000 toppings to your donuts using the same food sprinkler")
+            .after(AUTOMATED_TOPPINGS)
+            .special(CHALLENGE)),
 
     GLAZED_DONUT = create("glazed_donut", b -> b.icon(DBBItems.STRAWBERRY_DONUT)
             .title("Nearing Perfection")
@@ -67,25 +86,6 @@ public class DBBAdvancements implements DataProvider {
             .description("Teleport after eating a chorus donut")
             .after(GLAZED_DONUT)
             .special(SECRET)),
-
-    TOPPED_DONUT = create("topped_donut", b -> b.icon(DBBItems.BOTTLED_RAINBOW_SPRINKLES)
-            .title("Top It Off")
-            .description("Apply some toppings to your donut")
-            .whenItemCollected(DBBTags.Items.ADVANCEMENT_TOPPED_DONUT)
-            .after(GLAZED_DONUT)
-            .special(NORMAL)),
-    
-    AUTOMATED_TOPPINGS = create("automated_toppings", b -> b.icon(DBBBlocks.FOOD_SPRINKLER)
-            .title("Automated Toppings")
-            .description("Automatically apply toppings using a food sprinkler")
-            .after(TOPPED_DONUT)
-            .special(EXPERT)),
-    
-    TOPPING_FACTORY = create("topping_factory", b -> b.icon(DBBBlocks.FOOD_SPRINKLER)
-            .title("Toppings Factory")
-            .description("Add 1000 toppings to your donuts using the same food sprinkler")
-            .after(AUTOMATED_TOPPINGS)
-            .special(CHALLENGE)),
 
     DOUBLE_GLAZED_DONUT = create("double_glazed_donut", b -> b.icon(DBBItems.CHOCOLATE_STRAWBERRY_DONUT)
             .title("Perfection Achieved")
