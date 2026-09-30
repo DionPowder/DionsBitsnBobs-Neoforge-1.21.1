@@ -5,13 +5,14 @@ import com.simibubi.create.content.kinetics.fan.processing.FanProcessingType;
 import com.simibubi.create.content.logistics.item.filter.attribute.ItemAttributeType;
 import com.simibubi.create.content.logistics.item.filter.attribute.SingletonItemAttribute;
 import net.dionpowder.dions_bitsnbobs.DBB;
+import net.dionpowder.dions_bitsnbobs.content.block.food_sprinkler.FoodSprinklingRecipe;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBFanProcessingTypes;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.items.wrapper.RecipeWrapper;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.Arrays;
@@ -45,12 +46,10 @@ public class DBBItemAttributeTypes {
     public static final Holder<ItemAttributeType> SPRINKLEABLE = recipeBased("sprinkleable",
             "Can be Sprinkled",
             "Cannot be Sprinkled",
-            (stack, level) -> {
-                var input = new SingleRecipeInput(stack);
-                return DBBRecipeTypes.FOOD_SPRINKLING.find(input, level)
-                        .filter(recipe -> recipe.value().getIngredients().get(0).test(stack))
-                        .isPresent();
-            });
+            (stack, level) -> level.getRecipeManager()
+                    .getAllRecipesFor(DBBRecipeTypes.FOOD_SPRINKLING.<RecipeWrapper, FoodSprinklingRecipe>getType())
+                    .stream()
+                    .anyMatch(recipe -> recipe.value().getProcessedItem().test(stack)));
     
     private static Holder<ItemAttributeType> recipeBased(String name, String description, String invertedDescription, BiPredicate<ItemStack, Level> predicate) {
         String descriptionKey = "create.item_attributes." + DBB.MOD_ID + "." + name;
