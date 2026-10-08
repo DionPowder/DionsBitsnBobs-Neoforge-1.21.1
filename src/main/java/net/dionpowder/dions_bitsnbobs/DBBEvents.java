@@ -69,7 +69,7 @@ public class DBBEvents {
             // tier 3
             trades.get(3).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
-                    new ItemStack(DBBHelper.getRandomItemFromTag(DBBTags.Items.BAKER_FROSTING_TRADES, randomSource), 1), 2, 10, 0.05f));
+                    new ItemStack(DBBHelper.getRandomItemFromTag(DBBTags.Items.FROSTING_BUCKETS, randomSource), 1), 2, 10, 0.05f));
             trades.get(3).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(Items.EMERALD, randomBetween(randomSource, 2, 4)),
                     new ItemStack(DBBHelper.getRandomItemFromTag(DBBTags.Items.BAKER_CHOCOLATE_TRADES, randomSource), 1), 2, 10, 0.05f));

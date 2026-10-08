@@ -19,10 +19,10 @@ import net.dionpowder.dions_bitsnbobs.content.item.DBBItems;
 import net.dionpowder.dions_bitsnbobs.content.potion.DBBPotions;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBRecipeTypes;
 import net.dionpowder.dions_bitsnbobs.content.villager.DBBVillagers;
-import net.dionpowder.dions_bitsnbobs.datagen.DBBDatagen;
+import net.dionpowder.dions_bitsnbobs.data.DBBData;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBAdvancements;
 import net.dionpowder.dions_bitsnbobs.foundation.advancement.DBBTriggers;
-import net.dionpowder.dions_bitsnbobs.content.recipe.BulkRecipeGen;
+import net.dionpowder.dions_bitsnbobs.data.recipe.DBBRuntimeRecipeProvider;
 import net.dionpowder.dions_bitsnbobs.content.recipe.DBBFanProcessingTypes;
 import net.dionpowder.dions_bitsnbobs.foundation.utility.DBBLang;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -83,8 +83,8 @@ public class DBB {
         modEventBus.addListener(DBBCreativeTabs::addCreative);
         modEventBus.addListener(DBB::init);
         modEventBus.addListener(DBB::onRegister);
-        modEventBus.addListener(EventPriority.HIGHEST, DBBDatagen::gatherDataHighPriority);
-        modEventBus.addListener(EventPriority.LOWEST, DBBDatagen::gatherData);
+        modEventBus.addListener(EventPriority.HIGHEST, DBBData::gatherDataHighPriority);
+        modEventBus.addListener(EventPriority.LOWEST, DBBData::gatherData);
 
     }
     
@@ -115,7 +115,7 @@ public class DBB {
 
             @Override
             protected void apply(Void object, ResourceManager resourceManager, ProfilerFiller profiler) {
-                BulkRecipeGen.rebuild(manager);
+                DBBRuntimeRecipeProvider.rebuild(manager);
             }
         });
     }

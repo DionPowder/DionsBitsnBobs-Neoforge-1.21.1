@@ -74,7 +74,8 @@ public class DBBItems {
     public static final ItemEntry<Item>
             STRAWBERRY_TOPPED_DARK_CHOCOLATE_DONUT = toppedChocolateDonuts("strawberry_topped_dark_chocolate_donut"),
             BLUEBERRY_TOPPED_WHITE_CHOCOLATE_DONUT = toppedChocolateDonuts("blueberry_topped_white_chocolate_donut"),
-            SPRINKLED_WHITE_CHOCOLATE_DONUT = toppedChocolateDonuts("sprinkled_white_chocolate_donut");
+            SPRINKLED_WHITE_CHOCOLATE_DONUT = toppedChocolateDonuts("sprinkled_white_chocolate_donut"),
+            SPRINKLED_CHOCOLATE_DONUT = toppedChocolateDonuts("sprinkled_chocolate_donut");
     
     public static final ItemEntry<Item>
             CHOCOLATE_HONEY_DONUT = doubleGlazedDonuts("chocolate_honey_donut"),

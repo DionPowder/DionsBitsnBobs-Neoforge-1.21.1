@@ -57,7 +57,7 @@ public class DBBTags {
         public static final TagKey<Item> ROOTED_DIRT_MIXING = createTag("rooted_dirt_mixing");
         public static final TagKey<Item> UNPROCESSED_COMPONENTS = createTag("unprocessed_components");
 
-        public static final TagKey<Item> BAKER_FROSTING_TRADES = createTag("baker_frosting_trades");
+        public static final TagKey<Item> FROSTING_BUCKETS = commonItemTag("buckets/frosting");
         public static final TagKey<Item> BAKER_CHOCOLATE_TRADES = createTag("baker_chocolate_trades");
 
         private static TagKey<Item> createTag(String name) {

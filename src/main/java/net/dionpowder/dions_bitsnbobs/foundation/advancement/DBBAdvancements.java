@@ -117,6 +117,7 @@ public class DBBAdvancements implements DataProvider {
             .whenItemCollected(DBBItems.STRAWBERRY_TOPPED_DARK_CHOCOLATE_DONUT)
             .whenItemCollected(DBBItems.BLUEBERRY_TOPPED_WHITE_CHOCOLATE_DONUT)
             .whenItemCollected(DBBItems.SPRINKLED_WHITE_CHOCOLATE_DONUT)
+            .whenItemCollected(DBBItems.SPRINKLED_CHOCOLATE_DONUT)
             .whenItemCollected(DBBItems.CHOCOLATE_HONEY_DONUT)
             .whenItemCollected(DBBItems.CHOCOLATE_STRAWBERRY_DONUT)
             .whenItemCollected(DBBItems.DARK_CHOCOLATE_CRANBERRY_DONUT)

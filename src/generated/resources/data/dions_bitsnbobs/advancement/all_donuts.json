@@ -135,7 +135,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:chocolate_honey_donut"
+            "items": "dions_bitsnbobs:sprinkled_chocolate_donut"
           }
         ]
       },
@@ -145,7 +145,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:chocolate_strawberry_donut"
+            "items": "dions_bitsnbobs:chocolate_honey_donut"
           }
         ]
       },
@@ -155,7 +155,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:dark_chocolate_cranberry_donut"
+            "items": "dions_bitsnbobs:chocolate_strawberry_donut"
           }
         ]
       },
@@ -165,7 +165,7 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:white_chocolate_honey_donut"
+            "items": "dions_bitsnbobs:dark_chocolate_cranberry_donut"
           }
         ]
       },
@@ -175,13 +175,23 @@
       "conditions": {
         "items": [
           {
-            "items": "dions_bitsnbobs:white_chocolate_pear_donut"
+            "items": "dions_bitsnbobs:white_chocolate_honey_donut"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
     "25": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dions_bitsnbobs:white_chocolate_pear_donut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "26": {
       "conditions": {
         "items": [
           {
@@ -354,6 +364,9 @@
     ],
     [
       "25"
+    ],
+    [
+      "26"
     ]
   ],
   "sends_telemetry_event": true

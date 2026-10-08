@@ -1,0 +1,16 @@
+{
+  "type": "dions_bitsnbobs:food_sprinkling",
+  "ingredients": [
+    {
+      "item": "dions_bitsnbobs:chocolate_donut"
+    },
+    {
+      "item": "dions_bitsnbobs:bottled_rainbow_sprinkles"
+    }
+  ],
+  "results": [
+    {
+      "id": "dions_bitsnbobs:sprinkled_chocolate_donut"
+    }
+  ]
+}

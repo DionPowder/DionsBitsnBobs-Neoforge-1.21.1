@@ -55,7 +55,7 @@ public class DBBFluids {
                     .build()
                     .bucket()
                     .onRegister(DBBFluids::registerFluidDispenseBehavior)
-                    .tag(Tags.Items.BUCKETS)
+                    .tag(Tags.Items.BUCKETS, DBBTags.Items.FROSTING_BUCKETS)
                     .build()
                     .register();
     
@@ -71,7 +71,7 @@ public class DBBFluids {
                     .build()
                     .bucket()
                     .onRegister(DBBFluids::registerFluidDispenseBehavior)
-                    .tag(Tags.Items.BUCKETS)
+                    .tag(Tags.Items.BUCKETS, DBBTags.Items.FROSTING_BUCKETS)
                     .build()
                     .register();
     
@@ -87,7 +87,7 @@ public class DBBFluids {
                     .build()
                     .bucket()
                     .onRegister(DBBFluids::registerFluidDispenseBehavior)
-                    .tag(Tags.Items.BUCKETS)
+                    .tag(Tags.Items.BUCKETS, DBBTags.Items.FROSTING_BUCKETS)
                     .build()
                     .register();
     
@@ -103,7 +103,7 @@ public class DBBFluids {
                     .build()
                     .bucket()
                     .onRegister(DBBFluids::registerFluidDispenseBehavior)
-                    .tag(Tags.Items.BUCKETS)
+                    .tag(Tags.Items.BUCKETS, DBBTags.Items.FROSTING_BUCKETS)
                     .build()
                     .register();
     
@@ -119,7 +119,7 @@ public class DBBFluids {
                     .build()
                     .bucket()
                     .onRegister(DBBFluids::registerFluidDispenseBehavior)
-                    .tag(Tags.Items.BUCKETS)
+                    .tag(Tags.Items.BUCKETS, DBBTags.Items.FROSTING_BUCKETS)
                     .build()
                     .register();
     
